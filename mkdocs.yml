@@ -1,14 +1,18 @@
 site_name: ActiveTigger Documentation
 nav:
   - Home: index.md
-  - Quickstart: quickstart.md
-  - Use Cases: usecases.md
-  - User Guide: documentation.md
-  - Get Access: access.md
-  - Software: software.md
-  - Environment: environment.md
+  - First steps: 
+    - Quickstart: quickstart/quickstart.md
+    - Use cases: quickstart/usecases.md
+    - Get Access: access.md
+    - Environemental impact: quickstart/environment.md
+  - Showcase uses: showcase/usecases.md
+  - Functionalities: documentation.md
+  - Software: 
+    - Archiecture: software.md
+    - Contributors: contributors.md
   - FAQ: faq.md
-  - Contributors: contributors.md
+
 markdown_extensions:
   - footnotes
   - admonition
