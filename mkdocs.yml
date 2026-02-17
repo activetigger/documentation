@@ -6,12 +6,15 @@ nav:
     - Use cases: quickstart/usecases.md
     - Get Access: access.md
     - Environemental impact: quickstart/environment.md
-  - Showcase uses: showcase/usecases.md
-  - Functionalities: documentation.md
+  - Showcase: 
+    - Real uses: showcase/usecases.md
+  - Functionalities:
+    - General organisation: functionalities/organisation.md
   - Software: 
-    - Archiecture: software.md
+    - Architecture: software.md
     - Contributors: contributors.md
-  - FAQ: faq.md
+  - FAQ: 
+    - Main qestions: faq/faq.md
 
 markdown_extensions:
   - footnotes
