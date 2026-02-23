@@ -30,3 +30,6 @@ markdown_extensions:
   - admonition
 
 theme: readthedocs
+
+extra_css:
+  - style.css
