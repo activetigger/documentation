@@ -1,20 +1,29 @@
 site_name: ActiveTigger Documentation
 nav:
   - Home: index.md
-  - First steps: 
-    - Quickstart: quickstart/quickstart.md
-    - Use cases: quickstart/usecases.md
-    - Get Access: access.md
-    - Environemental impact: quickstart/environment.md
-  - Showcase: 
-    - Real uses: showcase/usecases.md
+  - First steps:
+      - Quickstart: quickstart/quickstart.md
+      - Use cases: quickstart/usecases.md
+      - Get Access: quickstart/access.md
+      - Environemental impact: quickstart/environment.md
+  - Showcase:
+      - Real uses: showcase/usecases.md
   - Functionalities:
-    - General organisation: functionalities/organisation.md
-  - Software: 
-    - Architecture: software.md
-    - Contributors: contributors.md
-  - FAQ: 
-    - Main qestions: faq/faq.md
+      - General organisation: functionalities/organisation.md
+      - Project Creation: functionalities/project-creation.md
+      - Codebook Page: functionalities/codebook.md
+      - Explore Page: functionalities/explore.md
+      - Annotate Page: functionalities/annotate.md
+      - Model Page: functionalities/model.md
+      - Export Page: functionalities/export.md
+      - Generative Page: functionalities/generative.md
+      - Settings Page: functionalities/settings.md
+      - Monitoring, Account and Users Pages: functionalities/monitoring-account-and-users.md
+  - Software:
+      - Architecture: software/software.md
+      - Contributors: software/contributors.md
+  - FAQ:
+      - Main qestions: faq/faq.md
 
 markdown_extensions:
   - footnotes
