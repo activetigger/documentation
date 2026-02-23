@@ -19,3 +19,10 @@ Please open a issue on the Github.
 ## I have just created a project but want to modify certain parameters (e.g., increase the trainset size).
 
 Go to the project tab, navigate to Settings, and select Update Project. Please note that if you increase the size of your project, you then need to create a new feature in the Prepare tab. 
+
+## Trouble shoot with parquet files
+
+If you upload a parquet file, you can encounter issues related to the format of your parquet file. Easy fix includes: 
+
+- Make sure that data contained is formatted as a string.
+- Make sure to not have nested columns (columns and sub-columns).
