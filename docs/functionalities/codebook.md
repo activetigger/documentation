@@ -10,27 +10,27 @@ At the top of the screen, you will find the scheme ([what is a scheme?](../theor
 
 - **Dropdown menu**: Select the scheme to use. The name of the scheme in use can be found in the left panel, underneath the project name.
 - **Action buttons**:
-    - ![](../img/icons/plus.svg) Create a new scheme: Opens a modal to create a new scheme. To create a new scheme, you will need to choose: 
+    - <a class="icon">![](../img/icons/plus.svg)</a> Create a new scheme: Opens a modal to create a new scheme. To create a new scheme, you will need to choose: 
         - A scheme name
         - A type ([see available types](../theoretical-concepts/index.md#available-scheme-types))
-    - ![](../img/icons/rename.svg) Rename the current scheme: Opens a modal to rename the current scheme. A new name will be required. XXX Do we say what it does in the background??
-    - ![](../img/icons/duplicate.svg) Duplicate the current scheme: Creates a new scheme (`SCHEME-NAME_copy`) with the same labels names. Also copies the annotations. 
-    - ![](../img/icons/delete.svg) Delete the current scheme: Delete the scheme, as well as the annotations. **This action is definitive.**
+    - <a class="icon">![](../img/icons/rename.svg)</a> Rename the current scheme: Opens a modal to rename the current scheme. A new name will be required. XXX Do we say what it does in the background??
+    - <a class="icon">![](../img/icons/duplicate.svg)</a> Duplicate the current scheme: Creates a new scheme (`SCHEME-NAME_copy`) with the same labels names. Also copies the annotations. 
+    - <a class="icon">![](../img/icons/delete.svg)</a> Delete the current scheme: Delete the scheme, as well as the annotations. **This action is definitive.**
 
 
 ## The codebook 
 
 Underneath the Scheme management component, you will find a the Codebook ([How to write a codebook](XXX)). 
 
-- ![](../img/icons/rename.svg) Edit Codebook: Opens a modal with an edit panel and a preview panel. Clicking on "Save" or outside the modal will close the modal and save the edits.
-- ![](../img/icons/book.svg) Open the Codebook in a new tab.
-- ![](../img/icons/download.svg) Download the Codebook as a markdown file.
+- <a class="icon">![](../img/icons/rename.svg)</a> Edit Codebook: Opens a modal with an edit panel and a preview panel. Clicking on "Save" or outside the modal will close the modal and save the edits.
+- <a class="icon">![](../img/icons/book.svg)</a> Open the Codebook in a new tab.
+- <a class="icon">![](../img/icons/download.svg)</a> Download the Codebook as a markdown file.
 
 ## Labels management
 
 At the bottom of the page, you will find the label management component. It consists of a text input and a table. 
 
-- The text input, with the ![](../img/icons/plus.svg), allows you to create a new label.
+- The text input, with the <a class="icon">![](../img/icons/plus.svg)</a>, allows you to create a new label.
 - The table: 
     - In the table, you will find all existing labels, as well as the number of elements, per label and set (train, valid and test). The rows can be re-ordered, the order of the rows will manage the order of the labels in the [Annotate Page](./annotate.md)
-    - At the end of each row, you will find a ![](../img/icons/delete.svg) icon and a ![](../img/icons/rename.svg) icon to delete and rename the labels. If renaming a label to another, the annotations will be merged. 
+    - At the end of each row, you will find a <a class="icon">![](../img/icons/delete.svg)</a> icon and a <a class="icon">![](../img/icons/rename.svg)</a> icon to delete and rename the labels. If renaming a label to another, the annotations will be merged. 

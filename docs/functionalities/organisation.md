@@ -32,6 +32,6 @@ For the moment, there is no management at the scheme level.
 
 ## Dynamic 
 
-When launching a process, you can stop it with the "Stop" button or with the ![](../img/icons/stop.svg) ...
+When launching a process, you can stop it with the "Stop" button or with the <a class="icon">![](../img/icons/stop.svg)</a> ...
 
 <img class="specific-class" src="/img/functionalities/stop-button.png" />
