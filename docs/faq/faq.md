@@ -26,3 +26,6 @@ If you upload a parquet file, you can encounter issues related to the format of 
 
 - Make sure that data contained is formatted as a string.
 - Make sure to not have nested columns (columns and sub-columns).
+
+## Choose models made available ? 
+

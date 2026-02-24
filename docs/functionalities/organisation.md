@@ -28,3 +28,10 @@ User have also a relational status for a specific project:
 - **annotator**: can only annotate on the project without changing the project settings (schemes, labels, models, etc.).
 
 For the moment, there is no management at the scheme level.
+
+
+## Dynamic 
+
+When launching a process, you can stop it with the "Stop" button or with the ![](../img/icons/stop.svg) ...
+
+<img class="specific-class" src="/img/functionalities/stop-button.png" />
