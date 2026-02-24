@@ -2,4 +2,48 @@ a.icon{
     padding: 0rem 0.2rem;
     margin: 0rem;
     /* vertical-align: top; */
+    cursor: default;
+}
+
+a.parameter{
+    color:#437EB4;
+    background-color: #eed;
+
+    font-weight: 500;
+    padding: 0.15rem 0.3rem;
+    margin: 0rem;
+    border-radius: .2rem;
+    cursor: default;
+    a.parameter::hover{
+        color:#437EB4;
+    }
+}
+
+a.primary-action{
+    color:white;
+    background-color: #ea6b1f;
+
+    font-weight: 500;
+    padding: 0.15rem 0.3rem;
+    margin: 0rem;
+    border-radius: .2rem;
+    cursor: default;
+    a.parameter::hover{
+        color:white;
+    }
+}
+a.secondary-action{
+    color:#b04302;
+    background-color: #00000000;
+    border:1px #b04302 solid;
+
+    font-weight: 500;
+    padding: 0.15rem 0.3rem;
+    margin: 0rem;
+    border-radius: .2rem;
+    cursor: default;
+    a.parameter::hover{
+        color:#b04302;
+    }
+    
 }
