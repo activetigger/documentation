@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Main - ActiveTigger Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Main";
+        var mkdocs_page_input_path = "theoretical-concepts/index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ActiveTigger Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">First steps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart/">Quickstart</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../quickstart/usecases/">Use cases</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../quickstart/access/">Get Access</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../quickstart/environment/">Environemental impact</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Showcase</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../showcase/usecases/">Real uses</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functionalities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/organisation/">General organisation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/project-creation/">Project Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/codebook/">Codebook Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/explore/">Explore Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/annotate/">Annotate Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/model/">Model Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/export/">Export Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/generative/">Generative Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/settings/">Settings Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../functionalities/monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Theoretical concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Main</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#train-validation-and-test-sets">Train, Validation and Test sets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-the-stratification-of-a-dataset">What is the stratification of a dataset?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-a-scheme">What is a scheme ?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#available-scheme-types">Available scheme types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-a-projection">What is a projection?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-t-sne">What is t-SNE?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-umap">What is UMAP?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-umap_1">What is UMAP?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-hdbscan">What is HDBSCAN</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-are-features">What are features</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#compute-new-features">Compute new features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#should-i-scale-my-features">Should I scale my features?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-a-topic-model">What is a topic model</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/software/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/contributors/">Contributors</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/faq/">Main qestions</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ActiveTigger Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Theoretical concepts</li>
+      <li class="breadcrumb-item active">Main</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="theoretical-concepts">Theoretical concepts</h1>
+<h2 id="train-validation-and-test-sets">Train, Validation and Test sets</h2>
+<p>XXXX</p>
+<h2 id="what-is-the-stratification-of-a-dataset">What is the stratification of a dataset?</h2>
+<p>Explain what ? why ? and how (in the code) ? </p>
+<h2 id="what-is-a-scheme">What is a scheme ?</h2>
+<p>What? In the context of the app, what difference does it make? </p>
+<h2 id="available-scheme-types">Available scheme types</h2>
+<p>XXX</p>
+<h2 id="what-is-a-projection">What is a projection?</h2>
+<p>XXX</p>
+<h3 id="what-is-t-sne">What is t-SNE?</h3>
+<p>XXX https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding </p>
+<h3 id="what-is-umap">What is UMAP?</h3>
+<p>XXX</p>
+<h3 id="what-is-umap_1">What is UMAP?</h3>
+<h2 id="what-is-hdbscan">What is HDBSCAN</h2>
+<h2 id="what-are-features">What are features</h2>
+<p>XXXX</p>
+<h3 id="compute-new-features">Compute new features</h3>
+<p><img alt="" src="../img/theoretical-concepts/new-features-form.png" /></p>
+<h2 id="should-i-scale-my-features">Should I scale my features?</h2>
+<p>XXX</p>
+<h2 id="what-is-a-topic-model">What is a topic model</h2>
+<p>XXX</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../functionalities/monitoring-account-and-users/" class="btn btn-neutral float-left" title="Monitoring, Account and Users Pages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../software/software/" class="btn btn-neutral float-right" title="Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../functionalities/monitoring-account-and-users/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../software/software/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Software characteristics - ActiveTigger Documentation</title>
+    <title>Architecture - ActiveTigger Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Software characteristics";
+        var mkdocs_page_name = "Architecture";
         var mkdocs_page_input_path = "software/software.md";
         var mkdocs_page_url = null;
       </script>
@@ -49,7 +50,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../quickstart/usecases/">Use cases</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../../access.md">Get Access</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/access/">Get Access</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../quickstart/environment/">Environemental impact</a>
                   </li>
@@ -61,14 +62,73 @@
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="" href="../../functionalities/organisation.md">General organisation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/organisation/">General organisation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/project-creation/">Project Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/codebook/">Codebook Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/explore/">Explore Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/annotate/">Annotate Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/model/">Model Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/export/">Export Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/generative/">Generative Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/settings/">Settings Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Theoretical concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/">Main</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Software</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../../software.md">Architecture</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Architecture</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#calendar">Calendar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps">Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#enhancements">Enhancements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#possibilities">Possibilities</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#backend">Backend</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#data-management">Data management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#processes">Processes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#users-role">Users role</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#select-element-to-annotate">Select element to annotate</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#frontend">Frontend</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#state-management">State management</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../../contributors.md">Contributors</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../contributors/">Contributors</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">FAQ</span></p>
@@ -90,7 +150,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Software characteristics</li>
+          <li class="breadcrumb-item">Software</li>
+      <li class="breadcrumb-item active">Architecture</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -219,6 +280,10 @@
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../theoretical-concepts/" class="btn btn-neutral float-left" title="Main"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contributors/" class="btn btn-neutral float-right" title="Contributors">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -240,6 +305,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../../theoretical-concepts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../contributors/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
