@@ -54,3 +54,9 @@ XXX
 
 
 ## Choose hyper parameters
+
+
+## What metrics to use ?
+
+
+## Read the loss curve
