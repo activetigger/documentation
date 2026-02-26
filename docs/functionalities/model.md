@@ -52,22 +52,22 @@ When launching a model training, the model will be trained on the subset of the 
 
 The parameters for the model are: 
 
-- <a class="parameter">Name for the model</a>: The name used as a reference in the interface.
+- <a class="parameter">Name for the model</a> The name used as a reference in the interface.
 - <a class="parameter">Model base</a>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface ([which models can I train?](../faq/faq.md#choose-models-made-available)). 
 - <a class="parameter">Context window size</a>: The number of token per entry. After tokenization each input is truncated/padded to match this size. If selecting <a class="parameter">Auto adjust Max context window size</a> the window size will be calculated as the minimum between the maximum window size of the model and the length of the longest entry of the dataset.
 - <a class="parameter">Epochs</a>: The number of times the model will be train on the train dataset[^2] ([more on choosing the hyperparameters](../theoretical-concepts/index.md#choose-hyper-parameters)). 
 - <a class="parameter">Learning Rate</a>: The initial learning rate value used during training ([more on choosing the hyperparameters](../theoretical-concepts/index.md#choose-hyper-parameters)). 
 - <a class="parameter">Weight Decay</a>: The probability for a weight to not be updated during the backward propagation ([more on choosing the hyperparameters](../theoretical-concepts/index.md#choose-hyper-parameters)).
-- <a class="parameter">Use GPU</a>: If set to True, the model will be trained on GPU.
-- <a class="parameter">Batch size</a>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.
-- <a class="parameter">Gradient Accumulation</a>: The number of batches used to update the weights during the backward propagation. @JULIEN
-- <a class="parameter">Eval</a>: This is the number of evaluation — scoring performance on the train-eval dataset — performed during the run.
-- <a class="parameter">Train-eval split size</a>: The ratio of elements in the train dataset[^2] that will be used to assess the model performance during training.
-- <a class="parameter">Class threshold</a>: The minimum number of annotation per label required. XXX sort out class or theshold
-- <a class="parameter">Balance classes</a>: If set to True, the train dataset[^2] will be constructed using the same number of text inputs per label.
-- <a class="parameter">Loss</a>: The loss function used optimise the model weights for training.
-- <a class="parameter">Keep the best model</a>: If set to True, the model .
-- <a class="parameter">Labels to ignore</a>: Text inputs with these labels will be dropped out of the train dataset[^2].
+- <a class="parameter secondary">Use GPU</a>: If set to True, the model will be trained on GPU.
+- <a class="parameter secondary">Batch size</a>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.
+- <a class="parameter secondary">Gradient Accumulation</a>: The number of batches used to update the weights during the backward propagation. @JULIEN
+- <a class="parameter secondary">Eval</a>: This is the number of evaluation — scoring performance on the train-eval dataset — performed during the run.
+- <a class="parameter secondary">Train-eval split size</a>: The ratio of elements in the train dataset[^2] that will be used to assess the model performance during training.
+- <a class="parameter secondary">Class threshold</a>: The minimum number of annotation per label required. XXX sort out class or theshold
+- <a class="parameter secondary">Balance classes</a>: If set to True, the train dataset[^2] will be constructed using the same number of text inputs per label.
+- <a class="parameter secondary">Loss</a>: The loss function used optimise the model weights for training.
+- <a class="parameter secondary">Keep the best model</a>: If set to True, the model .
+- <a class="parameter secondary">Labels to ignore</a>: Text inputs with these labels will be dropped out of the train dataset[^2].
 
 [^2]: Reminder: the train dataset is the subset of the train set where labels exist.
 
