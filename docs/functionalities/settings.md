@@ -47,6 +47,8 @@ Displays the available features and their parameters.
         - <a class="parameter">Column to use</a>
         - <a class="parameter">Type of the feature</a>: either numerical or categorical.
 
+Features can be downloaded from the [Export page](./export.md#features).
+
 ## Import 
 
 The import tab allows you to import data for the current process outside of the [Project Creation page](./project-creation.md). 

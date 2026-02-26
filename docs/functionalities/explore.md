@@ -43,6 +43,8 @@ The visualization tab displays a projection of the embedding space in two dimens
     - _If a frame exists_, <a class="icon">![](../img/icons/visualisation-control/lock.svg)</a><a class="action secondary"> Lock the selection</a> to lock on the frame. Going to the [Annotate page](./annotate.md) will only display elements in the frame.
     - Clicking a node displays the text input as well asprevious annotations and the [Annotation Panel](./annotate.md#annotation-panel), much like in the [Annotation page](./annotate.md)
 
+Projections can be downloaded from the [Export page](./export.md#features).
+
 ## Topic model
 
 The topic model ([what is a topic model?](../theoretical-concepts/index.md#what-is-a-topic-model)) section displays existing topic models (for a given project and user ??? XXX) and allows to compute new ones [BERTopic](https://bertopic.com/)[^1]. 

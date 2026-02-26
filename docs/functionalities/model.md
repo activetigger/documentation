@@ -73,6 +73,8 @@ The parameters for the model are:
 
 [^2]: Reminder: the train dataset is the subset of the train set where labels exist.
 
+Trained BERT models are downloadable from the [Export page](./export.md#models). Users can download the model files as well as the predictions on the dataset of the project or an external dataset.
+
 ### Key insights
 
 For both classifiers, the application displays the Macro F1-Score ([what metrics to use](../theoretical-concepts/index.md#what-metrics-to-use)) as well as the [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) and scores per label ([Recall, Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision_vs._Recall) and [F1](https://en.wikipedia.org/wiki/F-score#Definition))
