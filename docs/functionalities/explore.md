@@ -20,7 +20,8 @@ The tabular view displays your data in a tabular view. Filters are available to 
 
 The visualization tab displays a projection of the embedding space in two dimension ([what is a projection?](../theoretical-concepts/index.md#what-is-a-projection)). Projection computed with either [UMAP](../theoretical-concepts/index.md#what-is-umap) or [t-SNE](../theoretical-concepts/index.md#what-is-t-sne). 
 
-!!! warning "There is only one projection per project"
+!!! warning 
+    There is only one projection per project. 
     Computing a new projection will overwrite the current projection.
 
 ![](../img/functionalities/visualisation.png)
