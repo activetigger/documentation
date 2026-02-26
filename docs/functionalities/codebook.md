@@ -8,7 +8,7 @@ This section describes the Codebook page, the key elements and their interaction
 
 At the top of the screen, you will find the scheme ([what is a scheme?](../theoretical-concepts/index.md#what-is-a-scheme)) management component. It consists of a dropdown menu and 4 actions buttons. 
 
-- <a class="primary-action">Current scheme</a>: Scheme to use for the current session.
+- <a class="action primary">Current scheme</a>: Scheme to use for the current session.
 - <a class="icon">![](../img/icons/plus.svg)</a> to create a new scheme, with a unique name and a type ([see available types](../theoretical-concepts/index.md#available-scheme-types))
 - <a class="icon">![](../img/icons/rename.svg)</a> to rename the current scheme.
 - <a class="icon">![](../img/icons/duplicate.svg)</a> to duplicate the current scheme with all annotations. 
