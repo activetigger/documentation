@@ -80,6 +80,12 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Settings Page</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#import">Import</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
@@ -127,6 +133,91 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="settings-page">Settings page</h1>
+<p>The settings page contains many tabs with <strong>moderate</strong> to <strong>high impacts</strong> on your project. We describe them on this page.</p>
+<h2 id="parameters">Parameters</h2>
+<p>This page displays the parameters of the project and allows editing or deleting the project.</p>
+<p><img alt="" src="../../img/functionalities/parameters.png" /></p>
+<ul>
+<li><a class="action primary">Change parameters</a> to edit some parameters:<ul>
+<li><a class="parameter">Project name</a>: <a href="../project-creation/#primary-parameters">see Project Creation page</a></li>
+<li><a class="parameter">Text column(s)</a>: <a href="../project-creation/#primary-parameters">see Project Creation page</a></li>
+<li><a class="parameter">Language of the corpus</a>: <a href="../project-creation/#primary-parameters">see Project Creation page</a></li>
+<li><a class="parameter">Column(s) for contextual information</a>: <a href="../project-creation/#primary-parameters">see Project Creation page</a></li>
+<li><a class="parameter">Add N elements in the train set</a>: Pick new elements from the dataset uploaded. XXX ⚠️ <strong>Ignores stratification</strong> ⚠️</li>
+</ul>
+</li>
+<li><a class="action red-danger">Delete project</a> to delete the project, annotations and models. <strong>There is no going back.</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not made possible to manage the size of the sets and move elements around. Read more <a href="../../faq/faq/#why-cant-i-change-the-size-of-my-sets-on-the-go">here</a></p>
+</div>
+<h2 id="features">Features</h2>
+<p>Displays the available features and their parameters. </p>
+<ul>
+<li><a class="action primary">Add a new feature</a> to compute new features (<a href="../../theoretical-concepts/#what-are-features">more details on the available features modes</a>).<ul>
+<li>if using <strong>embeddings</strong>:<ul>
+<li><a class="parameter">Feature name</a></li>
+<li><a class="parameter">Model to use</a></li>
+<li><a class="parameter">Context window size</a>: The number of token per entry. After tokenization each input is truncated/padded to match this size.</li>
+</ul>
+</li>
+<li>if using <strong>fasttext</strong>:<ul>
+<li><a class="parameter">Feature name</a></li>
+<li><a class="parameter">Model to use</a></li>
+</ul>
+</li>
+<li>if using <strong>dfm</strong>: Using <code>CountVectorizer</code> XXX @Julien<ul>
+<li><a class="parameter">Feature name</a></li>
+<li><a class="parameter">TF-IDF</a>: if set to True, applies TF-IDF to the feature matrix (XXX).</li>
+<li><a class="parameter">n-grams</a>: the size of n-grams to account for.</li>
+<li><a class="parmater">min term freq</a>: the minimum frequence for a n-gram to be included in the vocabulary.</li>
+<li><a class="parmater">max term freq</a>: the maximum frequence for a n-gram to be included in the vocabulary.</li>
+<li><a class="parameter">Norm</a>: if set to True, normalize the featres XXX What normalisation? before or after log ?</li>
+<li><a class="parameter">Log</a>: if set to True, apply logarithm function to the feature the featres.</li>
+</ul>
+</li>
+<li>if using <strong>regex</strong>: creates a boolean feature whether the regex query if found in the text input<ul>
+<li><a class="parameter">Feature name</a></li>
+<li><a class="parameter">Regex query</a></li>
+</ul>
+</li>
+<li>if using <strong>dataset</strong>: imports from a column in the original dataset<ul>
+<li><a class="parameter">Column to use</a></li>
+<li><a class="parameter">Type of the feature</a>: either numerical or categorical.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Features can be downloaded from the <a href="../export/#features">Export page</a>.</p>
+<h2 id="import">Import</h2>
+<p>The import tab allows you to import data for the current process outside of the <a href="../project-creation/">Project Creation page</a>. </p>
+<p><img alt="" src="../../img/functionalities/import.png" /></p>
+<ul>
+<li><strong>Import annotations</strong>: import the annotations for the text inputs in the train dataset. The IDs must match. if the labels differ, new labels will be created. XXX or ignored? no idea. If annotations already exists, they will be overwritten.<ul>
+<li><a class="parameter">File to upload</a>: Parquet, CSV or XLSX file, limit defined by the administrator.</li>
+<li><a class="parameter">Column for ID</a>: column from the loaded dataset that must match the IDs from the current text inputs. XXX Internal or external? </li>
+<li><a class="parameter">Column for annotations</a>: column from the loaded dataset that contains the annotations to import.</li>
+<li><a class="action primary">Import annotations</a> to finalise the importation.</li>
+</ul>
+</li>
+<li><strong>Validation set</strong> and <strong>Test set</strong>: drop or import the validation or test set.<ul>
+<li><em>if a validation/test set exists</em>, <ul>
+<li><a class="action red-danger">Drop Test/Validation set</a>: delete the set as well as the features. They will be re-computed.</li>
+</ul>
+</li>
+<li><em>if the validation/test set does not exist</em><ul>
+<li><a class="parameter">File to upload</a>: Parquet, CSV or XLSX file, limit defined by the administrator.</li>
+<li><a class="parameter">ID column</a>: index to identify each element in the treatment ; either from an existing column or row number. If the chosen index is not unique, an internal index is created different from the external index.</li>
+<li><a class="parameter">Text column(s)</a>: The column(s) to use as text input. If several columns are selected, content of the columns will be concatenated with two linebreaks. </li>
+<li><a class="parameter">Column(s) for existing annotations</a>: Load existing annotations. If labels are not found in the current scheme, they will be ignored.</li>
+<li><a class="parameter">Number of elements</a>: Number of rows </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div><footer>

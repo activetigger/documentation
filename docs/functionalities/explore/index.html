@@ -145,21 +145,22 @@
 </ul>
 </li>
 <li>The table: The table contains 6 columns including the id, the label, the user who produced the label, the text, any comment and the date the label was produced.<ul>
-<li>Click on the <a class="primary-action">id</a> to go to the <a href="../annotate/">Annotate page</a> and annotate the text input.</li>
-<li>Click on the <a class="primary-action">label</a> to annotate in the tabular view. Click <a class="primary-action">Validate changes</a> to save changes in the database.</li>
+<li>Click on the <a class="action primary">id</a> to go to the <a href="../annotate/">Annotate page</a> and annotate the text input.</li>
+<li>Click on the <a class="action primary">label</a> to annotate in the tabular view. Click <a class="action primary">Validate changes</a> to save changes in the database.</li>
 </ul>
 </li>
 </ul>
 <h2 id="visualization">Visualization</h2>
 <p>The visualization tab displays a projection of the embedding space in two dimension (<a href="../../theoretical-concepts/#what-is-a-projection">what is a projection?</a>). Projection computed with either <a href="../../theoretical-concepts/#what-is-umap">UMAP</a> or <a href="../../theoretical-concepts/#what-is-t-sne">t-SNE</a>. </p>
 <div class="admonition warning">
-<p class="admonition-title">There is only one projection per project</p>
-<p>Computing a new projection will overwrite the current projection.</p>
+<p class="admonition-title">Warning</p>
+<p>There is only one projection per project. 
+Computing a new projection will overwrite the current projection.</p>
 </div>
 <p><img alt="" src="../../img/functionalities/visualisation.png" /></p>
 <ul>
-<li><a class="primary-action">Compute new projection</a><ul>
-<li><a class="parameter">Select a feature</a>: choose the set of feature (<a href="../../theoretical-concepts/#what-are-features">what are features?</a>)to use for the projection. If choosing several sets of features, they will be concatenated before projection. <a class="secondary-action">Add a new feature</a> to <a href="../../theoretical-concepts/#compute-new-features">Compute new features</a>.</li>
+<li><a class="action primary">Compute new projection</a><ul>
+<li><a class="parameter">Select a feature</a>: choose the set of feature (<a href="../../theoretical-concepts/#what-are-features">what are features?</a>)to use for the projection. If choosing several sets of features, they will be concatenated before projection. <a class="action secondary">Add a new feature</a> to <a href="../../theoretical-concepts/#compute-new-features">Compute new features</a>.</li>
 <li>When using <strong>UMAP</strong>:<ul>
 <li><a class="parameter">n neighbors</a>:</li>
 <li><a class="parameter">min distance</a>:</li>
@@ -174,20 +175,21 @@
 <li><a class="parameter">Feature scaling</a>: this is a method normalizes the range of independant variables (i.e. each feature) (<a href="../../theoretical-concepts/#should-i-scale-my-features">should I scale my features?</a>).</li>
 </ul>
 </li>
-<li><a class="secondary-action">Parameters</a> to see the parameters of the current projection.</li>
+<li><a class="action secondary">Parameters</a> to see the parameters of the current projection.</li>
 <li>The visualization panel displays each text input in a 2D space. The color of the node depends on the label, <em>or the absence thereof</em>. <ul>
 <li><a class="icon"><img alt="" src="../../img/icons/visualisation-control/frame.svg" /></a> to select a subset of text inputs.</li>
 <li><a class="icon"><img alt="" src="../../img/icons/visualisation-control/frame-off.svg" /></a> removes the frame.</li>
-<li><em>If a frame exists</em>, <a class="icon"><img alt="" src="../../img/icons/visualisation-control/lock.svg" /></a><a class="secondary-action"> Lock the selection</a> to lock on the frame. Going to the <a href="../annotate/">Annotate page</a> will only display elements in the frame.</li>
+<li><em>If a frame exists</em>, <a class="icon"><img alt="" src="../../img/icons/visualisation-control/lock.svg" /></a><a class="action secondary"> Lock the selection</a> to lock on the frame. Going to the <a href="../annotate/">Annotate page</a> will only display elements in the frame.</li>
 <li>Clicking a node displays the text input as well asprevious annotations and the <a href="../annotate/#annotation-panel">Annotation Panel</a>, much like in the <a href="../annotate/">Annotation page</a></li>
 </ul>
 </li>
 </ul>
+<p>Projections can be downloaded from the <a href="../export/#features">Export page</a>.</p>
 <h2 id="topic-model">Topic model</h2>
 <p>The topic model (<a href="../../theoretical-concepts/#what-is-a-topic-model">what is a topic model?</a>) section displays existing topic models (for a given project and user ??? XXX) and allows to compute new ones <a href="https://bertopic.com/">BERTopic</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
 <p><img alt="" src="../../img/functionalities/bertopic.png" /></p>
 <ul>
-<li><a class="primary-action">Compute new BERTopic</a> to create a new topic model.<ul>
+<li><a class="action primary">Compute new BERTopic</a> to create a new topic model.<ul>
 <li><a class="parameter">Name</a>: must be unique (with regard to? unique at all or unique per project ? unique per project per user? XXX )</li>
 <li><a class="parameter">Embedding model</a>: choose from the <a href="../../faq/faq/#choose-models-made-available">available embedding models</a> to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.</li>
 <li><a class="parameter">Number of neighbours</a>: <a href="../../theoretical-concepts/#what-is-umap">UMAP parameter</a> — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the global structure (i.e. global topics) (more <a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">here</a>).</li>
@@ -200,11 +202,11 @@
 </ul>
 </li>
 <li>The visual representation of the topics displays each text input as a node with a color corresponding to the topic generated by the topic model.</li>
-<li><a class="secondary-action">Parameters</a> to see the parameters of the current topic model.</li>
-<li><a class="primary-action">Convert to scheme</a> to create a <a href="../../theoretical-concepts/#what-is-a-scheme">scheme</a> and assign labels using the topics generated. XXX Add NOTE REGARDING THE DANGERS OF DOING THAT</li>
-<li><a class="primary-action">Export topics</a> to download (csv file) the topic table displayed underneath.</li>
-<li><a class="primary-action">Export topic per text</a> to download a mapping of each element id<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> to a the topic index.</li>
-<li><a class="primary-action">Topic model report</a> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and the parameters of the model).</li>
+<li><a class="action secondary">Parameters</a> to see the parameters of the current topic model.</li>
+<li><a class="action primary">Convert to scheme</a> to create a <a href="../../theoretical-concepts/#what-is-a-scheme">scheme</a> and assign labels using the topics generated. XXX Add NOTE REGARDING THE DANGERS OF DOING THAT</li>
+<li><a class="action primary">Export topics</a> to download (csv file) the topic table displayed underneath.</li>
+<li><a class="action primary">Export topic per text</a> to download a mapping of each element id<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> to a the topic index.</li>
+<li><a class="action primary">Topic model report</a> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and the parameters of the model).</li>
 <li>The table (downloadable with Export topics) summarises the topic model. <ul>
 <li>Topic: the topic id.</li>
 <li>Count: the number of elements in the topic.</li>

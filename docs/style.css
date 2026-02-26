@@ -26,30 +26,36 @@ a.parameter.secondary{
     }
 }
 
-a.primary-action{
-    color:white;
-    background-color: #ea6b1f;
-
+a.action{
     font-weight: 500;
     padding: 0.15rem 0.3rem;
     margin: 0rem;
     border-radius: .2rem;
     cursor: default;
-    a.parameter::hover{
+}
+
+a.action.primary{
+    color:white;
+    background-color: #ea6b1f;
+    ::hover{
         color:white;
     }
 }
-a.secondary-action{
+
+a.action.red-danger{
+    color:white;
+    background-color: #e60000;
+    ::hover{
+        color:white;
+    }
+}
+
+a.action.secondary{
     color:#b04302;
     background-color: #00000000;
     border:1px #b04302 solid;
 
-    font-weight: 500;
-    padding: 0.15rem 0.3rem;
-    margin: 0rem;
-    border-radius: .2rem;
-    cursor: default;
-    a.parameter::hover{
+    ::hover{
         color:#b04302;
     }
     
