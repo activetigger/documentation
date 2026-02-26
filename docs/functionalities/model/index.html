@@ -73,6 +73,18 @@
                   <li class="toctree-l1"><a class="reference internal" href="../annotate/">Annotate Page</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Model Page</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#training">Training</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-models">Quick Models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bertmodel">BERTmodel</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#evaluation">Evaluation</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../export/">Export Page</a>
                   </li>
@@ -124,7 +136,86 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="model-page">Model Page</h1>
+<p>This section describes the Model page, containing the Training tab and the Evaluation tab, both displaying available models and their performance.</p>
+<h2 id="training">Training</h2>
+<p>This section first describes the layout and the information found on the page, then the models available and their parameters.</p>
+<p><img alt="" src="../../img/functionalities/bertopic.png" /> <!-- TODO : Change the file --></p>
+<p>The first section contains the trained models, either <a href="#quickmodel">Quick Model</a> or <a href="#bertmodel">Bert Model</a> and buttons to train new models. Each model can be deleted using the <a class="icon"><img alt="" src="../../img/icons/delete.svg" /></a> button.</p>
+<h3 id="quick-models">Quick Models</h3>
+<p>The Quick Models are classification models from <a href="http://scikit-learn.org/stable/supervised_learning.html">scikit-learn</a> trained on pre-computed features (<a href="../../theoretical-concepts/#what-are-features">what are features?</a>). They are quick to train and do not require GPUs. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
+<p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see <a href="../annotate/#active-mode">Annotation page</a>)</p>
+<p>Models available include: </p>
+<ul>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic model</a> with L2 penalty: XXX. The parameters are: <ul>
+<li><a class="parameter">Cost</a>: XXX</li>
+</ul>
+</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic model</a> with L1 penalty: XXX. The parameters are: <ul>
+<li><a class="parameter">Cost</a>: XXX</li>
+</ul>
+</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">k-Nearest-Neighbors (KNN)</a>: XXX. The parameters are: <ul>
+<li><a class="parameter">Number of neighbors</a>: XXX</li>
+</ul>
+</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a>: XXX. The parameters are:<ul>
+<li><a class="parameter">Number of estimators</a>:</li>
+<li><a class="parameter">Max features</a>:</li>
+</ul>
+</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html">Multinomial Naive Bayes classifier</a>: XXX. The parameters are:<ul>
+<li><a class="parameter">Alpha</a></li>
+<li><a class="parameter">Fit prior</a></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">All features are scaled before fitting the Quick Model</p>
+</div>
+<p>On top of model-specific parameters, additional parameters can be set: </p>
+<ul>
+<li><a class="parameter">Name for the model</a>: The name used as a reference in the interface.</li>
+<li><a class="parameter">Automatically balance classes</a>: If set to True, the model will be trained on a subset of the train set constructed by picking an equal number of text inputs accross labels. </li>
+<li><a class="parameter">10-fold cross validation</a>: Computes performance test using the <a href="http://scikit-learn.org/stable/modules/cross_validation.html">10-fold cross validation technique</a>.</li>
+<li><a class="parameter">Labels to ignore</a>: Labels selected will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for active tigger (see <a href="../annotate/#models-with-ignored-labels">Annotation page</a>). </li>
+</ul>
+<!-- TODO: ADD the retraining process-->
+
+<h3 id="bertmodel">BERTmodel</h3>
+<p>The BERT Models are embedding models with a classification layer <a href="https://huggingface.co/docs/transformers/tasks/sequence_classification">trained with the huggingface framework</a>. They can take dozens of minutes to train and require GPUs<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
+<p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. After training, the best model (accross epochs / checkpoints) will be used to predict the labels on the whole trainset to be used in Active Learning (see <a href="../annotate/#active-mode">Annotation page</a>).</p>
+<p>The parameters for the model are: </p>
+<ul>
+<li><a class="parameter">Name for the model</a> The name used as a reference in the interface.</li>
+<li><a class="parameter">Model base</a>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface (<a href="../../faq/faq/#choose-models-made-available">which models can I train?</a>). </li>
+<li><a class="parameter">Context window size</a>: The number of token per entry. After tokenization each input is truncated/padded to match this size. If selecting <a class="parameter">Auto adjust Max context window size</a> the window size will be calculated as the minimum between the maximum window size of the model and the length of the longest entry of the dataset.</li>
+<li><a class="parameter">Epochs</a>: The number of times the model will be train on the train dataset<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
+<li><a class="parameter">Learning Rate</a>: The initial learning rate value used during training (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
+<li><a class="parameter">Weight Decay</a>: The probability for a weight to not be updated during the backward propagation (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>).</li>
+<li><a class="parameter secondary">Use GPU</a>: If set to True, the model will be trained on GPU.</li>
+<li><a class="parameter secondary">Batch size</a>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.</li>
+<li><a class="parameter secondary">Gradient Accumulation</a>: The number of batches used to update the weights during the backward propagation. @JULIEN</li>
+<li><a class="parameter secondary">Eval</a>: This is the number of evaluation — scoring performance on the train-eval dataset — performed during the run.</li>
+<li><a class="parameter secondary">Train-eval split size</a>: The ratio of elements in the train dataset<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> that will be used to assess the model performance during training.</li>
+<li><a class="parameter secondary">Class threshold</a>: The minimum number of annotation per label required. XXX sort out class or theshold</li>
+<li><a class="parameter secondary">Balance classes</a>: If set to True, the train dataset<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup> will be constructed using the same number of text inputs per label.</li>
+<li><a class="parameter secondary">Loss</a>: The loss function used optimise the model weights for training.</li>
+<li><a class="parameter secondary">Keep the best model</a>: If set to True, the model .</li>
+<li><a class="parameter secondary">Labels to ignore</a>: Text inputs with these labels will be dropped out of the train dataset<sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+</ul>
+<h2 id="evaluation">Evaluation</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>You can train on the CPU but that would be sub-optimal.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Reminder: the train dataset is the subset of the train set where labels exist.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div><footer>

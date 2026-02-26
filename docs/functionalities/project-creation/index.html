@@ -134,7 +134,7 @@
 <p>This section describes project creation</p>
 <p><img alt="Overview of the Project Creation page" src="../../img/functionalities/overview.png" /></p>
 <h2 id="primary-parameters">Primary parameters</h2>
-<p>Those parameters define the general project. Some elements can be modified afterward.</p>
+<p>These parameters define the general project. Some elements can be modified afterward.</p>
 <ul>
 <li><a class="parameter">Project name</a>: Unique name to identify the project. Could be changed in <a href="../settings/">Settings page</a>.</li>
 <li><a class="parameter">Dataset</a>: Data to use. Can be loaded :<ul>
@@ -155,14 +155,14 @@
 <h2 id="secondary-parameters">Secondary parameters</h2>
 <p>Available in the "Advanced options" panel to configure specific treatments.</p>
 <ul>
-<li><a class="parameter">Prioritize existing labels</a>: When loading existing annotations, maximize the already annotated elements in the trainset. If there are not enough elements annotated to create all three sets, random elements will be picked. </li>
-<li><a class="parameter">Select elements at random</a>: If set to <code>True</code>, the train, validation and test sets will be created by picking elements at random. If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
-<li><a class="parameter">Stratify train set</a>: Force the stratification for the trainset (<a href="../../theoretical-concepts/#what-is-the-stratification-of-a-dataset">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
-<li><a class="parameter">Stratify test set</a>:  Force the stratification for the test set (<a href="../../theoretical-concepts/#what-is-the-stratification-of-a-dataset">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
-<li><a class="parameter">Column(s) used for stratification</a>: If <code>Stratify train set</code> and/or <code>Stratify test set</code>, the stratification will use the selected columns (<a href="../../theoretical-concepts/#what-is-the-stratification-of-a-dataset">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
-<li><a class="parameter">Drop annotations for testset</a>: If set to <code>True</code> and columns have been selected for existing annotations, the annotations of elements in the testset will be dropped. </li>
-<li><a class="parameter">Compute embeddings</a>: If set to <code>True</code>, upon creating the project, embeddings for the text inputs in the train, validation and test sets will start using <a href="https://sbert.net/">Sentence BERT</a></li>
-<li><a class="parameter">Seed</a>: The seed used for all random operations in the project.</li>
+<li><a class="parameter secondary">Prioritize existing labels</a>: When loading existing annotations, maximize the already annotated elements in the trainset. If there are not enough elements annotated to create all three sets, random elements will be picked. </li>
+<li><a class="parameter secondary">Select elements at random</a>: If set to <code>True</code>, the train, validation and test sets will be created by picking elements at random. If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
+<li><a class="parameter secondary">Stratify train set</a>: Force the stratification for the trainset (<a href="../../theoretical-concepts/#what-is-the-stratification-of-a-dataset">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
+<li><a class="parameter secondary">Stratify test set</a>:  Force the stratification for the test set (<a href="../../theoretical-concepts/#what-is-the-stratification-of-a-dataset">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
+<li><a class="parameter secondary">Column(s) used for stratification</a>: If <code>Stratify train set</code> and/or <code>Stratify test set</code>, the stratification will use the selected columns (<a href="../../theoretical-concepts/#what-is-the-stratification-of-a-dataset">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
+<li><a class="parameter secondary">Drop annotations for testset</a>: If set to <code>True</code> and columns have been selected for existing annotations, the annotations of elements in the testset will be dropped. </li>
+<li><a class="parameter secondary">Compute embeddings</a>: If set to <code>True</code>, upon creating the project, embeddings for the text inputs in the train, validation and test sets will start using <a href="https://sbert.net/">Sentence BERT</a></li>
+<li><a class="parameter secondary">Seed</a>: The seed used for all random operations in the project.</li>
 </ul>
               
             </div>
