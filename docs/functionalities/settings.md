@@ -54,9 +54,9 @@ The import tab allows you to import data for the current process outside of the 
 ![](../img/functionalities/import.png)
 
 - **Import annotations**: import the annotations for the text inputs in the train dataset. The IDs must match. if the labels differ, new labels will be created. XXX or ignored? no idea. If annotations already exists, they will be overwritten.
-    - <a class="parameters">File to upload</a>: Parquet, CSV or XLSX file, limit defined by the administrator.
-    - <a class="parameters">Column for ID</a>: column from the loaded dataset that must match the IDs from the current text inputs. XXX Internal or external? 
-    - <a class="parameters">Column for annotations</a>: column from the loaded dataset that contains the annotations to import.
+    - <a class="parameter">File to upload</a>: Parquet, CSV or XLSX file, limit defined by the administrator.
+    - <a class="parameter">Column for ID</a>: column from the loaded dataset that must match the IDs from the current text inputs. XXX Internal or external? 
+    - <a class="parameter">Column for annotations</a>: column from the loaded dataset that contains the annotations to import.
     - <a class="action primary">Import annotations</a> to finalise the importation.
 - **Validation set** and **Test set**: drop or import the validation or test set.
     - _if a validation/test set exists_, 
