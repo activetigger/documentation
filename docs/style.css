@@ -19,6 +19,13 @@ a.parameter{
     }
 }
 
+a.parameter.secondary{
+    color:rgb(113, 175, 105) ;
+    a.parameter::hover{
+        color:rgb(113, 175, 105) ;
+    }
+}
+
 a.primary-action{
     color:white;
     background-color: #ea6b1f;
