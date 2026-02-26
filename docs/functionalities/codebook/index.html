@@ -70,7 +70,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#scheme-management">Scheme management</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#the-codebook">The codebook</a>
+    <li class="toctree-l2"><a class="reference internal" href="#guidelines">Guidelines</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#labels-management">Labels management</a>
     </li>
@@ -138,36 +138,26 @@
 <h2 id="scheme-management">Scheme management</h2>
 <p>At the top of the screen, you will find the scheme (<a href="../../theoretical-concepts/#what-is-a-scheme">what is a scheme?</a>) management component. It consists of a dropdown menu and 4 actions buttons. </p>
 <ul>
-<li><strong>Dropdown menu</strong>: Select the scheme to use. The name of the scheme in use can be found in the left panel, underneath the project name.</li>
-<li><strong>Action buttons</strong>:<ul>
-<li><a class="icon"><img alt="" src="../../img/icons/plus.svg" /></a> Create a new scheme: Opens a modal to create a new scheme. To create a new scheme, you will need to choose: <ul>
-<li>A scheme name</li>
-<li>A type (<a href="../../theoretical-concepts/#available-scheme-types">see available types</a>)</li>
+<li><a class="primary-action">Current scheme</a>: Scheme to use for the current session.</li>
+<li><a class="icon"><img alt="" src="../../img/icons/plus.svg" /></a> Create a new scheme, with a unique name and a type (<a href="../../theoretical-concepts/#available-scheme-types">see available types</a>)</li>
+<li><a class="icon"><img alt="" src="../../img/icons/rename.svg" /></a> Rename the current scheme.</li>
+<li><a class="icon"><img alt="" src="../../img/icons/duplicate.svg" /></a> Duplicate the current scheme with all annotations. </li>
+<li><a class="icon"><img alt="" src="../../img/icons/delete.svg" /></a> Delete the current scheme and its annotations. <strong>This action is definitive.</strong></li>
 </ul>
-</li>
-<li><a class="icon"><img alt="" src="../../img/icons/rename.svg" /></a> Rename the current scheme: Opens a modal to rename the current scheme. A new name will be required. XXX Do we say what it does in the background??</li>
-<li><a class="icon"><img alt="" src="../../img/icons/duplicate.svg" /></a> Duplicate the current scheme: Creates a new scheme (<code>SCHEME-NAME_copy</code>) with the same labels names. Also copies the annotations. </li>
-<li><a class="icon"><img alt="" src="../../img/icons/delete.svg" /></a> Delete the current scheme: Delete the scheme, as well as the annotations. <strong>This action is definitive.</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="the-codebook">The codebook</h2>
-<p>Underneath the Scheme management component, you will find a the Codebook (<a href="XXX">How to write a codebook</a>). </p>
+<h2 id="guidelines">Guidelines</h2>
+<p>Codebook allows to keep information on how to use the current scheme (<a href="XXX">How to write a codebook</a>). </p>
 <ul>
-<li><a class="icon"><img alt="" src="../../img/icons/rename.svg" /></a> Edit Codebook: Opens a modal with an edit panel and a preview panel. Clicking on "Save" or outside the modal will close the modal and save the edits.</li>
-<li><a class="icon"><img alt="" src="../../img/icons/book.svg" /></a> Open the Codebook in a new tab.</li>
+<li><a class="icon"><img alt="" src="../../img/icons/rename.svg" /></a> Access edition mode.</li>
+<li><a class="icon"><img alt="" src="../../img/icons/book.svg" /></a> Open the Codebook in a browser tab to access it during annotation.</li>
 <li><a class="icon"><img alt="" src="../../img/icons/download.svg" /></a> Download the Codebook as a markdown file.</li>
 </ul>
 <h2 id="labels-management">Labels management</h2>
-<p>At the bottom of the page, you will find the label management component. It consists of a text input and a table. </p>
 <ul>
-<li>The text input, with the <a class="icon"><img alt="" src="../../img/icons/plus.svg" /></a>, allows you to create a new label.</li>
-<li>The table: <ul>
-<li>In the table, you will find all existing labels, as well as the number of elements, per label and set (train, valid and test). The rows can be re-ordered, the order of the rows will manage the order of the labels in the <a href="../annotate/">Annotate Page</a></li>
-<li>At the end of each row, you will find a <a class="icon"><img alt="" src="../../img/icons/delete.svg" /></a> icon and a <a class="icon"><img alt="" src="../../img/icons/rename.svg" /></a> icon to delete and rename the labels. If renaming a label to another, the annotations will be merged. </li>
+<li><a class="parameter">New label name</a> <a class="icon"><img alt="" src="../../img/icons/plus.svg" /></a> Create a new label.</li>
+<li><a class="icon"><img alt="" src="../../img/icons/delete.svg" /></a> delete the specific label</li>
+<li><a class="icon"><img alt="" src="../../img/icons/rename.svg" /></a> rename the specific label (you can use to merge annotations with another label) </li>
 </ul>
-</li>
-</ul>
+<p>The table summarize existing labels in the current scheme, the distribution of annotations for each dataset (train, valid and test). The rows can be re-ordered, the order of the rows will manage the order of the labels in the <a href="../annotate/">Annotate Page</a></p>
               
             </div>
           </div><footer>
