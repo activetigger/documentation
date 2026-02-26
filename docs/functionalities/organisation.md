@@ -38,3 +38,5 @@ When launching a process, you can stop it with the "Stop" button or with the <a 
 
 
 <!-- TODO : Mention the auto log off behaviour -->
+
+<!-- TODO : explain what objects are shared accross projects / users -->
