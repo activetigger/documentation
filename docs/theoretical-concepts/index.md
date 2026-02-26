@@ -49,3 +49,8 @@ XXX
 ## What is a topic model 
 
 XXX
+
+## What is Active Learning? 
+
+
+## Choose hyper parameters
