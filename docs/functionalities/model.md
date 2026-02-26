@@ -81,16 +81,16 @@ For both classifiers, the application displays the Macro F1-Score ([what metrics
 
     The performance are computed on the train-eval dataset
 
-- <a class="secondary-action">Show false predictions</a> to display the text inputs where the classification failed.
-- <a class="secondary-action">Donwload as JSON</a> to download the confusion matrix, scores per label and false predictions as a JSON file.
-- <a class="secondary-action">Parameters</a> to show the parameters of the model and the training arguments.
-- <a class="secondary-action">Rename</a> to rename the model.
+- <a class="action secondary">Show false predictions</a> to display the text inputs where the classification failed.
+- <a class="action secondary">Donwload as JSON</a> to download the confusion matrix, scores per label and false predictions as a JSON file.
+- <a class="action secondary">Parameters</a> to show the parameters of the model and the training arguments.
+- <a class="action secondary">Rename</a> to rename the model.
 
 For **BERT models only**, the application displays the [loss curve](https://en.wikipedia.org/wiki/Loss_function) ([how to read the loss curve?](../theoretical-concepts/index.md#read-the-loss-curve)).
 
 ## Evaluation
 
-The Evaluation tab shows similar component as the [Training](#training) tab. After selecting a classifier, <a class="primary-action">Compute statistics on current annotations</a> to compute the performance of the model on the full train, test and validation set[^3]. XXX Does it compute the prediction for the whol label? Can't remember.
+The Evaluation tab shows similar component as the [Training](#training) tab. After selecting a classifier, <a class="action primary">Compute statistics on current annotations</a> to compute the performance of the model on the full train, test and validation set[^3]. XXX Does it compute the prediction for the whol label? Can't remember.
 
 The rest of the layout is similar to the one in the [Training page](#key-insights)
 
