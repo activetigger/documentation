@@ -47,3 +47,11 @@ a.secondary-action{
     }
     
 }
+
+div.logo-div{
+    display: flex;
+    justify-content: center;
+    img{
+        width: 15rem;
+    }
+}

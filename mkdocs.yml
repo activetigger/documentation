@@ -19,8 +19,9 @@ nav:
       - Generative Page: functionalities/generative.md
       - Settings Page: functionalities/settings.md
       - Monitoring, Account and Users Pages: functionalities/monitoring-account-and-users.md
-  - Theoretical concepts: 
-      - Main: theoretical-concepts/index.md 
+  - Theoretical concepts:
+      - Main: theoretical-concepts/index.md
+      - Glossary: theoretical-concepts/glossary.md
   - Software:
       - Architecture: software/software.md
       - Contributors: software/contributors.md
