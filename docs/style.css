@@ -60,3 +60,25 @@ a.action.secondary{
     }
     
 }
+
+a.highlight{
+    color:black;
+    background-color: orange;
+
+    font-weight: 800;
+    padding: 0.15rem 0.15rem;
+    margin: 0rem;
+    border-radius: .2rem;
+    cursor: default;
+    a.parameter::hover{
+        color:black;
+    }
+}
+
+div.logo-div{
+    display: flex;
+    justify-content: center;
+    img{
+        width: 15rem;
+    }
+}
