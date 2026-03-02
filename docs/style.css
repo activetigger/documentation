@@ -1,3 +1,9 @@
+:root{
+    --primary-color: #ea6b1f;
+    --secondary-color: #b04302;
+}
+
+
 a.icon{
     padding: 0rem 0.2rem;
     margin: 0rem;
@@ -36,7 +42,7 @@ a.action{
 
 a.action.primary{
     color:white;
-    background-color: #ea6b1f;
+    background-color: var(--primary-color);
     ::hover{
         color:white;
     }
@@ -51,14 +57,13 @@ a.action.red-danger{
 }
 
 a.action.secondary{
-    color:#b04302;
+    color: var(--secondary-color);
     background-color: #00000000;
-    border:1px #b04302 solid;
+    border:1px var(--secondary-color) solid;
 
     ::hover{
-        color:#b04302;
+        color: var(--secondary-color);
     }
-    
 }
 
 a.highlight{
