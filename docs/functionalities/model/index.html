@@ -147,7 +147,7 @@
 <p><img alt="" src="../../img/functionalities/models.png" /> </p>
 <h3 id="quick-models">Quick Models</h3>
 <p>The Quick Models are classification models from <a href="http://scikit-learn.org/stable/supervised_learning.html">scikit-learn</a> trained on pre-computed features (<a href="../../theoretical-concepts/#what-are-features">what are features?</a>). They are quick to train and do not require GPUs. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
-<p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see <a href="../annotate/#active-mode">Annotation page</a>)</p>
+<p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see <a href="../annotate/#active-learning">Annotation page</a>)</p>
 <p>Models available include: </p>
 <ul>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic model</a> with L2 penalty: XXX. The parameters are: <ul>
@@ -189,7 +189,7 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 
 <h3 id="bertmodel">BERTmodel</h3>
 <p>The BERT Models are embedding models with a classification layer <a href="https://huggingface.co/docs/transformers/tasks/sequence_classification">trained with the huggingface framework</a>. They can take a dozen minutes to train and require GPUs<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
-<p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. After training, the best model (accross epochs / checkpoints) will be used to predict the labels on the whole trainset to be used in Active Learning (see <a href="../annotate/#active-mode">Annotation page</a>).</p>
+<p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. After training, the best model (accross epochs / checkpoints) will be used to predict the labels on the whole trainset to be used in Active Learning (see <a href="../annotate/#active-learning">Annotation page</a>).</p>
 <!-- TODO Check the save proces -->
 
 <p>The parameters for the model are: </p>
