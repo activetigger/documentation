@@ -17,14 +17,64 @@ Main functionalities:
 - Create topic analysis with [BERTopic](https://bertopic.com/).
 - Use generative AI tools.
 
-The software’s **key functionality** is <a class="key-highlight">Active Learning</a>, which reduces the annotation time necessary to reach high classification performance.
+The software’s **key functionality** is <a class="highlight">Active Learning</a>, which reduces the annotation time necessary to reach high classification performance.
 
 <!-- Potential recorded webinaire -->
 
 !!! note "This is V1 🎉"
 
-# Installation
+# Installation / Access to an instance
+
+Two solutions exist: 
+
+**Access [our online instance](./access.md#existing-instance).**
+
+- Secure storage for sensitive data.
+- 40 Gb VRAM for training models.
+- Need an account, [get one here](https://www.css.cnrs.fr/request-an-account-on-the-crest-instance/).
+
+**Install and run the application locally**
+
+- Download the github depo. In the terminal, enter:
+     
+```
+git clone https://github.com/emilienschultz/activetigger.git
+```
+
+- Move to the `activetigger` folder:
+
+```
+cd activetigger
+```
+
+- Use the production branch:
+
+```
+git checkout production
+```
+
+- Create the docker image
+
+```
+cd docker
+docker compose -f docker-compose.yml -f docker-compose.dev.yml -p activetigger up
+```
+
+Go to `http://localhost:5173/`, you shoul see the app running. [More information on setting up your instance.](../software/installation.md#set-up-your-local-instance).
+
+**Propose a test to see if it's indeed, up and running**
+
 
 # Workflow
 
 ![](../img/quickstart/flow-chart-draft.png)
+
+# Documentation tree
+
+# Community
+
+Join the discussion, share feedback and ask for new functionalities: Join us on [Discord](https://discord.gg/ybXDUtTP)!
+
+If you face issues: Read the [FAQ](../faq/faq.md)! If you can't find an answer, ask on [Discord](https://discord.gg/ybXDUtTP)! Alternatively, open an [issue on Github](https://github.com/emilienschultz/activetigger/issues)s!
+
+Visit out [team's website](css.cnrs.fr) to learn about other activities!
