@@ -145,17 +145,20 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="activetigger">ActiveTigger</h1>
-<p>ActiveTigger is a tool for collaborative text analysis specifically adapted for the social sciences. It offers access to computational methods (without needing to write a single line of code) and can be adapted to a variety of research projects as long as they involve text data in some form.</p>
+<p>ActiveTigger is a open source tool for collaborative text treatments specifically adapted for the social sciences. </p>
+<p>It offers access to computational methods (without needing to write a single line of code) and can be adapted to a variety of research projects as long as they involve text data in some form.</p>
 <p><strong>ActiveTigger could help you if you…</strong></p>
 <ul>
 <li>want to classify large amounts of text data (social media posts, news articles, political manifestos...)</li>
-<li>are working collaboratively with other manual annotators</li>
+<li>are working collaboratively with other human annotators</li>
 <li>want to get an overview of key topics in your text data</li>
 <li>are curious about computational methods and want an easy introduction</li>
 </ul>
 <p><em>(ActiveTigger is currently in v1 - here is where you can provide feedback and raise issues)</em></p>
-<p>This Quickstart guide offers an overview of what you need to get started with ActiveTigger. Many <strong>use cases</strong> are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: having more textual data than you could manually analyze.</p>
+<p>This Quickstart guide offers an overview of what you need to get started with ActiveTigger. Many <strong>use cases</strong> are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: <em>having more textual data than you could manually analyze</em>.</p>
+<blockquote>
 <p>Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.</p>
+</blockquote>
 <h2 id="workflow-at-a-glance">Workflow at a glance</h2>
 <h2 id="poster">(poster?)</h2>
 <p><strong>1. Create a project → 2. Define your annotation scheme → 3. Annotate → 4. (Optional) Train a model → 5. Export your results</strong></p>
@@ -174,11 +177,15 @@
 <li><strong>Language of the corpus</strong> — Specify the language of your text data (used to select relevant models, but you can also work in languages not listed here)</li>
 <li><strong>Number of elements in the train set</strong> — Specify how many elements you wish to import in the training dataset</li>
 </ul>
-<p><strong>Optional:</strong>
-- <strong>Context columns:</strong> columns to display alongside the text while annotating (e.g. author, date, source). May be useful to understand what you are annotating, but this data is not used by the model.
-- <strong>Existing annotations:</strong> if your file already has a label column (for example, if you have already completed some manual annotation), you can import it.
-- <strong>Test set:</strong> a held-out sample used later to evaluate your model. Not required to get started.</p>
+<p><strong>Optional:</strong></p>
+<ul>
+<li><strong>Context columns:</strong> columns to display alongside the text while annotating (e.g. author, date, source). May be useful to understand what you are annotating, but this data is not used by the model.</li>
+<li><strong>Existing annotations:</strong> if your file already has a label column (for example, if you have already completed some manual annotation), you can import it.</li>
+<li><strong>Test set:</strong> a held-out sample used later to evaluate your model. Not required to get started.</li>
+</ul>
+<blockquote>
 <p>For our example with political/non-political headlines, let's import 8000 text elements in our training dataset (that does not mean we are going to annotate all of them - see here for how to determine how many elements to import).</p>
+</blockquote>
 <h2 id="2-define-your-annotation-scheme">2. Define your annotation scheme</h2>
 <p>Under the <strong>Codebook</strong> tab, we can go to the next step: defining our labels.</p>
 <p>A coding scheme is the set of labels you'll use to annotate. One scheme is created by default.</p>
@@ -190,14 +197,18 @@
 <h2 id="3-annotate">3. Annotate</h2>
 <p>Next, let's start annotating!</p>
 <p>Go to the <strong>Tag</strong> tab. The interface shows you one text at a time. Read it, click the appropriate label, and move on. ActiveTigger picks the next element automatically.</p>
-<p><strong>Selection modes:</strong>
-- <strong>Random</strong> (recommended to start): picks elements at random.
-- <strong>Fixed:</strong> follows the original order of your dataset.
-- <strong>Keyboard shortcuts:</strong> press the number key corresponding to a label to annotate without clicking.</p>
-<p><strong>You can also:</strong>
-- Add a comment to any annotation (useful for edge cases)
-- Go back to re-annotate the previous element
-- Skip an element to return to it later</p>
+<p><strong>Selection modes:</strong></p>
+<ul>
+<li><strong>Random</strong> (recommended to start): picks elements at random.</li>
+<li><strong>Fixed:</strong> follows the original order of your dataset.</li>
+<li><strong>Keyboard shortcuts:</strong> press the number key corresponding to a label to annotate without clicking.</li>
+</ul>
+<p><strong>You can also:</strong></p>
+<ul>
+<li>Add a comment to any annotation (useful for edge cases)</li>
+<li>Go back to re-annotate the previous element</li>
+<li>Skip an element to return to it later</li>
+</ul>
 <div class="admonition info">
 <p class="admonition-title">Active Learning</p>
 <p>For our example, maybe we find that most headlines are not classifiable as "political". Going through the dataset in a random order, it takes us a lot of time to find examples of this category. This is where active learning can come in handy.</p>
@@ -225,13 +236,15 @@
 <p class="admonition-title">Best practices</p>
 <p>In practice, going through each of these steps requires iteration and careful thinking about your annotation strategy. In this documentation, you'll find more detailed information about each key feature of ActiveTigger as well as advice on best practices.</p>
 </div>
-<p><strong>You may also be curious about:</strong>
-- how to manage collaboration through adding multiple users to your project
-- how to use topic models to get an overview of what your dataset is about
-- how to use generative AI tools in ActiveTigger</p>
+<p><strong>You may also be curious about:</strong></p>
+<ul>
+<li>how to manage collaboration through adding multiple users to your project</li>
+<li>how to use topic models to get an overview of what your dataset is about</li>
+<li>how to use generative AI tools in ActiveTigger</li>
+</ul>
 <h2 id="get-in-touch">Get in touch</h2>
-<p>If you encounter a bug or have a suggestion, feel free to raise an issue on GitHub.</p>
-<p>We also have an active Discord community used to signal troubleshooting, exchange ideas, and ask questions about ActiveTigger.</p>
+<p>If you encounter a bug or have a suggestion, feel free to raise an issue on Github.</p>
+<p>We also have an active Discord community used to signal troubleshooting, exchange ideas, and ask questions about ActiveTigger. Please reach out at css@ensae.fr.</p>
               
             </div>
           </div><footer>
