@@ -48,6 +48,22 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Quickstart</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#workflow-at-a-glance">Workflow at a glance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#poster">(poster?)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-create-a-project">1. Create a project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-define-your-annotation-scheme">2. Define your annotation scheme</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-annotate">3. Annotate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-train-a-model-optional">4. Train a model (optional)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-export">5. Export</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-in-touch">Get in touch</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../usecases/">Use cases</a>
@@ -128,65 +144,94 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div class="logo-div"><img src="../../img/at.png"></div>
-
-<h1 id="who-are-we">Who are we</h1>
-<p>Active Tigger is an <strong>open source project</strong> created for <strong>social scientists</strong> by social scientists. We design the application in <strong>collaboration</strong> with users to adapt to their needs. We are happy to welcome new <a href="../../software/contributors/">contributors</a>.</p>
-<p>ActiveTigger is developed in the CREST research unit (CNRS, Polytechnique, ENSAE), within the <a href="https://www.css.cnrs.fr/team/">CSS@IP-Paris team</a>, with the help of <a href="https://www.ouestware.com/">OuestWare</a> and the generous funding of DRARI Île-de-France, Progedo, and CREST.</p>
-<h1 id="what-we-do">What we do</h1>
-<p>ActiveTigger is an open-source software designed to support <strong>collaborative text annotation for social sciences</strong>, facilitating access to computational tools for research projects dealing with large amounts of text data. There are no entry requirements. </p>
-<p>Main functionalities: </p>
+                <h1 id="activetigger">ActiveTigger</h1>
+<p>ActiveTigger is a tool for collaborative text analysis specifically adapted for the social sciences. It offers access to computational methods (without needing to write a single line of code) and can be adapted to a variety of research projects as long as they involve text data in some form.</p>
+<p><strong>ActiveTigger could help you if you…</strong></p>
 <ul>
-<li>Collaborative annotations of texts and project management tools.</li>
-<li>Fine-tune of encoder classifiers.</li>
-<li>Create topic analysis with <a href="https://bertopic.com/">BERTopic</a>.</li>
-<li>Use generative AI tools.</li>
+<li>want to classify large amounts of text data (social media posts, news articles, political manifestos...)</li>
+<li>are working collaboratively with other manual annotators</li>
+<li>want to get an overview of key topics in your text data</li>
+<li>are curious about computational methods and want an easy introduction</li>
 </ul>
-<p>The software’s <strong>key functionality</strong> is <a class="highlight">Active Learning</a>, which reduces the annotation time necessary to reach high classification performance.</p>
-<!-- Potential recorded webinaire -->
-
-<div class="admonition note">
-<p class="admonition-title">This is V1 🎉</p>
+<p><em>(ActiveTigger is currently in v1 - here is where you can provide feedback and raise issues)</em></p>
+<p>This Quickstart guide offers an overview of what you need to get started with ActiveTigger. Many <strong>use cases</strong> are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: having more textual data than you could manually analyze.</p>
+<p>Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.</p>
+<h2 id="workflow-at-a-glance">Workflow at a glance</h2>
+<h2 id="poster">(poster?)</h2>
+<p><strong>1. Create a project → 2. Define your annotation scheme → 3. Annotate → 4. (Optional) Train a model → 5. Export your results</strong></p>
+<p><strong>What you'll need before starting:</strong>
+- An ActiveTigger account
+- A web browser through which you can access ActiveTigger either on our servers or by running it locally on your computer
+- A spreadsheet (CSV, XLSX, or Parquet) where each row is a text unit to annotate. In our example, each news headline should have its own row.</p>
+<p>That's it!</p>
+<h2 id="1-create-a-project">1. Create a project</h2>
+<p>Go to the <strong>New Project</strong> screen and fill in:</p>
+<ul>
+<li><strong>Project name</strong> — A unique name for your project</li>
+<li><strong>Load dataset from disk</strong> — Upload your CSV, XLSX, or Parquet file, with each text element in a separate row</li>
+<li><strong>Id column</strong> — Specify the unique identifier for each row. If there is no such column in your dataset, pick "Row number"</li>
+<li><strong>Text columns</strong> — Specify the column that contains the text you wish to annotate</li>
+<li><strong>Language of the corpus</strong> — Specify the language of your text data (used to select relevant models, but you can also work in languages not listed here)</li>
+<li><strong>Number of elements in the train set</strong> — Specify how many elements you wish to import in the training dataset</li>
+</ul>
+<p><strong>Optional:</strong>
+- <strong>Context columns:</strong> columns to display alongside the text while annotating (e.g. author, date, source). May be useful to understand what you are annotating, but this data is not used by the model.
+- <strong>Existing annotations:</strong> if your file already has a label column (for example, if you have already completed some manual annotation), you can import it.
+- <strong>Test set:</strong> a held-out sample used later to evaluate your model. Not required to get started.</p>
+<p>For our example with political/non-political headlines, let's import 8000 text elements in our training dataset (that does not mean we are going to annotate all of them - see here for how to determine how many elements to import).</p>
+<h2 id="2-define-your-annotation-scheme">2. Define your annotation scheme</h2>
+<p>Under the <strong>Codebook</strong> tab, we can go to the next step: defining our labels.</p>
+<p>A coding scheme is the set of labels you'll use to annotate. One scheme is created by default.</p>
+<p>Click <strong>New label</strong>, type your label name, and press <strong>+</strong>. Repeat for each label.</p>
+<p>In our example, let's create two labels: "political" and "non-political".</p>
+<blockquote>
+<p>Consider writing a short codebook (Project → Codebook tab) explaining how to distinguish labels, especially if you work with collaborators.</p>
+</blockquote>
+<h2 id="3-annotate">3. Annotate</h2>
+<p>Next, let's start annotating!</p>
+<p>Go to the <strong>Tag</strong> tab. The interface shows you one text at a time. Read it, click the appropriate label, and move on. ActiveTigger picks the next element automatically.</p>
+<p><strong>Selection modes:</strong>
+- <strong>Random</strong> (recommended to start): picks elements at random.
+- <strong>Fixed:</strong> follows the original order of your dataset.
+- <strong>Keyboard shortcuts:</strong> press the number key corresponding to a label to annotate without clicking.</p>
+<p><strong>You can also:</strong>
+- Add a comment to any annotation (useful for edge cases)
+- Go back to re-annotate the previous element
+- Skip an element to return to it later</p>
+<div class="admonition info">
+<p class="admonition-title">Active Learning</p>
+<p>For our example, maybe we find that most headlines are not classifiable as "political". Going through the dataset in a random order, it takes us a lot of time to find examples of this category. This is where active learning can come in handy.</p>
+<p>In "active" mode, a model guesses what label you will apply to a given text, offering you the opportunity to correct it. This can help to speed up the annotation process if you are aiming to train a model that can automatically annotate your entire dataset.</p>
+<p>To enable Active Mode, you need to first train a Quick Model. Go to <strong>Model → Create new quick model</strong>.</p>
+<p>In the <strong>Tag</strong> tab, click on the little tiger face under <strong>Active Mode</strong>.</p>
+<p>In this mode, you can switch between the following text selection methods:</p>
+<ul>
+<li><strong>Active:</strong> prioritises texts the model is most uncertain about.</li>
+<li><strong>Maxprob:</strong> prioritises texts the model is most confident about.</li>
+</ul>
+<p>Try alternating between them and correct the model's preliminary guesses!</p>
 </div>
-<h1 id="installation-access-to-an-instance">Installation / Access to an instance</h1>
-<p>Two solutions exist: </p>
-<p><strong>Access <a href="../access/#existing-instance">our online instance</a>.</strong></p>
-<ul>
-<li>Secure storage for sensitive data.</li>
-<li>40 Gb VRAM for training models.</li>
-<li>Need an account, <a href="https://www.css.cnrs.fr/request-an-account-on-the-crest-instance/">get one here</a>.</li>
-</ul>
-<p><strong>Install and run the application locally</strong></p>
-<ul>
-<li>Download the github depo. In the terminal, enter:</li>
-</ul>
-<pre><code>git clone https://github.com/emilienschultz/activetigger.git
-</code></pre>
-<ul>
-<li>Move to the <code>activetigger</code> folder:</li>
-</ul>
-<pre><code>cd activetigger
-</code></pre>
-<ul>
-<li>Use the production branch:</li>
-</ul>
-<pre><code>git checkout production
-</code></pre>
-<ul>
-<li>Create the docker image</li>
-</ul>
-<pre><code>cd docker
-docker compose -f docker-compose.yml -f docker-compose.dev.yml -p activetigger up
-</code></pre>
-<p>Go to <code>http://localhost:5173/</code>, you shoul see the app running. <a href="../../software/installation/#set-up-your-local-instance">More information on setting up your instance.</a>.</p>
-<p><strong>Propose a test to see if it's indeed, up and running</strong></p>
-<h1 id="workflow">Workflow</h1>
-<p><img alt="" src="../../img/quickstart/flow-chart-draft.png" /></p>
-<h1 id="documentation-tree">Documentation tree</h1>
-<h1 id="community">Community</h1>
-<p>Join the discussion, share feedback and ask for new functionalities: Join us on <a href="https://discord.gg/ybXDUtTP">Discord</a>!</p>
-<p>If you face issues: Read the <a href="../../faq/faq/">FAQ</a>! If you can't find an answer, ask on <a href="https://discord.gg/ybXDUtTP">Discord</a>! Alternatively, open an <a href="https://github.com/emilienschultz/activetigger/issues">issue on Github</a>s!</p>
-<p>Visit out <a href="css.cnrs.fr">team's website</a> to learn about other activities!</p>
+<h2 id="4-train-a-model-optional">4. Train a model (optional)</h2>
+<p>If your goal is to extend your annotations to the full corpus automatically, you can train a BERT-based model directly in the interface.</p>
+<p>A BERT-based classifier model uses your annotations to "learn" what kinds of texts should go in each category. Once trained, it can be applied on your data to apply your coding scheme automatically.</p>
+<p>You should aim to have around a few hundred annotations with examples in each category (for our project, in both our "political" and "non-political" news headlines)</p>
+<p>Go to <strong>Model → Create new quick model</strong>.</p>
+<p>In the <strong>Model</strong> tab, you can also evaluate your model.</p>
+<h2 id="5-export">5. Export</h2>
+<p>Here, you can export your annotations, models, and the predictions made by the model on your data.</p>
+<p>Once you are happy with your model, you can use it to predict labels on your entire dataset under <strong>Export → Models → Prediction complete dataset</strong>.</p>
+<p>You can then export your predictions. Congratulations, you have a fully annotated dataset!</p>
+<div class="admonition info">
+<p class="admonition-title">Best practices</p>
+<p>In practice, going through each of these steps requires iteration and careful thinking about your annotation strategy. In this documentation, you'll find more detailed information about each key feature of ActiveTigger as well as advice on best practices.</p>
+</div>
+<p><strong>You may also be curious about:</strong>
+- how to manage collaboration through adding multiple users to your project
+- how to use topic models to get an overview of what your dataset is about
+- how to use generative AI tools in ActiveTigger</p>
+<h2 id="get-in-touch">Get in touch</h2>
+<p>If you encounter a bug or have a suggestion, feel free to raise an issue on GitHub.</p>
+<p>We also have an active Discord community used to signal troubleshooting, exchange ideas, and ask questions about ActiveTigger.</p>
               
             </div>
           </div><footer>
