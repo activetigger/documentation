@@ -19,7 +19,7 @@ This Quickstart guide offers an overview of what you need to get started with Ac
 
 ## Workflow at a glance
 
-##(poster?)
+Add figure.
 
 **1. Create a project → 2. Define your annotation scheme → 3. Annotate → 4. (Optional) Train a model → 5. Export your results**
 
