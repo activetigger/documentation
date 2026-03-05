@@ -1,19 +1,21 @@
 # ActiveTigger
 
-ActiveTigger is a tool for collaborative text analysis specifically adapted for the social sciences. It offers access to computational methods (without needing to write a single line of code) and can be adapted to a variety of research projects as long as they involve text data in some form.
+ActiveTigger is a open source tool for collaborative text treatments specifically adapted for the social sciences. 
+
+It offers access to computational methods (without needing to write a single line of code) and can be adapted to a variety of research projects as long as they involve text data in some form.
 
 **ActiveTigger could help you if you…**
 
 - want to classify large amounts of text data (social media posts, news articles, political manifestos...)
-- are working collaboratively with other manual annotators
+- are working collaboratively with other human annotators
 - want to get an overview of key topics in your text data
 - are curious about computational methods and want an easy introduction
 
 *(ActiveTigger is currently in v1 - here is where you can provide feedback and raise issues)*
 
-This Quickstart guide offers an overview of what you need to get started with ActiveTigger. Many **use cases** are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: having more textual data than you could manually analyze.
+This Quickstart guide offers an overview of what you need to get started with ActiveTigger. Many **use cases** are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: *having more textual data than you could manually analyze*.
 
-Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.
+> Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.
 
 ## Workflow at a glance
 
@@ -40,11 +42,12 @@ Go to the **New Project** screen and fill in:
 - **Number of elements in the train set** — Specify how many elements you wish to import in the training dataset
 
 **Optional:**
+
 - **Context columns:** columns to display alongside the text while annotating (e.g. author, date, source). May be useful to understand what you are annotating, but this data is not used by the model.
 - **Existing annotations:** if your file already has a label column (for example, if you have already completed some manual annotation), you can import it.
 - **Test set:** a held-out sample used later to evaluate your model. Not required to get started.
 
-For our example with political/non-political headlines, let's import 8000 text elements in our training dataset (that does not mean we are going to annotate all of them - see here for how to determine how many elements to import).
+> For our example with political/non-political headlines, let's import 8000 text elements in our training dataset (that does not mean we are going to annotate all of them - see here for how to determine how many elements to import).
 
 ## 2. Define your annotation scheme
 
@@ -65,11 +68,13 @@ Next, let's start annotating!
 Go to the **Tag** tab. The interface shows you one text at a time. Read it, click the appropriate label, and move on. ActiveTigger picks the next element automatically.
 
 **Selection modes:**
+
 - **Random** (recommended to start): picks elements at random.
 - **Fixed:** follows the original order of your dataset.
 - **Keyboard shortcuts:** press the number key corresponding to a label to annotate without clicking.
 
 **You can also:**
+
 - Add a comment to any annotation (useful for edge cases)
 - Go back to re-annotate the previous element
 - Skip an element to return to it later
@@ -119,12 +124,13 @@ You can then export your predictions. Congratulations, you have a fully annotate
 
 
 **You may also be curious about:**
+
 - how to manage collaboration through adding multiple users to your project
 - how to use topic models to get an overview of what your dataset is about
 - how to use generative AI tools in ActiveTigger
 
 ## Get in touch
 
-If you encounter a bug or have a suggestion, feel free to raise an issue on GitHub.
+If you encounter a bug or have a suggestion, feel free to raise an issue on Github.
 
-We also have an active Discord community used to signal troubleshooting, exchange ideas, and ask questions about ActiveTigger.
+We also have an active Discord community used to signal troubleshooting, exchange ideas, and ask questions about ActiveTigger. Please reach out at css@ensae.fr.
