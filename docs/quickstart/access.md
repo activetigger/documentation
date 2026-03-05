@@ -1,50 +1,65 @@
-# Existing instance
+# Accessing ActiveTigger
 
-[Link](https://emilienschultz.github.io/activetigger/#/login)
+ActiveTigger is a web application designed to be deployed on a server, but it can also run locally on your machine.
 
-# Get access
+There are two ways to get started:
 
-An instance of Active Tigger is running on GENES servers with a GPU.
+1. **Get an account on an existing instance** — the easiest option
+2. **Install it locally** using Docker
 
-The beta test phase started October 30, 2024 and will last until August 2025.
+---
 
-- The main aim is to **report bugs and problems**
-- The secondary aim is to identify potential **enhancements**
+## Option 1: Use an existing instance
 
-> [!NOTE]
-> During this phase, be informed that the service can evolve since bug fixes will be integrated continuously. An email will be sent before any reset that could led to destroyed data. Nevetheless, please take care to save your data.
+## Existing instance
 
-## Who can access the service
+- CREST development instance
+
+## CREST development instance
+
+A development instance of ActiveTigger is running on GENES servers (with GPU support), accessible [here](https://activetigger.github.io/activetigger).
+
+!!! warning "Development instance"
+    This instance is primarily intended for **testing and reporting bugs**. Service continuity is not guaranteed. We reserve the right to modify, restrict, or revoke access at any time.
+
+### Who can request access?
 
 - Researchers who have textual data to annotate
-- Open source contributors who want to help on a scientific software
+- Open source contributors who want to help improve the software
 
-*All accounts will be reset at the end of the beta test phase. Account without any activity can be deactivated after 2 months. Please be aware that this is a test service, and we reserve the right to deactivate any account at our discretion.*
+### How to get access
 
-## How to test
+1. Contact **emilien.schultz [at] ensae.fr** with a brief explanation of:
+    - Your current status (e.g., student, researcher, engineer)
+    - Your research project or intended use case
+2. Once your account is created, you can:
+    - Upload data and annotate text
+    - Train classification models
+    - Report bugs or suggest features via [GitHub issues](https://github.com/activetigger/activetigger/issues)
 
-1. Contact **emilien.schultz [at] ensae.fr** to request access.  
-   Please include a brief explanation of:
-   - Your current status (e.g., student, researcher)
-   - Your research project or use case
-2. Once access is granted, you can:
-   - Upload data
-   - Annotate text
-   - Train models
-   - Report bugs or problems via **GitHub issues**
+!!! info "Account policy"
+    Accounts without any activity may be deactivated after 2 months.
 
-## How to Discuss
+### How to get in touch
 
-- Use **GitHub issues** for bug reports and feature suggestions.
-- Join our **Discord channel** (request an invitation via email).
+- **GitHub issues** — for bug reports and feature suggestions
+- **Discord** — for questions and discussion (request an invitation via email)
 
-## User agreement
+### User agreement
 
-> ⚠️ Access to Active Tigger is currently **temporary**, and **data storage or security is not guaranteed**.  
-> The service is hosted on **ENSAE servers** and intended **solely for research purposes**.  
-> We reserve the right to **modify, restrict, or revoke access** at any time without notice.
+!!! warning "Terms of use"
+    - Access to ActiveTigger is currently **temporary**
+    - **Data storage and security are not guaranteed** — do not upload sensitive data
+    - The service is hosted on **ENSAE servers** and intended **solely for research purposes**
+    - We reserve the right to **modify, restrict, or revoke access** at any time without notice
 
-## To get started
-- Request account (email above)
-- Introduce yourself and your project on the Discord server
-- Check out the Quick Start guide
+---
+
+## Option 2: Install locally
+
+You can deploy your own instance of ActiveTigger on your machine or on a cloud server (e.g., [OVH](https://www.ovhcloud.com/fr/public-cloud)).
+
+!!! info "GPU recommended"
+    ActiveTigger can run on CPU, but a GPU will significantly speed up model training and predictions.
+
+For installation instructions, see the [deployment guide](https://github.com/activetigger/activetigger/blob/main/DEPLOY.md).

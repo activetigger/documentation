@@ -4,7 +4,7 @@ nav:
   - First steps:
       - Quickstart: quickstart/quickstart.md
       - Use cases: quickstart/usecases.md
-      - Get Access: quickstart/access.md
+      - Install and access: quickstart/access.md
       - Environemental impact: quickstart/environment.md
   - Showcase:
       - Real uses: showcase/usecases.md
