@@ -13,22 +13,18 @@
 
 - Émilien Schultz (CREST)
 - Paul Girard (Ouestware)
-- Jean-Baptiste Richardet
-- Matthias Bussonnier
 - Léo Mignot (Centre Émile Durkheim)
 - Jules Brion (Pacte)
 - Annina Claesson (CREST)
-
-## Feedbacks
-
-- David Larousserie
+- Jean-Baptiste Richardet
+- Matthias Bussonnier
 
 ## Funding
 
 - DRARI Île-de-France
 - CREST @ IPP
-- Progédo
+- Progedo
 
 ## How to contribute
 
-If you want to contribute to the codebase, please get in touch.
+We are happy to welcome all contributors : discuss the general features, modify the code or update the documentation. Please reach out.

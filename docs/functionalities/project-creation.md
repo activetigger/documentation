@@ -1,6 +1,6 @@
 # Project Creation page
 
-This section describes project creation
+Project creation is available on the main page and give the possibility to create a new project. 
 
 ![Overview of the Project Creation page](../img/functionalities/overview.png)
 

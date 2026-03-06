@@ -24,9 +24,10 @@ nav:
       - Glossary: theoretical-concepts/glossary.md
   - Software:
       - Architecture: software/software.md
+      - Roadmap : software/roadmap.md
       - Contributors: software/contributors.md
   - FAQ:
-      - Main qestions: faq/faq.md
+      - Main questions: faq/faq.md
 
 markdown_extensions:
   - footnotes
