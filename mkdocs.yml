@@ -3,11 +3,12 @@ nav:
   - Home: index.md
   - First steps:
       - Quickstart: quickstart/quickstart.md
-      - Use cases: quickstart/usecases.md
+      - Main use cases: quickstart/usecases.md
       - Install and access: quickstart/access.md
       - Environemental impact: quickstart/environment.md
-  - Showcase:
-      - Real uses: showcase/usecases.md
+  - Ressources:
+      - How people use it: ressources/usecases.md
+      - Existing tutorials and videos: ressources/references.md
   - Functionalities:
       - General organisation: functionalities/organisation.md
       - Project Creation: functionalities/project-creation.md

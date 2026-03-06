@@ -9,12 +9,8 @@ ActiveTigger[^old] is an text annotation web tool dedicated for computational so
 
 ## How to start ?
 
-First, you need to access a running instance :
-
-- Deploy you local instance (with a GPU if you want shorter computation time, but it can run on CPU)
-    - locally 
-    - on a cloud server (for instance [OVH](https://www.ovhcloud.com/fr/public-cloud))
-- Get access to existing instance
-
+- Have a look to our [quickstart](./quickstart/quickstart.md)
+- Follow one of our introductions (in live or replay)
+- Have a try !
 
 
