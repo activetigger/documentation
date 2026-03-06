@@ -142,29 +142,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="activetigger">ActiveTigger</h1>
-<p>ActiveTigger is a open source tool for collaborative text treatments specifically adapted for the social sciences. </p>
-<p>It offers access to computational methods (without needing to write a single line of code) and can be adapted to a variety of research projects as long as they involve text data in some form.</p>
+                <h1 id="quickstart-for-activetigger">Quickstart for ActiveTigger</h1>
+<p><em>ActiveTigger</em> is a <strong>open source</strong> tool for <strong>collaborative text treatments</strong> adapted for the social sciences. </p>
+<p>It offers access to no-code computational methods suitable for a variety of research projects as long as they involve text data in some form.</p>
 <p><strong>ActiveTigger could help you if you…</strong></p>
 <ul>
-<li>want to classify large amounts of text data (social media posts, news articles, political manifestos...)</li>
+<li>want to classify large amounts of text data (social media posts, news articles...)</li>
 <li>are working collaboratively with other human annotators</li>
 <li>want to get an overview of key topics in your text data</li>
 <li>are curious about computational methods and want an easy introduction</li>
 </ul>
-<p><em>(ActiveTigger is currently in v1 - here is where you can provide feedback and raise issues)</em></p>
-<p>This Quickstart guide offers an overview of what you need to get started with ActiveTigger. Many <strong>use cases</strong> are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: <em>having more textual data than you could manually analyze</em>.</p>
-<blockquote>
+<p>This Quickstart guide offers an overview of what you need to get started with ActiveTigger. </p>
+<p>Many <strong>use cases</strong> are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: <em>having more textual data than you could manually analyze</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Example</p>
 <p>Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.</p>
-</blockquote>
+</div>
 <h2 id="workflow-at-a-glance">Workflow at a glance</h2>
 <p>Add figure.</p>
 <p><strong>1. Create a project → 2. Define your annotation scheme → 3. Annotate → 4. (Optional) Train a model → 5. Export your results</strong></p>
-<p><strong>What you'll need before starting:</strong>
-- An ActiveTigger account
-- A web browser through which you can access ActiveTigger either on our servers or by running it locally on your computer
-- A spreadsheet (CSV, XLSX, or Parquet) where each row is a text unit to annotate. In our example, each news headline should have its own row.</p>
-<p>That's it!</p>
+<p><strong>What you'll need before starting:</strong></p>
+<ul>
+<li>An access to Active Tigger account</li>
+<li>A web browser through which you can access ActiveTigger either on a server or by running it locally on your computer</li>
+<li>A tabular dataset (CSV, XLSX, or Parquet) where each row is a text unit to annotate. </li>
+</ul>
+<p><strong>That's it!</strong></p>
 <h2 id="1-create-a-project">1. Create a project</h2>
 <p>Go to the <strong>New Project</strong> screen and fill in:</p>
 <ul>
@@ -181,9 +184,10 @@
 <li><strong>Existing annotations:</strong> if your file already has a label column (for example, if you have already completed some manual annotation), you can import it.</li>
 <li><strong>Test set:</strong> a held-out sample used later to evaluate your model. Not required to get started.</li>
 </ul>
-<blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Example</p>
 <p>For our example with political/non-political headlines, let's import 8000 text elements in our training dataset (that does not mean we are going to annotate all of them - see here for how to determine how many elements to import).</p>
-</blockquote>
+</div>
 <h2 id="2-define-your-annotation-scheme">2. Define your annotation scheme</h2>
 <p>Under the <strong>Codebook</strong> tab, we can go to the next step: defining our labels.</p>
 <p>A coding scheme is the set of labels you'll use to annotate. One scheme is created by default.</p>
