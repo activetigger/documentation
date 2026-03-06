@@ -1,21 +1,22 @@
-# ActiveTigger
+# Quickstart for ActiveTigger
 
-ActiveTigger is a open source tool for collaborative text treatments specifically adapted for the social sciences. 
+*ActiveTigger* is a **open source** tool for **collaborative text treatments** adapted for the social sciences. 
 
-It offers access to computational methods (without needing to write a single line of code) and can be adapted to a variety of research projects as long as they involve text data in some form.
+It offers access to no-code computational methods suitable for a variety of research projects as long as they involve text data in some form.
 
 **ActiveTigger could help you if you…**
 
-- want to classify large amounts of text data (social media posts, news articles, political manifestos...)
+- want to classify large amounts of text data (social media posts, news articles...)
 - are working collaboratively with other human annotators
 - want to get an overview of key topics in your text data
 - are curious about computational methods and want an easy introduction
 
-*(ActiveTigger is currently in v1 - here is where you can provide feedback and raise issues)*
+This Quickstart guide offers an overview of what you need to get started with ActiveTigger. 
 
-This Quickstart guide offers an overview of what you need to get started with ActiveTigger. Many **use cases** are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: *having more textual data than you could manually analyze*.
+Many **use cases** are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: *having more textual data than you could manually analyze*.
 
-> Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.
+!!! tip "Example"
+    Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.
 
 ## Workflow at a glance
 
@@ -24,11 +25,12 @@ Add figure.
 **1. Create a project → 2. Define your annotation scheme → 3. Annotate → 4. (Optional) Train a model → 5. Export your results**
 
 **What you'll need before starting:**
-- An ActiveTigger account
-- A web browser through which you can access ActiveTigger either on our servers or by running it locally on your computer
-- A spreadsheet (CSV, XLSX, or Parquet) where each row is a text unit to annotate. In our example, each news headline should have its own row.
 
-That's it!
+- An access to Active Tigger account
+- A web browser through which you can access ActiveTigger either on a server or by running it locally on your computer
+- A tabular dataset (CSV, XLSX, or Parquet) where each row is a text unit to annotate. 
+
+**That's it!**
 
 ## 1. Create a project
 
@@ -47,7 +49,8 @@ Go to the **New Project** screen and fill in:
 - **Existing annotations:** if your file already has a label column (for example, if you have already completed some manual annotation), you can import it.
 - **Test set:** a held-out sample used later to evaluate your model. Not required to get started.
 
-> For our example with political/non-political headlines, let's import 8000 text elements in our training dataset (that does not mean we are going to annotate all of them - see here for how to determine how many elements to import).
+!!! tip "Example"
+    For our example with political/non-political headlines, let's import 8000 text elements in our training dataset (that does not mean we are going to annotate all of them - see here for how to determine how many elements to import).
 
 ## 2. Define your annotation scheme
 

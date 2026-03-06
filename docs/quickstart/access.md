@@ -1,33 +1,33 @@
 # Accessing ActiveTigger
 
-ActiveTigger is a web application designed to be deployed on a server, but it can also run locally on your machine.
+ActiveTigger is a web application designed to be deployed on a server, but it can also run locally on your machine. Some models works better with a GPU, so hardware can be important for what you want to achieve.
 
 There are two ways to get started:
 
-1. **Get an account on an existing instance** — the easiest option
-2. **Install it locally** using Docker
+1. **Get an account on an existing instance**
+2. **Install it locally**
 
 ---
 
 ## Option 1: Use an existing instance
 
-## Existing instance
+### Existing instance
 
 - CREST development instance
 
-## CREST development instance
+### CREST development instance
 
 A development instance of ActiveTigger is running on GENES servers (with GPU support), accessible [here](https://activetigger.github.io/activetigger).
 
 !!! warning "Development instance"
     This instance is primarily intended for **testing and reporting bugs**. Service continuity is not guaranteed. We reserve the right to modify, restrict, or revoke access at any time.
 
-### Who can request access?
+#### Who can request access?
 
 - Researchers who have textual data to annotate
 - Open source contributors who want to help improve the software
 
-### How to get access
+#### How to get access
 
 1. Contact **emilien.schultz [at] ensae.fr** with a brief explanation of:
     - Your current status (e.g., student, researcher, engineer)
@@ -40,12 +40,12 @@ A development instance of ActiveTigger is running on GENES servers (with GPU sup
 !!! info "Account policy"
     Accounts without any activity may be deactivated after 2 months.
 
-### How to get in touch
+#### How to get in touch
 
 - **GitHub issues** — for bug reports and feature suggestions
 - **Discord** — for questions and discussion (request an invitation via email)
 
-### User agreement
+#### User agreement
 
 !!! warning "Terms of use"
     - Access to ActiveTigger is currently **temporary**

@@ -2,39 +2,44 @@
 
 <!-- TODO: Include layout description -->
 
-This documentation details the different logics and functionalities of Active Tigger. It is a work in progress. It will be updated as the project evolves.
+This documentation details the different logics and functionalities of Active Tigger. It is a work in progress. It will be updated as the project evolves. 
 
-## General comments
+*If you see features that need more explanations, please open an issue.*
 
-Only one process allowed at the same time by user. There are two types of processes in Active Tigger:
 
-- CPU processes: they are used to prepare data, train quick models, etc.
-- GPU processes: these processes are run on the GPU. The server can only run a limited number of GPU processes at the same time.
+## Accounts and rights
 
-In both cases, if the number of processes is too high, they will be queued.
+ActiveTigger is based on a dual system of rights : type of accounts and rights on projects.
 
-## Accounts
+A user account can have one of the following status :
 
-A user can have the following status :
+- **root**: can do everything (especially access all projects and the /monitor page)
+- **manager**: can create new projects and manage them (adding users on those projects)
+- **annotator**: can only annotate on projects with a simplified frontend
 
-- **root**: can create and manage projects, users, and all data. Can access all projects and the /monitor page.
-- **manager**: can create and manage projects where he.she has complete rights. Can add users to the projects.
-- **annotator**: can only annotate on projects where he.she have been added. The frontend is simplified for this role.
+Users have specific rights on projects :
 
-User have also a relational status for a specific project:
-
-- **manager**: can manage the project, add users, and access all data.
-- **contributor**: can create elements in a project but never delete things
+- **manager**: can manage the project, add users, launch processes and access data.
+- **contributor**: can create elements in a project (scheme, annotation, model) but never delete things
 - **annotator**: can only annotate on the project without changing the project settings (schemes, labels, models, etc.).
 
-For the moment, there is no management at the scheme level.
+Comments :
+
+- There is no management at the scheme level
 
 
-## Dynamic 
+## Queue and processes
 
-When launching a process, you can stop it with the "Stop" button or with the <a class="icon">![](../img/icons/stop.svg)</a> ...
+Users can compute models. Each run is called a *process*. By default, only one process is allowed at the same time by user. There are two types of processes in Active Tigger:
 
-<img class="specific-class" src="/img/functionalities/stop-button.png" />
+- **CPU processes**: they are used to prepare data, train quick models, etc.
+- **GPU processes**: these processes are using GPU if available in the server. By default, the configuration of the server only accept one GPU process at once.
+
+Comments :
+
+- Some processes are costly to run and can take time
+- If processes are launched and no worker is avaiable, processes are put in a queue and wait for available workers.
+- When launching a process, you can stop it with the "Stop" button or with the <a class="icon">![](../img/icons/stop.svg)</a>
 
 
 <!-- TODO : Mention the auto log off behaviour -->
