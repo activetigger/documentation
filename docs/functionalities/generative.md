@@ -12,7 +12,7 @@ Each LLM model is running on external servers : it is up to the user to check it
 
 <a class="action primary">Create new model</a> allows to create a new model for the project (shared by all users).
 
-The main point is to identify where the model is available : which API is used ?
+The main point to configure a model is to have access to an API. Usually, this involve to know the endpoint and
 
 !!! info
 
