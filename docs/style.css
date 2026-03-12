@@ -102,3 +102,11 @@ div.logo-div{
         width: 15rem;
     }
 }
+
+div.img{
+    display: flex;
+    justify-content: center;
+    img{
+        width: 60%;
+    }
+}
