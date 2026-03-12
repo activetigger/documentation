@@ -20,7 +20,7 @@ Many **use cases** are possible, as ActiveTigger offers several methodological o
 
 ## Workflow at a glance
 
-Add figure.
+<div class="img"><img src="../../img/quickstart/steps.svg"/></div>
 
 **1. Create a project → 2. Define your annotation scheme → 3. Annotate → 4. (Optional) Train a model → 5. Export your results**
 
