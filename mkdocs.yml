@@ -3,7 +3,7 @@ nav:
   - Home: index.md
   - First steps:
       - Quickstart: quickstart/quickstart.md
-      - Main use cases: quickstart/usecases.md
+      - Workflows: quickstart/workflows.md
       - Install and access: quickstart/access.md
       - Environemental impact: quickstart/environment.md
   - Ressources:
@@ -25,7 +25,7 @@ nav:
       - Glossary: theoretical-concepts/glossary.md
   - Software:
       - Architecture: software/software.md
-      - Roadmap : software/roadmap.md
+      - Roadmap: software/roadmap.md
       - Contributors: software/contributors.md
   - FAQ:
       - Main questions: faq/faq.md

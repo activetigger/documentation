@@ -53,6 +53,9 @@ The last 100 text inputs annotated are visible underdeath the annotation page. F
 
 ### Models with ignored labels
 
+## Curate
+<!-- TODO -->
+
 ## Annotate (multi-label)
 
 The general layout is unchanged, to annotate elements, select one or more label in the dropdown menu and <span class="action primary">![](../img/icons/validate.svg)</span> to save the annotation and move on to the next text input.
