@@ -155,25 +155,25 @@
 <p>Models available include: </p>
 <ul>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic model</a> with L2 penalty: XXX. The parameters are: <ul>
-<li><a class="parameter">Cost</a>: XXX</li>
+<li><span class="parameter">Cost</span>: XXX</li>
 </ul>
 </li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic model</a> with L1 penalty: XXX. The parameters are: <ul>
-<li><a class="parameter">Cost</a>: XXX</li>
+<li><span class="parameter">Cost</span>: XXX</li>
 </ul>
 </li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">k-Nearest-Neighbors (KNN)</a>: XXX. The parameters are: <ul>
-<li><a class="parameter">Number of neighbors</a>: XXX</li>
+<li><span class="parameter">Number of neighbors</span>: XXX</li>
 </ul>
 </li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a>: XXX. The parameters are:<ul>
-<li><a class="parameter">Number of estimators</a>:</li>
-<li><a class="parameter">Max features</a>:</li>
+<li><span class="parameter">Number of estimators</span>:</li>
+<li><span class="parameter">Max features</span>:</li>
 </ul>
 </li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html">Multinomial Naive Bayes classifier</a>: XXX. The parameters are:<ul>
-<li><a class="parameter">Alpha</a></li>
-<li><a class="parameter">Fit prior</a></li>
+<li><span class="parameter">Alpha</span></li>
+<li><span class="parameter">Fit prior</span></li>
 </ul>
 </li>
 </ul>
@@ -184,10 +184,10 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 </div>
 <p>On top of model-specific parameters, additional parameters can be set: </p>
 <ul>
-<li><a class="parameter">Name for the model</a>: The name used as a reference in the interface. It must be unique within a project.</li>
-<li><a class="parameter">Automatically balance classes</a>: If set to True, the model will be trained on a subset of the train dataset<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> constructed by picking an equal number of text inputs accross labels. </li>
-<li><a class="parameter">10-fold cross validation</a>: Computes performance test using the <a href="http://scikit-learn.org/stable/modules/cross_validation.html">10-fold cross validation technique</a>.</li>
-<li><a class="parameter">Labels to ignore</a>: Labels selected will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for Active Learning (see <a href="../annotate/#models-with-ignored-labels">Annotation page</a>). </li>
+<li><span class="parameter">Name for the model</span>: The name used as a reference in the interface. It must be unique within a project.</li>
+<li><span class="parameter">Automatically balance classes</span>: If set to True, the model will be trained on a subset of the train dataset<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> constructed by picking an equal number of text inputs accross labels. </li>
+<li><span class="parameter">10-fold cross validation</span>: Computes performance test using the <a href="http://scikit-learn.org/stable/modules/cross_validation.html">10-fold cross validation technique</a>.</li>
+<li><span class="parameter">Labels to ignore</span>: Labels selected will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for Active Learning (see <a href="../annotate/#models-with-ignored-labels">Annotation page</a>). </li>
 </ul>
 <!-- TODO: ADD the retraining process-->
 
@@ -198,22 +198,22 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 
 <p>The parameters for the model are: </p>
 <ul>
-<li><a class="parameter">Name for the model</a> The name used as a reference in the interface.</li>
-<li><a class="parameter">Model base</a>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface (<a href="../../faq/faq/#choose-models-made-available">which models can I train?</a>). </li>
-<li><a class="parameter">Context window size</a>: The number of token per entry. After tokenization each input is truncated/padded to match this size. If selecting <a class="parameter">Auto adjust Max context window size</a> the window size will be calculated as the minimum between the maximum window size of the model and the length of the longest entry of the dataset.</li>
-<li><a class="parameter">Epochs</a>: The number of times the model will be train on the train dataset<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
-<li><a class="parameter">Learning Rate</a>: The initial learning rate value used during training (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
-<li><a class="parameter">Weight Decay</a>: The probability for a weight to not be updated during the backward propagation (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>).</li>
-<li><a class="parameter secondary">Use GPU</a>: If set to True, the model will be trained on GPU — <em>if available</em>.</li>
-<li><a class="parameter secondary">Batch size</a>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.</li>
-<li><a class="parameter secondary">Gradient Accumulation</a>: The number of batches used to update the weights during the backward propagation. @JULIEN</li>
-<li><a class="parameter secondary">Eval</a>: This is the number of evaluation — scoring performance on the train-eval dataset — performed during training.</li>
-<li><a class="parameter secondary">Train-eval split size</a>: The ratio of elements in the train dataset<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup> that will be used to assess the model performance during training.</li>
-<li><a class="parameter secondary">Class threshold</a>: The minimum number of annotation per label required. XXX sort out class or theshold</li>
-<li><a class="parameter secondary">Balance classes</a>: If set to True, the train dataset<sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup> will be constructed using the same number of text inputs per label.</li>
-<li><a class="parameter secondary">Loss</a>: The loss function used optimise the model weights for training.</li>
-<li><a class="parameter secondary">Keep the best model</a>: If set to True, the model .</li>
-<li><a class="parameter secondary">Labels to ignore</a>: Text inputs with these labels will be dropped out of the train dataset<sup id="fnref5:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+<li><span class="parameter">Name for the model</span> The name used as a reference in the interface.</li>
+<li><span class="parameter">Model base</span>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface (<a href="../../faq/faq/#choose-models-made-available">which models can I train?</a>). </li>
+<li><span class="parameter">Context window size</span>: The number of token per entry. After tokenization each input is truncated/padded to match this size. If selecting <span class="parameter">Auto adjust Max context window size</span> the window size will be calculated as the minimum between the maximum window size of the model and the length of the longest entry of the dataset.</li>
+<li><span class="parameter">Epochs</span>: The number of times the model will be train on the train dataset<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
+<li><span class="parameter">Learning Rate</span>: The initial learning rate value used during training (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
+<li><span class="parameter">Weight Decay</span>: The probability for a weight to not be updated during the backward propagation (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>).</li>
+<li><span class="parameter secondary">Use GPU</span>: If set to True, the model will be trained on GPU — <em>if available</em>.</li>
+<li><span class="parameter secondary">Batch size</span>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.</li>
+<li><span class="parameter secondary">Gradient Accumulation</span>: The number of batches used to update the weights during the backward propagation. @JULIEN</li>
+<li><span class="parameter secondary">Eval</span>: This is the number of evaluation — scoring performance on the train-eval dataset — performed during training.</li>
+<li><span class="parameter secondary">Train-eval split size</span>: The ratio of elements in the train dataset<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup> that will be used to assess the model performance during training.</li>
+<li><span class="parameter secondary">Class threshold</span>: The minimum number of annotation per label required. XXX sort out class or theshold</li>
+<li><span class="parameter secondary">Balance classes</span>: If set to True, the train dataset<sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup> will be constructed using the same number of text inputs per label.</li>
+<li><span class="parameter secondary">Loss</span>: The loss function used optimise the model weights for training.</li>
+<li><span class="parameter secondary">Keep the best model</span>: If set to True, the model .</li>
+<li><span class="parameter secondary">Labels to ignore</span>: Text inputs with these labels will be dropped out of the train dataset<sup id="fnref5:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
 </ul>
 <p>Trained BERT models are downloadable from the <a href="../export/#models">Export page</a>. Users can download the model files as well as the predictions on the dataset of the project or an external dataset.</p>
 <h3 id="key-insights">Key insights</h3>
@@ -223,14 +223,14 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 <p>The performance are computed on the train-eval dataset</p>
 </div>
 <ul>
-<li><a class="action secondary">Show false predictions</a> to display the text inputs where the classification failed.</li>
-<li><a class="action secondary">Donwload as JSON</a> to download the confusion matrix, scores per label and false predictions as a JSON file.</li>
-<li><a class="action secondary">Parameters</a> to show the parameters of the model and the training arguments.</li>
-<li><a class="action secondary">Rename</a> to rename the model.</li>
+<li><span class="action secondary">Show false predictions</span> to display the text inputs where the classification failed.</li>
+<li><span class="action secondary">Donwload as JSON</span> to download the confusion matrix, scores per label and false predictions as a JSON file.</li>
+<li><span class="action secondary">Parameters</span> to show the parameters of the model and the training arguments.</li>
+<li><span class="action secondary">Rename</span> to rename the model.</li>
 </ul>
 <p>For <strong>BERT models only</strong>, the application displays the <a href="https://en.wikipedia.org/wiki/Loss_function">loss curve</a> (<a href="../../theoretical-concepts/#read-the-loss-curve">how to read the loss curve?</a>).</p>
 <h2 id="evaluation">Evaluation</h2>
-<p>The Evaluation tab shows similar component as the <a href="#training">Training</a> tab. After selecting a classifier, <a class="action primary">Compute statistics on current annotations</a> to compute the performance of the model on the full train, test and validation set[^3]. XXX Does it compute the prediction for the whol label? Can't remember.</p>
+<p>The Evaluation tab shows similar component as the <a href="#training">Training</a> tab. After selecting a classifier, <span class="action primary">Compute statistics on current annotations</span> to compute the performance of the model on the full train, test and validation set[^3]. XXX Does it compute the prediction for the whol label? Can't remember.</p>
 <p>The rest of the layout is similar to the one in the <a href="#key-insights">Training page</a></p>
 <p>[^3] Again, the text inputs with no label are removed from the train, test and validation sets before computing the performance. </p>
 <div class="footnote">

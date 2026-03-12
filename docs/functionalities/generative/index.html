@@ -146,7 +146,7 @@
 <p>The panel allows to use external generative models to annotate or extract information with prompts. The general idea is to run a prompt for a sample of the text and get the results. Each run is caracterized by a <code>batch</code> id.</p>
 <p>Each LLM model is running on external servers : it is up to the user to check its parameters and the level of security for the server involved.</p>
 <h2 id="add-new-model">Add new model</h2>
-<p><a class="action primary">Create new model</a> allows to create a new model for the project (shared by all users).</p>
+<p><span class="action primary">Create new model</span> allows to create a new model for the project (shared by all users).</p>
 <p>The main point to configure a model is to have access to an API. Usually, this involve to know the endpoint and</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -155,37 +155,37 @@
 <p>HuggingFace is a french plateform for open source models that can also host LLM</p>
 </div>
 <ul>
-<li><a class="parameter">API</a>: The type of API that serves the model. <ul>
-<li><a class="parameter">Endpoint</a>: Some API needs to specify the endpoint</li>
+<li><span class="parameter">API</span>: The type of API that serves the model. <ul>
+<li><span class="parameter">Endpoint</span>: Some API needs to specify the endpoint</li>
 </ul>
 </li>
-<li><a class="parameter">Model</a>: The model  to call from the API<ul>
+<li><span class="parameter">Model</span>: The model  to call from the API<ul>
 <li>*Available models are specific for each API</li>
 </ul>
 </li>
-<li><a class="parameter">API Credentials</a>: Authentification token (specific for the API)</li>
-<li><a class="parameter">Name</a>: The name of the model</li>
+<li><span class="parameter">API Credentials</span>: Authentification token (specific for the API)</li>
+<li><span class="parameter">Name</span>: The name of the model</li>
 </ul>
 <h2 id="configure-and-run-a-generation">Configure and run a generation</h2>
 <p>Select a model</p>
 <p>Define the sample of elements you want to send with the prompt</p>
 <ul>
-<li><a class="parameter">Elements</a>: Number of elements to send</li>
-<li><a class="parameter">From</a>: Dataset</li>
+<li><span class="parameter">Elements</span>: Number of elements to send</li>
+<li><span class="parameter">From</span>: Dataset</li>
 </ul>
 <p>Select or save a prompt</p>
 <ul>
-<li><a class="parameter">Saved prompts</a>: Prompt the user saved</li>
-<li><a class="parameter">ICON</a>: Save current prompt</li>
-<li><a class="parameter">ICON</a>: Delete selected prompt</li>
+<li><span class="parameter">Saved prompts</span>: Prompt the user saved</li>
+<li><span class="parameter">ICON</span>: Save current prompt</li>
+<li><span class="parameter">ICON</span>: Delete selected prompt</li>
 </ul>
 <p>Enter a prompt : plain text for the prompt to send to the generative model. You can add elements from the dataset : <code>[[TEXT]]</code> for the text, and <code>[[CONTEXT-VARIABLE]]</code> for each contextual variable.</p>
-<p><a class="action primary">Generate</a> Launch the generation process</p>
+<p><span class="action primary">Generate</span> Launch the generation process</p>
 <h2 id="results">Results</h2>
 <p>Once a generation processed finished, generated data is display in the table.</p>
 <ul>
-<li><a class="action secondary">Download all</a> Launch the generation process</li>
-<li><a class="action secondary">Clear all</a> Launch the generation process</li>
+<li><span class="action secondary">Download all</span> Launch the generation process</li>
+<li><span class="action secondary">Clear all</span> Launch the generation process</li>
 </ul>
 <p><em>Add treatment for the generated columns</em> allows to select filters to clean the generated texte before downloading it.</p>
               

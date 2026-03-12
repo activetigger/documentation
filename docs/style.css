@@ -4,14 +4,13 @@
 }
 
 
-a.icon{
+span.icon{
     padding: 0rem 0.2rem;
     margin: 0rem;
     /* vertical-align: top; */
-    cursor: default;
 }
 
-a.parameter{
+span.parameter{
     color:#437EB4;
     background-color: #eed;
 
@@ -19,54 +18,36 @@ a.parameter{
     padding: 0.15rem 0.3rem;
     margin: 0rem;
     border-radius: .2rem;
-    cursor: default;
-    a.parameter::hover{
-        color:#437EB4;
-    }
 }
 
-a.parameter.secondary{
+span.parameter.secondary{
     color:rgb(113, 175, 105) ;
-    a.parameter::hover{
-        color:rgb(113, 175, 105) ;
-    }
 }
 
-a.action{
+span.action{
     font-weight: 500;
     padding: 0.15rem 0.3rem;
     margin: 0rem;
     border-radius: .2rem;
-    cursor: default;
 }
 
-a.action.primary{
+span.action.primary{
     color:white;
     background-color: var(--primary-color);
-    ::hover{
-        color:white;
-    }
 }
 
-a.action.red-danger{
+span.action.red-danger{
     color:white;
     background-color: #e60000;
-    ::hover{
-        color:white;
-    }
 }
 
-a.action.secondary{
+span.action.secondary{
     color: var(--secondary-color);
     background-color: #00000000;
     border:1px var(--secondary-color) solid;
-
-    ::hover{
-        color: var(--secondary-color);
-    }
 }
 
-a.highlight{
+span.highlight{
     color:black;
     background-color: orange;
 
@@ -74,11 +55,8 @@ a.highlight{
     padding: 0.15rem 0.15rem;
     margin: 0rem;
     border-radius: .2rem;
-    cursor: default;
-    a.parameter::hover{
-        color:black;
-    }
-    
+}
+
 }
 
 a.highlight{
