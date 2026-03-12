@@ -13,8 +13,8 @@ The tabular view displays your data in a tabular view. Filters are available to 
     - Select elements with a tag.
     - Select elements given a regex query.
 - The table: The table contains 6 columns including the id, the label, the user who produced the label, the text, any comment and the date the label was produced.
-    - Click on the <a class="action primary">id</a> to go to the [Annotate page](./annotate.md) and annotate the text input.
-    - Click on the <a class="action primary">label</a> to annotate in the tabular view. Click <a class="action primary">Validate changes</a> to save changes in the database.
+    - Click on the <span class="action primary">id</span> to go to the [Annotate page](./annotate.md) and annotate the text input.
+    - Click on the <span class="action primary">label</span> to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database.
 
 ## Visualization
 
@@ -26,21 +26,21 @@ The visualization tab displays a projection of the embedding space in two dimens
 
 ![](../img/functionalities/visualisation.png)
 
-- <a class="action primary">Compute new projection</a>
-    - <a class="parameter">Select a feature</a>: choose the set of feature ([what are features?](../theoretical-concepts/index.md#what-are-features))to use for the projection. If choosing several sets of features, they will be concatenated before projection. <a class="action secondary">Add a new feature</a> to [Compute new features](../theoretical-concepts/index.md#compute-new-features).
+- <span class="action primary">Compute new projection</span>
+    - <span class="parameter">Select a feature</span>: choose the set of feature ([what are features?](../theoretical-concepts/index.md#what-are-features))to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to [Compute new features](../theoretical-concepts/index.md#compute-new-features).
     - When using **UMAP**:
-        - <a class="parameter">n neighbors</a>:
-        - <a class="parameter">min distance</a>:
+        - <span class="parameter">n neighbors</span>:
+        - <span class="parameter">min distance</span>:
     - When using **t-SNE**:
-        - <a class="parameter">perplexity</a>: XXX
-        - <a class="parameter">learning rate</a>: XXX
-        - <a class="parameter">init</a>: XXX
-    - <a class="parameter">Feature scaling</a>: this is a method normalizes the range of independant variables (i.e. each feature) ([should I scale my features?](../theoretical-concepts/index.md#should-i-scale-my-features)).
-- <a class="action secondary">Parameters</a> to see the parameters of the current projection.
+        - <span class="parameter">perplexity</span>: XXX
+        - <span class="parameter">learning rate</span>: XXX
+        - <span class="parameter">init</span>: XXX
+    - <span class="parameter">Feature scaling</span>: this is a method normalizes the range of independant variables (i.e. each feature) ([should I scale my features?](../theoretical-concepts/index.md#should-i-scale-my-features)).
+- <span class="action secondary">Parameters</span> to see the parameters of the current projection.
 - The visualization panel displays each text input in a 2D space. The color of the node depends on the label, _or the absence thereof_. 
-    - <a class="icon">![](../img/icons/visualisation-control/frame.svg)</a> to select a subset of text inputs.
-    - <a class="icon">![](../img/icons/visualisation-control/frame-off.svg)</a> removes the frame.
-    - _If a frame exists_, <a class="icon">![](../img/icons/visualisation-control/lock.svg)</a><a class="action secondary"> Lock the selection</a> to lock on the frame. Going to the [Annotate page](./annotate.md) will only display elements in the frame.
+    - <span class="icon">![](../img/icons/visualisation-control/frame.svg)</span> to select a subset of text inputs.
+    - <span class="icon">![](../img/icons/visualisation-control/frame-off.svg)</span> removes the frame.
+    - _If a frame exists_, <span class="icon">![](../img/icons/visualisation-control/lock.svg)</span><span class="action secondary"> Lock the selection</span> to lock on the frame. Going to the [Annotate page](./annotate.md) will only display elements in the frame.
     - Clicking a node displays the text input as well asprevious annotations and the [Annotation Panel](./annotate.md#annotation-panel), much like in the [Annotation page](./annotate.md)
 
 Projections can be downloaded from the [Export page](./export.md#features).
@@ -53,22 +53,22 @@ The topic model ([what is a topic model?](../theoretical-concepts/index.md#what-
 
 ![](../img/functionalities/bertopic.png)
 
-- <a class="action primary">Compute new BERTopic</a> to create a new topic model.
-    - <a class="parameter">Name</a>: must be unique (with regard to? unique at all or unique per project ? unique per project per user? XXX )
-    - <a class="parameter">Embedding model</a>: choose from the [available embedding models](../faq/faq.md#choose-models-made-available) to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.
-    - <a class="parameter">Number of neighbours</a>: [UMAP parameter](../theoretical-concepts/index.md#what-is-umap) — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the global structure (i.e. global topics) (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
-    - <a class="parameter">Min topic size</a>: [HDBSCAN parameter](../theoretical-concepts/index.md#what-is-hdbscan) — a clustering algorithm —, this parameters correspond to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate few large groups; decreasing this value will generate many small groups.
-    - <a class="parameter secondary">Outlier reduction</a>: If set to True, all text inputs considered as noise will be added to the closest topic ([more info](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#reduce-outliers-strategies)).
-    - <a class="parameter secondary">Force compute embeddings</a>: If set to True, the app will first generate the embeddings overwriting any existing embeddings. 
-    - <a class="parameter secondary">Input dataset</a>: What dataset should be used to fit the model (train, train + test + valid or the complete dataset uploaded to the project).
-    - <a class="parameter secondary">Filter out texts of length lower than</a>: Before fitting the model, exclude text inputs of length inferior to this value. 
-    - <a class="parameter secondary">Number of components</a>: [UMAP parameter](../theoretical-concepts/index.md#what-is-umap) — a dimension reduction algorithm; it defines the number of dimension the algorithm reduces the embeddings to. Low values will flatten the representation of the input texts, whereas higher values maintain a richer representation (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
+- <span class="action primary">Compute new BERTopic</span> to create a new topic model.
+    - <span class="parameter">Name</span>: must be unique (with regard to? unique at all or unique per project ? unique per project per user? XXX )
+    - <span class="parameter">Embedding model</span>: choose from the [available embedding models](../faq/faq.md#choose-models-made-available) to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.
+    - <span class="parameter">Number of neighbours</span>: [UMAP parameter](../theoretical-concepts/index.md#what-is-umap) — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the global structure (i.e. global topics) (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
+    - <span class="parameter">Min topic size</span>: [HDBSCAN parameter](../theoretical-concepts/index.md#what-is-hdbscan) — a clustering algorithm —, this parameters correspond to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate few large groups; decreasing this value will generate many small groups.
+    - <span class="parameter secondary">Outlier reduction</span>: If set to True, all text inputs considered as noise will be added to the closest topic ([more info](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#reduce-outliers-strategies)).
+    - <span class="parameter secondary">Force compute embeddings</span>: If set to True, the app will first generate the embeddings overwriting any existing embeddings. 
+    - <span class="parameter secondary">Input dataset</span>: What dataset should be used to fit the model (train, train + test + valid or the complete dataset uploaded to the project).
+    - <span class="parameter secondary">Filter out texts of length lower than</span>: Before fitting the model, exclude text inputs of length inferior to this value. 
+    - <span class="parameter secondary">Number of components</span>: [UMAP parameter](../theoretical-concepts/index.md#what-is-umap) — a dimension reduction algorithm; it defines the number of dimension the algorithm reduces the embeddings to. Low values will flatten the representation of the input texts, whereas higher values maintain a richer representation (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
 - The visual representation of the topics displays each text input as a node with a color corresponding to the topic generated by the topic model.
-- <a class="action secondary">Parameters</a> to see the parameters of the current topic model.
-- <a class="action primary">Convert to scheme</a> to create a [scheme](../theoretical-concepts/index.md#what-is-a-scheme) and assign labels using the topics generated. XXX Add NOTE REGARDING THE DANGERS OF DOING THAT
-- <a class="action primary">Export topics</a> to download (csv file) the topic table displayed underneath.
-- <a class="action primary">Export topic per text</a> to download a mapping of each element id[^2] to a the topic index.
-- <a class="action primary">Topic model report</a> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and the parameters of the model).
+- <span class="action secondary">Parameters</span> to see the parameters of the current topic model.
+- <span class="action primary">Convert to scheme</span> to create a [scheme](../theoretical-concepts/index.md#what-is-a-scheme) and assign labels using the topics generated. XXX Add NOTE REGARDING THE DANGERS OF DOING THAT
+- <span class="action primary">Export topics</span> to download (csv file) the topic table displayed underneath.
+- <span class="action primary">Export topic per text</span> to download a mapping of each element id[^2] to a the topic index.
+- <span class="action primary">Topic model report</span> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and the parameters of the model).
 - The table (downloadable with Export topics) summarises the topic model. 
     - Topic: the topic id.
     - Count: the number of elements in the topic.

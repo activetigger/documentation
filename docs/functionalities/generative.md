@@ -10,7 +10,7 @@ Each LLM model is running on external servers : it is up to the user to check it
 
 ## Add new model
 
-<a class="action primary">Create new model</a> allows to create a new model for the project (shared by all users).
+<span class="action primary">Create new model</span> allows to create a new model for the project (shared by all users).
 
 The main point to configure a model is to have access to an API. Usually, this involve to know the endpoint and
 
@@ -22,12 +22,12 @@ The main point to configure a model is to have access to an API. Usually, this i
 
     HuggingFace is a french plateform for open source models that can also host LLM
 
-- <a class="parameter">API</a>: The type of API that serves the model. 
-    - <a class="parameter">Endpoint</a>: Some API needs to specify the endpoint
-- <a class="parameter">Model</a>: The model  to call from the API
+- <span class="parameter">API</span>: The type of API that serves the model. 
+    - <span class="parameter">Endpoint</span>: Some API needs to specify the endpoint
+- <span class="parameter">Model</span>: The model  to call from the API
     - *Available models are specific for each API
-- <a class="parameter">API Credentials</a>: Authentification token (specific for the API)
-- <a class="parameter">Name</a>: The name of the model
+- <span class="parameter">API Credentials</span>: Authentification token (specific for the API)
+- <span class="parameter">Name</span>: The name of the model
 
 
 ## Configure and run a generation
@@ -36,26 +36,26 @@ Select a model
 
 Define the sample of elements you want to send with the prompt
 
-- <a class="parameter">Elements</a>: Number of elements to send
-- <a class="parameter">From</a>: Dataset
+- <span class="parameter">Elements</span>: Number of elements to send
+- <span class="parameter">From</span>: Dataset
 
 Select or save a prompt
 
-- <a class="parameter">Saved prompts</a>: Prompt the user saved
-- <a class="parameter">ICON</a>: Save current prompt
-- <a class="parameter">ICON</a>: Delete selected prompt
+- <span class="parameter">Saved prompts</span>: Prompt the user saved
+- <span class="parameter">ICON</span>: Save current prompt
+- <span class="parameter">ICON</span>: Delete selected prompt
 
 Enter a prompt : plain text for the prompt to send to the generative model. You can add elements from the dataset : `[[TEXT]]` for the text, and `[[CONTEXT-VARIABLE]]` for each contextual variable.
 
-<a class="action primary">Generate</a> Launch the generation process
+<span class="action primary">Generate</span> Launch the generation process
 
 ## Results
 
 Once a generation processed finished, generated data is display in the table.
 
 
-- <a class="action secondary">Download all</a> Launch the generation process
-- <a class="action secondary">Clear all</a> Launch the generation process
+- <span class="action secondary">Download all</span> Launch the generation process
+- <span class="action secondary">Clear all</span> Launch the generation process
 
 *Add treatment for the generated columns* allows to select filters to clean the generated texte before downloading it.
 

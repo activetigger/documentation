@@ -39,7 +39,7 @@ Comments :
 
 - Some processes are costly to run and can take time
 - If processes are launched and no worker is avaiable, processes are put in a queue and wait for available workers.
-- When launching a process, you can stop it with the "Stop" button or with the <a class="icon">![](../img/icons/stop.svg)</a>
+- When launching a process, you can stop it with the "Stop" button or with the <span class="icon">![](../img/icons/stop.svg)</span>
 
 
 <!-- TODO : Mention the auto log off behaviour -->
