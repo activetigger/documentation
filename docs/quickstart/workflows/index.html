@@ -141,11 +141,11 @@
                 <h1 id="workflows">Workflows</h1>
 <p>This page presents possible ways of using Tigger for your research and how to do it.</p>
 <h2 id="annotate-a-corpus-collaboratively">Annotate a corpus collaboratively</h2>
-<p>Active Tigger's first purpose is to make collaborative annotation seamless. This means: </p>
+<p>Active Tigger's makes collaborative annotation seamless through the following features:</p>
 <ul>
 <li>Creation of a scheme (<a href="XXX">what is a scheme?</a>) and a codebook for the project.</li>
 <li>Annotation of the text inputs by each user.</li>
-<li>Comparison of the annotations and measure agreement</li>
+<li>Comparison of annotations and measure agreement</li>
 <li>Export the annotated corpus for analysis</li>
 </ul>
 <p>Why choose Active Tigger for this task: </p>
@@ -154,24 +154,24 @@
 <li>Seamless integration of collaborative work.</li>
 <li>Safe storage of data.</li>
 </ul>
-<p>Here is an overlook of the steps necessary to complete this path:</p>
+<p>Here is an overview of the steps necessary to set up and undertake an annotation project with manual annotation:</p>
 <ul>
 <li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="XXX">More information here</a></li>
 <li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to the size of your dataset. You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
-<li><span class="step">Step 2 — Give your collaborators access to your project:</span> Go to the <a href="../../functionalities/monitoring-account-and-users/">Users page</a> and give your collaborators the right to access and annotate text inputs from your project.</li>
-<li><span class="step">Step 3 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (multiclass, multilabel or span — <a href="XXX">more info on the available schemes</a>) and start writing the instructions for labelling the corpus. All users can see the schemes, labels and codebook; however, only managers and contributors can edit them.</li>
-<li><span class="step">Step 4 — Start annotating your corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annoation process. You can:<ul>
-<li>Add a label to a text input (<span class="action primary">LABEL</span>), remove a label (<span class="action primary">No tag</span>), or move forward (<span class="action primary">Skip</span>).</li>
+<li><span class="step">Step 2 — Give your collaborators access to your project:</span> Go to the <a href="../../functionalities/monitoring-account-and-users/">Users page</a> and authorize your collaborators to access and annotate text inputs from your project.</li>
+<li><span class="step">Step 3 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (multiclass, multilabel or span — <a href="XXX">more info on the available schemes</a>) and start writing the instructions for labelling the corpus. All users can see the schemes, labels and codebook of your project, but only managers and contributors can edit them.</li>
+<li><span class="step">Step 4 — Start annotating your corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process. You can:<ul>
+<li>Add a label (<span class="action primary">LABEL</span>), remove a label (<span class="action primary">No tag</span>), or move forward (<span class="action primary">Skip</span>).</li>
 <li>Add a comment to your annotation.</li>
 <li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).</li>
 </ul>
 </li>
-<li><span class="step">Step 5 — Curate the annotation (Only available to projects with more than one user):</span> On the <a href="../../functionalities/annotate/">Annotate page</a>, choose <a href="../../functionalities/annotate/#curate">"Curate"</a>. You will be able to see annotations differences between schemes or between users and choose which annotation to keep as well as agreement metrics.</li>
+<li><span class="step">Step 5 — Curate the annotation (Only available to projects with more than one user):</span> On the <a href="../../functionalities/annotate/">Annotate page</a>, choose <a href="../../functionalities/annotate/#curate">"Curate"</a>. You will be able to see annotations differences between schemes or between users and choose which annotation to keep (as well as agreement metrics).</li>
 <li><span class="step">Step 6 — Export your annotated corpus:</span> On the <a href="../../functionalities/export/">Export page</a>, choose <a href="../../functionalities/export/#annotations">"Annotations"</a> and <span class="action primary">All annotations/schemes</span> to download your corpus as a CSV file, or XLSX or parquet.</li>
 </ul>
-<p>Of course the reality is much less linear, you may want to move back and forth between <span class="step">step 3</span>, <span class="step">step 4</span> and <span class="step">step 5</span> to refine your codebook and annotate accordingly. Also you may want to use exploration tools (see below for more insights), or use machine learning to find the most challenging text inputs and test your codebook on edge cases.</p>
+<p>In practice, the annotation process tends not to be so lner. It is normal to move back and forth between <span class="step">step 3</span>, <span class="step">step 4</span> and <span class="step">step 5</span> to refine your codebook and change your annotation strategy. You may also want to use exploration tools (see below), or use machine learning to find the most challenging text inputs and test your codebook on rare or ambiguous cases.</p>
 <h2 id="accelerate-annotation-with-active-learning">Accelerate annotation with Active learning</h2>
-<p>Active Tigger's second purpose is to make machine learning methods easily available to social scientists. This workflow consists of: </p>
+<p>Active Tigger makes machine learning methods easily available to social scientists, in particular by developing <em>classifier models</em>. These models can automatically extend your human-developed annotation scheme on a larger dataset. This workflow consists of: </p>
 <ul>
 <li>Creation of a scheme (<a href="XXX">what is a scheme?</a>) and a codebook for the project.</li>
 <li>Annotation of the text inputs.</li>
@@ -183,14 +183,14 @@
 <ul>
 <li>User friendly interface and model training without code issues.</li>
 <li>Safer and reproducible use of machine learning tool for annotating a corpus.</li>
-<li>Easy introduction to good practices in machine learning.</li>
+<li>An easy introduction to good practices in machine learning.</li>
 </ul>
-<p>Here is an overlook of the steps necessary to complete this path:</p>
+<p>Here is an overview of the steps necessary to complete to train a model:</p>
 <ul>
 <li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="XXX">More information here</a></li>
 <li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to about 70% of your dataset, 15% to the test set and 15% to the validation set (<a href="XXX">more info</a>). You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
 <li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (for now, only multiclass schemes can be used for training classifier models — <a href="XXX">more info on the available schemes</a>) and start writing the instructions for labelling the corpus.</li>
-<li><span class="step">Step 3 — Start annotating your corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annoation process. You can:<ul>
+<li><span class="step">Step 3 — Start annotating your corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process. You can:<ul>
 <li>Annotate text inputs (add, remove or skip) and leave comments</li>
 <li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).</li>
 <li>Use <span class="highlight">Active Learning</span> to primarly annotate text inputs that will lead to better classifiers, more quickly (<a href="XXX">more info</a>).</li>
@@ -205,7 +205,7 @@
 </ul>
 </li>
 </ul>
-<p>Again, in reality, the workflow is much less linear, you will move back and forth between <span class="step">step 3</span> and <span class="step">step 4</span>  to accumulate enough annotations to reach operational models; as well as between <span class="step">step 4</span> and <span class="step">step 5</span> to refine your hyperparameters. This workflow is compatible with the collaborative annotation workflow as well as the exploration workflow.</p>
+<p>Once again, this workflow tends to be much less linear in practice. You will likely move back and forth between <span class="step">step 3</span> and <span class="step">step 4</span> to accumulate enough annotations to develop a model that works as well as you want it to, as well as between <span class="step">step 4</span> and <span class="step">step 5</span> to refine your hyperparameters. This workflow is compatible with the collaborative annotation workflow as well as the exploration workflow.</p>
 <h2 id="explore-your-data">Explore your data</h2>
               
             </div>
