@@ -6,7 +6,7 @@ nav:
       - Workflows: quickstart/workflows.md
       - Install and access: quickstart/access.md
       - Environemental impact: quickstart/environment.md
-  - Ressources:
+  - Resources:
       - How people use it: ressources/usecases.md
       - Existing tutorials and videos: ressources/references.md
   - Functionalities:
@@ -22,7 +22,7 @@ nav:
       - Monitoring, Account and Users Pages: functionalities/monitoring-account-and-users.md
   - Theoretical concepts:
       - Main: theoretical-concepts/index.md
-      - Glossary: theoretical-concepts/glossary.md
+      - Vocab: theoretical-concepts/glossary.md
   - Software:
       - Architecture: software/software.md
       - Roadmap: software/roadmap.md
