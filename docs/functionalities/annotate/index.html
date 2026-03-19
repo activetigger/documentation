@@ -48,16 +48,14 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../quickstart/quickstart/">Quickstart</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/workflows/">Workflows</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/workflows/">How to use it</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/access/">Install and access</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/environment/">Environemental impact</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/access/">Install & access</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Resources</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="" href="../../ressources/usecases.md">How people use it</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ressources/exampleprojects/">How people use it</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../ressources/references/">Existing tutorials and videos</a>
                   </li>
@@ -127,6 +125,8 @@
               </ul>
               <p class="caption"><span class="caption-text">FAQ</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/environment/">Environemental impact</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../faq/faq/">Main questions</a>
                   </li>
               </ul>
@@ -164,11 +164,18 @@
 <li><span class="parameter">Selection mode</span>: Change the order in which elements are showed (fixed, or random).</li>
 <li><span class="parameter">Active Mode</span>: Allows to choose a model for <a href="#active-learning">Active Learning</a>. This unlocks new selection modes: <ul>
 <li>active: orders the text inputs by decreasing entropy.</li>
-<li>Max LABEL: orders the text inputs by decreasing probability to be of label LABEL.</li>
+<li>Max prob LABEL: orders the text inputs by decreasing probability to be of label LABEL.</li>
+<li>Min prob LABEL;: order the text inputs by increasing probability to be of label LABEL</li>
 </ul>
 </li>
-<li><span class="parameter">Filter by Tag/User</span>: Only displays elements already have label (by current user) or don't, are tagged with a specific LABEL, or by a certain user ("by USER"). </li>
-<li><span class="parameter">Filter by content</span>: Only displays elements containing a certain regex pattern.</li>
+<li><a class="parameter">Filter by Tag/User</a>: Only displays elements already have label (by current user) or don't, are tagged with a specific LABEL, or by a certain user ("by USER"). </li>
+<li><a class="parameter">Filter by content</a>: Only displays elements with specific characteristis<ul>
+<li>Being labeled with LABEL</li>
+<li>Being labeled by a user</li>
+<li>Predicted as LABEL by current active model</li>
+<li>Matching a search / regex expression</li>
+</ul>
+</li>
 </ul>
 <p>After setting a new dataset/selection method/filter, <span class="action primary"><img alt="" src="../../img/icons/refresh.svg" /></span> will apply the changes and fetch a new element.</p>
 <h2 id="annotation-panel">Annotation panel</h2>
