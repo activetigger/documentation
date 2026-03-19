@@ -207,6 +207,40 @@
 </ul>
 <p>Once again, this workflow tends to be much less linear in practice. You will likely move back and forth between <span class="step">step 3</span> and <span class="step">step 4</span> to accumulate enough annotations to develop a model that works as well as you want it to, as well as between <span class="step">step 4</span> and <span class="step">step 5</span> to refine your hyperparameters. This workflow is compatible with the collaborative annotation workflow as well as the exploration workflow.</p>
 <h2 id="explore-your-data">Explore your data</h2>
+<p>Sometimes, with a large textual dataset, it is difficult to get an overview of what your dataset contains. Active Tigger provides tools to explore your corpus (either as an independent step or as part of an annotation process), helping you understand its structure, identify clusters of similar content, and make more informed annotation decisions. For this, you can make use of the tabular oversight functions of the interface, of make use of  <a href="..theoretical-concepts/main.md">topic models</a>.</p>
+<p>This workflow consists of:</p>
+<ul>
+<li>Browsing and filtering your data in a tabular view.</li>
+<li>Computing a topic model to map thematic structures in your corpus.</li>
+<li>Using topics to guide annotation or as a starting point for a scheme.</li>
+<li>Exporting topic outputs for further analysis.</li>
+</ul>
+<p>Why choose Active Tigger for this task:</p>
+<ul>
+<li>No-code access to state-of-the-art topic modelling (BERTopic).</li>
+<li>Visual, interactive exploration of your corpus.</li>
+<li>A seamless bridge between exploration and annotation.</li>
+</ul>
+<p>Here is an overview of the steps to explore your data with BERTopic:</p>
+<ul>
+<li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="XXX">More information here</a></li>
+<li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload your data file and enter the columns you require (ID, text, contextual). You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
+<li><span class="step">Step 2 — Browse your data (optional):</span> On the <a href="../../functionalities/explore/">Explore page</a>, open the <a href="../../functionalities/explore/#tabular-view">Tabular View tab</a> to filter and browse your corpus. You can filter by dataset (train, valid, test), by label, or by regex query. Click on any ID to go directly to the <a href="../../functionalities/annotate/">Annotate page</a> for that text input.</li>
+<li><span class="step">Step 3 — Compute a BERTopic model:</span> On the <a href="../../functionalities/explore/">Explore page</a>, go to the <a href="../../functionalities/explore/#topic-model">Topic model tab</a> and click <span class="action primary">Compute new BERTopic</span>. Set the <a href="../../functionalities/explore/#topic-model">parameters</a> (or keep to default values).</li>
+<li><span class="step">Step 4 — Explore the topic model results:</span> Once computed, the <a href="../../functionalities/explore/#topic-model">Topic model tab</a> displays:<ul>
+<li>A <strong>visual map</strong> of your corpus with each text input coloured by topic.</li>
+<li>A <strong>topic table</strong> summarising each topic's ID, size, name, representative keywords, and representative documents.</li>
+</ul>
+</li>
+<li><span class="step">Step 5 — Export topic outputs:</span> On the <a href="../../functionalities/export/">Export page</a>, you can:<ul>
+<li><span class="action primary">Export topics</span> to download the topic summary table as a CSV.</li>
+<li><span class="action primary">Export topic per text</span> to download a mapping of each text input to its topic.</li>
+<li><span class="action primary">Topic model report</span> to download a full HTML report including topic descriptions, a 2D map, a hierarchical view, representative documents, and model parameters.</li>
+</ul>
+</li>
+<li><span class="step">Step 6 — (Optional) Convert topics to a scheme:</span> Click <span class="action secondary">Convert to scheme</span> to create a <a href="XXX">scheme</a> from your topic model and assign topic labels to your text inputs. Note: topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation.</li>
+</ul>
+<p>Using topic models for exploring your dataset can also be integrated into the above workflow pipelines. We recommend complementing a topic model approach with familiarizing yourself with your corpus by simply reading it, or through an annotation process. Confiding too much in an automated synthesis of your text data could risk missing important aspects of your corpus.</p>
               
             </div>
           </div><footer>
