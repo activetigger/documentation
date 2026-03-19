@@ -12,9 +12,15 @@ There are several ways to select a subset of text inputs. XXX more?
 - <span class="parameter">Selection mode</span>: Change the order in which elements are showed (fixed, or random).
 - <span class="parameter">Active Mode</span>: Allows to choose a model for [Active Learning](#active-learning). This unlocks new selection modes: 
     - active: orders the text inputs by decreasing entropy.
-    - Max LABEL: orders the text inputs by decreasing probability to be of label LABEL.
-- <span class="parameter">Filter by Tag/User</span>: Only displays elements already have label (by current user) or don't, are tagged with a specific LABEL, or by a certain user ("by USER"). 
-- <span class="parameter">Filter by content</span>: Only displays elements containing a certain regex pattern.
+    - Max prob LABEL: orders the text inputs by decreasing probability to be of label LABEL.
+    - Min prob LABEL;: order the text inputs by increasing probability to be of label LABEL
+- <a class="parameter">Filter by Tag/User</a>: Only displays elements already have label (by current user) or don't, are tagged with a specific LABEL, or by a certain user ("by USER"). 
+- <a class="parameter">Filter by content</a>: Only displays elements with specific characteristis
+    - Being labeled with LABEL
+    - Being labeled by a user
+    - Predicted as LABEL by current active model
+    - Matching a search / regex expression
+
 
 After setting a new dataset/selection method/filter, <span class="action primary">![](../img/icons/refresh.svg)</span> will apply the changes and fetch a new element.
 
