@@ -1,6 +1,6 @@
 # Quickstart for ActiveTigger
 
-*ActiveTigger* is a **open source** tool for **collaborative text treatments** adapted for the social sciences. 
+*ActiveTigger* is an open-source software designed to support collaborative text annotation for computational social sciences.
 
 It offers access to no-code computational methods suitable for a variety of research projects as long as they involve text data in some form.
 
