@@ -56,10 +56,17 @@ Here is an overview of the steps necessary to complete to train a model:
 - <span class="step">Step 3 — Start annotating your corpus:</span> Go to the [Annotate page](../functionalities/annotate.md) and start the annotation process. You can:
     - Annotate text inputs (add, remove or skip) and leave comments
     - Choose which text inputs to annotate or the order in which you wish to see them ([more info](../functionalities/annotate.md#selecting-text-inputs-to-annotate)).
+        - first annotate around 20 cases for each class, either using fixed or random selection if you expect your classes to be balanced, or using the content filter if you are looking for rare classes with relevant keywords
     - Use <span class="highlight">Active Learning</span> to primarly annotate text inputs that will lead to better classifiers, more quickly ([more info](XXX)).
 - <span class="step">Step 4 — Train a BERT model</span> On the [Model page](../functionalities/model.md) and in the [Training tab](../functionalities/model.md#training), <span class="action primary">Create new BERT model</span> and [set hyperparameters](../functionalities/model.md#bertmodel) ([more info on setting hyperparameters](XXX))
 - <span class="step">Step 5 — Evaluate the model on validation set:</span> On the [Model page](../functionalities/model.md) and in the [Evaluation tab](../functionalities/model.md#evaluation), select your model and <span class="action primary">Compute predictions</span> to classify text inputs from the validation and test set to compute metrics on these sets.
-- <span class="step">Step 6 — Export your annotated corpus and model:</span> On the [Export page](../functionalities/export.md) and ["Models tab"](../functionalities/export.md#models), select the bert model:
+    - Once you have annotated your training set, you will probably have a better understanding of your data, and stabilized the definitions of your labels
+    - You can now annotate your validation set, and check whether your models perform as well as during training
+    - Again, iterate between annotation and validation quality, until you are satisfied with the quality scores
+    - If you have trained several models, choose the best one according to the validation scores
+- <span class="step">Step 6 — Annotate the test set </span> this is the final step, which should only be used to evaluate the quality of your final model -- no more iterations, or your final quality scores will be biased!
+
+- <span class="step">Step 7 — Export your annotated corpus and model:</span> On the [Export page](../functionalities/export.md) and ["Models tab"](../functionalities/export.md#models), select the bert model:
     - <span class="action primary">Prediction on complete dataset</span> infere labels on the full dataset as imported upon project creation.
     - <span class="action primary">Prediction on external dataset</span> to import a dataset and infere the labels.
     - <span class="action secondary">Export fine-tuned model (large file)</span> download the weights of the fine-tuned model (good practice for reproducibility).
@@ -100,3 +107,14 @@ Here is an overview of the steps to explore your data with BERTopic:
 - <span class="step">Step 6 — (Optional) Convert topics to a scheme:</span> Click <span class="action secondary">Convert to scheme</span> to create a [scheme](XXX) from your topic model and assign topic labels to your text inputs. Note: topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation.
 
 Using topic models for exploring your dataset can also be integrated into the above workflow pipelines. We recommend complementing a topic model approach with familiarizing yourself with your corpus by simply reading it, or through an annotation process. Confiding too much in an automated synthesis of your text data could risk missing important aspects of your corpus.
+
+
+
+### Finding all the positive cases
+
+If your dataset is relatively small (a few thousand texts), and your goal is to annotate all the positive cases of the classes you are interested in, you might not need to follow the complete workflow described below. 
+
+However, active learning could still be very helpful: just follow step 1 of the following section, and iterate until you are confident you have found all the positive cases in your dataset.
+
+The only difference: use the complete dataset as your training set.
+

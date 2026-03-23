@@ -3,9 +3,9 @@ nav:
   - Home: index.md
   - First steps:
       - Quickstart: quickstart/quickstart.md
-      - How to use it: quickstart/workflows.md
+      - Main workflows: quickstart/workflows.md
       - Install & access: quickstart/access.md
-  - Resources:
+  - In practice:
       - How people use it: ressources/exampleprojects.md
       - Existing tutorials and videos: ressources/references.md
   - Functionalities:
@@ -19,9 +19,9 @@ nav:
       - Generative Page: functionalities/generative.md
       - Settings Page: functionalities/settings.md
       - Monitoring, Account and Users Pages: functionalities/monitoring-account-and-users.md
-  - Theoretical concepts:
-      - Main: theoretical-concepts/index.md
-      - Vocab: theoretical-concepts/glossary.md
+  - Conceptualizing:
+      - General concepts: theoretical-concepts/index.md
+      - Glossary: theoretical-concepts/glossary.md
   - Software:
       - Architecture: software/software.md
       - Roadmap: software/roadmap.md
