@@ -10,7 +10,7 @@ There are several ways to select a subset of text inputs. XXX more?
 
 - <span class="parameter">Dataset</span>: Select the dataset on which you are working (train, validation or test).
 - <span class="parameter">Selection mode</span>: Change the order in which elements are showed (fixed, or random).
-- <span class="parameter">Active Mode</span>: Allows to choose a model for [Active Learning](#active-learning). This unlocks new selection modes: 
+- <span class="parameter">Active Mode</span>: Allows to choose a model for Active Learning ([concept](../theoretical-concepts/index.md#what-is-active-learning), [on the page](#active-learning-in-practice)). This unlocks new selection modes: 
     - active: orders the text inputs by decreasing entropy.
     - Max prob LABEL: orders the text inputs by decreasing probability to be of label LABEL.
     - Min prob LABEL;: order the text inputs by increasing probability to be of label LABEL
@@ -53,11 +53,14 @@ The "Comment" section allows to save a comment with the annotation of the text i
 
 The last 100 text inputs annotated are visible underdeath the annotation page. For Active Learning to work best, the application retains, at all time, the list of text inputs annotated. This way, unless you <span class="action secondary">Clear history</span>, these elements will not be shown again.
 
-## Active learning
 
-<!-- TODO: Explain how active mode works with BERT models -->
+### Active Learning in practice
 
-### Models with ignored labels
+*Read about the concept of [Active learning](../theoretical-concepts/index.md#what-is-active-learning)*
+
+In the Annotate page, you can select a model (quick or BERT) to use its predictions for <span class="icon">![](../img/icons/active-tiger.svg)</span>. Models can be <span class="action primary">![](../img/icons/refresh.svg)</span> retrained or <span class="action primary">![](../img/icons/no-tag.svg)</span> unselected.
+
+Active Learning. Models trained on a reduced number of labels can be used, they will simply ignore unseen labels.
 
 ## Curate
 <!-- TODO -->
