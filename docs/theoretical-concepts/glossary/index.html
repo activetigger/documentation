@@ -88,6 +88,22 @@
                   <li class="toctree-l1"><a class="reference internal" href="../">Main</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Vocab</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#roles">Roles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dfm-options">DFM options</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#projects">Projects</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#schemes">Schemes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#model-quality-scores">Model quality scores</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dataset-stratification">Dataset stratification</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tokens-and-window-sizes">Tokens and window sizes</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Software</span></p>
@@ -130,7 +146,138 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Here for glossary</p>
+                <h1 id="glossary">Glossary</h1>
+<h2 id="roles">Roles</h2>
+<p><strong>TODO</strong></p>
+<h2 id="dfm-options">DFM options</h2>
+<p><strong>TODO</strong></p>
+<h2 id="projects">Projects</h2>
+<p>Active Tigger is organized around projects, which are essentially the combination of a dataset and a set of schemes. </p>
+<p>The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. 
+It can be very large, in which case you will work on smaller subsets (see the <em>Train, Validation and Test sets</em> section on the <em>Theoretical concepts</em> page).</p>
+<h2 id="schemes">Schemes</h2>
+<p>In Active Tigger, each project is organized into one or several schemes. 
+What do we call schemes? Simply what you are trying to analyze, annotate or predict. 
+In practice, it is a set of <strong>labels</strong> as well as the annotations, a <strong>codebook</strong> and classifier models (Quick or BERT).
+All users with access to a project can see all the schemes. </p>
+<p>For instance, if your project contains a corpus of speeches, there might be different things you are looking for: whether the speeches mention a given topic, whether they use a certain tone, whether they adopt a certain stance... 
+Each of these things will be a different scheme. </p>
+<p>There are different types of schemes in Active Tigger: 
+- multiclass: each text will be given a single label
+- multilabel: each text can be given several labels simultaneously
+- span: instead of tagging a complete text, you select one or several portions of the text to label</p>
+<p>What you can and cannot do with each scheme type: </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Multiclass</th>
+<th>Multilabel</th>
+<th>Span</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create labels and a codebook</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Explore your corpus with a<br/> visualisation or topic models </td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Train a classifier (Quick or BERT)</td>
+<td>🟢</td>
+<td>🟠 (need to dichotomize labels)</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>Use generative models</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Export annotations</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Export models</td>
+<td>🟢</td>
+<td>🟠 (dichotomized models)</td>
+<td>🔴</td>
+</tr>
+</tbody>
+</table>
+<p>Note that existing columns in your dataset can be imported as schemes, at project creation (multiclass only). 
+This can be useful if you already have some annotations for a given scheme, or even if your whole corpus is already annotated and you want to use Active Tigger just for visualization or for training predictive models.</p>
+<h2 id="model-quality-scores">Model quality scores</h2>
+<p>When training a predictive model, it is essential to know how good they are performing.
+That is what the quality scores are for.</p>
+<p>In Active Tigger, each predictive (multiclass) model has 3 different scores <em>for each class</em>, and one global score, all bounded between 0 and 1 (higher is better).</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Data</th>
+<th>Formula</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Precision</td>
+<td>Per class</td>
+<td>(number of correct positive predictions) / (number of positive predictions)</td>
+<td>How confident you can be about the positive predictions of each class</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td>Per class</td>
+<td>(number of correct positive predictions) / (number of positive cases in the actual annotations)</td>
+<td>Portion of the actual positive cases that are found by the model</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>Per class</td>
+<td>2 x (Precision x Recall) / (Precision + Recall)</td>
+<td>Harmonic mean of Precision and Recall: overall quality of the model's predictions for each class</td>
+</tr>
+<tr>
+<td>Macro F1</td>
+<td>Overall</td>
+<td>Average of the per-class F1 scores</td>
+<td>Overall quality of the model on all classes</td>
+</tr>
+</tbody>
+</table>
+<p>For more details, see <a href="https://en.wikipedia.org/wiki/F-score">Wikipedia page</a>.</p>
+<p>Note that each of these scores are separately computed for the training-evaluation set (in the Training tab), and the validation and test sets (in the Evaluation tab).
+See the Theoretical concepts section for more information about these three datasets.</p>
+<h2 id="dataset-stratification">Dataset stratification</h2>
+<p>A corpus might come from different sources, or different time periods, that you might want to treat equally in an annotation workflow.
+If not, you are running the risk of training models that are more adapted to majority than minority sources.
+This is where stratification comes in: making sure that each source is equally represented in the training, validation and test sets.</p>
+<p>Stratification is done at Project creation: choose the variables you want to stratify on, and the subsets will contain an equal number of cases for each source.</p>
+<h2 id="tokens-and-window-sizes">Tokens and window sizes</h2>
+<p>Large language models (including sentence embedding models) do not use plain texts to process data, but first decompose them into tokens in order to make them easier to handle.
+Tokens are either whole words or parts of words: very common words in a given language will typically have their own token, as well as common radicals and prefixes and suffixes.
+For instance, in English, "iterat-", "-e", "re-", "-s", "-ing", or "-ion" are parts that have similar meanings across words, which is why it is more efficient to decompose "iterate", "iterates", "reiterate", "iterating", "iteration", etc. into tokens than to represent them as altogether separate terms.
+Each individual symbol will also have its own token, so that any given word (including typos) can be read by the model.</p>
+<p>Each language model uses its own tokenizer (the algorithm that transforms raw text into tokens), and this is done transparently: you don't have to choose it yourself, it is done automatically.</p>
+<p>One important feature of each language model is that it has a maximum window size: the number of tokens it is able to process for any given text.
+Therefore, it is important to check each language model you are using for its specific window size, as tokens beyond this limit will be ignored by the model.
+In the annotation tab, tokens exceeding a given limit are displayed in italic font.
+You can modify this displayed window size using the <strong>config menu</strong> button. </p>
+<p>In order to check the tokenizers of different models, you can use sites such as ()[https://llm-calculator.com/], ()[https://llmtokencounter.com/], ()[https://token-calculator.net/], etc. 
+Most of them are made for generative LLMs, but can still give you a rough estimation of how your corpus will be treated.</p>
+<p><strong>TODO link to relevant python module</strong></p>
               
             </div>
           </div><footer>
