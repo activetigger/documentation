@@ -1,38 +1,41 @@
 # Glossary
 
-
+<!-- 
+AM: same
 ## Roles
 
-**TODO**
+**TODO** -->
 
-
+<!-- 
+AM: belongs to the functionalities 
 ## DFM options
 
 **TODO**
-
+ -->
 
 ## Projects
 
-Active Tigger is organized around projects, which are essentially the combination of a dataset and a set of schemes. 
+Active Tigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as features or topic models. A project can be shared across users for collaborating.
 
-The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. 
-It can be very large, in which case you will work on smaller subsets (see the *Train, Validation and Test sets* section on the *Theoretical concepts* page).
+The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. It can be very large, in which case you will work on smaller subsets (see the [Train, Validation and Test sets](./index.md#train-validation-and-test-sets)).
 
+See [Project Creation page](../functionalities/project-creation.md)
 
 ## Schemes
 
-In Active Tigger, each project is organized into one or several schemes. 
-What do we call schemes? Simply what you are trying to analyze, annotate or predict. 
-In practice, it is a set of **labels** as well as the annotations, a **codebook** and classifier models (Quick or BERT).
-All users with access to a project can see all the schemes. 
+In Active Tigger, each project is organized into one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models for to assist your exploration and annotation. In practice, it is a set of **labels** as well as the annotations, a **codebook** and classifier models (Quick or BERT).
 
-For instance, if your project contains a corpus of speeches, there might be different things you are looking for: whether the speeches mention a given topic, whether they use a certain tone, whether they adopt a certain stance... 
-Each of these things will be a different scheme. 
+Users with access to a project can see all the schemes. 
+
+!!! Example
+
+    A project contains corpus of speeches, and seeks to identify what topics are mentioned as well as the tone used. Users can create different schemes to separately work on identifying speeches mentionning the environment, another for social inequalities and finally one more to identify agressive tones.
 
 There are different types of schemes in Active Tigger: 
-- multiclass: each text will be given a single label
-- multilabel: each text can be given several labels simultaneously
-- span: instead of tagging a complete text, you select one or several portions of the text to label
+
+- <span class="highlight">Multiclass</span>: each text will be given a single label.
+- <span class="highlight">Multilabel</span>: each text can be given several labels simultaneously.
+- <span class="highlight">Span</span>: give a label to one or more portions of the text (spans).
 
 What you can and cannot do with each scheme type: 
 
@@ -45,55 +48,54 @@ What you can and cannot do with each scheme type:
 |Export annotations|🟢|🟢|🟢|
 |Export models|🟢|🟠 (dichotomized models)|🔴|
 
-Note that existing columns in your dataset can be imported as schemes, at project creation (multiclass only). 
-This can be useful if you already have some annotations for a given scheme, or even if your whole corpus is already annotated and you want to use Active Tigger just for visualization or for training predictive models.
+!!! tip
+
+    Multiclass schemes can be imported from your dataset upon project creation.
 
 
 ## Model quality scores
 
-When training a predictive model, it is essential to know how good they are performing.
-That is what the quality scores are for.
+Quality scores provide valuable insights on predictive models performance.
 
-In Active Tigger, each predictive (multiclass) model has 3 different scores *for each class*, and one global score, all bounded between 0 and 1 (higher is better).
+### Evaluating Multiclass models
 
-|Measure|Data|Formula|Interpretation|
-|---|---|---|---|
-|Precision|Per class|(number of correct positive predictions) / (number of positive predictions)|How confident you can be about the positive predictions of each class|
-|Recall|Per class|(number of correct positive predictions) / (number of positive cases in the actual annotations)|Portion of the actual positive cases that are found by the model|
-|F1|Per class|2 x (Precision x Recall) / (Precision + Recall)|Harmonic mean of Precision and Recall: overall quality of the model's predictions for each class|
-|Macro F1|Overall|Average of the per-class F1 scores|Overall quality of the model on all classes|
+Active Tigger displays 3 scores per class as well as score weighted across all classes. Each score is bounded between 0 and 1 (the higher the better).
 
-For more details, see [Wikipedia page](https://en.wikipedia.org/wiki/F-score).
+|Measure|Data|Interpretation|
+|---|---|---|
+|[Precision](https://en.wikipedia.org/wiki/Precision_and_recall)|Per class|How confident you can be about the positive predictions of each class|
+|[Recall](https://en.wikipedia.org/wiki/Precision_and_recall)|Per class|Portion of the actual positive cases that are found by the model|
+|[F1](https://en.wikipedia.org/wiki/Precision_and_recall#F-measure)|Per class|Overall quality of the model's predictions for each class|
+|[Macro F1](https://en.wikipedia.org/wiki/F-score#Macro_F1)|Overall|Overall quality of the model on all classes|
 
-Note that each of these scores are separately computed for the training-evaluation set (in the Training tab), and the validation and test sets (in the Evaluation tab).
-See the Theoretical concepts section for more information about these three datasets.
+!!! Note
+    Each score is computed separately for the train set, the validation and test sets.
 
 
 ## Dataset stratification 
 
 A corpus might come from different sources, or different time periods, that you might want to treat equally in an annotation workflow.
-If not, you are running the risk of training models that are more adapted to majority than minority sources.
-This is where stratification comes in: making sure that each source is equally represented in the training, validation and test sets.
+Stratifying the dataset prevents from working on unbalanced datasets. This is a common challenge in machine learning: training on non-representative samples leads to models failing on minority subsets. 
 
-Stratification is done at Project creation: choose the variables you want to stratify on, and the subsets will contain an equal number of cases for each source.
+!!! Example
+    If working on newspaper articles with 80% of all articles coming from LeMonde and only 20% coming from LePoint, training a model will most likely adapt to LeMonde's writing but not LePoint's. The source becomes a descriptor for your annotation whereas it shouldn't.
+
+Stratification is performed upon [project creation](../functionalities/project-creation.md).
 
 
 ## Tokens and window sizes
 
-Large language models (including sentence embedding models) do not use plain texts to process data, but first decompose them into tokens in order to make them easier to handle.
-Tokens are either whole words or parts of words: very common words in a given language will typically have their own token, as well as common radicals and prefixes and suffixes.
-For instance, in English, "iterat-", "-e", "re-", "-s", "-ing", or "-ion" are parts that have similar meanings across words, which is why it is more efficient to decompose "iterate", "iterates", "reiterate", "iterating", "iteration", etc. into tokens than to represent them as altogether separate terms.
-Each individual symbol will also have its own token, so that any given word (including typos) can be read by the model.
+Large language models (including sentence embedding models) do not use plain texts to process data, but first decompose them into tokens in order to make them easier to handle. Tokens are either whole words or parts of words: very common words in a given language will typically have their own token, as well as common radicals and prefixes and suffixes. *For instance, in English, "iterat-", "-e", "re-", "-s", "-ing", or "-ion" are parts that have similar meanings across words, which is why it is more efficient to decompose "iterate", "iterates", "reiterate", "iterating", "iteration", etc. into tokens than to represent them as altogether separate terms.*
+Each unique symbol has its own token, so that any given word (including typos) can be read by the model.
 
-Each language model uses its own tokenizer (the algorithm that transforms raw text into tokens), and this is done transparently: you don't have to choose it yourself, it is done automatically.
+Each language model uses its own tokenizer (the algorithm that transforms raw text into tokens).
 
-One important feature of each language model is that it has a maximum window size: the number of tokens it is able to process for any given text.
-Therefore, it is important to check each language model you are using for its specific window size, as tokens beyond this limit will be ignored by the model.
-In the annotation tab, tokens exceeding a given limit are displayed in italic font.
-You can modify this displayed window size using the **config menu** button. 
+One important feature of each language model is that it has a <span class="highlight">maximum window size</span>: the number of tokens it is able to process for any given text.
+Therefore, it is important to be aware of the language model's specific window size, as tokens beyond this limit will be ignored.[^1]
 
-In order to check the tokenizers of different models, you can use sites such as ()[https://llm-calculator.com/], ()[https://llmtokencounter.com/], ()[https://token-calculator.net/], etc. 
-Most of them are made for generative LLMs, but can still give you a rough estimation of how your corpus will be treated.
+[^1]: To assist you in the annotation process, the [Annotation tab](../functionalities/annotate.md#annotate-page) approximates the number of tokens per text input and displays excess tokens in italic. You can modify the limit in the **config menu** button. 
+
+In order to check the tokenizers of different models, you can use sites such as [LLM Calculator](https://llm-calculator.com/), [LLM Token Counter](https://llmtokencounter.com/), [Token Calculator](https://token-calculator.net/), etc. Most of them are made for generative LLMs, but can still give you a rough estimation of how your corpus will be treated.
 
 **TODO link to relevant python module**
 
