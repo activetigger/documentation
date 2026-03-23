@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>How to use it - ActiveTigger Documentation</title>
+    <title>Main workflows - ActiveTigger Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "How to use it";
+        var mkdocs_page_name = "Main workflows";
         var mkdocs_page_input_path = "quickstart/workflows.md";
         var mkdocs_page_url = null;
       </script>
@@ -48,20 +48,24 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">How to use it</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Main workflows</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#annotate-a-corpus-collaboratively">Annotate a corpus collaboratively</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#accelerate-annotation-with-active-learning">Accelerate annotation with Active learning</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#explore-your-data">Explore your data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#finding-all-the-positive-cases">Finding all the positive cases</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../access/">Install & access</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Resources</span></p>
+              <p class="caption"><span class="caption-text">In practice</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../ressources/exampleprojects/">How people use it</a>
                   </li>
@@ -91,11 +95,11 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Theoretical concepts</span></p>
+              <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/">Main</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/">General concepts</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/glossary/">Vocab</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/glossary/">Glossary</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Software</span></p>
@@ -129,7 +133,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">First steps</li>
-      <li class="breadcrumb-item active">How to use it</li>
+      <li class="breadcrumb-item active">Main workflows</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -192,13 +196,27 @@
 <li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (for now, only multiclass schemes can be used for training classifier models — <a href="XXX">more info on the available schemes</a>) and start writing the instructions for labelling the corpus.</li>
 <li><span class="step">Step 3 — Start annotating your corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process. You can:<ul>
 <li>Annotate text inputs (add, remove or skip) and leave comments</li>
-<li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).</li>
+<li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).<ul>
+<li>first annotate around 20 cases for each class, either using fixed or random selection if you expect your classes to be balanced, or using the content filter if you are looking for rare classes with relevant keywords</li>
+</ul>
+</li>
 <li>Use <span class="highlight">Active Learning</span> to primarly annotate text inputs that will lead to better classifiers, more quickly (<a href="XXX">more info</a>).</li>
 </ul>
 </li>
 <li><span class="step">Step 4 — Train a BERT model</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#training">Training tab</a>, <span class="action primary">Create new BERT model</span> and <a href="../../functionalities/model/#bertmodel">set hyperparameters</a> (<a href="XXX">more info on setting hyperparameters</a>)</li>
-<li><span class="step">Step 5 — Evaluate the model on validation set:</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#evaluation">Evaluation tab</a>, select your model and <span class="action primary">Compute predictions</span> to classify text inputs from the validation and test set to compute metrics on these sets.</li>
-<li><span class="step">Step 6 — Export your annotated corpus and model:</span> On the <a href="../../functionalities/export/">Export page</a> and <a href="../../functionalities/export/#models">"Models tab"</a>, select the bert model:<ul>
+<li><span class="step">Step 5 — Evaluate the model on validation set:</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#evaluation">Evaluation tab</a>, select your model and <span class="action primary">Compute predictions</span> to classify text inputs from the validation and test set to compute metrics on these sets.<ul>
+<li>Once you have annotated your training set, you will probably have a better understanding of your data, and stabilized the definitions of your labels</li>
+<li>You can now annotate your validation set, and check whether your models perform as well as during training</li>
+<li>Again, iterate between annotation and validation quality, until you are satisfied with the quality scores</li>
+<li>If you have trained several models, choose the best one according to the validation scores</li>
+</ul>
+</li>
+<li>
+<p><span class="step">Step 6 — Annotate the test set </span> this is the final step, which should only be used to evaluate the quality of your final model -- no more iterations, or your final quality scores will be biased!</p>
+</li>
+<li>
+<p><span class="step">Step 7 — Export your annotated corpus and model:</span> On the <a href="../../functionalities/export/">Export page</a> and <a href="../../functionalities/export/#models">"Models tab"</a>, select the bert model:</p>
+<ul>
 <li><span class="action primary">Prediction on complete dataset</span> infere labels on the full dataset as imported upon project creation.</li>
 <li><span class="action primary">Prediction on external dataset</span> to import a dataset and infere the labels.</li>
 <li><span class="action secondary">Export fine-tuned model (large file)</span> download the weights of the fine-tuned model (good practice for reproducibility).</li>
@@ -241,6 +259,10 @@
 <li><span class="step">Step 6 — (Optional) Convert topics to a scheme:</span> Click <span class="action secondary">Convert to scheme</span> to create a <a href="XXX">scheme</a> from your topic model and assign topic labels to your text inputs. Note: topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation.</li>
 </ul>
 <p>Using topic models for exploring your dataset can also be integrated into the above workflow pipelines. We recommend complementing a topic model approach with familiarizing yourself with your corpus by simply reading it, or through an annotation process. Confiding too much in an automated synthesis of your text data could risk missing important aspects of your corpus.</p>
+<h3 id="finding-all-the-positive-cases">Finding all the positive cases</h3>
+<p>If your dataset is relatively small (a few thousand texts), and your goal is to annotate all the positive cases of the classes you are interested in, you might not need to follow the complete workflow described below. </p>
+<p>However, active learning could still be very helpful: just follow step 1 of the following section, and iterate until you are confident you have found all the positive cases in your dataset.</p>
+<p>The only difference: use the complete dataset as your training set.</p>
               
             </div>
           </div><footer>

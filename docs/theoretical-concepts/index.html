@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Main - ActiveTigger Documentation</title>
+    <title>General concepts - ActiveTigger Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Main";
+        var mkdocs_page_name = "General concepts";
         var mkdocs_page_input_path = "theoretical-concepts/index.md";
         var mkdocs_page_url = null;
       </script>
@@ -48,12 +48,12 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart/">Quickstart</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../quickstart/workflows/">How to use it</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../quickstart/workflows/">Main workflows</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../quickstart/access/">Install & access</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Resources</span></p>
+              <p class="caption"><span class="caption-text">In practice</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../ressources/exampleprojects/">How people use it</a>
                   </li>
@@ -83,27 +83,15 @@
                   <li class="toctree-l1"><a class="reference internal" href="../functionalities/monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Theoretical concepts</span></p>
+              <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Main</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">General concepts</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#annotation-and-modeling-workflow">Annotation and Modeling Workflow</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#finding-all-the-positive-cases">Finding all the positive cases</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#annotating-for-generalization">Annotating for generalization</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#projections">Projections</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#topic-models">Topic models</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#train-validation-and-test-sets">Train, Validation and Test sets</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
+    <li class="toctree-l2"><a class="reference internal" href="#representing-texts-with-features">Representing texts with Features</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#active-learning">Active learning</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-active-learning">What is Active Learning ?</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#training-quick-models">Training Quick models</a>
     </li>
@@ -133,9 +121,13 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#projections">Projections</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#topic-models">Topic models</a>
+    </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="glossary/">Vocab</a>
+                  <li class="toctree-l1"><a class="reference internal" href="glossary/">Glossary</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Software</span></p>
@@ -168,8 +160,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Theoretical concepts</li>
-      <li class="breadcrumb-item active">Main</li>
+          <li class="breadcrumb-item">Conceptualizing</li>
+      <li class="breadcrumb-item active">General concepts</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -178,77 +170,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="theoretical-concepts">Theoretical concepts</h1>
-<h2 id="annotation-and-modeling-workflow">Annotation and Modeling Workflow</h2>
-<h3 id="finding-all-the-positive-cases">Finding all the positive cases</h3>
-<p>If your dataset is relatively small (a few thousand texts), and your goal is to annotate all the positive cases of the classes you are interested in, you might not need to follow the complete workflow described below. 
-However, active learning could still be very helpful: just follow step 1 of the following section, and iterate until you are confident you have found all the positive cases in your dataset.
-The only difference: use the complete dataset as your training set.</p>
-<h3 id="annotating-for-generalization">Annotating for generalization</h3>
-<p>If your goal is to generalize your annotations to a large dataset using a predictive model, you will typically need to iterate between annotation and training steps.
-The reason for this is that using models can make your annotation process more efficient (see <em>Active learning</em> section below), and you will need a sufficiently high number of annotations to get a satisfying model.</p>
-<p>The recommended workflow is the following.</p>
-<p>0/ Explore your training set, using <em>projections</em> and <em>topic models</em> (see below).
-This will help you determine if your dataset is clean enough for the rest of the process.</p>
-<p>1/ Annotate your training set:
-- first annotate around 20 cases for each class, either using fixed or random selection if you expect your classes to be balanced, or using the content filter if you are looking for rare classes with relevant keywords
-- train a quick model (see details below)
-- use active learning for annotation with this model, and iterate between model training and annotation until the model gets good (see <em>Model quality scores</em> in the <em>Glossary</em>)
-- train a BERT model, and use this instead of the quick model to iterate between training and annotation, until you are satisfied with model quality</p>
-<p>2/ Annotate the validation set:
-- Once you have annotated your training set, you will probably have a better understanding of your data, and stabilized the definitions of your labels
-- You can now annotate your validation set, and check whether your models perform as well as during training
-- Again, iterate between annotation and validation quality, until you are satisfied with the quality scores
-- If you have trained several models, choose the best one according to the validation scores</p>
-<p>3/ Annotate the test set: this is the final step, which should only be used to evaluate the quality of your final model -- no more iterations, or your final quality scores will be biased!</p>
-<h2 id="projections">Projections</h2>
-<p>A projection is a 2D (dimensional reduction)[https://en.wikipedia.org/wiki/Dimensionality_reduction] of your training data, used for visualization (in the <strong>Explore</strong> panel).
-It uses an unsupervised model in order to reduce high-dimensional <em>features</em> (see below) to two dimensions: similar texts will be grouped together.
-The resulting visualization will help detecting outliers, and will group texts according to general themes.
-In classification workflows, it is recommended to use projections to get a first overview of your corpus, and to determine whether you need to perform some more cleaning and filtering before annotating texts and training models.</p>
-<p>Note that the placement of texts in the visualization does not tell you everything you want to know about your corpus.
-This reflects the difference between unsupervised and supervised learning: unsupervised learning is only based on features, while supervised learning is meant to find the relationship between features and labels.
-In many cases, different annotations will appear close together in the projection: this means that your classification scheme goes beyond topic modeling.</p>
-<p><strong>TODO: details and links (in Glossary?)</strong></p>
-<h2 id="topic-models">Topic models</h2>
-<p>A topic model (in the <strong>Explore</strong> panel) is an unsupervised model meant to capture the main themes that are present in a corpus, based on text <em>features</em>.
-Active Tigger features BERTopic models, which work in two successive steps: first a dimensionality reduction step (as in <em>Projection</em>, see above), then a clustering step.</p>
-<p>Topic modeling can either be an end in itself, or a useful step in a annotation/prediction workflow. 
-If your goal is to find the main topics in your corpus, you can use topic modeling as a first approximation, and then <strong>Convert to scheme</strong> in order to refine this using additional annotations and modeling.</p>
-<p><strong>TODO: details and links (in Glossary?)</strong></p>
+                <h1 id="general-concepts-in-active-tigger">General concepts in Active Tigger</h1>
 <h2 id="train-validation-and-test-sets">Train, Validation and Test sets</h2>
 <p>In supervised machine learning (aka predictive models), it is common practice to split your dataset into <a href="https://en.wikipedia.org/wiki/Training%2C_validation%2C_and_test_sets">three subsets</a>: the training, validation, and test sets. The reason for this is to control <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>, which happens when a predictive model performs great on its training set, but fails to generalize to observations it hasn't seen before. </p>
 <p>In Active Tigger, this split is performed when creating a project through the "Number of rows in the train/validation/test set" options. Validation and Test sets are optional, but they are strongly recommended if your goal is to train predictive models. Note that, once a project is created, you can also expand the size of the training set, and import external validation or test sets, in the Settings tab.</p>
-<p>Each set plays a different role: 
-- train set: this is the part of your corpus that will be used to train models. Note that this set is itself often split into a main training and a train-evaluation subsets (see below).
-- validation set: this is used to choose which model you will use for final prediction, based on the Evaluation scores in the Model panel. 
-- test set: this is used to evaluate the generalization quality of your final model. Do not use this choose models, otherwise your evaluation scores will not be valid (see <a href="https://en.wikipedia.org/wiki/Goodhart's_law">Goodhart's law</a>). </p>
-<p>In active tigger, we enforce some "good practice" measures:
-- the split is performed before annotating, at project creation, so that the choice of validation and test sets is not influenced by choices made during annotation of the training set
-- model predictions (and active learning features) are not available when annotating validation and test sets, in order to prevent the annotator from being influenced by model predictions.
-- by default the split is performed using uniform random sampling at project creation (except if "Select rows at random" is manually unchecked in the Advanced options), so that they are representative samples of the complete corpus. You may also choose to stratify them according to some variables in your dataset (<strong>SEE Glossary</strong>).</p>
-<p>A frequent question is "How large should my different sets be?". While there is no golden answer to this question, here are some guidelines:
-- The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the classes you are looking for are infrequent.
-- The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the classes you are annotating. One rule of thumb is to have at least 100 observations of each label: if your smallest class is expected to appear in 20\% of texts, use 500 validation and test cases. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.</p>
+<p>Each set plays a different role: </p>
+<ul>
+<li>train set: this is the part of your corpus that will be used to train models. Note that this set is itself often split into a main training and a train-evaluation subsets (see below).</li>
+<li>validation set: this is used to choose which model you will use for final prediction, based on the Evaluation scores in the Model panel. </li>
+<li>test set: this is used to evaluate the generalization quality of your final model. Do not use this choose models, otherwise your evaluation scores will not be valid (see <a href="https://en.wikipedia.org/wiki/Goodhart's_law">Goodhart's law</a>). </li>
+</ul>
+<p>In active tigger, we enforce some "good practice" measures:</p>
+<ul>
+<li>the split is performed before annotating, at project creation, so that the choice of validation and test sets is not influenced by choices made during annotation of the training set</li>
+<li>model predictions (and active learning features) are not available when annotating validation and test sets, in order to prevent the annotator from being influenced by model predictions.</li>
+<li>by default the split is performed using uniform random sampling at project creation (except if "Select rows at random" is manually unchecked in the Advanced options), so that they are representative samples of the complete corpus. You may also choose to stratify them according to some variables in your dataset (<strong>SEE Glossary</strong>).</li>
+</ul>
+<p>A frequent question is "How large should my different sets be?". While there is no golden answer to this question, here are some guidelines:</p>
+<ul>
+<li>The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the classes you are looking for are infrequent.</li>
+<li>The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the classes you are annotating. One rule of thumb is to have at least 100 observations of each label: if your smallest class is expected to appear in 20\% of texts, use 500 validation and test cases. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.</li>
+</ul>
 <p>Another frequent question is "When should I annotate my different sets?". We recommend starting by annotating your training set first, in order to get a feel for your corpus and to stabilize the guidelines for your scheme. Only start annotating the validation and test sets once you are sure of the precise definition of each of your labels.</p>
 <p>One last subtlety is that, during model training, the training set is usually further split into a main training and a train-evaluation subsets, the second one typically at 20\% of the training set. This is done in order to get an indication of how well the models are performing before putting effort into annotating the "real" validation sets, and in order to optimize training hyperparameters (<strong>SEE BERT CURVES</strong>)</p>
-<h2 id="features">Features</h2>
+<h2 id="representing-texts-with-features">Representing texts with Features</h2>
 <p>When doing statistics on texts, the first step is always to transform each text into numbers. This is what features are: numeric representations of texts. These features can then be used to compute visualizations, topics, and quick models. Note that they are not required for BERT models (or generative LLMs), as these automatically compute their own features internally.</p>
 <p><img alt="" src="../img/theoretical-concepts/new-features-form.png" /></p>
-<p>In Active Tigger, there are five kinds of features, which can be created in the Settings tab:
-- Sentence embeddings <strong>ATTENTION POUR L'INSTANT C'EST SEULEMENT EMBEDDINGS</strong>: the most powerful type. They use transformer models to represent a complete block as a whole. Note that, despite their name, these embeddings are computed for a whole block of text, not sentence by sentence. Also, note that different models have different context window sizes: many (older) models only consider the first 512 tokens, the rest are discarded. See the <a href="https://www.sbert.net/">sentence-transformers</a> package for more details, and the HuggingFace pages for details about each model.
-- fastText: these are word embeddings. Each text is first split into words (this is done using the <a href="https://spacy.io/">SpaCy</a> tokenizer, with the selected language), then one embedding is computed for each word, and finally the text embedding is computed as the average of its word embeddings. Note that the order of words is not taken into account in this method. See the <a href="https://fasttext.cc">fastText</a> webpage for details.
-- DFM: a document-feature matrix. This was the main way of transforming texts into numbers before the advent of neural language processing. Each text is first split into words (this is done using the <a href="https://spacy.io/">SpaCy</a> tokenizer, with the selected language), and then a large matrix is created, where each document is a row, each column a term, and each element the number of times the term appears in the document (or a transformation thereof). See the <strong>DFM OPTIONS</strong> section for more details about the ways to compute a DFM.
-- regex: regular expressions. For a given regex, the feature will be single binary variable, representing its presence or absence in each text.
-- dataset: a variable that is present in the dataset. This can be useful when training quick models, for instance if you have a variable that measures the number of characters, or the text's source.</p>
+<p>In Active Tigger, there are five kinds of features, which can be created in the Settings tab:</p>
+<ul>
+<li>Sentence embeddings <strong>ATTENTION POUR L'INSTANT C'EST SEULEMENT EMBEDDINGS</strong>: the most powerful type. They use transformer models to represent a complete block as a whole. Note that, despite their name, these embeddings are computed for a whole block of text, not sentence by sentence. Also, note that different models have different context window sizes: many (older) models only consider the first 512 tokens, the rest are discarded. See the <a href="https://www.sbert.net/">sentence-transformers</a> package for more details, and the HuggingFace pages for details about each model.</li>
+<li>fastText: these are word embeddings. Each text is first split into words (this is done using the <a href="https://spacy.io/">SpaCy</a> tokenizer, with the selected language), then one embedding is computed for each word, and finally the text embedding is computed as the average of its word embeddings. Note that the order of words is not taken into account in this method. See the <a href="https://fasttext.cc">fastText</a> webpage for details.</li>
+<li>DFM: a document-feature matrix. This was the main way of transforming texts into numbers before the advent of neural language processing. Each text is first split into words (this is done using the <a href="https://spacy.io/">SpaCy</a> tokenizer, with the selected language), and then a large matrix is created, where each document is a row, each column a term, and each element the number of times the term appears in the document (or a transformation thereof). See the <strong>DFM OPTIONS</strong> section for more details about the ways to compute a DFM.</li>
+<li>regex: regular expressions. For a given regex, the feature will be single binary variable, representing its presence or absence in each text.</li>
+<li>dataset: a variable that is present in the dataset. This can be useful when training quick models, for instance if you have a variable that measures the number of characters, or the text's source.</li>
+</ul>
 <p>Generally, the recommended features are Sentence embeddings for computing visualizations, topic models, and quick models. For quick models, they can be used along with regex features, if there are some keywords that are particularly informative (or that you want to disambiguate). In low-resource environments, fastText or DFM embeddings can be used instead of sentence embeddings.</p>
-<h2 id="active-learning">Active learning</h2>
+<h2 id="what-is-active-learning">What is Active Learning ?</h2>
 <p>Active learning is a method that makes tagging more efficient: less annotations will be required to train a good model. </p>
 <p>The main principle is that, once a first model is trained, the next texts chosen for annotation will be the ones about which the model is least confident (mathematically, the highest entropy of predicted probabilities). This is more efficient than choosing texts at random because it forces the user to tag ambiguous texts, the ones that will be the most helpful for training the next model. In practice, this is often helpful for the user as well: being confronted to difficult, ambiguous cases helps her refine her guidelines.</p>
-<p>In Active Tigger, there are several ways to use models for next text selection, controlled through the "Selection method" option once a model is activated in the Annotate panel: 
-- Active: highest entropy, as described above
-- Max Label: highest predicted probability for the chosen label. We have found this to be useful in practice, because a model can be wrong in its certainties, especially in the early stages with few annotations, for instance when it confuses what the user is looking for with the general topic of the texts. It can also be useful if your goal is to find all the positive cases of a rare category in your corpus.
-- Min Label: lowest predicted probability <em>among the observations that the model predicts as the chosen label</em>. This is a sort of active learning focusing on a specific label.</p>
+<p>In Active Tigger, there are several ways to use models for next text selection, controlled through the "Selection method" option once a model is activated in the Annotate panel: </p>
+<ul>
+<li>Active: highest entropy, as described above</li>
+<li>Max Label: highest predicted probability for the chosen label. We have found this to be useful in practice, because a model can be wrong in its certainties, especially in the early stages with few annotations, for instance when it confuses what the user is looking for with the general topic of the texts. It can also be useful if your goal is to find all the positive cases of a rare category in your corpus.</li>
+<li>Min Label: lowest predicted probability <em>among the observations that the model predicts as the chosen label</em>. This is a sort of active learning focusing on a specific label.</li>
+</ul>
 <p>If your goal is ultimately to train a BERT model, the correct practice is to choose the last trained BERT model as the active model in the Annotate panel. This will require you to first click the "Compute predictions" button in the Model tab, as they are not computed automatically (prediction uses resources and can take a long time). <strong>ATTENTION POUR LE MOMENT SEULEMENT "Compute statistics on current annotations" dans Validate.</strong></p>
 <h2 id="training-quick-models">Training Quick models</h2>
 <p>Quick models are standard supervised machine learning models, trained on features in order to predict labels. 
@@ -276,51 +241,67 @@ The vertical line shows which training checkpoint has been saved.</p>
 After training, use the quality scores for a detailed view of how the model is performing (see <em>Glossary</em>).</p>
 <h4 id="just-right">Just right</h4>
 <p><img alt="" src="../img/theoretical-concepts/bertrain-good.png" /></p>
-<p>This is what you want to see:
-- Both curves went down during training: the model has learned
-- Both curves have the same loss values: no overfitting
-- The curves are flat at the end: nothing more to be learned, apparently</p>
+<p>This is what you want to see:</p>
+<ul>
+<li>Both curves went down during training: the model has learned</li>
+<li>Both curves have the same loss values: no overfitting</li>
+<li>The curves are flat at the end: nothing more to be learned, apparently</li>
+</ul>
 <p>Now you only have to look at the evaluation metrics to see if you are satisfied with the prediction quality.</p>
 <h4 id="overfitting">Overfitting</h4>
 <p><img alt="" src="../img/theoretical-concepts/bertrain-overfit.png" /></p>
-<p>The model has overfitted:
-- Both curves went down during training: the model has learned
-- But the training curve is much lower than the evaluation curve</p>
-<p>What to do:
-- choose a lower step size, for slower weight updates
-- use larger batches, in order to smooth training over more examples per training step
-- choose higher weight decay: this will prevent the weights from getting to large
-- annotate more data, you may not have enough examples for the model to learn from</p>
+<p>The model has overfitted:</p>
+<ul>
+<li>Both curves went down during training: the model has learned</li>
+<li>But the training curve is much lower than the evaluation curve</li>
+</ul>
+<p>What to do:</p>
+<ul>
+<li>choose a lower step size, for slower weight updates</li>
+<li>use larger batches, in order to smooth training over more examples per training step</li>
+<li>choose higher weight decay: this will prevent the weights from getting to large</li>
+<li>annotate more data, you may not have enough examples for the model to learn from</li>
+</ul>
 <h4 id="underfitting">Underfitting</h4>
 <p><img alt="" src="../img/theoretical-concepts/bertrain-flat.png" /></p>
 <p>The model has underfitted:
 - Both curves are flat, the model has learned nothing</p>
-<p>What to do:
-- choose a higher step size, for faster weight updates
-- use smaller batches, as this will result in more training steps
-- choose lower weight decay: too high regularization can prevent proper learning
-- annotate more data, you may not have enough examples for the model to learn from</p>
+<p>What to do:</p>
+<ul>
+<li>choose a higher step size, for faster weight updates</li>
+<li>use smaller batches, as this will result in more training steps</li>
+<li>choose lower weight decay: too high regularization can prevent proper learning</li>
+<li>annotate more data, you may not have enough examples for the model to learn from</li>
+</ul>
 <h4 id="incomplete-learning">Incomplete learning</h4>
 <p><img alt="" src="../img/theoretical-concepts/bertrain-more.png" /></p>
-<p>The model could learn more:
-- Both curves went down during training: the model has learned
-- Both curves have the same loss values: no overfitting
-- But there is no plateau at the end, the curves are still going down</p>
-<p>What to do:
-- use more epochs, to give the model time to learn more
-- choose a higher step size, for faster weight updates
-- use smaller batches, as this will result in more training steps
-- choose lower weight decay: too high regularization can prevent proper learning</p>
+<p>The model could learn more:</p>
+<ul>
+<li>Both curves went down during training: the model has learned</li>
+<li>Both curves have the same loss values: no overfitting</li>
+<li>But there is no plateau at the end, the curves are still going down</li>
+</ul>
+<p>What to do:</p>
+<ul>
+<li>use more epochs, to give the model time to learn more</li>
+<li>choose a higher step size, for faster weight updates</li>
+<li>use smaller batches, as this will result in more training steps</li>
+<li>choose lower weight decay: too high regularization can prevent proper learning</li>
+</ul>
 <h4 id="chaotic-learning">Chaotic learning</h4>
 <p><img alt="" src="../img/theoretical-concepts/bertrain-chaos.png" /></p>
-<p>The model is trying to learn too fast:
-- Curves should be going down, not up and down
-- Some learning has occurred, but you can probably do better</p>
-<p>What to do:
-- choose a lower step size, for slower weight updates
-- use larger batches, in order to smooth training over more examples per training step
-- choose higher weight decay: this will prevent the weights from getting to large
-- annotate more data, you may not have enough examples for the model to learn from</p>
+<p>The model is trying to learn too fast:</p>
+<ul>
+<li>Curves should be going down, not up and down</li>
+<li>Some learning has occurred, but you can probably do better</li>
+</ul>
+<p>What to do:</p>
+<ul>
+<li>choose a lower step size, for slower weight updates</li>
+<li>use larger batches, in order to smooth training over more examples per training step</li>
+<li>choose higher weight decay: this will prevent the weights from getting to large</li>
+<li>annotate more data, you may not have enough examples for the model to learn from</li>
+</ul>
 <h3 id="which-hyper-parameters-to-choose">Which hyper-parameters to choose?</h3>
 <p><strong>Base parameters</strong></p>
 <table>
@@ -439,15 +420,30 @@ After training, use the quality scores for a detailed view of how the model is p
 </tbody>
 </table>
 <h3 id="how-many-annotations-do-i-need">How many annotations do I need?</h3>
-<p>Again, there is no golden rule: it depends on the difficulty of the classification task.
-A few dozen annotations per class might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.
-In general, more is always better, but it also depends on how useful your annotations are (see <em>Active learning</em> section).</p>
+<p>Again, there is no golden rule: it depends on the difficulty of the classification task.</p>
+<p>A few dozen annotations per class might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.</p>
+<p>In general, more is always better, but it also depends on how useful your annotations are (see <em>Active learning</em> section).</p>
+<h2 id="projections">Projections</h2>
+<p>A projection is a 2D (dimensional reduction)[https://en.wikipedia.org/wiki/Dimensionality_reduction] of your training data, used for visualization (in the <strong>Explore</strong> panel).</p>
+<p>It uses an unsupervised model in order to reduce high-dimensional <em>features</em> (see below) to two dimensions: similar texts will be grouped together.</p>
+<p>The resulting visualization will help detecting outliers, and will group texts according to general themes.</p>
+<p>In classification workflows, it is recommended to use projections to get a first overview of your corpus, and to determine whether you need to perform some more cleaning and filtering before annotating texts and training models.</p>
+<p>Note that the placement of texts in the visualization does not tell you everything you want to know about your corpus.</p>
+<p>This reflects the difference between unsupervised and supervised learning: unsupervised learning is only based on features, while supervised learning is meant to find the relationship between features and labels.</p>
+<p>In many cases, different annotations will appear close together in the projection: this means that your classification scheme goes beyond topic modeling.</p>
+<p><strong>TODO: details and links (in Glossary?)</strong></p>
+<h2 id="topic-models">Topic models</h2>
+<p>A topic model (in the <strong>Explore</strong> panel) is an unsupervised model meant to capture the main themes that are present in a corpus, based on text <em>features</em>.</p>
+<p>Active Tigger features BERTopic models, which work in two successive steps: first a dimensionality reduction step (as in <em>Projection</em>, see above), then a clustering step.</p>
+<p>Topic modeling can either be an end in itself, or a useful step in a annotation/prediction workflow. </p>
+<p>If your goal is to find the main topics in your corpus, you can use topic modeling as a first approximation, and then <strong>Convert to scheme</strong> in order to refine this using additional annotations and modeling.</p>
+<p><strong>TODO: details and links (in Glossary?)</strong></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../functionalities/monitoring-account-and-users/" class="btn btn-neutral float-left" title="Monitoring, Account and Users Pages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="glossary/" class="btn btn-neutral float-right" title="Vocab">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="glossary/" class="btn btn-neutral float-right" title="Glossary">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
