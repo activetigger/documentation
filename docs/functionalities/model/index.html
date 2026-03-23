@@ -150,7 +150,7 @@
 <p>This section describes the Training tab, the parameters available for training as well as the key insights displayed on the page.</p>
 <p><img alt="" src="../../img/functionalities/models.png" /> </p>
 <h3 id="quick-models">Quick Models</h3>
-<p>The Quick Models are classification models from <a href="http://scikit-learn.org/stable/supervised_learning.html">scikit-learn</a> trained on pre-computed features (<a href="../../theoretical-concepts/#what-are-features">what are features?</a>). They are quick to train and do not require GPUs. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
+<p>The Quick Models are classification models from <a href="http://scikit-learn.org/stable/supervised_learning.html">scikit-learn</a> trained on pre-computed features (<a href="../../theoretical-concepts/#representing-texts-with-features">what are features?</a>). They are quick to train and do not require GPUs. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
 <p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see <a href="../annotate/#active-learning">Annotation page</a>)</p>
 <p>Models available include: </p>
 <ul>
@@ -201,9 +201,9 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 <li><span class="parameter">Name for the model</span> The name used as a reference in the interface.</li>
 <li><span class="parameter">Model base</span>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface (<a href="../../faq/faq/#choose-models-made-available">which models can I train?</a>). </li>
 <li><span class="parameter">Context window size</span>: The number of token per entry. After tokenization each input is truncated/padded to match this size. If selecting <span class="parameter">Auto adjust Max context window size</span> the window size will be calculated as the minimum between the maximum window size of the model and the length of the longest entry of the dataset.</li>
-<li><span class="parameter">Epochs</span>: The number of times the model will be train on the train dataset<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
-<li><span class="parameter">Learning Rate</span>: The initial learning rate value used during training (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>). </li>
-<li><span class="parameter">Weight Decay</span>: The probability for a weight to not be updated during the backward propagation (<a href="../../theoretical-concepts/#choose-hyper-parameters">more on choosing the hyperparameters</a>).</li>
+<li><span class="parameter">Epochs</span>: The number of times the model will be train on the train dataset<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> (<a href="../../theoretical-concepts/#which-hyper-parameters-to-choose">more on choosing the hyperparameters</a>). </li>
+<li><span class="parameter">Learning Rate</span>: The initial learning rate value used during training (<a href="../../theoretical-concepts/#which-hyper-parameters-to-choose">more on choosing the hyperparameters</a>). </li>
+<li><span class="parameter">Weight Decay</span>: The probability for a weight to not be updated during the backward propagation (<a href="../../theoretical-concepts/#which-hyper-parameters-to-choose">more on choosing the hyperparameters</a>).</li>
 <li><span class="parameter secondary">Use GPU</span>: If set to True, the model will be trained on GPU — <em>if available</em>.</li>
 <li><span class="parameter secondary">Batch size</span>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.</li>
 <li><span class="parameter secondary">Gradient Accumulation</span>: The number of batches used to update the weights during the backward propagation. @JULIEN</li>
@@ -217,7 +217,7 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 </ul>
 <p>Trained BERT models are downloadable from the <a href="../export/#models">Export page</a>. Users can download the model files as well as the predictions on the dataset of the project or an external dataset.</p>
 <h3 id="key-insights">Key insights</h3>
-<p>For both classifiers, the application displays the Macro F1-Score (<a href="../../theoretical-concepts/#what-metrics-to-use">what metrics to use</a>) as well as the <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a> and scores per label (<a href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision_vs._Recall">Recall, Precision</a> and <a href="https://en.wikipedia.org/wiki/F-score#Definition">F1</a>)</p>
+<p>For both classifiers, the application displays the Macro F1-Score (<a href="../../faq/faq/#what-metrics-should-i-use">what metrics to use</a>) as well as the <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a> and scores per label (<a href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision_vs._Recall">Recall, Precision</a> and <a href="https://en.wikipedia.org/wiki/F-score#Definition">F1</a>)</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The performance are computed on the train-eval dataset</p>
@@ -228,7 +228,7 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 <li><span class="action secondary">Parameters</span> to show the parameters of the model and the training arguments.</li>
 <li><span class="action secondary">Rename</span> to rename the model.</li>
 </ul>
-<p>For <strong>BERT models only</strong>, the application displays the <a href="https://en.wikipedia.org/wiki/Loss_function">loss curve</a> (<a href="../../theoretical-concepts/#read-the-loss-curve">how to read the loss curve?</a>).</p>
+<p>For <strong>BERT models only</strong>, the application displays the <a href="https://en.wikipedia.org/wiki/Loss_function">loss curve</a> (<a href="../../theoretical-concepts/#reading-the-loss-curve">how to read the loss curve?</a>).</p>
 <h2 id="evaluation">Evaluation</h2>
 <p>The Evaluation tab shows similar component as the <a href="#training">Training</a> tab. After selecting a classifier, <span class="action primary">Compute statistics on current annotations</span> to compute the performance of the model on the full train, test and validation set[^3]. XXX Does it compute the prediction for the whol label? Can't remember.</p>
 <p>The rest of the layout is similar to the one in the <a href="#key-insights">Training page</a></p>
