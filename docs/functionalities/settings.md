@@ -24,7 +24,7 @@ This page displays the parameters of the project and allows editing or deleting 
 
 Displays the available features and their parameters. 
 
-- <span class="action primary">Add a new feature</span> to compute new features ([more details on the available features modes](../theoretical-concepts/index.md#what-are-features)).
+- <span class="action primary">Add a new feature</span> to compute new features ([more details on the available features modes](../theoretical-concepts/index.md#representing-texts-with-features)).
     - if using **embeddings**:
         - <span class="parameter">Feature name</span>
         - <span class="parameter">Model to use</span>

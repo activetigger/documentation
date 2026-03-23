@@ -32,3 +32,7 @@ If you upload a parquet file, you can encounter issues related to the format of 
 ## Why can't I change the size of my sets on the go? 
 
 ## How to create consisitent ID for my project? 
+
+## Should I scale my features?
+
+## What metrics should I use?

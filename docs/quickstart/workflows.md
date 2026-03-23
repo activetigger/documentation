@@ -76,7 +76,7 @@ Once again, this workflow tends to be much less linear in practice. You will lik
 
 ## Explore your data
 
-Sometimes, with a large textual dataset, it is difficult to get an overview of what your dataset contains. Active Tigger provides tools to explore your corpus (either as an independent step or as part of an annotation process), helping you understand its structure, identify clusters of similar content, and make more informed annotation decisions. For this, you can make use of the tabular oversight functions of the interface, of make use of  [topic models](..theoretical-concepts/main.md).
+Sometimes, with a large textual dataset, it is difficult to get an overview of what your dataset contains. Active Tigger provides tools to explore your corpus (either as an independent step or as part of an annotation process), helping you understand its structure, identify clusters of similar content, and make more informed annotation decisions. For this, you can make use of the tabular oversight functions of the interface, of make use of  [topic models](../theoretical-concepts/index.md#topic-models).
 
 This workflow consists of:
 

@@ -10,7 +10,7 @@ This section describes the Training tab, the parameters available for training a
 
 ### Quick Models
 
-The Quick Models are classification models from [scikit-learn](http://scikit-learn.org/stable/supervised_learning.html) trained on pre-computed features ([what are features?](../theoretical-concepts/index.md#what-are-features)). They are quick to train and do not require GPUs. These models can be used for Active Learning ([what is Active Learning?](../theoretical-concepts/index.md#what-is-active-learning)) in the [Annotate page](./annotate.md).
+The Quick Models are classification models from [scikit-learn](http://scikit-learn.org/stable/supervised_learning.html) trained on pre-computed features ([what are features?](../theoretical-concepts/index.md#representing-texts-with-features)). They are quick to train and do not require GPUs. These models can be used for Active Learning ([what is Active Learning?](../theoretical-concepts/index.md#what-is-active-learning)) in the [Annotate page](./annotate.md).
 
 When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see [Annotation page](./annotate.md#active-learning))
 
@@ -57,9 +57,9 @@ The parameters for the model are:
 - <span class="parameter">Name for the model</span> The name used as a reference in the interface.
 - <span class="parameter">Model base</span>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface ([which models can I train?](../faq/faq.md#choose-models-made-available)). 
 - <span class="parameter">Context window size</span>: The number of token per entry. After tokenization each input is truncated/padded to match this size. If selecting <span class="parameter">Auto adjust Max context window size</span> the window size will be calculated as the minimum between the maximum window size of the model and the length of the longest entry of the dataset.
-- <span class="parameter">Epochs</span>: The number of times the model will be train on the train dataset[^2] ([more on choosing the hyperparameters](../theoretical-concepts/index.md#choose-hyper-parameters)). 
-- <span class="parameter">Learning Rate</span>: The initial learning rate value used during training ([more on choosing the hyperparameters](../theoretical-concepts/index.md#choose-hyper-parameters)). 
-- <span class="parameter">Weight Decay</span>: The probability for a weight to not be updated during the backward propagation ([more on choosing the hyperparameters](../theoretical-concepts/index.md#choose-hyper-parameters)).
+- <span class="parameter">Epochs</span>: The number of times the model will be train on the train dataset[^2] ([more on choosing the hyperparameters](../theoretical-concepts/index.md#which-hyper-parameters-to-choose)). 
+- <span class="parameter">Learning Rate</span>: The initial learning rate value used during training ([more on choosing the hyperparameters](../theoretical-concepts/index.md#which-hyper-parameters-to-choose)). 
+- <span class="parameter">Weight Decay</span>: The probability for a weight to not be updated during the backward propagation ([more on choosing the hyperparameters](../theoretical-concepts/index.md#which-hyper-parameters-to-choose)).
 - <span class="parameter secondary">Use GPU</span>: If set to True, the model will be trained on GPU — _if available_.
 - <span class="parameter secondary">Batch size</span>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.
 - <span class="parameter secondary">Gradient Accumulation</span>: The number of batches used to update the weights during the backward propagation. @JULIEN
@@ -77,7 +77,7 @@ Trained BERT models are downloadable from the [Export page](./export.md#models).
 
 ### Key insights
 
-For both classifiers, the application displays the Macro F1-Score ([what metrics to use](../theoretical-concepts/index.md#what-metrics-to-use)) as well as the [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) and scores per label ([Recall, Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision_vs._Recall) and [F1](https://en.wikipedia.org/wiki/F-score#Definition))
+For both classifiers, the application displays the Macro F1-Score ([what metrics to use](../faq/faq.md#what-metrics-should-i-use)) as well as the [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) and scores per label ([Recall, Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision_vs._Recall) and [F1](https://en.wikipedia.org/wiki/F-score#Definition))
 
 !!! warning
 
@@ -88,7 +88,7 @@ For both classifiers, the application displays the Macro F1-Score ([what metrics
 - <span class="action secondary">Parameters</span> to show the parameters of the model and the training arguments.
 - <span class="action secondary">Rename</span> to rename the model.
 
-For **BERT models only**, the application displays the [loss curve](https://en.wikipedia.org/wiki/Loss_function) ([how to read the loss curve?](../theoretical-concepts/index.md#read-the-loss-curve)).
+For **BERT models only**, the application displays the [loss curve](https://en.wikipedia.org/wiki/Loss_function) ([how to read the loss curve?](../theoretical-concepts/index.md#reading-the-loss-curve)).
 
 ## Evaluation
 
