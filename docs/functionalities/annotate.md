@@ -6,7 +6,7 @@ The annotate panel is the main page of the app to annotate your text data.
 
 ## Selecting text inputs to annotate
 
-There are several ways to select a subset of text inputs. XXX more?
+There are several ways to select a subset of text inputs.
 
 - <span class="parameter">Dataset</span>: Select the dataset on which you are working (train, validation or test).
 - <span class="parameter">Selection mode</span>: Change the order in which elements are showed (fixed, or random).
@@ -18,6 +18,7 @@ There are several ways to select a subset of text inputs. XXX more?
 - <a class="parameter">Filter by content</a>: Only displays elements with specific characteristis
     - Being labeled with LABEL
     - Being labeled by a user
+    - With comments
     - Predicted as LABEL by current active model
     - Matching a search / regex expression
 

@@ -20,14 +20,14 @@ Models available include:
     - <span class="parameter">Cost</span>: XXX
 - [Logistic model](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) with L1 penalty: XXX. The parameters are: 
     - <span class="parameter">Cost</span>: XXX
-- [k-Nearest-Neighbors (KNN)](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html): XXX. The parameters are: 
-    - <span class="parameter">Number of neighbors</span>: XXX
-- [Random Forest](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html): XXX. The parameters are:
-    - <span class="parameter">Number of estimators</span>:
-    - <span class="parameter">Max features</span>:
+- [k-Nearest-Neighbors (KNN)](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html): Classifies input based on the label of the k-nearest neighbors from the trainset. The parameters are: 
+    - <span class="parameter">Number of neighbors</span>: Number of neighbors to look at to choose the label.
+- [Random Forest](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html): A collection of Decision Tree classifiers that splitting the input space to generate a label. The parameters are:
+    - <span class="parameter">Number of estimators</span>: The number of decision trees in the forest.
+    - <span class="parameter">Max features</span>: The number of columns from the embeddings to consider per tree. 
 - [Multinomial Naive Bayes classifier](http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html): XXX. The parameters are:
-    - <span class="parameter">Alpha</span>
-    - <span class="parameter">Fit prior</span>
+    - <span class="parameter">Alpha</span>: XXX
+    - <span class="parameter">Fit prior</span>: XXX
 
 !!! warning 
     All features are scaled before fitting the Quick Model.
@@ -65,8 +65,8 @@ The parameters for the model are:
 - <span class="parameter secondary">Gradient Accumulation</span>: The number of batches used to update the weights during the backward propagation. @JULIEN
 - <span class="parameter secondary">Eval</span>: This is the number of evaluation — scoring performance on the train-eval dataset — performed during training.
 - <span class="parameter secondary">Train-eval split size</span>: The ratio of elements in the train dataset[^2] that will be used to assess the model performance during training.
-- <span class="parameter secondary">Class threshold</span>: The minimum number of annotation per label required. XXX sort out class or theshold
-- <span class="parameter secondary">Balance classes</span>: If set to True, the train dataset[^2] will be constructed using the same number of text inputs per label.
+- <span class="parameter secondary">Label threshold</span>: The minimum number of annotation per label required.
+- <span class="parameter secondary">Balance labels</span>: If set to True, the train dataset[^2] will be constructed using the same number of text inputs per label.
 - <span class="parameter secondary">Loss</span>: The loss function used optimise the model weights for training.
 - <span class="parameter secondary">Keep the best model</span>: If set to True, the model .
 - <span class="parameter secondary">Labels to ignore</span>: Text inputs with these labels will be dropped out of the train dataset[^2].

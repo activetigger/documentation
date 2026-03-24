@@ -29,12 +29,10 @@ The visualization tab displays a projection of the embedding space in two dimens
 - <span class="action primary">Compute new projection</span>
     - <span class="parameter">Select a feature</span>: choose the set of feature ([what are features?](../theoretical-concepts/index.md#representing-texts-with-features))to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to [Compute new features](../functionalities/settings.md#features).
     - When using **UMAP**:
-        - <span class="parameter">n neighbors</span>:
-        - <span class="parameter">min distance</span>:
+        - <span class="parameter">n neighbors</span>: Defines the size of a neighbourhood, hence whether two points are considered as "close" and should be kept together in the process or not.
+        - <span class="parameter">min distance</span>: Aesthetic parameter, low values generate denser representations.
     - When using **t-SNE**:
-        - <span class="parameter">perplexity</span>: XXX
-        - <span class="parameter">learning rate</span>: XXX
-        - <span class="parameter">init</span>: XXX
+        - <span class="parameter">perplexity</span>: It controls the effective number of neighbors that each point considers during the dimensionality reduction process. ([Source](https://opentsne.readthedocs.io/en/latest/parameters.html#perplexity)).
     - <span class="parameter">Feature scaling</span>: this is a method normalizes the range of independant variables (i.e. each feature) ([should I scale my features?](../faq/faq.md#should-i-scale-my-features)).
 - <span class="action secondary">Parameters</span> to see the parameters of the current projection.
 - The visualization panel displays each text input in a 2D space. The color of the node depends on the label, _or the absence thereof_. 
@@ -47,14 +45,14 @@ Projections can be downloaded from the [Export page](./export.md#features).
 
 ## Topic model
 
-The topic model ([what is a topic model?](../theoretical-concepts/index.md#topic-models)) section displays existing topic models (for a given project and user ??? XXX) and allows to compute new ones [BERTopic](https://bertopic.com/)[^1]. 
+The topic model ([what is a topic model?](../theoretical-concepts/index.md#topic-models)) section displays existing topic models (for a given project, accross all users) and allows to compute new ones [BERTopic](https://bertopic.com/)[^1]. 
 
 [^1]: Find a full tutorial on BERTopic for the social science [here](https://www.css.cnrs.fr/the-general-inquirer-in-the-time-of-llms-a-bertopic-tutorial/).
 
 ![](../img/functionalities/bertopic.png)
 
 - <span class="action primary">Compute new BERTopic</span> to create a new topic model.
-    - <span class="parameter">Name</span>: must be unique (with regard to? unique at all or unique per project ? unique per project per user? XXX )
+    - <span class="parameter">Name</span>: must be unique (per project)
     - <span class="parameter">Embedding model</span>: choose from the [available embedding models](../faq/faq.md#choose-models-made-available) to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.
     - <span class="parameter">Number of neighbours</span>: [UMAP parameter](https://pair-code.github.io/understanding-umap/) — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the global structure (i.e. global topics) (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
     - <span class="parameter">Min topic size</span>: [HDBSCAN parameter](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.HDBSCAN.html) — a clustering algorithm —, this parameters correspond to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate few large groups; decreasing this value will generate many small groups.
