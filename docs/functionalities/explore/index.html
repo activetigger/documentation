@@ -168,14 +168,12 @@ Computing a new projection will overwrite the current projection.</p>
 <li><span class="action primary">Compute new projection</span><ul>
 <li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../theoretical-concepts/#representing-texts-with-features">what are features?</a>)to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
 <li>When using <strong>UMAP</strong>:<ul>
-<li><span class="parameter">n neighbors</span>:</li>
-<li><span class="parameter">min distance</span>:</li>
+<li><span class="parameter">n neighbors</span>: Defines the size of a neighbourhood, hence whether two points are considered as "close" and should be kept together in the process or not.</li>
+<li><span class="parameter">min distance</span>: Aesthetic parameter, low values generate denser representations.</li>
 </ul>
 </li>
 <li>When using <strong>t-SNE</strong>:<ul>
-<li><span class="parameter">perplexity</span>: XXX</li>
-<li><span class="parameter">learning rate</span>: XXX</li>
-<li><span class="parameter">init</span>: XXX</li>
+<li><span class="parameter">perplexity</span>: It controls the effective number of neighbors that each point considers during the dimensionality reduction process. (<a href="https://opentsne.readthedocs.io/en/latest/parameters.html#perplexity">Source</a>).</li>
 </ul>
 </li>
 <li><span class="parameter">Feature scaling</span>: this is a method normalizes the range of independant variables (i.e. each feature) (<a href="../../faq/faq/#should-i-scale-my-features">should I scale my features?</a>).</li>
@@ -192,11 +190,11 @@ Computing a new projection will overwrite the current projection.</p>
 </ul>
 <p>Projections can be downloaded from the <a href="../export/#features">Export page</a>.</p>
 <h2 id="topic-model">Topic model</h2>
-<p>The topic model (<a href="../../theoretical-concepts/#topic-models">what is a topic model?</a>) section displays existing topic models (for a given project and user ??? XXX) and allows to compute new ones <a href="https://bertopic.com/">BERTopic</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
+<p>The topic model (<a href="../../theoretical-concepts/#topic-models">what is a topic model?</a>) section displays existing topic models (for a given project, accross all users) and allows to compute new ones <a href="https://bertopic.com/">BERTopic</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
 <p><img alt="" src="../../img/functionalities/bertopic.png" /></p>
 <ul>
 <li><span class="action primary">Compute new BERTopic</span> to create a new topic model.<ul>
-<li><span class="parameter">Name</span>: must be unique (with regard to? unique at all or unique per project ? unique per project per user? XXX )</li>
+<li><span class="parameter">Name</span>: must be unique (per project)</li>
 <li><span class="parameter">Embedding model</span>: choose from the <a href="../../faq/faq/#choose-models-made-available">available embedding models</a> to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.</li>
 <li><span class="parameter">Number of neighbours</span>: <a href="https://pair-code.github.io/understanding-umap/">UMAP parameter</a> — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the global structure (i.e. global topics) (more <a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">here</a>).</li>
 <li><span class="parameter">Min topic size</span>: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.HDBSCAN.html">HDBSCAN parameter</a> — a clustering algorithm —, this parameters correspond to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate few large groups; decreasing this value will generate many small groups.</li>

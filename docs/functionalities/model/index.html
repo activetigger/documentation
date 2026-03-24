@@ -162,18 +162,18 @@
 <li><span class="parameter">Cost</span>: XXX</li>
 </ul>
 </li>
-<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">k-Nearest-Neighbors (KNN)</a>: XXX. The parameters are: <ul>
-<li><span class="parameter">Number of neighbors</span>: XXX</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">k-Nearest-Neighbors (KNN)</a>: Classifies input based on the label of the k-nearest neighbors from the trainset. The parameters are: <ul>
+<li><span class="parameter">Number of neighbors</span>: Number of neighbors to look at to choose the label.</li>
 </ul>
 </li>
-<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a>: XXX. The parameters are:<ul>
-<li><span class="parameter">Number of estimators</span>:</li>
-<li><span class="parameter">Max features</span>:</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a>: A collection of Decision Tree classifiers that splitting the input space to generate a label. The parameters are:<ul>
+<li><span class="parameter">Number of estimators</span>: The number of decision trees in the forest.</li>
+<li><span class="parameter">Max features</span>: The number of columns from the embeddings to consider per tree. </li>
 </ul>
 </li>
 <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html">Multinomial Naive Bayes classifier</a>: XXX. The parameters are:<ul>
-<li><span class="parameter">Alpha</span></li>
-<li><span class="parameter">Fit prior</span></li>
+<li><span class="parameter">Alpha</span>: XXX</li>
+<li><span class="parameter">Fit prior</span>: XXX</li>
 </ul>
 </li>
 </ul>
@@ -209,8 +209,8 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 <li><span class="parameter secondary">Gradient Accumulation</span>: The number of batches used to update the weights during the backward propagation. @JULIEN</li>
 <li><span class="parameter secondary">Eval</span>: This is the number of evaluation — scoring performance on the train-eval dataset — performed during training.</li>
 <li><span class="parameter secondary">Train-eval split size</span>: The ratio of elements in the train dataset<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup> that will be used to assess the model performance during training.</li>
-<li><span class="parameter secondary">Class threshold</span>: The minimum number of annotation per label required. XXX sort out class or theshold</li>
-<li><span class="parameter secondary">Balance classes</span>: If set to True, the train dataset<sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup> will be constructed using the same number of text inputs per label.</li>
+<li><span class="parameter secondary">Label threshold</span>: The minimum number of annotation per label required.</li>
+<li><span class="parameter secondary">Balance labels</span>: If set to True, the train dataset<sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup> will be constructed using the same number of text inputs per label.</li>
 <li><span class="parameter secondary">Loss</span>: The loss function used optimise the model weights for training.</li>
 <li><span class="parameter secondary">Keep the best model</span>: If set to True, the model .</li>
 <li><span class="parameter secondary">Labels to ignore</span>: Text inputs with these labels will be dropped out of the train dataset<sup id="fnref5:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
