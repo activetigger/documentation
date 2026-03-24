@@ -24,16 +24,16 @@ In Active Tigger, we enforce some "good practice" measures:
 
 ## Representing texts with Features
 
-When using machine learning in text analysis settings, the first step is always to transform each text input into arrays, alias <span class="highlight">a set of Features</span>[^2].
+When using machine learning in text analysis settings, the first step is always to transform each text input into vectors, alias <span class="highlight">a set of Features</span>[^2].
 
-[^2]: In Active Tigger, we chose to name an array of numbers *a set of features*, where each column is a *feature*.
+[^2]: In Active Tigger, we chose to name a vector of numbers *a set of features*, where each column is a *feature*.
 
 A set of features can be used to compute visualizations, fit topic models or quick models. Note that they are not required for BERT models (or generative LLMs), as they automatically compute their own features internally.
 
 <!-- **ATTENTION POUR L'INSTANT C'EST SEULEMENT EMBEDDINGS** What do you mean? XXX -->
 In Active Tigger, there are five kinds of features, which can be created in the Settings tab:
 
-- <span class="highlight">Sentence embeddings</span>: Computed with transformer models, this method is the most advanced method for representing each text input [^3] as an array. As for all transformer model, each model has a [maximum window size](./glossary.md#tokens-and-window-sizes).
+- <span class="highlight">Sentence embeddings</span>: Computed with transformer models, this method is the most advanced method for representing each text input [^3] as a vector. As for all transformer model, each model has a [maximum window size](./glossary.md#tokens-and-window-sizes).
 - <span class="highlight">FastText</span>: Each text input is split into words (using the [SpaCy](https://spacy.io/) tokenizer), each word is represented with a pre-computed embedding; the text input is represented as the average of all word embeddings. This method does not care for the order of the words. See the [fastText](https://fasttext.cc) webpage for details.
 - <span class="highlight">DFM</span> (document-feature matrix): Each text is split into words (using the [SpaCy](https://spacy.io/) tokenizer), a large matrix is calculated: for a given row (=document) and column (= word), the coefficient represents the number of time the word appeared in the document. These matrices are usually transformed using various methods, see [Settings page](../functionalities/settings.md#features). This method is used in many pipelines designed before the invention of sentence transformers.
 - <span class="highlight">Regex</span> (regular expression):  For a given regex, the feature is a single binary variable, reporting if the regex was found in the text input.
