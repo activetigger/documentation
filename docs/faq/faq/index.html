@@ -127,6 +127,16 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#what-metrics-should-i-use">What metrics should I use?</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-large-should-my-different-sets-be">How large should my different sets be?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-set-should-i-annotate-first">What set should I annotate first?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-sets-of-features-should-i-use">What sets of features should I use?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#how-many-annotations-do-i-need">How many annotations do I need?</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -176,6 +186,20 @@
 <h2 id="how-to-create-consisitent-id-for-my-project">How to create consisitent ID for my project?</h2>
 <h2 id="should-i-scale-my-features">Should I scale my features?</h2>
 <h2 id="what-metrics-should-i-use">What metrics should I use?</h2>
+<h2 id="how-large-should-my-different-sets-be">How large should my different sets be?</h2>
+<p>While there is no golden answer to this question, here are some guidelines:</p>
+<ul>
+<li>The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the classes you are looking for are infrequent.</li>
+<li>The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the classes you are annotating. One rule of thumb is to have at least 100 observations of each label: if your smallest class is expected to appear in 20\% of texts, use 500 validation and test cases. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.</li>
+</ul>
+<h2 id="what-set-should-i-annotate-first">What set should I annotate first?</h2>
+<p>We recommend starting by annotating your training set first, in order to get a grasp on your corpus and to stabilize the codebook. Only start annotating the validation and test sets once you are sure of the precise definition of each of your labels.</p>
+<h2 id="what-sets-of-features-should-i-use">What sets of features should I use?</h2>
+<p>Generally, the recommended features are Sentence embeddings for computing visualizations, topic models, and quick models. For quick models, they can be used along with regex features, if there are some keywords that are particularly informative (or that you want to disambiguate). In low-resource environments, fastText or DFM embeddings can be used instead of sentence embeddings. </p>
+<h3 id="how-many-annotations-do-i-need">How many annotations do I need?</h3>
+<p>There is no golden rule: it depends on the difficulty of the classification task.</p>
+<p>A few dozen annotations per class might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.</p>
+<p>In general, more is always better, but it also depends on how useful your annotations are (see <em>Active learning</em> section).</p>
               
             </div>
           </div><footer>

@@ -117,8 +117,6 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#which-hyper-parameters-to-choose">Which hyper-parameters to choose?</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#how-many-annotations-do-i-need">How many annotations do I need?</a>
-    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#projections">Projections</a>
@@ -172,73 +170,60 @@
               
                 <h1 id="general-concepts-in-active-tigger">General concepts in Active Tigger</h1>
 <h2 id="train-validation-and-test-sets">Train, Validation and Test sets</h2>
-<p>In supervised machine learning (aka predictive models), it is common practice to split your dataset into <a href="https://en.wikipedia.org/wiki/Training%2C_validation%2C_and_test_sets">three subsets</a>: the training, validation, and test sets. The reason for this is to control <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>, which happens when a predictive model performs great on its training set, but fails to generalize to observations it hasn't seen before. </p>
-<p>In Active Tigger, this split is performed when creating a project through the "Number of rows in the train/validation/test set" options. Validation and Test sets are optional, but they are strongly recommended if your goal is to train predictive models. Note that, once a project is created, you can also expand the size of the training set, and import external validation or test sets, in the Settings tab.</p>
+<p>In supervised machine learning (aka predictive models), it is common practice to split your dataset into <a href="https://en.wikipedia.org/wiki/Training%2C_validation%2C_and_test_sets">three subsets</a>: the training, validation, and test sets. The reason for this is to control <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>, which happens when a predictive model performs well on its training set, but fails to generalize to new inputs.</p>
 <p>Each set plays a different role: </p>
 <ul>
-<li>train set: this is the part of your corpus that will be used to train models. Note that this set is itself often split into a main training and a train-evaluation subsets (see below).</li>
-<li>validation set: this is used to choose which model you will use for final prediction, based on the Evaluation scores in the Model panel. </li>
-<li>test set: this is used to evaluate the generalization quality of your final model. Do not use this choose models, otherwise your evaluation scores will not be valid (see <a href="https://en.wikipedia.org/wiki/Goodhart's_law">Goodhart's law</a>). </li>
+<li><span class="highlight">train set</span>: this set that will be used to train models<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
+<li><span class="highlight">validation set</span>: this set used to compare model performances across hyperparameters. </li>
+<li><span class="highlight">test set</span>: this set is used to evaluate the generalization quality of your final model. Do not use this choose models, otherwise your evaluation scores will not be valid (see <a href="https://en.wikipedia.org/wiki/Goodhart's_law">Goodhart's law</a>). </li>
 </ul>
-<p>In active tigger, we enforce some "good practice" measures:</p>
+<p>In Active Tigger, we enforce some "good practice" measures:</p>
 <ul>
-<li>the split is performed before annotating, at project creation, so that the choice of validation and test sets is not influenced by choices made during annotation of the training set</li>
-<li>model predictions (and active learning features) are not available when annotating validation and test sets, in order to prevent the annotator from being influenced by model predictions.</li>
-<li>by default the split is performed using uniform random sampling at project creation (except if "Select rows at random" is manually unchecked in the Advanced options), so that they are representative samples of the complete corpus. You may also choose to stratify them according to some variables in your dataset (<strong>SEE Glossary</strong>).</li>
+<li>Splitting is performed before annotating so that the choice of validation and test sets is not influenced by choices made during annotation of the training set.</li>
+<li>Model predictions and active learning features are not available when annotating the validation and test sets, to prevent the annotator from being influenced by model predictions.</li>
+<li>By default splitting is performed using uniform random sampling upon <a href="../functionalities/project-creation/">project creation</a>. <a href="../functionalities/project-creation/#secondary-parameters">Additional options exist</a> to control the sampling process such as <a href="glossary/#dataset-stratification">Stratification</a>.</li>
 </ul>
-<p>A frequent question is "How large should my different sets be?". While there is no golden answer to this question, here are some guidelines:</p>
-<ul>
-<li>The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the classes you are looking for are infrequent.</li>
-<li>The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the classes you are annotating. One rule of thumb is to have at least 100 observations of each label: if your smallest class is expected to appear in 20\% of texts, use 500 validation and test cases. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.</li>
-</ul>
-<p>Another frequent question is "When should I annotate my different sets?". We recommend starting by annotating your training set first, in order to get a feel for your corpus and to stabilize the guidelines for your scheme. Only start annotating the validation and test sets once you are sure of the precise definition of each of your labels.</p>
-<p>One last subtlety is that, during model training, the training set is usually further split into a main training and a train-evaluation subsets, the second one typically at 20\% of the training set. This is done in order to get an indication of how well the models are performing before putting effort into annotating the "real" validation sets, and in order to optimize training hyperparameters (<strong>SEE BERT CURVES</strong>)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The dataset is split upon <a href="../functionalities/project-creation/">project creation</a>. Sets can be modified in the <a href="../functionalities/settings/">Settings</a>. Validation and Test sets are optional, but they are strongly recommended if your goal is to train predictive models.</p>
+</div>
 <h2 id="representing-texts-with-features">Representing texts with Features</h2>
-<p>When doing statistics on texts, the first step is always to transform each text into numbers. This is what features are: numeric representations of texts. These features can then be used to compute visualizations, topics, and quick models. Note that they are not required for BERT models (or generative LLMs), as these automatically compute their own features internally.</p>
-<p><img alt="" src="../img/theoretical-concepts/new-features-form.png" /></p>
+<p>When using machine learning in text analysis settings, the first step is always to transform each text input into arrays, alias <span class="highlight">a set of Features</span><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>A set of features can be used to compute visualizations, fit topic models or quick models. Note that they are not required for BERT models (or generative LLMs), as they automatically compute their own features internally.</p>
+<!-- **ATTENTION POUR L'INSTANT C'EST SEULEMENT EMBEDDINGS** What do you mean? XXX -->
 <p>In Active Tigger, there are five kinds of features, which can be created in the Settings tab:</p>
 <ul>
-<li>Sentence embeddings <strong>ATTENTION POUR L'INSTANT C'EST SEULEMENT EMBEDDINGS</strong>: the most powerful type. They use transformer models to represent a complete block as a whole. Note that, despite their name, these embeddings are computed for a whole block of text, not sentence by sentence. Also, note that different models have different context window sizes: many (older) models only consider the first 512 tokens, the rest are discarded. See the <a href="https://www.sbert.net/">sentence-transformers</a> package for more details, and the HuggingFace pages for details about each model.</li>
-<li>fastText: these are word embeddings. Each text is first split into words (this is done using the <a href="https://spacy.io/">SpaCy</a> tokenizer, with the selected language), then one embedding is computed for each word, and finally the text embedding is computed as the average of its word embeddings. Note that the order of words is not taken into account in this method. See the <a href="https://fasttext.cc">fastText</a> webpage for details.</li>
-<li>DFM: a document-feature matrix. This was the main way of transforming texts into numbers before the advent of neural language processing. Each text is first split into words (this is done using the <a href="https://spacy.io/">SpaCy</a> tokenizer, with the selected language), and then a large matrix is created, where each document is a row, each column a term, and each element the number of times the term appears in the document (or a transformation thereof). See the <strong>DFM OPTIONS</strong> section for more details about the ways to compute a DFM.</li>
-<li>regex: regular expressions. For a given regex, the feature will be single binary variable, representing its presence or absence in each text.</li>
-<li>dataset: a variable that is present in the dataset. This can be useful when training quick models, for instance if you have a variable that measures the number of characters, or the text's source.</li>
+<li><span class="highlight">Sentence embeddings</span>: Computed with transformer models, this method is the most advanced method for representing each text input <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> as an array. As for all transformer model, each model has a <a href="glossary/#tokens-and-window-sizes">maximum window size</a>.</li>
+<li><span class="highlight">FastText</span>: Each text input is split into words (using the <a href="https://spacy.io/">SpaCy</a> tokenizer), each word is represented with a pre-computed embedding; the text input is represented as the average of all word embeddings. This method does not care for the order of the words. See the <a href="https://fasttext.cc">fastText</a> webpage for details.</li>
+<li><span class="highlight">DFM</span> (document-feature matrix): Each text is split into words (using the <a href="https://spacy.io/">SpaCy</a> tokenizer), a large matrix is calculated: for a given row (=document) and column (= word), the coefficient represents the number of time the word appeared in the document. These matrices are usually transformed using various methods, see <a href="../functionalities/settings/#features">Settings page</a>. This method is used in many pipelines designed before the invention of sentence transformers.</li>
+<li><span class="highlight">Regex</span> (regular expression):  For a given regex, the feature is a single binary variable, reporting if the regex was found in the text input.</li>
+<li><span class="highlight">dataset</span>: Import a column of your dataset as a feature. This can be useful when training quick models, for instance if you have a variable that measures the number of characters, or the text's source.</li>
 </ul>
-<p>Generally, the recommended features are Sentence embeddings for computing visualizations, topic models, and quick models. For quick models, they can be used along with regex features, if there are some keywords that are particularly informative (or that you want to disambiguate). In low-resource environments, fastText or DFM embeddings can be used instead of sentence embeddings.</p>
 <h2 id="what-is-active-learning">What is Active Learning ?</h2>
-<p>Active learning is a method that makes tagging more efficient: less annotations will be required to train a good model. </p>
-<p>The main principle is that, once a first model is trained, the next texts chosen for annotation will be the ones about which the model is least confident (mathematically, the highest entropy of predicted probabilities). This is more efficient than choosing texts at random because it forces the user to tag ambiguous texts, the ones that will be the most helpful for training the next model. In practice, this is often helpful for the user as well: being confronted to difficult, ambiguous cases helps her refine her guidelines.</p>
-<p>In Active Tigger, there are several ways to use models for next text selection, controlled through the "Selection method" option once a model is activated in the Annotate panel: </p>
-<ul>
-<li>Active: highest entropy, as described above</li>
-<li>Max Label: highest predicted probability for the chosen label. We have found this to be useful in practice, because a model can be wrong in its certainties, especially in the early stages with few annotations, for instance when it confuses what the user is looking for with the general topic of the texts. It can also be useful if your goal is to find all the positive cases of a rare category in your corpus.</li>
-<li>Min Label: lowest predicted probability <em>among the observations that the model predicts as the chosen label</em>. This is a sort of active learning focusing on a specific label.</li>
-</ul>
-<p>If your goal is ultimately to train a BERT model, the correct practice is to choose the last trained BERT model as the active model in the Annotate panel. This will require you to first click the "Compute predictions" button in the Model tab, as they are not computed automatically (prediction uses resources and can take a long time). <strong>ATTENTION POUR LE MOMENT SEULEMENT "Compute statistics on current annotations" dans Validate.</strong></p>
+<p><span class="highlight">Active learning</span> is a method to increase annotations efficiency, it lowers the number of annotations necessary to train performant models. </p>
+<p>The key idea: Instead of picking text inputs at random, the algorithm provides text inputs that are ambiguous and therefore, will likely be the most helpful when training a <a href="#what-are-bert-models">BERT model</a>. This method challenges the definition of each label forcing annotators to refine the codebook. In practice, a <a href="#training-quick-models">quickmodel</a> is fitted on existing annotations and then used to predict the annotations for future text inputs. With the annotation, the model provides its confidence, i.e. the entropy of the predicted probabilities (higher entropy means low confidence). In the <a href="../functionalities/annotate/#annotate-page">Annotation tab</a>, the app will order text elements with decreasing entropy for annotation. Read more about how to use active learning in the <a href="../functionalities/annotate/#active-learning-in-practice">Annotation page</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use a BERT model for active learning to significantly improve your next BERT classifier.</p>
+</div>
 <h2 id="training-quick-models">Training Quick models</h2>
 <p>Quick models are standard supervised machine learning models, trained on features in order to predict labels. 
 Compared to BERT models, they are lightweight and quick to train, hence their name. 
 They are typically used in the early stages of annotation, as described in the workflow above. </p>
-<p><strong>TODO: quick model details (in Glossary?)</strong></p>
 <h2 id="training-bert-models">Training BERT models</h2>
 <h3 id="what-are-bert-models">What are BERT models?</h3>
-<p>(BERT models)[https://en.wikipedia.org/wiki/BERT_(language_model)] are powerful predictive models, that you can use in order to generalize your annotations to a larger corpus (either your project's dataset, or an external one).
-They are pre-trained non-generative language models, meaning that they have been trained on very large corpora in order to incorporate semantic "understanding", and that they are meant to be fine-tuned on your own annotations.</p>
-<p>Fine-tuning a BERT model is the process of adjusting its internal weights.
-This is done by (gradient descent)[https://en.wikipedia.org/wiki/Gradient_descent], an algorithm that gradually adapts the weights based on the training data, over a number of steps (determined by <em>Epochs</em> and <em>Batch size</em>, see table below).
-As with all neural networks, this is a delicate art, usually involving some trial and error.
-Use the loss curve (see below) and evaluation scores (see <em>Glossary</em>) to determine how good each fine-tuned model is.</p>
+<p>(BERT models)[https://en.wikipedia.org/wiki/BERT_(language_model)] are powerful predictive models that you can use in order to generalize your annotations to a larger corpus (either your project's dataset, or an external one, see <a href="../functionalities/export/">Export page</a>).
+They are pre-trained encoder language models<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, meaning that they have been trained on very large corpora in order to encapsulate semantic "understanding". These models must be fine-tuned to adapt to any task.</p>
+<p>Fine-tuning a BERT model is the process of adjusting its internal weights using optimization algorithms<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> to maximize <a href="glossary/#model-quality-scores">quality scores</a>. <a href="https://youtu.be/IHZwWFHWa-w?si=WOzTeU4U6b62uq_s">Learn more about fine-tuning models</a>. This is a delicate art requiring trials and errors to find the best hyperparameters. Learn more about this process through the <a href="#reading-the-loss-curve">loss curves</a>.</p>
 <h3 id="which-model-to-choose">Which model to choose?</h3>
-<p>There are many different pre-trained models to choose from, hosted on the (huggingface)[https://huggingface.co/] website.
-The main difference between them is the corpus they have been pre-trained on (most of them are specialized in a single language), and their inner architecture (which among others determines the window size, <em>ie</em> the length of text they can process).
-There is no golden rule for which model to choose: try different ones, and see which one works best on your data (see the <em>Model quality scores</em> section in the <em>Glossary</em>, and <em>Reading the loss curve</em> below).</p>
+<!-- should it live in the FAQ? -->
+
+<p>There are many different pre-trained models to choose from, hosted on the (Huggingface)[https://huggingface.co/] website.
+The main difference between them is the corpus they have been pre-trained on (most of them are specialized in a single language), and their inner architecture (which among others determines the <a href="glossary/#tokens-and-window-sizes">window size</a>).
+There is no golden rule for which model to choose: try different ones, and see which one works best on your data.</p>
 <h3 id="reading-the-loss-curve">Reading the loss curve</h3>
-<p>The first tool to determine how well a fine-tuning went is the loss curve, which is displayed as a graph.
-The x-axis represents the number of training epochs, and the y-axis represents the loss (lower is better).
-There are two curves, for the training and evaluation subsets.
-The vertical line shows which training checkpoint has been saved.</p>
-<p>Here are some general rules for obtaining a good model while avoiding <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.
-After training, use the quality scores for a detailed view of how the model is performing (see <em>Glossary</em>).</p>
+<p>The loss curve provides key insights on how efficient the training was. It represents the evaluation of the <a href="https://en.wikipedia.org/wiki/Loss_function">loss function</a> on the train and the eval-train set across training steps/epochs.</p>
+<p>Here are some general rules for obtaining a good model while avoiding <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>. Refer to <a href="glossary/#model-quality-scores">quality scores</a> for more insightful metrics on the model's performance.</p>
 <h4 id="just-right">Just right</h4>
 <p><img alt="" src="../img/theoretical-concepts/bertrain-good.png" /></p>
 <p>This is what you want to see:</p>
@@ -257,18 +242,18 @@ After training, use the quality scores for a detailed view of how the model is p
 </ul>
 <p>What to do:</p>
 <ul>
-<li>choose a lower step size, for slower weight updates</li>
-<li>use larger batches, in order to smooth training over more examples per training step</li>
+<li>choose a lower learning rate, for slower weight updates</li>
+<li>use larger batches<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>, in order to smooth training over more examples per training step</li>
 <li>choose higher weight decay: this will prevent the weights from getting to large</li>
 <li>annotate more data, you may not have enough examples for the model to learn from</li>
 </ul>
 <h4 id="underfitting">Underfitting</h4>
 <p><img alt="" src="../img/theoretical-concepts/bertrain-flat.png" /></p>
 <p>The model has underfitted:
-- Both curves are flat, the model has learned nothing</p>
+- Both curves are flat, the model learned nothing</p>
 <p>What to do:</p>
 <ul>
-<li>choose a higher step size, for faster weight updates</li>
+<li>choose a higher learning rates, for faster weight updates</li>
 <li>use smaller batches, as this will result in more training steps</li>
 <li>choose lower weight decay: too high regularization can prevent proper learning</li>
 <li>annotate more data, you may not have enough examples for the model to learn from</li>
@@ -284,7 +269,7 @@ After training, use the quality scores for a detailed view of how the model is p
 <p>What to do:</p>
 <ul>
 <li>use more epochs, to give the model time to learn more</li>
-<li>choose a higher step size, for faster weight updates</li>
+<li>choose a higher learning rate, for faster weight updates</li>
 <li>use smaller batches, as this will result in more training steps</li>
 <li>choose lower weight decay: too high regularization can prevent proper learning</li>
 </ul>
@@ -293,16 +278,18 @@ After training, use the quality scores for a detailed view of how the model is p
 <p>The model is trying to learn too fast:</p>
 <ul>
 <li>Curves should be going down, not up and down</li>
-<li>Some learning has occurred, but you can probably do better</li>
+<li>Some learning has occured, but you can probably do better</li>
 </ul>
 <p>What to do:</p>
 <ul>
-<li>choose a lower step size, for slower weight updates</li>
+<li>choose a lower learning rate, for slower weight updates</li>
 <li>use larger batches, in order to smooth training over more examples per training step</li>
 <li>choose higher weight decay: this will prevent the weights from getting to large</li>
 <li>annotate more data, you may not have enough examples for the model to learn from</li>
 </ul>
 <h3 id="which-hyper-parameters-to-choose">Which hyper-parameters to choose?</h3>
+<!-- AM: it is unclear if it is pedagogical material (in which case, this table is coherent) or descriptive material, (in which case it should live in the functionalities section) -->
+
 <p><strong>Base parameters</strong></p>
 <table>
 <thead>
@@ -323,7 +310,7 @@ After training, use the quality scores for a detailed view of how the model is p
 <tr>
 <td>Max context window</td>
 <td>General</td>
-<td>The number of <em>tokens</em> that will be used during training for each text. <br> Use <strong>Auto adjust Max context window</strong> in order to use the number of tokens of your longest training text.<br>Lower values make training faster and use less memory.</td>
+<td>The number of <em>tokens</em> that will be used during training for each text. <br> Lower values make training faster and use less memory.</td>
 <td></td>
 </tr>
 <tr>
@@ -336,7 +323,7 @@ After training, use the quality scores for a detailed view of how the model is p
 <td>Learning rate</td>
 <td>General / Regularization</td>
 <td>How much the model's weights will be changed at each step</td>
-<td>1e-5 to 5e-5 (3e-5)</td>
+<td>5e-6 to 5e-4</td>
 </tr>
 <tr>
 <td>Weight decay</td>
@@ -370,9 +357,9 @@ After training, use the quality scores for a detailed view of how the model is p
 <td>1-32 (4)</td>
 </tr>
 <tr>
-<td></td>
+<td>Gradient accumulation</td>
 <td>General / Regularization</td>
-<td>Number of batches that will be used before performing a gradient descent step.<br>Use higher values for small GPUs.</td>
+<td>Number of batches accumulated to perform a gradient descent step.<br>Use higher values for small GPUs.</td>
 <td>1-32 (4)</td>
 </tr>
 <tr>
@@ -419,14 +406,10 @@ After training, use the quality scores for a detailed view of how the model is p
 </tr>
 </tbody>
 </table>
-<h3 id="how-many-annotations-do-i-need">How many annotations do I need?</h3>
-<p>Again, there is no golden rule: it depends on the difficulty of the classification task.</p>
-<p>A few dozen annotations per class might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.</p>
-<p>In general, more is always better, but it also depends on how useful your annotations are (see <em>Active learning</em> section).</p>
 <h2 id="projections">Projections</h2>
 <p>A projection is a 2D (dimensional reduction)[https://en.wikipedia.org/wiki/Dimensionality_reduction] of your training data, used for visualization (in the <strong>Explore</strong> panel).</p>
-<p>It uses an unsupervised model in order to reduce high-dimensional <em>features</em> (see below) to two dimensions: similar texts will be grouped together.</p>
-<p>The resulting visualization will help detecting outliers, and will group texts according to general themes.</p>
+<p>It uses an unsupervised model in order to reduce high-dimensional <a href="#representing-texts-with-features">set of features</a> to two dimensions: similar texts will be grouped together.</p>
+<p>The resulting visualization will help detecting outliers, and will group texts according to general themes. <!-- yes, but also, no...--></p>
 <p>In classification workflows, it is recommended to use projections to get a first overview of your corpus, and to determine whether you need to perform some more cleaning and filtering before annotating texts and training models.</p>
 <p>Note that the placement of texts in the visualization does not tell you everything you want to know about your corpus.</p>
 <p>This reflects the difference between unsupervised and supervised learning: unsupervised learning is only based on features, while supervised learning is meant to find the relationship between features and labels.</p>
@@ -438,6 +421,29 @@ After training, use the quality scores for a detailed view of how the model is p
 <p>Topic modeling can either be an end in itself, or a useful step in a annotation/prediction workflow. </p>
 <p>If your goal is to find the main topics in your corpus, you can use topic modeling as a first approximation, and then <strong>Convert to scheme</strong> in order to refine this using additional annotations and modeling.</p>
 <p><strong>TODO: details and links (in Glossary?)</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Note that this set is itself split into a main training (80%) and a train-eval subset (20%). The train-eval subset is used to evaluate the model's generalization capabilities during training. The combination of the train subset and the train-eval subset makes choosing hyperparameters easier. See <a href="#reading-the-loss-curve">Reading the loss curve</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>In Active Tigger, we chose to name an array of numbers <em>a set of features</em>, where each column is a <em>feature</em>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Not necessarily a sentence, a text input can be a whole paragraph.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>As opposed to decoder models i.e. generative models, encoder models' only goal is to create an embedding space that encapsulates the semantic of words.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Like <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a>, although nowadays we tend to use AdamW, an algorithm derived from gradient descent.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>The effective batch size is the system batch size times the gradient accumulation.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div><footer>
