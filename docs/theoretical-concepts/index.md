@@ -45,8 +45,10 @@ In Active Tigger, there are five kinds of features, which can be created in the 
 
 <span class="highlight">Active learning</span> is a method to increase annotations efficiency, it lowers the number of annotations necessary to train performant models. 
 
-The key idea: Instead of picking text inputs at random, the algorithm provides text inputs that are ambiguous and therefore, will likely be the most helpful when training a [BERT model](#what-are-bert-models). This method challenges the definition of each label forcing annotators to refine the codebook. In practice, a [quickmodel](#training-quick-models) is fitted on existing annotations and then used to predict the annotations for future text inputs. With the annotation, the model provides its confidence, i.e. the entropy of the predicted probabilities (higher entropy means low confidence). In the [Annotation tab](../functionalities/annotate.md#annotate-page), the app will order text elements with decreasing entropy for annotation. Read more about how to use active learning in the [Annotation page](../functionalities/annotate.md#active-learning)  
+The key idea: Instead of picking text inputs at random, the algorithm provides text inputs that are ambiguous and therefore, will likely be the most helpful when training a [BERT model](#what-are-bert-models). This method challenges the definition of each label forcing annotators to refine the codebook. In practice, a [quickmodel](#training-quick-models) is fitted on existing annotations and then used to predict the annotations for future text inputs. With the annotation, the model provides its confidence, i.e. the entropy of the predicted probabilities (higher entropy means low confidence). In the [Annotation tab](../functionalities/annotate.md#annotate-page), the app will order text elements with decreasing entropy for annotation. Read more about how to use active learning in the [Annotation page](../functionalities/annotate.md#active-learning).
 
+!!! Tip
+    You can use a BERT model for active learning to significantly improve your next BERT classifier.
 
 ## Training Quick models
 
