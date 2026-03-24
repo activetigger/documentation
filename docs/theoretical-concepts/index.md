@@ -88,7 +88,7 @@ Here are some general rules for obtaining a good model while avoiding [overfitti
 
 This is what you want to see:
 
-- Both curves went down during training: the model learned
+- Both curves went down during training: the model has learned
 - Both curves have the same loss values: no overfitting
 - The curves are flat at the end: nothing more to be learned, apparently
 
@@ -101,7 +101,7 @@ Now you only have to look at the evaluation metrics to see if you are satisfied 
 
 The model has overfitted:
 
-- Both curves went down during training: the model learned
+- Both curves went down during training: the model has learned
 - But the training curve is much lower than the evaluation curve
 
 What to do:
@@ -134,7 +134,7 @@ What to do:
 
 The model could learn more:
 
-- Both curves went down during training: the model learned
+- Both curves went down during training: the model has learned
 - Both curves have the same loss values: no overfitting
 - But there is no plateau at the end, the curves are still going down
 
@@ -153,7 +153,7 @@ What to do:
 The model is trying to learn too fast:
 
 - Curves should be going down, not up and down
-- The model learned a bit, but you can probably do better
+- Some learning has occured, but you can probably do better
 
 What to do:
 
