@@ -12,7 +12,7 @@ This section describes the Training tab, the parameters available for training a
 
 The Quick Models are classification models from [scikit-learn](http://scikit-learn.org/stable/supervised_learning.html) trained on pre-computed features ([what are features?](../theoretical-concepts/index.md#representing-texts-with-features)). They are quick to train and do not require GPUs. These models can be used for Active Learning ([what is Active Learning?](../theoretical-concepts/index.md#what-is-active-learning)) in the [Annotate page](./annotate.md).
 
-When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see [Annotation page](./annotate.md#active-learning))
+When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see [Annotation page](./annotate.md#active-learning-in-practice))
 
 Models available include: 
 
@@ -38,7 +38,7 @@ On top of model-specific parameters, additional parameters can be set:
 - <span class="parameter">Name for the model</span>: The name used as a reference in the interface. It must be unique within a project.
 - <span class="parameter">Automatically balance classes</span>: If set to True, the model will be trained on a subset of the train dataset[^2] constructed by picking an equal number of text inputs accross labels. 
 - <span class="parameter">10-fold cross validation</span>: Computes performance test using the [10-fold cross validation technique](http://scikit-learn.org/stable/modules/cross_validation.html).
-- <span class="parameter">Labels to ignore</span>: Labels selected will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for Active Learning (see [Annotation page](./annotate.md#models-with-ignored-labels)). 
+- <span class="parameter">Labels to ignore</span>: Labels selected will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for Active Learning (see [Annotation page](./annotate.md#active-learning-in-practice)). 
 
 <!-- TODO: ADD the retraining process-->
 
@@ -48,7 +48,7 @@ The BERT Models are embedding models with a classification layer [trained with t
 
 [^1]: You can train on the CPU but that would be sub-optimal.
 
-When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. After training, the best model (accross epochs / checkpoints) will be used to predict the labels on the whole trainset to be used in Active Learning (see [Annotation page](./annotate.md#active-learning)).
+When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. After training, the best model (accross epochs / checkpoints) will be used to predict the labels on the whole trainset to be used in Active Learning (see [Annotation page](./annotate.md#active-learning-in-practice)).
 
 <!-- TODO Check the save proces -->
 
