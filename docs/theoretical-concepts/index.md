@@ -183,7 +183,7 @@ What to do:
 |---|---|---|---|
 |Total batch size|General / Regularization|How many training examples are presented at each step.<br>Total batch size = Batch size x Gradient accumulation.|16 or 32 (16)|
 |Batch size|General / Regularization|Number of examples that are loaded in memory at any one time.|1-32 (4)|
-|Warm-up steps|General / Regularization|Number of batches that will be used before performing a gradient descent step.<br>Use higher values for small GPUs.|1-32 (4)|
+|Gradient accumulation|General / Regularization|Number of batches accumulated to perform a gradient descent step.<br>Use higher values for small GPUs.|1-32 (4)|
 |Eval|General|Number of times the model will be evaluated on the evaluation set during training (aka checkpoints).|9|
 |Train-eval split size|General|Portion of the data that will be used for evaluation during training.|0.2|
 |Balance classes|General|Whether to use only the number of observations of the smallest class during training.|Deactivated|
