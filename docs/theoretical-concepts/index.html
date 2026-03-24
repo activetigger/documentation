@@ -188,12 +188,12 @@
 <p>The dataset is split upon <a href="../functionalities/project-creation/">project creation</a>. Sets can be modified in the <a href="../functionalities/settings/">Settings</a>. Validation and Test sets are optional, but they are strongly recommended if your goal is to train predictive models.</p>
 </div>
 <h2 id="representing-texts-with-features">Representing texts with Features</h2>
-<p>When using machine learning in text analysis settings, the first step is always to transform each text input into arrays, alias <span class="highlight">a set of Features</span><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>When using machine learning in text analysis settings, the first step is always to transform each text input into vectors, alias <span class="highlight">a set of Features</span><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <p>A set of features can be used to compute visualizations, fit topic models or quick models. Note that they are not required for BERT models (or generative LLMs), as they automatically compute their own features internally.</p>
 <!-- **ATTENTION POUR L'INSTANT C'EST SEULEMENT EMBEDDINGS** What do you mean? XXX -->
 <p>In Active Tigger, there are five kinds of features, which can be created in the Settings tab:</p>
 <ul>
-<li><span class="highlight">Sentence embeddings</span>: Computed with transformer models, this method is the most advanced method for representing each text input <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> as an array. As for all transformer model, each model has a <a href="glossary/#tokens-and-window-sizes">maximum window size</a>.</li>
+<li><span class="highlight">Sentence embeddings</span>: Computed with transformer models, this method is the most advanced method for representing each text input <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> as a vector. As for all transformer model, each model has a <a href="glossary/#tokens-and-window-sizes">maximum window size</a>.</li>
 <li><span class="highlight">FastText</span>: Each text input is split into words (using the <a href="https://spacy.io/">SpaCy</a> tokenizer), each word is represented with a pre-computed embedding; the text input is represented as the average of all word embeddings. This method does not care for the order of the words. See the <a href="https://fasttext.cc">fastText</a> webpage for details.</li>
 <li><span class="highlight">DFM</span> (document-feature matrix): Each text is split into words (using the <a href="https://spacy.io/">SpaCy</a> tokenizer), a large matrix is calculated: for a given row (=document) and column (= word), the coefficient represents the number of time the word appeared in the document. These matrices are usually transformed using various methods, see <a href="../functionalities/settings/#features">Settings page</a>. This method is used in many pipelines designed before the invention of sentence transformers.</li>
 <li><span class="highlight">Regex</span> (regular expression):  For a given regex, the feature is a single binary variable, reporting if the regex was found in the text input.</li>
@@ -428,7 +428,7 @@ There is no golden rule for which model to choose: try different ones, and see w
 <p>Note that this set is itself split into a main training (80%) and a train-eval subset (20%). The train-eval subset is used to evaluate the model's generalization capabilities during training. The combination of the train subset and the train-eval subset makes choosing hyperparameters easier. See <a href="#reading-the-loss-curve">Reading the loss curve</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>In Active Tigger, we chose to name an array of numbers <em>a set of features</em>, where each column is a <em>feature</em>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>In Active Tigger, we chose to name a vector of numbers <em>a set of features</em>, where each column is a <em>feature</em>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
 <p>Not necessarily a sentence, a text input can be a whole paragraph.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
