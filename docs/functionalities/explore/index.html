@@ -62,8 +62,6 @@
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../organisation/">General organisation</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../project-creation/">Project Creation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../codebook/">Codebook Page</a>
@@ -166,7 +164,7 @@ Computing a new projection will overwrite the current projection.</p>
 <p><img alt="" src="../../img/functionalities/visualisation.png" /></p>
 <ul>
 <li><span class="action primary">Compute new projection</span><ul>
-<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../theoretical-concepts/#representing-texts-with-features">what are features?</a>)to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
+<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../theoretical-concepts/#representing-texts-with-features">what are features?</a>) to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
 <li>When using <strong>UMAP</strong>:<ul>
 <li><span class="parameter">n neighbors</span>: Defines the size of a neighbourhood, hence whether two points are considered as "close" and should be kept together in the process or not.</li>
 <li><span class="parameter">min distance</span>: Aesthetic parameter, low values generate denser representations.</li>
@@ -176,7 +174,7 @@ Computing a new projection will overwrite the current projection.</p>
 <li><span class="parameter">perplexity</span>: It controls the effective number of neighbors that each point considers during the dimensionality reduction process. (<a href="https://opentsne.readthedocs.io/en/latest/parameters.html#perplexity">Source</a>).</li>
 </ul>
 </li>
-<li><span class="parameter">Feature scaling</span>: this is a method normalizes the range of independant variables (i.e. each feature) (<a href="../../faq/faq/#should-i-scale-my-features">should I scale my features?</a>).</li>
+<li><span class="parameter">Feature scaling</span>: this method normalizes the range of independant variables (i.e. each feature) (<a href="../../faq/faq/#should-i-scale-my-features">should I scale my features?</a>).</li>
 </ul>
 </li>
 <li><span class="action secondary">Parameters</span> to see the parameters of the current projection.</li>
@@ -184,7 +182,7 @@ Computing a new projection will overwrite the current projection.</p>
 <li><span class="icon"><img alt="" src="../../img/icons/visualisation-control/frame.svg" /></span> to select a subset of text inputs.</li>
 <li><span class="icon"><img alt="" src="../../img/icons/visualisation-control/frame-off.svg" /></span> removes the frame.</li>
 <li><em>If a frame exists</em>, <span class="icon"><img alt="" src="../../img/icons/visualisation-control/lock.svg" /></span><span class="action secondary"> Lock the selection</span> to lock on the frame. Going to the <a href="../annotate/">Annotate page</a> will only display elements in the frame.</li>
-<li>Clicking a node displays the text input as well asprevious annotations and the <a href="../annotate/#annotation-panel">Annotation Panel</a>, much like in the <a href="../annotate/">Annotation page</a></li>
+<li>Clicking a node displays the text input as well as previous annotations and the <a href="../annotate/#annotation-panel">Annotation Panel</a>, much like in the <a href="../annotate/">Annotation page</a></li>
 </ul>
 </li>
 </ul>
@@ -198,8 +196,8 @@ Computing a new projection will overwrite the current projection.</p>
 <li><span class="parameter">Embedding model</span>: choose from the <a href="../../faq/faq/#choose-models-made-available">available embedding models</a> to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.</li>
 <li><span class="parameter">Number of neighbours</span>: <a href="https://pair-code.github.io/understanding-umap/">UMAP parameter</a> — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the global structure (i.e. global topics) (more <a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">here</a>).</li>
 <li><span class="parameter">Min topic size</span>: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.HDBSCAN.html">HDBSCAN parameter</a> — a clustering algorithm —, this parameters correspond to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate few large groups; decreasing this value will generate many small groups.</li>
-<li><span class="parameter secondary">Outlier reduction</span>: If set to True, all text inputs considered as noise will be added to the closest topic (<a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#reduce-outliers-strategies">more info</a>).</li>
-<li><span class="parameter secondary">Force compute embeddings</span>: If set to True, the app will first generate the embeddings overwriting any existing embeddings. </li>
+<li><span class="parameter secondary">Outlier reduction</span>: If set to <code>True</code>, all text inputs considered as noise will be added to the closest topic (<a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#reduce-outliers-strategies">more info</a>).</li>
+<li><span class="parameter secondary">Force compute embeddings</span>: If set to <code>True</code>, the app will first generate the embeddings overwriting any existing embeddings. </li>
 <li><span class="parameter secondary">Input dataset</span>: What dataset should be used to fit the model (train, train + test + valid or the complete dataset uploaded to the project).</li>
 <li><span class="parameter secondary">Filter out texts of length lower than</span>: Before fitting the model, exclude text inputs of length inferior to this value. </li>
 <li><span class="parameter secondary">Number of components</span>: <a href="https://pair-code.github.io/understanding-umap/">UMAP parameter</a> — a dimension reduction algorithm; it defines the number of dimension the algorithm reduces the embeddings to. Low values will flatten the representation of the input texts, whereas higher values maintain a richer representation (more <a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">here</a>).</li>
@@ -207,11 +205,11 @@ Computing a new projection will overwrite the current projection.</p>
 </li>
 <li>The visual representation of the topics displays each text input as a node with a color corresponding to the topic generated by the topic model.</li>
 <li><span class="action secondary">Parameters</span> to see the parameters of the current topic model.</li>
-<li><span class="action primary">Convert to scheme</span> to create a <a href="../../theoretical-concepts/glossary/#schemes">scheme</a> and assign labels using the topics generated. XXX Add NOTE REGARDING THE DANGERS OF DOING THAT</li>
+<li><span class="action primary">Convert to scheme</span> to create a <a href="../../theoretical-concepts/glossary/#schemes">scheme</a> and assign labels using the topics generated. <br/><span class="cwarning">⚠️ Note</span>: topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation.</li>
 <li><span class="action primary">Export topics</span> to download (csv file) the topic table displayed underneath.</li>
 <li><span class="action primary">Export topic per text</span> to download a mapping of each element id<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> to a the topic index.</li>
 <li><span class="action primary">Topic model report</span> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and the parameters of the model).</li>
-<li>The table (downloadable with Export topics) summarises the topic model. <ul>
+<li>The table summarises the topic model. <ul>
 <li>Topic: the topic id.</li>
 <li>Count: the number of elements in the topic.</li>
 <li>Name: A standard name for the topic.</li>

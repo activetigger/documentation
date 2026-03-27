@@ -62,13 +62,13 @@
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../organisation/">General organisation</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Project Creation</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#primary-parameters">Primary parameters</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#secondary-parameters">Secondary parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#note-on-preparing-your-input-dataset">Note on preparing your input dataset</a>
     </li>
     </ul>
                   </li>
@@ -137,25 +137,25 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="project-creation-page">Project Creation page</h1>
-<p>Project creation is available on the main page and give the possibility to create a new project. </p>
+<p>Project creation is available on the main page and lets you create a new project. </p>
 <p><img alt="Overview of the Project Creation page" src="../../img/functionalities/overview.png" /></p>
 <h2 id="primary-parameters">Primary parameters</h2>
-<p>These parameters define the general project. Some elements can be modified afterward.</p>
+<p>These parameters define the general project, only a subset (⚙️) can be modified after this step.</p>
 <ul>
-<li><span class="parameter">Project name</span>: Unique name to identify the project. Could be changed in <a href="../settings/">Settings page</a>.</li>
+<li>⚙️ <span class="parameter">Project name</span>: Unique name to identify the project. Could be changed in <a href="../settings/">Settings page</a>.</li>
 <li><span class="parameter">Dataset</span>: Data to use. Can be loaded :<ul>
 <li>From user, format Parquet, CSV or XLSX file, limit defined by the administrator. </li>
 <li>From another project (with access right)</li>
 </ul>
 </li>
 <li><span class="parameter">Id column</span>: index to identify each element in the treatment ; either from an existing column or row number. If the chosen index is not unique, an internal index is created different from the external index.</li>
-<li><span class="parameter">Text column(s)</span>: The column(s) to use as text input. If several columns are selected, content of the columns will be concatenated with two linebreaks. </li>
-<li><span class="parameter">Language of the corpus</span>: General parameter used to suggest which models to use in the treatment. </li>
-<li><span class="parameter">Column(s) for existing annotations</span>: Load existing annotations. Each column is converted to a new scheme. Elements (XXX does it change how we select elements?)</li>
-<li><span class="parameter">Column(s) for contextual information</span>: Information available to display in the <a href="../annotate/">annotation page</a>.</li>
-<li><span class="parameter">Number of elements in the train set</span>: Sample of the general dataset used as train set</li>
-<li><span class="parameter">Number of elements in the validation set (optional)</span>: Sample of the general dataset used as validation set. Used for evaluation. This sample is randomly selected from the initla dataset before the train set.</li>
-<li><span class="parameter">Number of elements in the test set (optional)</span>:  Sample of the general dataset used as test set. Used for evaluation. This sample is randomly selected from the initla dataset before the train set.</li>
+<li>⚙️ <span class="parameter">Text column(s)</span>: The column(s) to use as text input. If several columns are selected, content of the columns will be concatenated with two linebreaks. </li>
+<li>⚙️ <span class="parameter">Language of the corpus</span>: General parameter used to suggest which models to use in the treatment. </li>
+<li>⚙️<sup id="fnref:modify-column-annotation"><a class="footnote-ref" href="#fn:modify-column-annotation">1</a></sup> <span class="parameter">Column(s) for existing annotations</span>: Load existing annotations. Each column is converted to a new scheme. Elements (XXX does it change how we select elements?)</li>
+<li>⚙️ <span class="parameter">Column(s) for contextual information</span>: Information available to display in the <a href="../annotate/">annotation page</a>.</li>
+<li>⚙️<sup id="fnref:modify-n-rows-trainset"><a class="footnote-ref" href="#fn:modify-n-rows-trainset">2</a></sup> <span class="parameter">Number of elements in the train set</span>: Sample of the general dataset used as train set</li>
+<li>⚙️<sup id="fnref:modify-valid-set"><a class="footnote-ref" href="#fn:modify-valid-set">3</a></sup> <span class="parameter">Number of elements in the validation set (optional)</span>: Sample of the general dataset used as validation set. Used for evaluation. This sample is randomly selected from the initla dataset before the train set.</li>
+<li>⚙️<sup id="fnref:modify-test-set"><a class="footnote-ref" href="#fn:modify-test-set">4</a></sup> <span class="parameter">Number of elements in the test set (optional)</span>:  Sample of the general dataset used as test set. Used for evaluation. This sample is randomly selected from the initla dataset before the train set.</li>
 </ul>
 <p>After setting the compulsory parameters, clicking the "Create" button will redirect you to the <a href="../codebook/">Codebook page</a> (or the <a href="../annotate/">Annotate page</a> if you have selected column(s) for existing annotation).</p>
 <h2 id="secondary-parameters">Secondary parameters</h2>
@@ -170,11 +170,48 @@
 <li><span class="parameter secondary">Compute embeddings</span>: If set to <code>True</code>, upon creating the project, embeddings for the text inputs in the train, validation and test sets will start using <a href="https://sbert.net/">Sentence BERT</a></li>
 <li><span class="parameter secondary">Seed</span>: The seed used for all random operations in the project.</li>
 </ul>
+<h2 id="note-on-preparing-your-input-dataset">Note on preparing your input dataset</h2>
+<p>The input dataset should be a CSV, Parquet, or XLSX file. The text columns must be well prepared and curated before upload as <span class="highlight">ActiveTigger does not propose any text treatment option</span>. The only text manipulations implemented is the concatenation of text columns. Cleaning you dataset can include, but is not limited to the following: </p>
+<ul>
+<li>Removing semanticless characters (html tags, encoding artefacts, emojis<sup id="fnref:note-emoji"><a class="footnote-ref" href="#fn:note-emoji">5</a></sup>, ...).</li>
+<li>Removing any duplicates.</li>
+<li>Splitting texts at the sentence/paragraph level.</li>
+<li>Ensuring all inputs are written in a single language (depending on the task).</li>
+</ul>
+<p>We also encourage users to <span class="highlight">carefully set up their ID column</span> as they will ease the process of aggregating the annotations with external metadata for downsteam analysis.</p>
+<div class="admonition note">
+<p class="admonition-title">Troubleshoot using Parquet files</p>
+<p>If you upload a parquet file, you can encounter issues related to the format of your parquet file. Easy fix includes: </p>
+<ul>
+<li>Make sure that data contained is formatted as a string.</li>
+<li>Make sure to not have nested columns (columns and sub-columns).</li>
+</ul>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:modify-column-annotation">
+<p>This parameter cannot be updated per se, but you can import annotations in <a href="../settings/#import">the Import tab in the Settings page</a>&#160;<a class="footnote-backref" href="#fnref:modify-column-annotation" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:modify-n-rows-trainset">
+<p>You can add N rows to your dataset in <a href="../settings/#parameters">the Parameters tab in the Settings page</a> but the rows selected will not follow the stratification rules you set up. We recommend creating larger sets than you'd need rather than importing new rows afterwards.&#160;<a class="footnote-backref" href="#fnref:modify-n-rows-trainset" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:modify-valid-set">
+<p>This parameter cannot be updated per se, but you can drop the validation set and import a new one in <a href="../settings/#import">the Import tab in the Settings page</a>&#160;<a class="footnote-backref" href="#fnref:modify-valid-set" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:modify-test-set">
+<p>This parameter cannot be updated per se, but you can drop the test set and import a new one in <a href="../settings/#import">the Import tab in the Settings page</a>&#160;<a class="footnote-backref" href="#fnref:modify-test-set" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:note-emoji">
+<p>Depending on your task you may want to keep them because they carry significant information, or remove them because they will act as noise. Also, models may not have been trained on emojis, meaning that they will be replaced by <code>[unk]</code> tokens, adding noise to your text inputs.&#160;<a class="footnote-backref" href="#fnref:note-emoji" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../organisation/" class="btn btn-neutral float-left" title="General organisation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../ressources/references/" class="btn btn-neutral float-left" title="Existing tutorials and videos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../codebook/" class="btn btn-neutral float-right" title="Codebook Page">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -198,7 +235,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../organisation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../ressources/references/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../codebook/" style="color: #fcfcfc">Next &raquo;</a></span>
