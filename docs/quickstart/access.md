@@ -29,9 +29,7 @@ A development instance of ActiveTigger is running on GENES servers (with GPU sup
 
 #### How to get access
 
-1. Contact **emilien.schultz [at] ensae.fr** with a brief explanation of:
-    - Your current status (e.g., student, researcher, engineer)
-    - Your research project or intended use case
+1. Fill this [form](https://www.css.cnrs.fr/request-an-account-on-the-crest-instance/).
 2. Once your account is created, you can:
     - Upload data and annotate text
     - Train classification models
@@ -42,8 +40,8 @@ A development instance of ActiveTigger is running on GENES servers (with GPU sup
 
 #### How to get in touch
 
-- **GitHub issues** — for bug reports and feature suggestions
-- **Discord** — for questions and discussion (request an invitation via email)
+- **[GitHub issues](https://github.com/activetigger/activetigger/issues)** — for bug reports and feature suggestions
+- **[Discord](https://discord.gg/3uNnjw2k)** — for questions and discussions
 
 #### User agreement
 
