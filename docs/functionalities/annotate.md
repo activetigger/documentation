@@ -13,7 +13,7 @@ There are several ways to select a subset of text inputs.
 - <span class="parameter">Active Mode</span>: Allows to choose a model for Active Learning ([concept](../theoretical-concepts/index.md#what-is-active-learning), [on the page](#active-learning-in-practice)). This unlocks new selection modes: 
     - active: orders the text inputs by decreasing entropy.
     - Max prob LABEL: orders the text inputs by decreasing probability to be of label LABEL.
-    - Min prob LABEL: order the text inputs by increasing probability to be of label LABEL ⚠️ This mode also filters text inputs leaving only those which have been labeled as LABEL by the model.
+    - Min prob LABEL: order the text inputs by increasing probability to be of label LABEL <br/><span class="cwarning">⚠️ Note:</span>This mode also filters text inputs leaving only those which have been labeled as LABEL by the model.
 - <a class="parameter">Filter by Tag/User</a>: Only displays elements already have label (by current user) or don't, are tagged with a specific LABEL, or by a certain user ("by USER"). 
 - <a class="parameter">Filter by content</a>: Only displays elements with specific characteristis
     - Being labeled with LABEL
