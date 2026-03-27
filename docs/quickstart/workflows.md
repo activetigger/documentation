@@ -6,7 +6,7 @@ This page presents possible ways of using Tigger for your research and how to do
 
 Active Tigger's makes collaborative annotation seamless through the following features:
 
-- Creation of a scheme ([what is a scheme?](XXX)) and a codebook for the project.
+- Creation of a scheme ([what is a scheme?](../theoretical-concepts/glossary.md#schemes)) and a codebook for the project.
 - Annotation of the text inputs by each user.
 - Comparison of annotations and measure agreement
 - Export the annotated corpus for analysis
@@ -19,10 +19,10 @@ Why choose Active Tigger for this task:
 
 Here is an overview of the steps necessary to set up and undertake an annotation project with manual annotation:
 
-- <span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. [More information here](XXX)
+- <span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. [More information here](../functionalities/project-creation.md#note-on-preparing-your-input-dataset)
 - <span class="step">Step 1 — Create your project:</span> On the [Project Creation page](../functionalities/project-creation.md), give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to the size of your dataset. You may consider setting [secondary parameters](../functionalities/project-creation.md#secondary-parameters).
 - <span class="step">Step 2 — Give your collaborators access to your project:</span> Go to the [Users page](../functionalities/monitoring-account-and-users.md) and authorize your collaborators to access and annotate text inputs from your project.
-- <span class="step">Step 3 — Create your scheme and write down your codebook:</span> On the [Codebook page](../functionalities/codebook.md), create a scheme that fits your study (multiclass, multilabel or span — [more info on the available schemes](XXX)) and start writing the instructions for labelling the corpus. All users can see the schemes, labels and codebook of your project, but only managers and contributors can edit them.
+- <span class="step">Step 3 — Create your scheme and write down your codebook:</span> On the [Codebook page](../functionalities/codebook.md), create a scheme that fits your study (multiclass, multilabel or span — [more info on the available schemes](../theoretical-concepts/glossary.md#schemes)) and start writing the instructions for labelling the corpus. All users can see the schemes, labels and codebook of your project, but only managers and contributors can edit them.
 - <span class="step">Step 4 — Start annotating your corpus:</span> Go to the [Annotate page](../functionalities/annotate.md) and start the annotation process. You can:
     - Add a label (<span class="action primary">LABEL</span>), remove a label (<span class="action primary">No tag</span>), or move forward (<span class="action primary">Skip</span>).
     - Add a comment to your annotation.
@@ -36,7 +36,7 @@ In practice, the annotation process is not so linear. It is normal to move back 
 
 Active Tigger makes machine learning methods easily available to social scientists, in particular by implementing the full pipeline for finetuning *classifier models* ([what are BERT models?](../theoretical-concepts/index.md#what-are-bert-models); [How to finetune BERT models?](../theoretical-concepts/index.md#training-bert-models) ). These models can automatically extend your human-developed annotation scheme on a larger dataset. This workflow consists of: 
 
-- Creation of a scheme ([what is a scheme?](XXX)) and a codebook for the project.
+- Creation of a scheme ([what is a scheme?](../theoretical-concepts/glossary.md#schemes)) and a codebook for the project.
 - Annotation of the text inputs.
 - Training classifier models.
 - Infer labels on non-annotated data.
@@ -50,7 +50,7 @@ Why choose Active Tigger for this task:
 
 Here is an overview of the steps to complete this workflow:
 
-- <span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. [More information here](XXX)
+- <span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. [More information here](../functionalities/project-creation.md#note-on-preparing-your-input-dataset)
 - <span class="step">Step 1 — Create your project:</span> On the [Project Creation page](../functionalities/project-creation.md), give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to about 70% of your dataset, 15% to the test set and 15% to the validation set ([more info](../faq/faq.md#how-large-should-my-different-sets-be)). You may consider setting [secondary parameters](../functionalities/project-creation.md#secondary-parameters).
 - <span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the [Codebook page](../functionalities/codebook.md), create a scheme that fits your study (for now, only multiclass schemes can be used for training classifier models — [more info on the available schemes](../theoretical-concepts/glossary.md#schemes)) and start writing the instructions for labelling the corpus.
 - <span class="step">Step 3 — Start annotating your corpus:</span> Go to the [Annotate page](../functionalities/annotate.md) and start the annotation process. You can:
@@ -92,7 +92,7 @@ Why choose Active Tigger for this task:
 
 Here is an overview of the steps to explore your data with BERTopic:
 
-- <span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. [More information here](XXX)
+- <span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. [More information here](../functionalities/project-creation.md#note-on-preparing-your-input-dataset)
 - <span class="step">Step 1 — Create your project:</span> On the [Project Creation page](../functionalities/project-creation.md), give the project a name, upload your data file and enter the columns you require (ID, text, contextual). You may consider setting [secondary parameters](../functionalities/project-creation.md#secondary-parameters).
 - <span class="step">Step 2 — Browse your data (optional):</span> On the [Explore page](../functionalities/explore.md), open the [Tabular View tab](../functionalities/explore.md#tabular-view) to filter and browse your corpus. You can filter by dataset (train, valid, test), by label, or by regex query. Click on any ID to go directly to the [Annotate page](../functionalities/annotate.md) for that text input.
 - <span class="step">Step 3 — Compute a BERTopic model:</span> On the [Explore page](../functionalities/explore.md), go to the [Topic model tab](../functionalities/explore.md#topic-model) and click <span class="action primary">Compute new BERTopic</span>.

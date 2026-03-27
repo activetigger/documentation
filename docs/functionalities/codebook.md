@@ -17,7 +17,7 @@ At the top of the screen, you will find the scheme ([what is a scheme?](../theor
 
 ## Guidelines
 
-Codebook allows to keep information on how to use the current scheme ([How to write a codebook](XXX)). 
+Codebook allows to keep information on how to use the current scheme. 
 
 - <span class="icon">![](../img/icons/rename.svg)</span> to access edition mode.
 - <span class="icon">![](../img/icons/book.svg)</span> to open the Codebook in a browser tab to access it during annotation.
