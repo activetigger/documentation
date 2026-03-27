@@ -59,6 +59,7 @@ span.highlight{
 
 span.step{
     font-weight: bold;
+    border-bottom: 1px black solid;
 }
 
 div.logo-div{
