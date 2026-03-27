@@ -24,7 +24,7 @@ Many **use cases** are possible, as ActiveTigger offers several methodological o
 
 **What you'll need before starting:**
 
-- A web browser through which you can access ActiveTigger either on a server or by running it locally on your computer (see [installation](../software/installation.md)).
+- A web browser through which you can access ActiveTigger either on a server or by running it locally on your computer (see [installation](./access.md#option-2-install-locally)).
 - An Active Tigger account.
 - A tabular dataset (CSV, XLSX, or Parquet) where each row is a text unit to annotate. 
 
