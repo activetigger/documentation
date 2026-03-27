@@ -28,7 +28,7 @@ Codebook allows to keep information on how to use the current scheme.
 
 - <span class="parameter">New label name</span> <span class="icon">![](../img/icons/plus.svg)</span> to create a new label.
 - <span class="icon">![](../img/icons/delete.svg)</span> to delete the specific label
-- <span class="icon">![](../img/icons/rename.svg)</span> to rename the specific label (you can use to merge annotations with another label) 
+- <span class="icon">![](../img/icons/rename.svg)</span> to rename the specific label (renaming a label to the name of an existing label will result in merging the annotations) 
 
 
 The table summarizes existing labels in the current scheme, the distribution of annotations for each dataset (train, valid and test). The rows can be re-ordered, the order of the rows will manage the order of the labels in the [Annotate Page](./annotate.md)
