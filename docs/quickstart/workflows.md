@@ -103,12 +103,6 @@ Here is an overview of the steps to explore your data with BERTopic:
 
 Using topic models for exploring your dataset can also be integrated into the above workflow pipelines. We recommend complementing a topic model approach with familiarizing yourself with your corpus by simply reading it, or through an annotation process. Confiding too much in an automated synthesis of your text data could risk missing important aspects of your corpus.
 
-
-
-### Finding all the positive cases
-
-If your dataset is relatively small (a few thousand texts), and your goal is to annotate all the positive cases of the classes you are interested in, you might not need to follow the complete workflow described below. 
-
 However, active learning could still be very helpful: just follow step 1 of the following section, and iterate until you are confident you have found all the positive cases in your dataset.
 
 The only difference: use the complete dataset as your training set.
