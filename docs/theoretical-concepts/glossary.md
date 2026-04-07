@@ -43,10 +43,10 @@ What you can and cannot do with each scheme type:
 |---|---|---|---|
 |Create labels and a codebook|🟢|🟢|🟢|
 |Explore your corpus with a<br/> visualisation or topic models |🟢|🟢|🟢|
-|Train a classifier (Quick or BERT)|🟢|🟠 (need to dichotomize labels)|🔴|
+|Train a classifier (Quick or BERT)|🟢|🟢|🔴|
 |Use generative models|🟢|🟢|🟢|
 |Export annotations|🟢|🟢|🟢|
-|Export models|🟢|🟠 (dichotomized models)|🔴|
+|Export models|🟢|🟢|🔴|
 
 !!! tip
 
