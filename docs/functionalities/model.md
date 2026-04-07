@@ -96,4 +96,4 @@ The Evaluation tab shows similar component as the [Training](#training) tab. Aft
 
 The rest of the layout is similar to the one in the [Training page](#key-insights)
 
-[^3] Again, the text inputs with no label are removed from the train, test and validation sets before computing the performance. 
+[^3]: Again, the text inputs with no label are removed from the train, test and validation sets before computing the performance. 
