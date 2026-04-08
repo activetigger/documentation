@@ -79,6 +79,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings Page</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Monitoring, Account and Users Pages</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
@@ -128,7 +130,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <p>This section describes many secondary functionalities for project management. </p>
+<h2 id="account-page">Account page</h2>
+<p>The account page allows user to change their password. If you have forgotten your password, please reach out to the instance manager.</p>
+<h2 id="users-page">Users page</h2>
+<p>This page allows users to manage collaboration rights across people and projects.</p>
+<p><img alt="" src="../../img/functionalities/users.png" /></p>
+<p>Three roles are defined with different rights: </p>
+<ul>
+<li><span class="highlight">root</span>: Only one root account. This user can manage the rights of anyone and has access to <strong>ALL</strong> projects as a manager. Root has also access to the <a href="#monitor-page">Monitor page</a>.</li>
+<li><span class="highlight">manager</span>: Default role when creating a project. Managers have access to the data, can annotate, train models, compute features, and delete anything. </li>
+<li><span class="highlight">collaborator</span>: Collaborators have the same rights as mangers but cannot delete anything.</li>
+<li><span class="highlight">annotator</span>: Annotators only have access to the <a href="../codebook/">Codebook page</a>, <a href="../explore/">Explore page</a> and the <a href="../annotate/">Annotate page</a>.</li>
+</ul>
+<p>Each role is project dependant and can be managed by managers of a project. After selecting the appropriate project, they can type the name of a user and grant them the appropriate rights.</p>
+<h2 id="monitor-page">Monitor page</h2>
+<p>This page is only visible by the root user. It contains multiple panels described below</p>
+<h3 id="active-project-tab">Active project tab</h3>
+<p><img alt="" src="../../img/functionalities/monitor-active-projects.png" /></p>
+<p>This page lists all projects currently in use and associated tasks (train classifiers for instance) currently running. From this tab, the root user can kill any task.</p>
+<p><span class="action red-danger">Restart memory and queue</span> will restart the backend. All current users will be impacted and active tasks killed. </p>
+<h3 id="statistics-tab">Statistics tab</h3>
+<p><img alt="" src="../../img/functionalities/monitor-statistics.png" /></p>
+<p>This page lists all completed tasks and the computing time to assess the installation efficiency. Each task is associated with a user and a project.</p>
+<h3 id="messages-tab">Messages tab</h3>
+<p><img alt="" src="../../img/functionalities/monitor-messages.png" /></p>
+<p>This page allows the root user to leave messages on the frontpage of the app in order to warn users of recent bugs, upcomming memory wipe or maintenance. </p>
+<h3 id="logs-tab">Logs tab</h3>
+<p>This page lists all actions performed (annotation, train models, inference ...) with a time stamp, and the assiociated user and project.</p>
+<h3 id="resources-tab">Resources tab</h3>
+<p>This page lists the resources detected and usable by the app (GPU, CPU, Memory and disk).</p>
+<h3 id="users-tab">Users tab</h3>
+<p>This page lists the existing accounts with all the projects they are involved in as well as their role.</p>
               
             </div>
           </div><footer>
