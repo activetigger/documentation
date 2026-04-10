@@ -29,7 +29,7 @@ Displays the available features and their parameters.
         - <span class="parameter">Feature name</span>
         - <span class="parameter">Model to use</span>
         - <span class="parameter">Context window size</span>: The number of token per entry. After tokenization each input is truncated/padded to match this size.
-    - if using **fasttext**:
+    - if using **fasttext** (See the [Features concept](/Users/emilien/Scripts/documentation/docs/theoretical-concepts/index.md)):
         - <span class="parameter">Feature name</span>
         - <span class="parameter">Model to use</span>
     - if using **dfm**: Using `CountVectorizer` XXX @Julien

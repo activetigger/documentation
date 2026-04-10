@@ -1,6 +1,6 @@
 # Model Page
 
-This section describes the Model page, containing the Training tab and the Evaluation tab, both displaying available models and their performance.
+The panel model allow the management of model, i.e. their training and evaluation.
 
 ## Training
 
@@ -44,7 +44,7 @@ On top of model-specific parameters, additional parameters can be set:
 
 ### BERTmodel
 
-The BERT Models are embedding models with a classification layer [trained with the huggingface framework](https://huggingface.co/docs/transformers/tasks/sequence_classification). They can take a dozen minutes to train and require GPUs[^1]. These models can be used for Active Learning ([what is Active Learning?](../theoretical-concepts/index.md#what-is-active-learning)) in the [Annotate page](./annotate.md).
+The BERT Models are pre-trained encoders models with a classification layer [trained with the huggingface framework](https://huggingface.co/docs/transformers/tasks/sequence_classification). They can take a dozen minutes to train and require GPUs[^1]. These models can be used for Active Learning ([what is Active Learning?](../theoretical-concepts/index.md#what-is-active-learning)) in the [Annotate page](./annotate.md).
 
 [^1]: You can train on the CPU but that would be sub-optimal.
 

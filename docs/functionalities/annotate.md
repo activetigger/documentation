@@ -10,10 +10,10 @@ There are several ways to select a subset of text inputs.
 
 - <span class="parameter">Dataset</span>: Select the dataset on which you are working (train, validation or test).
 - <span class="parameter">Selection mode</span>: Change the order in which elements are showed (fixed, or random).
-- <span class="parameter">Active Mode</span>: Allows to choose a model for Active Learning ([concept](../theoretical-concepts/index.md#what-is-active-learning), [on the page](#active-learning-in-practice)). This unlocks new selection modes: 
-    - active: orders the text inputs by decreasing entropy.
+- <span class="parameter">Active Mode</span>: Allows to choose a model for Active Learning (more about the [concept](../theoretical-concepts/index.md#what-is-active-learning); more [on this page](#active-learning-in-practice)). This unlocks new selection modes: 
     - Max prob LABEL: orders the text inputs by decreasing probability to be of label LABEL.
-    - Min prob LABEL: order the text inputs by increasing probability to be of label LABEL <br/><span class="cwarning">⚠️ Note:</span>This mode also filters text inputs leaving only those which have been labeled as LABEL by the model.
+    - Active: orders the text inputs by decreasing entropy (prioritize uncertain predictions).
+    - Active LABEL: order the text inputs by decreasing entropy with regard to this specific LABEL.
 - <a class="parameter">Filter by content</a>: Only displays elements with specific characteristis
     - Being labeled with LABEL
     - Being labeled by a user
@@ -66,6 +66,8 @@ To use BERT models in active learning, you must first compute the predictions on
 Active Learning. Models trained on a reduced number of labels can be used, they will simply ignore unseen labels.
 
 ## Curate
+
+TODO
 
 ## Annotate (multi-label)
 

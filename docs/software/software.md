@@ -1,5 +1,7 @@
 # Software architecture
 
+This page describes Active Tigger technical architecture and implementation choices for dev and contributors.
+
 General architecture :
 
 - **backend** : Python/FastAPI

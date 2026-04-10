@@ -10,15 +10,17 @@ Une analyse computationnelle des interactions en ligne avec des député·es fra
 This project sought to quantify various types of Twitter reactions targeting French MPs, distinguishing between political criticism, abuse, and expressions of support. With access to the total number of tweets mentioning French MPs in 2022-2023 (a dataset of over 30 million tweets), manual annotation of more than a small sample would have been impossible. At the same time, the criteria for each category were not straightforward to automate, requiring a human understanding of nuance, sarcasm, and subtility. While applying ready-made models for detecting negative sentiment or hate speech would have been possible, these were not well adapted to the specific context of the French political Twittersphere.  
 
 **Solution**: fine-tuning three separate bespoke BERT classifier models using ActiveTigger.
-The objective was to develop classifier models that could correctly identify diverse and creatively formulated types of tweets that could be classified into each category (criticism, abuse, support). This required a 
+The objective was to develop classifier models that could correctly identify diverse and creatively formulated types of tweets that could be classified into each category (criticism, abuse, support). This required a XXX
 
 **Workflow**: 
+
 - An iterative annotation process to improve coding scheme and understand dataset, regular consultation with colleagues.
 - Active learning to facilitate annotation of rare categories.
 - Final training/test dataset comprised of around 1000 tweets per category.
 - Binary classifiers (criticism/not criticism, abuse/not abuse, support/not support) applied sequentially on full dataset (filtered down to 4,5 million tweets).
 
 **F1 Scores**:
+
 - Abuse: 0.77
 - Criticism: 0.81
 - Support: 0.74
@@ -43,6 +45,7 @@ This project sought to build a large-scale corpus of newspaper articles related 
 The objective was to develop a classifier capable of identifying environment-related journalism segments, distinguishing relevant articles from unrelated ones despite the broad and ambiguous nature of environmental vocabulary.
 
 **Workflow**:
+
 - Segmentation of articles into chunks of 300–700 characters (prioritising sentence boundaries), keeping texts under 500 characters intact.
 - An iterative annotation process to stabilise the coding scheme and corpus structure.
 - Active learning to surface ambiguous cases, visualisation tools used to identify and resolve annotation inconsistencies.
@@ -50,6 +53,7 @@ The objective was to develop a classifier capable of identifying environment-rel
 - A binary classifier (environment/not environment) applied on the full corpus.
 
 **F1 Score**:
+
 - Environment: > 0.95
 
 **Lessons learned**:

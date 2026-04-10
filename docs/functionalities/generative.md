@@ -1,10 +1,12 @@
 # Generative page
 
+The panel allows to use external generative models to annotate or extract information with prompts.
+
 !!! warning
 
     This is an experimental page, dedicated to explore the use of external generative models. Some features can evolve rapidely.
 
-The panel allows to use external generative models to annotate or extract information with prompts. The general idea is to run a prompt for a sample of the text and get the results. Each run is caracterized by a `batch ` id.
+The general idea is to run a prompt for a sample of the text and get the results. Each run is caracterized by a `batch ` id.
 
 Each LLM model is running on external servers : it is up to the user to check its parameters and the level of security for the server involved.
 

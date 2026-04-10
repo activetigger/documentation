@@ -1,17 +1,6 @@
 # Glossary
 
-<!-- 
-AM: same
-## Roles
 
-**TODO** -->
-
-<!-- 
-AM: belongs to the functionalities 
-## DFM options
-
-**TODO**
- -->
 
 ## Projects
 
@@ -23,7 +12,7 @@ See [Project Creation page](../functionalities/project-creation.md)
 
 ## Schemes
 
-In Active Tigger, each project is organized into one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models for to assist your exploration and annotation. In practice, it is a set of **labels** as well as the annotations, a **codebook** and classifier models (Quick or BERT).
+Each project contains one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models for to assist your exploration and annotation. In practice, it is a set of **labels** as well as the annotations, a **codebook** and classifier models (Quick or BERT).
 
 Users with access to a project can see all the schemes. 
 
@@ -52,6 +41,9 @@ What you can and cannot do with each scheme type:
 
     Multiclass schemes can be imported from your dataset upon project creation.
 
+## Embeddings
+
+[TODO]()
 
 ## Model quality scores
 

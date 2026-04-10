@@ -71,7 +71,7 @@ Go to the [**Tag** tab](../functionalities/annotate.md). The interface shows you
 
     For our example, maybe we find that most headlines are not classifiable as "political". Going through the dataset in a random order, it takes us a lot of time to find examples of this category. This is where active learning can come in handy.
     
-    In "active" mode, a model guesses what label you will apply to a given text, offering you the opportunity to correct it. This can help to speed up the annotation process if you are aiming to train a model that can automatically annotate your entire dataset.
+    In "active" mode, a model guesses what label you will apply to a given text, offering you the opportunity to correct it. This can help to speed up the annotation process, either in predicting the element labels or identifying crtitical cases.
     
     To enable Active Mode, you need to first train a Quick Model. Go to [**Model → Create new quick model**](../functionalities/model.md#quick-models).
     
@@ -82,13 +82,13 @@ Go to the [**Tag** tab](../functionalities/annotate.md). The interface shows you
     Read more about [Active Learning](../theoretical-concepts/index.md#what-is-active-learning).
 
 
-## 4. Train a model
+## 4. Train a BERT classifier
 
 If your goal is to extend your annotations to the full corpus automatically, you can train a BERT-based model directly in the interface.
 
 A BERT-based classifier model uses your annotations to "learn" what kinds of texts should go in each category. Once trained, the model can be used to infere the labels of unannotated text inputs. 
 
-Go to **Model → Create new quick model**.
+Go to **Model → Create new BERT model**.
 
 In the **Model** tab, you can also evaluate your model.
 

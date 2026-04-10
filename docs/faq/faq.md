@@ -28,16 +28,6 @@ Having heterogeneous scores can be a sign of ill-defined labels. We advise to te
 
 Go to the project tab, navigate to Settings, and select Update Project. Please note that if you increase the size of your project, you then need to create a new feature in the Prepare tab. 
 
-## Choose models made available? 
-
-## Why can't I change the size of my sets on the go? 
-
-## How to create consisitent ID for my project? 
-
-## Should I scale my features?
-
-## What metrics should I use?
-
 ## How large should my different sets be?
 
 While there is no golden answer to this question, here are some guidelines:
@@ -53,10 +43,20 @@ We recommend starting by annotating your training set first, in order to get a g
 
 Generally, the recommended features are Sentence embeddings for computing visualizations, topic models, and quick models. For quick models, they can be used along with regex features, if there are some keywords that are particularly informative (or that you want to disambiguate). In low-resource environments, fastText or DFM embeddings can be used instead of sentence embeddings. 
 
-### How many annotations do I need?
+## How many annotations do I need?
 
 There is no golden rule: it depends on the difficulty of the classification task.
 
-A few dozen annotations per class might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.
+A few dozen annotations per label might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.
 
 In general, more is always better, but it also depends on how useful your annotations are (see *Active learning* section).
+
+## Choose models made available? 
+
+## Why can't I change the size of my sets on the go? 
+
+## How to create consisitent ID for my project? 
+
+## Should I scale my features?
+
+## What metrics should I use?

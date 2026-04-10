@@ -60,7 +60,8 @@ They are typically used in the early stages of annotation, as described in the w
 
 ### What are BERT models?
 
-(BERT models)[https://en.wikipedia.org/wiki/BERT_(language_model)] are powerful predictive models that you can use in order to generalize your annotations to a larger corpus (either your project's dataset, or an external one, see [Export page](../functionalities/export.md)).
+[BERT models](https://en.wikipedia.org/wiki/BERT_(language_model)) are powerful predictive models that you can use in order to generalize your annotations to a larger corpus (either your project's dataset, or an external one, see [Export page](../functionalities/export.md)).
+
 They are pre-trained encoder language models[^4], meaning that they have been trained on very large corpora in order to encapsulate semantic "understanding". These models must be fine-tuned to adapt to any task.
 
 [^4]: As opposed to decoder models i.e. generative models, encoder models' only goal is to create an embedding space that encapsulates the semantic of words.
@@ -73,7 +74,7 @@ Fine-tuning a BERT model is the process of adjusting its internal weights using 
 
 <!-- should it live in the FAQ? -->
 
-There are many different pre-trained models to choose from, hosted on the (Huggingface)[https://huggingface.co/] website.
+There are many different pre-trained models to choose from, hosted on the [Huggingface](https://huggingface.co/) website.
 The main difference between them is the corpus they have been pre-trained on (most of them are specialized in a single language), and their inner architecture (which among others determines the [window size](glossary.md#tokens-and-window-sizes)).
 There is no golden rule for which model to choose: try different ones, and see which one works best on your data.
 

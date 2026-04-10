@@ -1,6 +1,6 @@
 # Accessing ActiveTigger
 
-ActiveTigger is a web application designed to be deployed on a server, but it can also run locally on your machine. Some models works better with a GPU, so hardware can be important for what you want to achieve.
+ActiveTigger is a web application designed to be deployed on a server, but it can also run locally on your machine (mind hardware requirements, including GPU).
 
 There are two ways to get started:
 
@@ -58,6 +58,6 @@ A development instance of ActiveTigger is running on GENES servers (with GPU sup
 You can deploy your own instance of ActiveTigger on your machine or on a cloud server (e.g., [OVH](https://www.ovhcloud.com/fr/public-cloud)).
 
 !!! info "GPU recommended"
-    ActiveTigger can run on CPU, but a GPU will significantly speed up model training and predictions.
+    ActiveTigger can run on CPU, but a GPU will significantly speed up model training and predictions, especially with large models (BERT and sentence-bert). 
 
 For installation instructions, see the [deployment guide](https://github.com/activetigger/activetigger/blob/main/DEPLOY.md).
