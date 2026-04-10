@@ -1,68 +1,141 @@
-# Software architecture
+# ActiveTigger -- Software Architecture
 
 This page describes Active Tigger technical architecture and implementation choices for dev and contributors.
 
-General architecture :
+## High-level overview
 
-- **backend** : Python/FastAPI
-- **frontend** : React/Typescript
+```
+                    +-------------------+
+                    |      Nginx        |
+                    |  (reverse proxy)  |
+                    +--------+----------+
+                             |
+              +--------------+--------------+
+              |                             |
+     +--------v--------+         +---------v--------+
+     |  React Frontend |         |  FastAPI Backend  |
+     |  (TypeScript)   |         |  (Python)         |
+     +--------+--------+         +---------+---------+
+              |                             |
+              |   REST API (OpenAPI)        |
+              +-------------+---------------+
+                            |
+              +-------------+--------------+
+              |                            |
+     +--------v--------+        +---------v---------+
+     |    Database      |        |   File System     |
+     | SQLite / Postgres|        | (Parquet, models) |
+     +-----------------+         +-------------------+
+```
 
-## Backend
+The application follows a classic client-server architecture with three main layers:
 
-- `config.yaml` define the parameters at the server launch
-- The unit is the project, composes of different classes
-    - Features
-    - Schemes
-    - Quickmodels
-    - Bertmodels
-    - Users
-- CPU/GPU bound computation is managed in separated processes with a queue
-- State of the service is checked at each request (with a threshold)
+- **Frontend**: React 18 single-page application served via Vite.
+- **Backend**: FastAPI REST API handling business logic, ML pipelines, and data management.
+- **Storage**: A relational database (SQLite or PostgreSQL) for structured data, and the local file system for datasets (Parquet), trained models, and features.
 
-### Data management
+Nginx acts as a reverse proxy, routing `/api/*` requests to the backend and everything else to the frontend.
 
-- Tabular data is stored as separated parquet files divided in train / test / complete
-- SQLite database to manage annotations/parameters/users/logs
-- Projects are loaded into memory to facilitate computation (filter, etc.)
-    - Unloaded after one day
-- Bert models are saved in dedicated filesystems
+---
 
-### Processes
+## Backend (`api/activetigger/`)
 
-- ProcessPoolExecutor with workers
-    - https://superfastpython.com/processpoolexecutor-in-python/
-- Different type of parallel process : training ; predicting
-- Only one process possible by user/project
+### Entrypoint and routing
 
-### Users role
+The FastAPI application is defined in `app/main.py` and exposes 13 routers:
 
-- Role-Based Access Control (RBAC) - 3 roles : root, manager, annotator
-- Authentification with OAuth2 and token in header
-    - Table of valid tokens
-- A table of authorization defines the relation users/projects
-- Different uses can modify a same project : no lock
-
-### Select element to annotate
-
-The selection combines different strategy : filters and/or active learning.
-
-Active learning is a prediction with a model trained on already annotated data.
-
-- Different modes of selection
-    - deterministic
-    - aleatory
-    - maxprob for a label
-    - max entropy
-
-- Pipeline of choice
-    - sample (tagged, untagged, all)
-    - regex
-    - proba / entropie
+| Router | Path prefix | Purpose |
+|--------|-------------|---------|
+| users | `/users` | Authentication (JWT/OAuth2), account management |
+| projects | `/projects` | Project CRUD, configuration |
+| annotations | `/annotations` | Save and retrieve annotations |
+| schemes | `/schemes` | Annotation scheme management |
+| features | `/features` | Feature computation (TF-IDF, FastText, S-BERT) |
+| models | `/models` | ML model training and prediction |
+| generation | `/generation` | LLM prompting and batch generation |
+| bertopic | `/bertopic` | Topic modeling |
+| export | `/export` | Data export |
+| files | `/files` | File uploads |
+| elements | `/elements` | Retrieve elements to annotate |
+| messages | `/messages` | In-app notifications |
+| monitoring | `/monitoring` | System health metrics |
 
 
-## Frontend 
+### Task queue
 
-### State management
+Long-running operations (model training, feature computation, projections, LLM batch calls) are executed asynchronously via a **Loky-based multiprocessing queue** (`queue_manager.py`). The queue separates CPU-bound and GPU-bound workers:
 
-- Each project is described by its general state (not user specific)
-    - Computed/computing elements
+- **CPU workers** (default: 5): feature extraction, quick model training, projections.
+- **GPU workers** (default: 1): BERT fine-tuning and prediction.
+
+
+### Database layer
+
+The database layer uses **SQLAlchemy ORM** with support for both SQLite (development/local) and PostgreSQL (Docker/production).
+
+**Tables:**
+
+| Table | Purpose |
+|-------|---------|
+| `users` | User accounts with hashed passwords |
+| `projects` | Project metadata (parameters stored as JSON) |
+| `schemes` | Annotation schemes per project |
+| `annotations` | Individual annotations (user, element, label, optional text spans) |
+| `auths` | Project-level access control (user-project-status mapping) |
+| `features` | Feature metadata |
+| `gen_models` | Generative model configurations |
+| `prompts` | LLM prompt templates |
+| `generations` | LLM generation results |
+| `logs` | Action audit trail |
+| `tokens` | API token management |
+| `monitoring` | System metrics snapshots |
+
+
+---
+
+## Frontend (`frontend/src/`)
+
+### Technology stack
+
+| Layer | Technology |
+|-------|------------|
+| Framework | React 18 + TypeScript 5 |
+| Build tool | Vite |
+| UI library | React Bootstrap |
+| State management | React Context + localStorage |
+| Routing | React Router v6 (hash-based) |
+| HTTP client | openapi-fetch (typed) + Axios |
+| Data visualization | Sigma.js (graphs), Victory (charts), Plotly, ag-Grid (tables) |
+| Text annotation | react-text-annotate-blend |
+
+
+### API client generation
+
+The frontend uses **auto-generated TypeScript types** from the backend's OpenAPI schema:
+
+1. FastAPI generates an OpenAPI spec at `/openapi.json`.
+2. `openapi-typescript` converts it to TypeScript definitions (`generated/openapi.d.ts`).
+3. `openapi-fetch` provides a fully typed HTTP client.
+
+Run `npm run generate` to regenerate types after backend changes.
+
+
+## Deployment
+
+### Docker Compose
+
+The application ships with multiple Docker Compose configurations:
+
+| File | Purpose |
+|------|---------|
+| `docker-compose.yml` | Base service definitions |
+| `docker-compose.dev.yml` | Development overrides (hot reload, exposed ports) |
+| `docker-compose.prod.yml` | Production settings |
+| `docker-compose.nvidia.yml` | GPU support (NVIDIA runtime) |
+
+**Services:**
+
+- **PostgreSQL 15+**: production database.
+- **API** (Python/uvicorn): backend server, dependencies installed via `uv`.
+- **Frontend** (Node/Vite): SPA dev server or static build.
+- **Nginx**: reverse proxy, serves static files, routes API traffic.
