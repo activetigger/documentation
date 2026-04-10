@@ -46,6 +46,10 @@ In our example, we create two labels: "political" and "non-political".
 
 Consider writing a short [codebook](../functionalities/codebook.md#guidelines) explaining how to distinguish labels, especially if you work with collaborators.
 
+!!! info "What is a good scheme ?"
+
+    For a classification task, a good scheme is a scheme for which labels can be assigned without ambiguity to texts. If the classifier is a human, it means that the annotator is able to decide which label to put in each text. If you want to train a classifier, it means that the model is able to assign labels. When you start with a research question, you tend to have complexe schemes with a lot of labels. The risk is that some of those labels are ambiguous. We advice a reductionnist approach testing each label with a binary scheme/classifier.
+
 ## 3. Annotate
 
 Next, let's start annotating!

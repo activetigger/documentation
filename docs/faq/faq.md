@@ -16,6 +16,14 @@ No.
 
 Please open a issue on the Github.
 
+## I have difficulties to annotate my texts with my current scheme
+
+If as a human annotator you are not able to decide how to annotate a text with the current scheme, maybe you would need to redesign your scheme (increasing or decreasing the number of labels, or re-conceptualizing them)
+
+## I have both good and bad prediction scores for my labels (I have annotated enough elements !)
+
+Having heterogeneous scores can be a sign of ill-defined labels. We advise to test each label in a binary schemes for each label to evaluate its relevance in order to refine your codebook based on those results.
+
 ## I have just created a project but want to modify certain parameters (e.g., increase the trainset size).
 
 Go to the project tab, navigate to Settings, and select Update Project. Please note that if you increase the size of your project, you then need to create a new feature in the Prepare tab. 
