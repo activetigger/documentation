@@ -1,23 +1,3 @@
-# Quickstart for ActiveTigger
-
-*ActiveTigger* is an open-source software designed to support collaborative text annotation for computational social sciences.
-
-It offers access to no-code computational methods suitable for a variety of research projects as long as they involve text data in some form.
-
-**ActiveTigger could help you if you…**
-
-- want to classify large amounts of text data (social media posts, news articles...)
-- are working collaboratively with other human annotators
-- want to get an overview of key topics in your text data
-- are curious about computational methods and want an easy introduction
-
-This Quickstart guide offers an overview of what you need to get started with ActiveTigger. 
-
-Many **use cases** are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: *having more textual data than you could manually analyze*.
-
-!!! tip "Example"
-    Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 1) make the manual annotation process easier and 2) train a classifier model that can extend your coding scheme automatically on the entire dataset.
-
 ## Workflow at a glance
 
 <div class="img"><img src="../../img/quickstart/steps.svg"/></div>
