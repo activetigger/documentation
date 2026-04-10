@@ -119,6 +119,14 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#i-have-just-created-a-project-but-want-to-modify-certain-parameters-eg-increase-the-trainset-size">I have just created a project but want to modify certain parameters (e.g., increase the trainset size).</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-large-should-my-different-sets-be">How large should my different sets be?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-set-should-i-annotate-first">What set should I annotate first?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-sets-of-features-should-i-use">What sets of features should I use?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-many-annotations-do-i-need">How many annotations do I need?</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#choose-models-made-available">Choose models made available?</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#why-cant-i-change-the-size-of-my-sets-on-the-go">Why can't I change the size of my sets on the go?</a>
@@ -128,16 +136,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#should-i-scale-my-features">Should I scale my features?</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#what-metrics-should-i-use">What metrics should I use?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#how-large-should-my-different-sets-be">How large should my different sets be?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#what-set-should-i-annotate-first">What set should I annotate first?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#what-sets-of-features-should-i-use">What sets of features should I use?</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#how-many-annotations-do-i-need">How many annotations do I need?</a>
-    </li>
-        </ul>
     </li>
     </ul>
                   </li>
@@ -181,11 +179,6 @@
 <p>Having heterogeneous scores can be a sign of ill-defined labels. We advise to test each label in a binary schemes for each label to evaluate its relevance in order to refine your codebook based on those results.</p>
 <h2 id="i-have-just-created-a-project-but-want-to-modify-certain-parameters-eg-increase-the-trainset-size">I have just created a project but want to modify certain parameters (e.g., increase the trainset size).</h2>
 <p>Go to the project tab, navigate to Settings, and select Update Project. Please note that if you increase the size of your project, you then need to create a new feature in the Prepare tab. </p>
-<h2 id="choose-models-made-available">Choose models made available?</h2>
-<h2 id="why-cant-i-change-the-size-of-my-sets-on-the-go">Why can't I change the size of my sets on the go?</h2>
-<h2 id="how-to-create-consisitent-id-for-my-project">How to create consisitent ID for my project?</h2>
-<h2 id="should-i-scale-my-features">Should I scale my features?</h2>
-<h2 id="what-metrics-should-i-use">What metrics should I use?</h2>
 <h2 id="how-large-should-my-different-sets-be">How large should my different sets be?</h2>
 <p>While there is no golden answer to this question, here are some guidelines:</p>
 <ul>
@@ -196,10 +189,15 @@
 <p>We recommend starting by annotating your training set first, in order to get a grasp on your corpus and to stabilize the codebook. Only start annotating the validation and test sets once you are sure of the precise definition of each of your labels.</p>
 <h2 id="what-sets-of-features-should-i-use">What sets of features should I use?</h2>
 <p>Generally, the recommended features are Sentence embeddings for computing visualizations, topic models, and quick models. For quick models, they can be used along with regex features, if there are some keywords that are particularly informative (or that you want to disambiguate). In low-resource environments, fastText or DFM embeddings can be used instead of sentence embeddings. </p>
-<h3 id="how-many-annotations-do-i-need">How many annotations do I need?</h3>
+<h2 id="how-many-annotations-do-i-need">How many annotations do I need?</h2>
 <p>There is no golden rule: it depends on the difficulty of the classification task.</p>
-<p>A few dozen annotations per class might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.</p>
+<p>A few dozen annotations per label might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.</p>
 <p>In general, more is always better, but it also depends on how useful your annotations are (see <em>Active learning</em> section).</p>
+<h2 id="choose-models-made-available">Choose models made available?</h2>
+<h2 id="why-cant-i-change-the-size-of-my-sets-on-the-go">Why can't I change the size of my sets on the go?</h2>
+<h2 id="how-to-create-consisitent-id-for-my-project">How to create consisitent ID for my project?</h2>
+<h2 id="should-i-scale-my-features">Should I scale my features?</h2>
+<h2 id="what-metrics-should-i-use">What metrics should I use?</h2>
               
             </div>
           </div><footer>

@@ -145,7 +145,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="model-page">Model Page</h1>
-<p>This section describes the Model page, containing the Training tab and the Evaluation tab, both displaying available models and their performance.</p>
+<p>The panel model allow the management of model, i.e. their training and evaluation.</p>
 <h2 id="training">Training</h2>
 <p>This section describes the Training tab, the parameters available for training as well as the key insights displayed on the page.</p>
 <p><img alt="" src="../../img/functionalities/models.png" /> </p>
@@ -192,7 +192,7 @@ Features are scalled using the <a href="https://scikit-learn.org/stable/modules/
 <!-- TODO: ADD the retraining process-->
 
 <h3 id="bertmodel">BERTmodel</h3>
-<p>The BERT Models are embedding models with a classification layer <a href="https://huggingface.co/docs/transformers/tasks/sequence_classification">trained with the huggingface framework</a>. They can take a dozen minutes to train and require GPUs<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
+<p>The BERT Models are pre-trained encoders models with a classification layer <a href="https://huggingface.co/docs/transformers/tasks/sequence_classification">trained with the huggingface framework</a>. They can take a dozen minutes to train and require GPUs<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. These models can be used for Active Learning (<a href="../../theoretical-concepts/#what-is-active-learning">what is Active Learning?</a>) in the <a href="../annotate/">Annotate page</a>.</p>
 <p>When launching a model training, the model will be trained on the subset of the train set where labels exist. There must be at least 10 (?? XXX) annotated text inputs per label. After training, the best model (accross epochs / checkpoints) will be used to predict the labels on the whole trainset to be used in Active Learning (see <a href="../annotate/#active-learning-in-practice">Annotation page</a>).</p>
 <!-- TODO Check the save proces -->
 

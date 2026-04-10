@@ -212,13 +212,13 @@ Compared to BERT models, they are lightweight and quick to train, hence their na
 They are typically used in the early stages of annotation, as described in the workflow above. </p>
 <h2 id="training-bert-models">Training BERT models</h2>
 <h3 id="what-are-bert-models">What are BERT models?</h3>
-<p>(BERT models)[https://en.wikipedia.org/wiki/BERT_(language_model)] are powerful predictive models that you can use in order to generalize your annotations to a larger corpus (either your project's dataset, or an external one, see <a href="../functionalities/export/">Export page</a>).
-They are pre-trained encoder language models<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, meaning that they have been trained on very large corpora in order to encapsulate semantic "understanding". These models must be fine-tuned to adapt to any task.</p>
+<p><a href="https://en.wikipedia.org/wiki/BERT_(language_model)">BERT models</a> are powerful predictive models that you can use in order to generalize your annotations to a larger corpus (either your project's dataset, or an external one, see <a href="../functionalities/export/">Export page</a>).</p>
+<p>They are pre-trained encoder language models<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, meaning that they have been trained on very large corpora in order to encapsulate semantic "understanding". These models must be fine-tuned to adapt to any task.</p>
 <p>Fine-tuning a BERT model is the process of adjusting its internal weights using optimization algorithms<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> to maximize <a href="glossary/#model-quality-scores">quality scores</a>. <a href="https://youtu.be/IHZwWFHWa-w?si=WOzTeU4U6b62uq_s">Learn more about fine-tuning models</a>. This is a delicate art requiring trials and errors to find the best hyperparameters. Learn more about this process through the <a href="#reading-the-loss-curve">loss curves</a>.</p>
 <h3 id="which-model-to-choose">Which model to choose?</h3>
 <!-- should it live in the FAQ? -->
 
-<p>There are many different pre-trained models to choose from, hosted on the (Huggingface)[https://huggingface.co/] website.
+<p>There are many different pre-trained models to choose from, hosted on the <a href="https://huggingface.co/">Huggingface</a> website.
 The main difference between them is the corpus they have been pre-trained on (most of them are specialized in a single language), and their inner architecture (which among others determines the <a href="glossary/#tokens-and-window-sizes">window size</a>).
 There is no golden rule for which model to choose: try different ones, and see which one works best on your data.</p>
 <h3 id="reading-the-loss-curve">Reading the loss curve</h3>

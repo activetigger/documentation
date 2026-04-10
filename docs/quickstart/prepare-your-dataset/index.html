@@ -140,6 +140,10 @@
 <li>Splitting texts at the sentence/paragraph level.</li>
 <li>Ensuring all inputs are written in a single language (depending on the task).</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Size of the texts</p>
+<p>If you use models, please mind that they have a limited context windows. It means that if text exceed this windows (depending of the model, from an hundred to thousand words), it will be truncated.</p>
+</div>
 <p>We also encourage users to <span class="highlight">carefully set up their ID column</span> as they will ease the process of aggregating the annotations with external metadata for downsteam analysis.</p>
 <div class="admonition note">
 <p class="admonition-title">Troubleshoot using Parquet files</p>

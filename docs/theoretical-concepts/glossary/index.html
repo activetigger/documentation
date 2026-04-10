@@ -93,6 +93,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#schemes">Schemes</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#embeddings">Embeddings</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#model-quality-scores">Model quality scores</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#evaluating-multiclass-models">Evaluating Multiclass models</a>
@@ -147,25 +149,12 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="glossary">Glossary</h1>
-<!-- 
-AM: same
-## Roles
-
-**TODO** -->
-
-<!-- 
-AM: belongs to the functionalities 
-## DFM options
-
-**TODO**
- -->
-
 <h2 id="projects">Projects</h2>
 <p>Active Tigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as features or topic models. A project can be shared across users for collaborating.</p>
 <p>The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. It can be very large, in which case you will work on smaller subsets (see the <a href="../#train-validation-and-test-sets">Train, Validation and Test sets</a>).</p>
 <p>See <a href="../../functionalities/project-creation/">Project Creation page</a></p>
 <h2 id="schemes">Schemes</h2>
-<p>In Active Tigger, each project is organized into one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models for to assist your exploration and annotation. In practice, it is a set of <strong>labels</strong> as well as the annotations, a <strong>codebook</strong> and classifier models (Quick or BERT).</p>
+<p>Each project contains one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models for to assist your exploration and annotation. In practice, it is a set of <strong>labels</strong> as well as the annotations, a <strong>codebook</strong> and classifier models (Quick or BERT).</p>
 <p>Users with access to a project can see all the schemes. </p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -230,6 +219,8 @@ AM: belongs to the functionalities
 <p class="admonition-title">Tip</p>
 <p>Multiclass schemes can be imported from your dataset upon project creation.</p>
 </div>
+<h2 id="embeddings">Embeddings</h2>
+<p><a href="">TODO</a></p>
 <h2 id="model-quality-scores">Model quality scores</h2>
 <p>Quality scores provide valuable insights on predictive models performance.</p>
 <h3 id="evaluating-multiclass-models">Evaluating Multiclass models</h3>
