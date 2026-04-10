@@ -94,21 +94,29 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Architecture</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#backend">Backend</a>
+    <li class="toctree-l2"><a class="reference internal" href="#high-level-overview">High-level overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#backend-apiactivetigger">Backend (api/activetigger/)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#data-management">Data management</a>
+    <li class="toctree-l3"><a class="reference internal" href="#entrypoint-and-routing">Entrypoint and routing</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#processes">Processes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#task-queue">Task queue</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#users-role">Users role</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#select-element-to-annotate">Select element to annotate</a>
+    <li class="toctree-l3"><a class="reference internal" href="#database-layer">Database layer</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#frontend">Frontend</a>
+    <li class="toctree-l2"><a class="reference internal" href="#frontend-frontendsrc">Frontend (frontend/src/)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#state-management">State management</a>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-client-generation">API client generation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deployment">Deployment</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-compose">Docker Compose</a>
     </li>
         </ul>
     </li>
@@ -150,85 +158,273 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="software-architecture">Software architecture</h1>
+                <h1 id="activetigger-software-architecture">ActiveTigger -- Software Architecture</h1>
 <p>This page describes Active Tigger technical architecture and implementation choices for dev and contributors.</p>
-<p>General architecture :</p>
+<h2 id="high-level-overview">High-level overview</h2>
+<pre><code>                    +-------------------+
+                    |      Nginx        |
+                    |  (reverse proxy)  |
+                    +--------+----------+
+                             |
+              +--------------+--------------+
+              |                             |
+     +--------v--------+         +---------v--------+
+     |  React Frontend |         |  FastAPI Backend  |
+     |  (TypeScript)   |         |  (Python)         |
+     +--------+--------+         +---------+---------+
+              |                             |
+              |   REST API (OpenAPI)        |
+              +-------------+---------------+
+                            |
+              +-------------+--------------+
+              |                            |
+     +--------v--------+        +---------v---------+
+     |    Database      |        |   File System     |
+     | SQLite / Postgres|        | (Parquet, models) |
+     +-----------------+         +-------------------+
+</code></pre>
+<p>The application follows a classic client-server architecture with three main layers:</p>
 <ul>
-<li><strong>backend</strong> : Python/FastAPI</li>
-<li><strong>frontend</strong> : React/Typescript</li>
+<li><strong>Frontend</strong>: React 18 single-page application served via Vite.</li>
+<li><strong>Backend</strong>: FastAPI REST API handling business logic, ML pipelines, and data management.</li>
+<li><strong>Storage</strong>: A relational database (SQLite or PostgreSQL) for structured data, and the local file system for datasets (Parquet), trained models, and features.</li>
 </ul>
-<h2 id="backend">Backend</h2>
+<p>Nginx acts as a reverse proxy, routing <code>/api/*</code> requests to the backend and everything else to the frontend.</p>
+<hr />
+<h2 id="backend-apiactivetigger">Backend (<code>api/activetigger/</code>)</h2>
+<h3 id="entrypoint-and-routing">Entrypoint and routing</h3>
+<p>The FastAPI application is defined in <code>app/main.py</code> and exposes 13 routers:</p>
+<table>
+<thead>
+<tr>
+<th>Router</th>
+<th>Path prefix</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>users</td>
+<td><code>/users</code></td>
+<td>Authentication (JWT/OAuth2), account management</td>
+</tr>
+<tr>
+<td>projects</td>
+<td><code>/projects</code></td>
+<td>Project CRUD, configuration</td>
+</tr>
+<tr>
+<td>annotations</td>
+<td><code>/annotations</code></td>
+<td>Save and retrieve annotations</td>
+</tr>
+<tr>
+<td>schemes</td>
+<td><code>/schemes</code></td>
+<td>Annotation scheme management</td>
+</tr>
+<tr>
+<td>features</td>
+<td><code>/features</code></td>
+<td>Feature computation (TF-IDF, FastText, S-BERT)</td>
+</tr>
+<tr>
+<td>models</td>
+<td><code>/models</code></td>
+<td>ML model training and prediction</td>
+</tr>
+<tr>
+<td>generation</td>
+<td><code>/generation</code></td>
+<td>LLM prompting and batch generation</td>
+</tr>
+<tr>
+<td>bertopic</td>
+<td><code>/bertopic</code></td>
+<td>Topic modeling</td>
+</tr>
+<tr>
+<td>export</td>
+<td><code>/export</code></td>
+<td>Data export</td>
+</tr>
+<tr>
+<td>files</td>
+<td><code>/files</code></td>
+<td>File uploads</td>
+</tr>
+<tr>
+<td>elements</td>
+<td><code>/elements</code></td>
+<td>Retrieve elements to annotate</td>
+</tr>
+<tr>
+<td>messages</td>
+<td><code>/messages</code></td>
+<td>In-app notifications</td>
+</tr>
+<tr>
+<td>monitoring</td>
+<td><code>/monitoring</code></td>
+<td>System health metrics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="task-queue">Task queue</h3>
+<p>Long-running operations (model training, feature computation, projections, LLM batch calls) are executed asynchronously via a <strong>Loky-based multiprocessing queue</strong> (<code>queue_manager.py</code>). The queue separates CPU-bound and GPU-bound workers:</p>
 <ul>
-<li><code>config.yaml</code> define the parameters at the server launch</li>
-<li>The unit is the project, composes of different classes<ul>
-<li>Features</li>
-<li>Schemes</li>
-<li>Quickmodels</li>
-<li>Bertmodels</li>
-<li>Users</li>
+<li><strong>CPU workers</strong> (default: 5): feature extraction, quick model training, projections.</li>
+<li><strong>GPU workers</strong> (default: 1): BERT fine-tuning and prediction.</li>
 </ul>
-</li>
-<li>CPU/GPU bound computation is managed in separated processes with a queue</li>
-<li>State of the service is checked at each request (with a threshold)</li>
-</ul>
-<h3 id="data-management">Data management</h3>
+<h3 id="database-layer">Database layer</h3>
+<p>The database layer uses <strong>SQLAlchemy ORM</strong> with support for both SQLite (development/local) and PostgreSQL (Docker/production).</p>
+<p><strong>Tables:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td>User accounts with hashed passwords</td>
+</tr>
+<tr>
+<td><code>projects</code></td>
+<td>Project metadata (parameters stored as JSON)</td>
+</tr>
+<tr>
+<td><code>schemes</code></td>
+<td>Annotation schemes per project</td>
+</tr>
+<tr>
+<td><code>annotations</code></td>
+<td>Individual annotations (user, element, label, optional text spans)</td>
+</tr>
+<tr>
+<td><code>auths</code></td>
+<td>Project-level access control (user-project-status mapping)</td>
+</tr>
+<tr>
+<td><code>features</code></td>
+<td>Feature metadata</td>
+</tr>
+<tr>
+<td><code>gen_models</code></td>
+<td>Generative model configurations</td>
+</tr>
+<tr>
+<td><code>prompts</code></td>
+<td>LLM prompt templates</td>
+</tr>
+<tr>
+<td><code>generations</code></td>
+<td>LLM generation results</td>
+</tr>
+<tr>
+<td><code>logs</code></td>
+<td>Action audit trail</td>
+</tr>
+<tr>
+<td><code>tokens</code></td>
+<td>API token management</td>
+</tr>
+<tr>
+<td><code>monitoring</code></td>
+<td>System metrics snapshots</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="frontend-frontendsrc">Frontend (<code>frontend/src/</code>)</h2>
+<h3 id="technology-stack">Technology stack</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td>React 18 + TypeScript 5</td>
+</tr>
+<tr>
+<td>Build tool</td>
+<td>Vite</td>
+</tr>
+<tr>
+<td>UI library</td>
+<td>React Bootstrap</td>
+</tr>
+<tr>
+<td>State management</td>
+<td>React Context + localStorage</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>React Router v6 (hash-based)</td>
+</tr>
+<tr>
+<td>HTTP client</td>
+<td>openapi-fetch (typed) + Axios</td>
+</tr>
+<tr>
+<td>Data visualization</td>
+<td>Sigma.js (graphs), Victory (charts), Plotly, ag-Grid (tables)</td>
+</tr>
+<tr>
+<td>Text annotation</td>
+<td>react-text-annotate-blend</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-client-generation">API client generation</h3>
+<p>The frontend uses <strong>auto-generated TypeScript types</strong> from the backend's OpenAPI schema:</p>
+<ol>
+<li>FastAPI generates an OpenAPI spec at <code>/openapi.json</code>.</li>
+<li><code>openapi-typescript</code> converts it to TypeScript definitions (<code>generated/openapi.d.ts</code>).</li>
+<li><code>openapi-fetch</code> provides a fully typed HTTP client.</li>
+</ol>
+<p>Run <code>npm run generate</code> to regenerate types after backend changes.</p>
+<h2 id="deployment">Deployment</h2>
+<h3 id="docker-compose">Docker Compose</h3>
+<p>The application ships with multiple Docker Compose configurations:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker-compose.yml</code></td>
+<td>Base service definitions</td>
+</tr>
+<tr>
+<td><code>docker-compose.dev.yml</code></td>
+<td>Development overrides (hot reload, exposed ports)</td>
+</tr>
+<tr>
+<td><code>docker-compose.prod.yml</code></td>
+<td>Production settings</td>
+</tr>
+<tr>
+<td><code>docker-compose.nvidia.yml</code></td>
+<td>GPU support (NVIDIA runtime)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Services:</strong></p>
 <ul>
-<li>Tabular data is stored as separated parquet files divided in train / test / complete</li>
-<li>SQLite database to manage annotations/parameters/users/logs</li>
-<li>Projects are loaded into memory to facilitate computation (filter, etc.)<ul>
-<li>Unloaded after one day</li>
-</ul>
-</li>
-<li>Bert models are saved in dedicated filesystems</li>
-</ul>
-<h3 id="processes">Processes</h3>
-<ul>
-<li>ProcessPoolExecutor with workers<ul>
-<li>https://superfastpython.com/processpoolexecutor-in-python/</li>
-</ul>
-</li>
-<li>Different type of parallel process : training ; predicting</li>
-<li>Only one process possible by user/project</li>
-</ul>
-<h3 id="users-role">Users role</h3>
-<ul>
-<li>Role-Based Access Control (RBAC) - 3 roles : root, manager, annotator</li>
-<li>Authentification with OAuth2 and token in header<ul>
-<li>Table of valid tokens</li>
-</ul>
-</li>
-<li>A table of authorization defines the relation users/projects</li>
-<li>Different uses can modify a same project : no lock</li>
-</ul>
-<h3 id="select-element-to-annotate">Select element to annotate</h3>
-<p>The selection combines different strategy : filters and/or active learning.</p>
-<p>Active learning is a prediction with a model trained on already annotated data.</p>
-<ul>
-<li>
-<p>Different modes of selection</p>
-<ul>
-<li>deterministic</li>
-<li>aleatory</li>
-<li>maxprob for a label</li>
-<li>max entropy</li>
-</ul>
-</li>
-<li>
-<p>Pipeline of choice</p>
-<ul>
-<li>sample (tagged, untagged, all)</li>
-<li>regex</li>
-<li>proba / entropie</li>
-</ul>
-</li>
-</ul>
-<h2 id="frontend">Frontend</h2>
-<h3 id="state-management">State management</h3>
-<ul>
-<li>Each project is described by its general state (not user specific)<ul>
-<li>Computed/computing elements</li>
-</ul>
-</li>
+<li><strong>PostgreSQL 15+</strong>: production database.</li>
+<li><strong>API</strong> (Python/uvicorn): backend server, dependencies installed via <code>uv</code>.</li>
+<li><strong>Frontend</strong> (Node/Vite): SPA dev server or static build.</li>
+<li><strong>Nginx</strong>: reverse proxy, serves static files, routes API traffic.</li>
 </ul>
               
             </div>
