@@ -44,20 +44,22 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">First steps</span></p>
+              <p class="caption"><span class="caption-text">Get started</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../quickstart/quickstart/">Quickstart</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../quickstart/workflows/">Main workflows</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/access/">Install & access</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">In practice</span></p>
-              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../ressources/exampleprojects/">How people use it</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../ressources/references/">Existing tutorials and videos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technicalities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/prepare-your-dataset/">Prepare your dataset</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/access/">Install & access</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
@@ -67,8 +69,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#primary-parameters">Primary parameters</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#secondary-parameters">Secondary parameters</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#note-on-preparing-your-input-dataset">Note on preparing your input dataset</a>
     </li>
     </ul>
                   </li>
@@ -170,23 +170,6 @@
 <li><span class="parameter secondary">Compute embeddings</span>: If set to <code>True</code>, upon creating the project, embeddings for the text inputs in the train, validation and test sets will start using <a href="https://sbert.net/">Sentence BERT</a></li>
 <li><span class="parameter secondary">Seed</span>: The seed used for all random operations in the project.</li>
 </ul>
-<h2 id="note-on-preparing-your-input-dataset">Note on preparing your input dataset</h2>
-<p>The input dataset should be a CSV, Parquet, or XLSX file. The text columns must be well prepared and curated before upload as <span class="highlight">ActiveTigger does not propose any text treatment option</span>. The only text manipulations implemented is the concatenation of text columns. Cleaning you dataset can include, but is not limited to the following: </p>
-<ul>
-<li>Removing semanticless characters (html tags, encoding artefacts, emojis<sup id="fnref:note-emoji"><a class="footnote-ref" href="#fn:note-emoji">5</a></sup>, ...).</li>
-<li>Removing any duplicates.</li>
-<li>Splitting texts at the sentence/paragraph level.</li>
-<li>Ensuring all inputs are written in a single language (depending on the task).</li>
-</ul>
-<p>We also encourage users to <span class="highlight">carefully set up their ID column</span> as they will ease the process of aggregating the annotations with external metadata for downsteam analysis.</p>
-<div class="admonition note">
-<p class="admonition-title">Troubleshoot using Parquet files</p>
-<p>If you upload a parquet file, you can encounter issues related to the format of your parquet file. Easy fix includes: </p>
-<ul>
-<li>Make sure that data contained is formatted as a string.</li>
-<li>Make sure to not have nested columns (columns and sub-columns).</li>
-</ul>
-</div>
 <div class="footnote">
 <hr />
 <ol>
@@ -202,16 +185,13 @@
 <li id="fn:modify-test-set">
 <p>This parameter cannot be updated per se, but you can drop the test set and import a new one in <a href="../settings/#import">the Import tab in the Settings page</a>&#160;<a class="footnote-backref" href="#fnref:modify-test-set" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
-<li id="fn:note-emoji">
-<p>Depending on your task you may want to keep them because they carry significant information, or remove them because they will act as noise. Also, models may not have been trained on emojis, meaning that they will be replaced by <code>[unk]</code> tokens, adding noise to your text inputs.&#160;<a class="footnote-backref" href="#fnref:note-emoji" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
 </ol>
 </div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../ressources/references/" class="btn btn-neutral float-left" title="Existing tutorials and videos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../quickstart/access/" class="btn btn-neutral float-left" title="Install & access"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../codebook/" class="btn btn-neutral float-right" title="Codebook Page">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -235,7 +215,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../ressources/references/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../quickstart/access/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../codebook/" style="color: #fcfcfc">Next &raquo;</a></span>
