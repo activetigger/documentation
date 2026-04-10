@@ -1,6 +1,10 @@
 ## Workflow at a glance
 
-<div class="img"><img src="../../img/quickstart/steps.svg"/></div>
+This Quickstart guide offers an overview of what you need to get started with ActiveTigger. 
+
+Many **use cases** are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: *having more textual data than you could manually analyze*.
+
+<div class="img"><img src="../../img/quickstart/steps.png"/></div>
 
 **What you'll need before starting:**
 

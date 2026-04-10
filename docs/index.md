@@ -13,11 +13,8 @@
 - want to get an overview of <span class="highlight">key topics</span> in your text data
 - are curious about computational methods and want an <span class="highlight">easy introduction</span>
 
-This Quickstart guide offers an overview of what you need to get started with ActiveTigger. 
-
-Many **use cases** are possible, as ActiveTigger offers several methodological options. To provide an example, we structure this guide around a common problem in social science research: *having more textual data than you could manually analyze*.
-
 !!! tip "Example"
+    # REFORMULER EXEMPLE EN FONCTION DE COMMENT ON EN A PARLÉ SURTOUT PAR DES DÉBUTANTS
     Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 
     
     1. make the manual annotation process easier and 

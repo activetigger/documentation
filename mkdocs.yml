@@ -1,13 +1,14 @@
 site_name: ActiveTigger Documentation
 nav:
   - Home: index.md
-  - First steps:
+  - Get started:
       - Quickstart: quickstart/quickstart.md
       - Main workflows: quickstart/workflows.md
-      - Install & access: quickstart/access.md
-  - In practice:
       - How people use it: ressources/exampleprojects.md
       - Existing tutorials and videos: ressources/references.md
+  - Technicalities:
+      - Prepare your dataset: quickstart/prepare-your-dataset.md
+      - Install & access: quickstart/access.md
   - Functionalities:
       - Project Creation: functionalities/project-creation.md
       - Codebook Page: functionalities/codebook.md
