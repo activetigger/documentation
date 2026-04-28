@@ -13,7 +13,7 @@ This page displays the parameters of the project and allows editing or deleting 
     - <span class="parameter">Text column(s)</span>: [see Project Creation page](./project-creation.md#primary-parameters)
     - <span class="parameter">Language of the corpus</span>: [see Project Creation page](./project-creation.md#primary-parameters)
     - <span class="parameter">Column(s) for contextual information</span>: [see Project Creation page](./project-creation.md#primary-parameters)
-    - <span class="parameter">Add N elements in the train set</span>: Pick new elements from the dataset uploaded. <br/><span class="cwarning">⚠️ Note: </span> This action ignores stratification
+    - <span class="parameter">Add N elements in the train set</span>: Pick new elements from the dataset uploaded. *This action ignores stratification*.
 - <span class="action red-danger">Delete project</span> to delete the project, annotations and models. **There is no going back.**
 
 !!! note

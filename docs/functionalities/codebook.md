@@ -12,7 +12,7 @@ At the top of the screen, you will find the scheme ([what is a scheme?](../theor
 - <span class="icon">![](../img/icons/plus.svg)</span> to create a new scheme, with a unique name and a type ([see available types](../theoretical-concepts/glossary.md#schemes))
 - <span class="icon">![](../img/icons/rename.svg)</span> to rename the current scheme.
 - <span class="icon">![](../img/icons/duplicate.svg)</span> to duplicate the current scheme with all annotations. 
-- <span class="icon">![](../img/icons/delete.svg)</span> to delete the current scheme and its annotations. <span class="cwarning">⚠️ Note</span> This action is definitive.
+- <span class="icon">![](../img/icons/delete.svg)</span> to delete the current scheme and its annotations. *This action is definitive*.
 
 
 ## Guidelines

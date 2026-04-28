@@ -79,14 +79,3 @@ div.img{
         width: 60%;
     }
 }
-
-span.cwarning{
-    color:black;
-    background-color: #fca31120;
-
-    font-weight: 600;
-    border-bottom: #fca311 solid 1.5px;
-    padding: 0.15rem 0.15rem;
-    margin: 0rem;
-    border-radius: .2rem;
-}
