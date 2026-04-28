@@ -1,23 +1,7 @@
-This section describes many secondary functionalities for project management. 
+This section describes the monitoring page.
 
-## Account page
-
-The account page allows user to change their password. If you have forgotten your password, please reach out to the instance manager.
-
-## Users page
-
-This page allows users to manage collaboration rights across people and projects.
-
-![](../img/functionalities/users.png)
-
-Three roles are defined with different rights: 
-
-- <span class="highlight">root</span>: Only one root account. This user can manage the rights of anyone and has access to **ALL** projects as a manager. Root has also access to the [Monitor page](#monitor-page).
-- <span class="highlight">manager</span>: Default role when creating a project. Managers have access to the data, can annotate, train models, compute features, and delete anything. 
-- <span class="highlight">collaborator</span>: Collaborators have the same rights as mangers but cannot delete anything.
-- <span class="highlight">annotator</span>: Annotators only have access to the [Codebook page](./codebook.md), [Explore page](./explore.md) and the [Annotate page](./annotate.md).
-
-Each role is project dependant and can be managed by managers of a project. After selecting the appropriate project, they can type the name of a user and grant them the appropriate rights.
+!!! warning
+    Be aware, the root user can grant manager access to any project of the instance.
 
 ## Monitor page
 
@@ -30,6 +14,10 @@ This page is only visible by the root user. It contains multiple panels describe
 This page lists all projects currently in use and associated tasks (train classifiers for instance) currently running. From this tab, the root user can kill any task.
 
 <span class="action red-danger">Restart memory and queue</span> will restart the backend. All current users will be impacted and active tasks killed. 
+
+### All projects
+
+The list of all projects created in the instance, with the possibility for the root to grant manager access to any project.
 
 ### Statistics tab
 

@@ -18,7 +18,9 @@ nav:
       - Export Page: functionalities/export.md
       - Generative Page: functionalities/generative.md
       - Settings Page: functionalities/settings.md
-      - Monitoring, Account and Users Pages: functionalities/monitoring-account-and-users.md
+      - Account and Users: functionalities/account-and-users.md
+      - Monitoring: functionalities/monitoring.md
+
   - Conceptualizing:
       - General concepts: conceptualizing/general.md
       - Glossary: conceptualizing/glossary.md
