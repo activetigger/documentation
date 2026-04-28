@@ -16,3 +16,7 @@ When possible, use similar icons. They are stored in `docs/img/icons`. Use `<spa
 ## Images
 
 Images are stored `docs/img/`. They are included with `<div class="img"><img src="../../img/image.png"/></div>` 
+
+## Other
+
+`XXX` means that the documentation has to be completed (don't hesitate if you have some time)
