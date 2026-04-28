@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Glossary - ActiveTigger Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Glossary";
+        var mkdocs_page_input_path = "conceptualizing/glossary.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ActiveTigger Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Get started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/quickstart/">Quickstart</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/workflows/">Main workflows</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/howpeopleuseit/">How people use it</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/tutorials/">Existing tutorials and videos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technicalities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/prepare-your-dataset/">Prepare your dataset</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/access/">Install & access</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functionalities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/project-creation/">Project Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/codebook/">Codebook Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/explore/">Explore Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/annotate/">Annotate Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/model/">Model Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/export/">Export Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/generative/">Generative Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/settings/">Settings Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Conceptualizing</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../general/">General concepts</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Glossary</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#projects">Projects</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#schemes">Schemes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#embeddings">Embeddings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#model-quality-scores">Model quality scores</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#evaluating-multiclass-models">Evaluating Multiclass models</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dataset-stratification">Dataset stratification</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tokens-and-window-sizes">Tokens and window sizes</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/roadmap/">Roadmap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/contributors/">Contributors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/semiology/">Doc semiology</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/environment/">Environemental impact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/faq/">Main questions</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ActiveTigger Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Conceptualizing</li>
+      <li class="breadcrumb-item active">Glossary</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="glossary">Glossary</h1>
+<h2 id="projects">Projects</h2>
+<p>Active Tigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as features or topic models. A project can be shared across users for collaborating.</p>
+<p>The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. It can be very large, in which case you will work on smaller subsets (see the <a href="./index.md#train-validation-and-test-sets">Train, Validation and Test sets</a>).</p>
+<p>See <a href="../../functionalities/project-creation/">Project Creation page</a></p>
+<h2 id="schemes">Schemes</h2>
+<p>Each project contains one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models for to assist your exploration and annotation. In practice, it is a set of <strong>labels</strong> as well as the annotations, a <strong>codebook</strong> and classifier models (Quick or BERT).</p>
+<p>Users with access to a project can see all the schemes. </p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>A project contains corpus of speeches, and seeks to identify what topics are mentioned as well as the tone used. Users can create different schemes to separately work on identifying speeches mentionning the environment, another for social inequalities and finally one more to identify agressive tones.</p>
+</div>
+<p>There are different types of schemes in Active Tigger: </p>
+<ul>
+<li><span class="highlight">Multiclass</span>: each text will be given a single label.</li>
+<li><span class="highlight">Multilabel</span>: each text can be given several labels simultaneously.</li>
+<li><span class="highlight">Span</span>: give a label to one or more portions of the text (spans).</li>
+</ul>
+<p>What you can and cannot do with each scheme type: </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Multiclass</th>
+<th>Multilabel</th>
+<th>Span</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create labels and a codebook</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Explore your corpus with a<br/> visualisation or topic models </td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Train a classifier (Quick or BERT)</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>Use generative models</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Export annotations</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Export models</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>🔴</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Multiclass schemes can be imported from your dataset upon project creation.</p>
+</div>
+<h2 id="embeddings">Embeddings</h2>
+<p><a href="">TODO</a></p>
+<h2 id="model-quality-scores">Model quality scores</h2>
+<p>Quality scores provide valuable insights on predictive models performance.</p>
+<h3 id="evaluating-multiclass-models">Evaluating Multiclass models</h3>
+<p>Active Tigger displays 3 scores per class as well as score weighted across all classes. Each score is bounded between 0 and 1 (the higher the better).</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Data</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision</a></td>
+<td>Per class</td>
+<td>How confident you can be about the positive predictions of each class</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Precision_and_recall">Recall</a></td>
+<td>Per class</td>
+<td>Portion of the actual positive cases that are found by the model</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Precision_and_recall#F-measure">F1</a></td>
+<td>Per class</td>
+<td>Overall quality of the model's predictions for each class</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/F-score#Macro_F1">Macro F1</a></td>
+<td>Overall</td>
+<td>Overall quality of the model on all classes</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each score is computed separately for the train set, the validation and test sets.</p>
+</div>
+<h2 id="dataset-stratification">Dataset stratification</h2>
+<p>A corpus might come from different sources, or different time periods, that you might want to treat equally in an annotation workflow.
+Stratifying the dataset prevents from working on unbalanced datasets. This is a common challenge in machine learning: training on non-representative samples leads to models failing on minority subsets. </p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>If working on newspaper articles with 80% of all articles coming from LeMonde and only 20% coming from LePoint, training a model will most likely adapt to LeMonde's writing but not LePoint's. The source becomes a descriptor for your annotation whereas it shouldn't.</p>
+</div>
+<p>Stratification is performed upon <a href="../../functionalities/project-creation/">project creation</a>.</p>
+<h2 id="tokens-and-window-sizes">Tokens and window sizes</h2>
+<p>Large language models (including sentence embedding models) do not use plain texts to process data, but first decompose them into tokens in order to make them easier to handle. Tokens are either whole words or parts of words: very common words in a given language will typically have their own token, as well as common radicals and prefixes and suffixes. <em>For instance, in English, "iterat-", "-e", "re-", "-s", "-ing", or "-ion" are parts that have similar meanings across words, which is why it is more efficient to decompose "iterate", "iterates", "reiterate", "iterating", "iteration", etc. into tokens than to represent them as altogether separate terms.</em>
+Each unique symbol has its own token, so that any given word (including typos) can be read by the model.</p>
+<p>Each language model uses its own tokenizer (the algorithm that transforms raw text into tokens).</p>
+<p>One important feature of each language model is that it has a <span class="highlight">maximum window size</span>: the number of tokens it is able to process for any given text.
+Therefore, it is important to be aware of the language model's specific window size, as tokens beyond this limit will be ignored.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>In order to check the tokenizers of different models, you can use sites such as <a href="https://llm-calculator.com/">LLM Calculator</a>, <a href="https://llmtokencounter.com/">LLM Token Counter</a>, <a href="https://token-calculator.net/">Token Calculator</a>, etc. Most of them are made for generative LLMs, but can still give you a rough estimation of how your corpus will be treated.</p>
+<p><strong>TODO link to relevant python module</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>To assist you in the annotation process, the <a href="../../functionalities/annotate/#annotate-page">Annotation tab</a> approximates the number of tokens per text input and displays excess tokens in italic. You can modify the limit in the <strong>config menu</strong> button.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../general/" class="btn btn-neutral float-left" title="General concepts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../software/architecture/" class="btn btn-neutral float-right" title="Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../general/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../software/architecture/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

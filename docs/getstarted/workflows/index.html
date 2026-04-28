@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Main workflows - ActiveTigger Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Main workflows";
+        var mkdocs_page_input_path = "getstarted/workflows.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ActiveTigger Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Get started</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Main workflows</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#annotate-a-corpus-collaboratively">Annotate a corpus collaboratively</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#accelerate-annotation-with-active-learning">Accelerate annotation with Active learning</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#explore-your-data">Explore your data</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../howpeopleuseit/">How people use it</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tutorials/">Existing tutorials and videos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Technicalities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/prepare-your-dataset/">Prepare your dataset</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/access/">Install & access</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functionalities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/project-creation/">Project Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/codebook/">Codebook Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/explore/">Explore Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/annotate/">Annotate Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/model/">Model Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/export/">Export Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/generative/">Generative Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/settings/">Settings Page</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Conceptualizing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../conceptualizing/general/">General concepts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../conceptualizing/glossary/">Glossary</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/roadmap/">Roadmap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/contributors/">Contributors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/semiology/">Doc semiology</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/environment/">Environemental impact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/faq/">Main questions</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ActiveTigger Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Get started</li>
+      <li class="breadcrumb-item active">Main workflows</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="workflows">Workflows</h1>
+<p>This page presents possible ways of using Tigger for your research and how to do it.</p>
+<h2 id="annotate-a-corpus-collaboratively">Annotate a corpus collaboratively</h2>
+<p>Active Tigger's makes collaborative annotation seamless through the following features:</p>
+<ul>
+<li>Creation of a scheme (<a href="../theoretical-concepts/glossary.md#schemes">what is a scheme?</a>) and a codebook for the project.</li>
+<li>Annotation of the text inputs by each user.</li>
+<li>Comparison of annotations and measure agreement</li>
+<li>Export the annotated corpus for analysis</li>
+</ul>
+<p>Why choose Active Tigger for this task: </p>
+<ul>
+<li>User friendly interface, on any device.</li>
+<li>Seamless integration of collaborative work.</li>
+<li>Safe storage of data.</li>
+</ul>
+<p>Here is an overview of the steps necessary to set up and undertake an annotation project with manual annotation:</p>
+<ul>
+<li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="../../functionalities/project-creation/#note-on-preparing-your-input-dataset">More information here</a></li>
+<li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to the size of your dataset. You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
+<li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (multiclass, multilabel or span — <a href="../theoretical-concepts/glossary.md#schemes">more info on the available schemes</a>) and start writing the instructions for labelling the corpus. All users can see the schemes, labels and codebook of your project, but only managers and contributors can edit them.</li>
+<li><span class="step">Step 3 — Give your collaborators access to your project:</span> Go to the <a href="../../functionalities/monitoring-account-and-users/">Users page</a> and authorize your collaborators to access and annotate text inputs from your project.</li>
+<li><span class="step">Step 4 — Each collaborator starts annotating the corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process. You can:<ul>
+<li>Add a label (<span class="action primary">LABEL</span>), remove a label (<span class="action primary">No tag</span>), or move forward (<span class="action primary">Skip</span>).</li>
+<li>Add a comment to your annotation.</li>
+<li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).</li>
+</ul>
+</li>
+<li><span class="step">Step 5 — Curate the annotation (Only available to projects with more than one user):</span> On the <a href="../../functionalities/annotate/">Annotate page</a>, choose <a href="../../functionalities/annotate/#curate">"Curate"</a>. You will be able to see annotations differences between schemes or between users and choose which annotation to keep (as well as agreement metrics).</li>
+<li><span class="step">Step 6 — Export your annotated corpus:</span> On the <a href="../../functionalities/export/">Export page</a>, choose <a href="../../functionalities/export/#annotations">"Annotations"</a> and <span class="action primary">All annotations/schemes</span> to download your corpus as a CSV file, or XLSX or parquet.</li>
+</ul>
+<p>In practice, the annotation process is not so linear. It is normal to move back and forth between <span class="step">step 3</span>, <span class="step">step 4</span> and <span class="step">step 5</span> to refine your codebook and change your annotation strategy. You may also want to use exploration tools (<a href="#explore-your-data">see below</a>), or use machine learning to find the most challenging text inputs and test your codebook on rare or ambiguous cases.</p>
+<h2 id="accelerate-annotation-with-active-learning">Accelerate annotation with Active learning</h2>
+<p>Active Tigger makes machine learning methods easily available to social scientists, in particular by implementing the full pipeline for finetuning <em>classifier models</em> (<a href="../theoretical-concepts/index.md#what-are-bert-models">what are BERT models?</a>; <a href="../theoretical-concepts/index.md#training-bert-models">How to finetune BERT models?</a> ). These models can automatically extend your human-developed annotation scheme on a larger dataset. This workflow consists of: </p>
+<ul>
+<li>Creation of a scheme (<a href="../theoretical-concepts/glossary.md#schemes">what is a scheme?</a>) and a codebook for the project.</li>
+<li>Annotation of the text inputs.</li>
+<li>Training classifier models.</li>
+<li>Infer labels on non-annotated data.</li>
+<li>Export human and infered annotations corpus for analysis</li>
+</ul>
+<p>Why choose Active Tigger for this task: </p>
+<ul>
+<li>User friendly interface and model training without any coding skills required.</li>
+<li>Safer and reproducible use of machine learning tool for annotating a corpus.</li>
+<li>An easy introduction to good practices in machine learning.</li>
+</ul>
+<p>Here is an overview of the steps to complete this workflow:</p>
+<ul>
+<li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="../../functionalities/project-creation/#note-on-preparing-your-input-dataset">More information here</a></li>
+<li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to about 70% of your dataset, 15% to the test set and 15% to the validation set (<a href="../../faq/faq/#how-large-should-my-different-sets-be">more info</a>). You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
+<li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (for now, only multiclass schemes can be used for training classifier models — <a href="../theoretical-concepts/glossary.md#schemes">more info on the available schemes</a>) and start writing the instructions for labelling the corpus.</li>
+<li><span class="step">Step 3 — Start annotating your corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process. You can:<ul>
+<li>Annotate text inputs (add, remove or skip) and leave comments</li>
+<li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).</li>
+<li>Use <span class="highlight">Active Learning</span> to primarly annotate text inputs that will lead to better classifiers, more quickly (<a href="../theoretical-concepts/index.md#what-is-active-learning">more info</a>).</li>
+</ul>
+</li>
+<li><span class="step">Step 4 — Train a BERT model</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#training">Training tab</a>, <span class="action primary">Create new BERT model</span> and <a href="../../functionalities/model/#bertmodel">set hyperparameters</a> (<a href="../theoretical-concepts/index.md#training-bert-models">more info on setting hyperparameters</a>)</li>
+<li><span class="step">Step 5 — Evaluate the model on validation set:</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#evaluation">Evaluation tab</a>, select your model and <span class="action primary">Compute predictions</span> to classify text inputs from the validation and test set to compute metrics on these sets.<ul>
+<li>Once you have annotated your training set, you will probably have a better understanding of your data, and stabilized the definitions of your labels.</li>
+<li>You can now annotate your validation set, and check whether your model performs as well as on the training set.</li>
+<li>Again, iterate between annotation and validation quality, until you are satisfied with the quality scores.</li>
+<li>If you have trained several models, choose the model maximizing the <a href="../theoretical-concepts/glossary.md#model-quality-scores">quality scores</a> on the validation set.</li>
+</ul>
+</li>
+<li>
+<p><span class="step">Step 6 — Annotate the test set </span> this is the final step, which should only be used to evaluate the quality of your final model ⚠️ Optimising the quality scores on the test set will lead to biased performance estimators!</p>
+</li>
+<li>
+<p><span class="step">Step 7 — Export your annotated corpus and model:</span> On the <a href="../../functionalities/export/">Export page</a> and <a href="../../functionalities/export/#models">"Models tab"</a>, select the bert model:</p>
+<ul>
+<li><span class="action primary">Prediction on complete dataset</span> infer labels on the full dataset as imported upon project creation.</li>
+<li><span class="action primary">Prediction on external dataset</span> to import a dataset and infer the labels.</li>
+<li><span class="action secondary">Export fine-tuned model (large file)</span> download the weights of the fine-tuned model (good practice for reproducibility).</li>
+</ul>
+</li>
+</ul>
+<p>Once again, this workflow tends to be much less linear in practice. You will likely move back and forth between <span class="step">step 3</span> and <span class="step">step 4</span> to accumulate enough annotations to develop a model that works as well as you want it to, as well as between <span class="step">step 4</span> and <span class="step">step 5</span> to <a href="../theoretical-concepts/index.md#training-bert-models">refine your hyperparameters</a>. This workflow is compatible with the collaborative annotation workflow as well as the exploration workflow.</p>
+<h2 id="explore-your-data">Explore your data</h2>
+<p>Sometimes, with a large textual dataset, it is difficult to get an overview of what your dataset contains. Active Tigger provides tools to explore your corpus (either as an independent step or as part of an annotation process), helping you understand its structure, identify clusters of similar content, and make more informed annotation decisions. You can use of the tabular oversight functionality of the interface, or make use of  <a href="../theoretical-concepts/index.md#topic-models">topic models</a>.</p>
+<p>For instance, you have a large dataset and you want to identify the sample on which you will really work.</p>
+<p>This workflow consists of:</p>
+<ul>
+<li>Browsing and filtering your data in a tabular view.</li>
+<li>Computing a topic model to map thematic structures in your corpus.</li>
+<li>Using topics to guide annotation or as a starting point for a scheme.</li>
+<li>Exporting topic outputs for further analysis.</li>
+</ul>
+<p>Why choose Active Tigger for this task:</p>
+<ul>
+<li>No-code access to state-of-the-art topic modelling (BERTopic).</li>
+<li>Visual, interactive exploration of your corpus.</li>
+<li>A seamless bridge between exploration and annotation.</li>
+</ul>
+<p>Here is an overview of the steps to explore your data with BERTopic:</p>
+<ul>
+<li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="../../functionalities/project-creation/#note-on-preparing-your-input-dataset">More information here</a></li>
+<li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload your data file and enter the columns you require (ID, text, contextual). You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
+<li><span class="step">Step 2 — Browse your data (optional):</span> On the <a href="../../functionalities/explore/">Explore page</a>, open the <a href="../../functionalities/explore/#tabular-view">Tabular View tab</a> to filter and browse your corpus. You can filter by dataset (train, valid, test), by label, or by <a href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">regex</a> query. Click on any ID to go directly to the <a href="../../functionalities/annotate/">Annotate page</a> for that text input.</li>
+<li><span class="step">Step 3 — Compute a BERTopic model:</span> On the <a href="../../functionalities/explore/">Explore page</a>, go to the <a href="../../functionalities/explore/#topic-model">Topic model tab</a> and click <span class="action primary">Compute new BERTopic</span>.</li>
+<li><span class="step">Step 4 — Explore the topic model results:</span> Once computed, the <a href="../../functionalities/explore/#topic-model">Topic model tab</a> displays:<ul>
+<li>A <strong>visual map</strong> of your corpus with each text input coloured by topic.</li>
+<li>A <strong>topic table</strong> summarising each topic's ID, size, name, representative keywords, and representative documents.</li>
+<li>export the results in different ways. See <a href="../../functionalities/explore/#topic-model">here</a></li>
+</ul>
+</li>
+</ul>
+<p>Using topic models for exploring your dataset can also be integrated into the above workflow pipelines. We recommend complementing a topic model approach with familiarizing yourself with your corpus by simply reading it, or through an annotation process. Confiding too much in an automated synthesis of your text data could risk missing important aspects of your corpus.</p>
+<p>However, active learning could still be very helpful: just follow step 1 of the following section, and iterate until you are confident you have found all the positive cases in your dataset.</p>
+<p>The only difference: use the complete dataset as your training set.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../quickstart/" class="btn btn-neutral float-left" title="Quickstart"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../howpeopleuseit/" class="btn btn-neutral float-right" title="How people use it">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../quickstart/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../howpeopleuseit/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

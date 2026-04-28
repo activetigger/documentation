@@ -46,20 +46,20 @@
               </ul>
               <p class="caption"><span class="caption-text">Get started</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/quickstart/">Quickstart</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/quickstart/">Quickstart</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/workflows/">Main workflows</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/workflows/">Main workflows</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../ressources/exampleprojects/">How people use it</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/howpeopleuseit/">How people use it</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../ressources/references/">Existing tutorials and videos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/tutorials/">Existing tutorials and videos</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Technicalities</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/prepare-your-dataset/">Prepare your dataset</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/prepare-your-dataset/">Prepare your dataset</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/access/">Install & access</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/access/">Install & access</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
@@ -91,14 +91,14 @@
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/">General concepts</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../conceptualizing/general/">General concepts</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/glossary/">Glossary</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../conceptualizing/glossary/">Glossary</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Software</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../software/software/">Architecture</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/architecture/">Architecture</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../software/roadmap/">Roadmap</a>
                   </li>
@@ -109,7 +109,7 @@
               </ul>
               <p class="caption"><span class="caption-text">FAQ</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/environment/">Environemental impact</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/environment/">Environemental impact</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../faq/faq/">Main questions</a>
                   </li>
@@ -165,9 +165,9 @@
 <ul>
 <li><span class="parameter secondary">Prioritize existing labels</span>: When loading existing annotations, select in priority annotated elements for the trainset. If there are not enough elements annotated to create all three sets, random elements will be picked. </li>
 <li><span class="parameter secondary">Select elements at random</span>: If set to <code>True</code>, the train, validation and test sets will be created by picking elements at random. If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
-<li><span class="parameter secondary">Stratify train set</span>: Force the stratification for the trainset (<a href="../../theoretical-concepts/glossary/#dataset-stratification">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
-<li><span class="parameter secondary">Stratify test set</span>:  Force the stratification for the test set (<a href="../../theoretical-concepts/glossary/#dataset-stratification">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
-<li><span class="parameter secondary">Column(s) used for stratification</span>: If <code>Stratify train set</code> and/or <code>Stratify test set</code>, the stratification will use the selected columns (<a href="../../theoretical-concepts/glossary/#dataset-stratification">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
+<li><span class="parameter secondary">Stratify train set</span>: Force the stratification for the trainset (<a href="../theoretical-concepts/glossary.md#dataset-stratification">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
+<li><span class="parameter secondary">Stratify test set</span>:  Force the stratification for the test set (<a href="../theoretical-concepts/glossary.md#dataset-stratification">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
+<li><span class="parameter secondary">Column(s) used for stratification</span>: If <code>Stratify train set</code> and/or <code>Stratify test set</code>, the stratification will use the selected columns (<a href="../theoretical-concepts/glossary.md#dataset-stratification">What is stratification?</a>). If <code>Prioritize existing labels</code> is set to <code>True</code>, this parameter is ignored.</li>
 <li><span class="parameter secondary">Drop annotations for testset</span>: If set to <code>True</code> and columns have been selected for existing annotations, the annotations of elements in the testset will be dropped. </li>
 <li><span class="parameter secondary">Compute embeddings</span>: If set to <code>True</code>, upon creating the project, embeddings for the text inputs in the train, validation and test sets will start using <a href="https://sbert.net/">Sentence BERT</a></li>
 <li><span class="parameter secondary">Seed</span>: The <a href="https://en.wikipedia.org/wiki/Random_seed">seed</a> used for all random operations in the project.</li>
@@ -193,7 +193,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../quickstart/access/" class="btn btn-neutral float-left" title="Install & access"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../technicalities/access/" class="btn btn-neutral float-left" title="Install & access"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../codebook/" class="btn btn-neutral float-right" title="Codebook Page">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -217,7 +217,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../quickstart/access/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../technicalities/access/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../codebook/" style="color: #fcfcfc">Next &raquo;</a></span>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Documentation - ActiveTigger Documentation</title>
+    <title>Prepare your dataset - ActiveTigger Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Documentation";
-        var mkdocs_page_input_path = "functionalities/organisation.md";
+        var mkdocs_page_name = "Prepare your dataset";
+        var mkdocs_page_input_path = "technicalities/prepare-your-dataset.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -56,31 +56,33 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Technicalities</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/prepare-your-dataset/">Prepare your dataset</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Prepare your dataset</a>
+    <ul class="current">
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/access/">Install & access</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../access/">Install & access</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../project-creation/">Project Creation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/project-creation/">Project Creation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../codebook/">Codebook Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/codebook/">Codebook Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../explore/">Explore Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/explore/">Explore Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../annotate/">Annotate Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/annotate/">Annotate Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../model/">Model Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/model/">Model Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../export/">Export Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/export/">Export Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../generative/">Generative Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/generative/">Generative Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/settings/">Settings Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring-account-and-users/">Monitoring, Account and Users Pages</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
@@ -122,7 +124,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Documentation</li>
+          <li class="breadcrumb-item">Technicalities</li>
+      <li class="breadcrumb-item active">Prepare your dataset</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -131,47 +134,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="documentation">Documentation</h1>
-<!-- TODO: Include layout description -->
-
-<p>This documentation details the different logics and functionalities of Active Tigger. It is a work in progress. It will be updated as the project evolves. </p>
-<p><em>If you see features that need more explanations, please open an issue.</em></p>
-<h2 id="accounts-and-rights">Accounts and rights</h2>
-<p>ActiveTigger is based on a dual system of rights : type of accounts and rights on projects.</p>
-<p>A user account can have one of the following status :</p>
+                <h2 id="note-on-preparing-your-input-dataset">Note on preparing your input dataset</h2>
+<p>The input dataset should be a CSV, Parquet, or XLSX file. The text columns must be well prepared and curated before upload as <span class="highlight">ActiveTigger does not propose any text treatment option</span>. The only text manipulations implemented is the concatenation of text columns. Cleaning you dataset can include, but is not limited to the following: </p>
 <ul>
-<li><strong>root</strong>: can do everything (especially access all projects and the /monitor page)</li>
-<li><strong>manager</strong>: can create new projects and manage them (adding users on those projects)</li>
-<li><strong>annotator</strong>: can only annotate on projects with a simplified frontend</li>
+<li>Removing semanticless characters (html tags, encoding artefacts, emojis<sup id="fnref:note-emoji"><a class="footnote-ref" href="#fn:note-emoji">1</a></sup>, ...).</li>
+<li>Removing any duplicates.</li>
+<li>Splitting texts at the sentence/paragraph level.</li>
+<li>Ensuring all inputs are written in a single language (depending on the task).</li>
 </ul>
-<p>Users have specific rights on projects :</p>
+<div class="admonition note">
+<p class="admonition-title">Size of the texts</p>
+<p>If you use models, please mind that they have a limited context windows. It means that if text exceed this windows (depending of the model, from an hundred to thousand words), it will be truncated.</p>
+</div>
+<p>We also encourage users to <span class="highlight">carefully set up their ID column</span> as they will ease the process of aggregating the annotations with external metadata for downsteam analysis.</p>
+<div class="admonition note">
+<p class="admonition-title">Troubleshoot using Parquet files</p>
+<p>If you upload a parquet file, you can encounter issues related to the format of your parquet file. Easy fix includes: </p>
 <ul>
-<li><strong>manager</strong>: can manage the project, add users, launch processes and access data.</li>
-<li><strong>contributor</strong>: can create elements in a project (scheme, annotation, model) but never delete things</li>
-<li><strong>annotator</strong>: can only annotate on the project without changing the project settings (schemes, labels, models, etc.).</li>
+<li>Make sure that data contained is formatted as a string.</li>
+<li>Make sure to not have nested columns (columns and sub-columns).</li>
 </ul>
-<p>Comments :</p>
-<ul>
-<li>There is no management at the scheme level</li>
-</ul>
-<h2 id="queue-and-processes">Queue and processes</h2>
-<p>Users can compute models. Each run is called a <em>process</em>. By default, only one process is allowed at the same time by user. There are two types of processes in Active Tigger:</p>
-<ul>
-<li><strong>CPU processes</strong>: they are used to prepare data, train quick models, etc.</li>
-<li><strong>GPU processes</strong>: these processes are using GPU if available in the server. By default, the configuration of the server only accept one GPU process at once.</li>
-</ul>
-<p>Comments :</p>
-<ul>
-<li>Some processes are costly to run and can take time</li>
-<li>If processes are launched and no worker is avaiable, processes are put in a queue and wait for available workers.</li>
-<li>When launching a process, you can stop it with the "Stop" button or with the <span class="icon"><img alt="" src="../../img/icons/stop.svg" /></span></li>
-</ul>
-<!-- TODO : Mention the auto log off behaviour -->
-
-<!-- TODO : explain what objects are shared accross projects / users -->
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:note-emoji">
+<p>Depending on your task you may want to keep them because they carry significant information, or remove them because they will act as noise. Also, models may not have been trained on emojis, meaning that they will be replaced by <code>[unk]</code> tokens, adding noise to your text inputs.&#160;<a class="footnote-backref" href="#fnref:note-emoji" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../getstarted/tutorials/" class="btn btn-neutral float-left" title="Existing tutorials and videos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../access/" class="btn btn-neutral float-right" title="Install & access">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -193,6 +191,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../../getstarted/tutorials/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../access/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

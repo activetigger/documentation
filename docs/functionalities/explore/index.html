@@ -46,20 +46,20 @@
               </ul>
               <p class="caption"><span class="caption-text">Get started</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/quickstart/">Quickstart</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/quickstart/">Quickstart</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/workflows/">Main workflows</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/workflows/">Main workflows</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../ressources/exampleprojects/">How people use it</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/howpeopleuseit/">How people use it</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../ressources/references/">Existing tutorials and videos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getstarted/tutorials/">Existing tutorials and videos</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Technicalities</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/prepare-your-dataset/">Prepare your dataset</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/prepare-your-dataset/">Prepare your dataset</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/access/">Install & access</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/access/">Install & access</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
@@ -93,14 +93,14 @@
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/">General concepts</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../conceptualizing/general/">General concepts</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../theoretical-concepts/glossary/">Glossary</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../conceptualizing/glossary/">Glossary</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Software</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../software/software/">Architecture</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/architecture/">Architecture</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../software/roadmap/">Roadmap</a>
                   </li>
@@ -111,7 +111,7 @@
               </ul>
               <p class="caption"><span class="caption-text">FAQ</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quickstart/environment/">Environemental impact</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/environment/">Environemental impact</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../faq/faq/">Main questions</a>
                   </li>
@@ -159,7 +159,7 @@
 </li>
 </ul>
 <h2 id="visualization">Visualization</h2>
-<p>The visualization tab displays a projection of the embedding space in two dimension (<a href="../../theoretical-concepts/#projections">what is a projection?</a>). Projection computed with either <a href="https://pair-code.github.io/understanding-umap/">UMAP</a> or <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a>. </p>
+<p>The visualization tab displays a projection of the embedding space in two dimension (<a href="../theoretical-concepts/index.md#projections">what is a projection?</a>). Projection computed with either <a href="https://pair-code.github.io/understanding-umap/">UMAP</a> or <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a>. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There is only one projection per project. 
@@ -168,7 +168,7 @@ Computing a new projection will overwrite the current projection.</p>
 <p><img alt="" src="../../img/functionalities/visualisation.png" /></p>
 <ul>
 <li><span class="action primary">Compute new projection</span><ul>
-<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../theoretical-concepts/#representing-texts-with-features">what are features?</a>) to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
+<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../theoretical-concepts/index.md#representing-texts-with-features">what are features?</a>) to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
 <li>When using <strong>UMAP</strong>:<ul>
 <li><span class="parameter">n neighbors</span>: Defines the size of a neighbourhood, hence whether two points are considered as "close" and should be kept together in the process or not.</li>
 <li><span class="parameter">min distance</span>: Aesthetic parameter, low values generate denser representations.</li>
@@ -192,7 +192,7 @@ Computing a new projection will overwrite the current projection.</p>
 </ul>
 <p>Projections can be downloaded from the <a href="../export/#features">Export page</a>.</p>
 <h2 id="topic-model">Topic model</h2>
-<p>The topic model (<a href="../../theoretical-concepts/#topic-models">what is a topic model?</a>) section displays existing topic models (for a given project, accross all users) and allows to compute new ones <a href="https://bertopic.com/">BERTopic</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
+<p>The topic model (<a href="../theoretical-concepts/index.md#topic-models">what is a topic model?</a>) section displays existing topic models (for a given project, accross all users) and allows to compute new ones <a href="https://bertopic.com/">BERTopic</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
 <p>The visual representation of the topics displays each text input as a node with a color corresponding to the topic generated by the topic model.</p>
 <p><img alt="" src="../../img/functionalities/bertopic.png" /></p>
 <ul>
@@ -209,7 +209,7 @@ Computing a new projection will overwrite the current projection.</p>
 </ul>
 </li>
 <li><span class="action secondary">Parameters</span> to see the parameters of the current topic model.</li>
-<li><span class="action primary">Convert to scheme</span> to create a <a href="../../theoretical-concepts/glossary/#schemes">scheme</a> and assign labels using the topics generated. <em>Topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation</em>.</li>
+<li><span class="action primary">Convert to scheme</span> to create a <a href="../theoretical-concepts/glossary.md#schemes">scheme</a> and assign labels using the topics generated. <em>Topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation</em>.</li>
 <li><span class="action primary">Export topics</span> to download (csv file) the topic table displayed underneath.</li>
 <li><span class="action primary">Export topic per text</span> to download a mapping of each element id<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> to a the topic index.</li>
 <li><span class="action primary">Topic model report</span> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and the parameters of the model).</li>

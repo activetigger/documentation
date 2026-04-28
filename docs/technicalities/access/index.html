@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Contributors - ActiveTigger Documentation</title>
+    <title>Install & access - ActiveTigger Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Contributors";
-        var mkdocs_page_input_path = "software/contributors.md";
+        var mkdocs_page_name = "Install \u0026 access";
+        var mkdocs_page_input_path = "technicalities/access.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -56,10 +56,32 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Technicalities</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/prepare-your-dataset/">Prepare your dataset</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../prepare-your-dataset/">Prepare your dataset</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/access/">Install & access</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Install & access</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#option-1-use-an-existing-instance">Option 1: Use an existing instance</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#existing-instance">Existing instance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#crest-development-instance">CREST development instance</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#who-can-request-access">Who can request access?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-get-access">How to get access</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-get-in-touch">How to get in touch</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#user-agreement">User agreement</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#option-2-install-locally">Option 2: Install locally</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
@@ -91,30 +113,14 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Software</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../architecture/">Architecture</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/architecture/">Architecture</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/roadmap/">Roadmap</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Contributors</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#scientific-board-in-2026">Scientific board in 2026</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#contributors-code-documentation">Contributors (code &amp; documentation)</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#in-2026">In 2026</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#in-2025">In 2025</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#funding">Funding</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#how-to-contribute">How to contribute</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/contributors/">Contributors</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../semiology/">Doc semiology</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../software/semiology/">Doc semiology</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">FAQ</span></p>
@@ -138,8 +144,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Software</li>
-      <li class="breadcrumb-item active">Contributors</li>
+          <li class="breadcrumb-item">Technicalities</li>
+      <li class="breadcrumb-item active">Install & access</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -148,47 +154,73 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="contributors">Contributors</h1>
-<h2 id="scientific-board-in-2026">Scientific board in 2026</h2>
+                <h1 id="accessing-activetigger">Accessing ActiveTigger</h1>
+<p>ActiveTigger is a web application designed to be deployed on a server, but it can also run locally on your machine (mind hardware requirements, including GPU).</p>
+<p>There are two ways to get started:</p>
+<ol>
+<li><strong>Get an account on an existing instance</strong></li>
+<li><strong>Install it locally</strong></li>
+</ol>
+<hr />
+<h2 id="option-1-use-an-existing-instance">Option 1: Use an existing instance</h2>
+<h3 id="existing-instance">Existing instance</h3>
 <ul>
-<li>Étienne Ollion (CREST)</li>
-<li>Julien Boelaert (Université de Lille)</li>
-<li>Emma Bonutti (CREST)</li>
-<li>Annina Claesson (CREST)</li>
-<li>Arnault Chatelain (CREST)</li>
-<li>Émilien Schultz (CREST)</li>
+<li>CREST development instance</li>
 </ul>
-<h2 id="contributors-code-documentation">Contributors (code &amp; documentation)</h2>
-<h3 id="in-2026">In 2026</h3>
+<h3 id="crest-development-instance">CREST development instance</h3>
+<p>A development instance of ActiveTigger is running on GENES servers (with GPU support), accessible <a href="https://activetigger.github.io/activetigger">here</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Development instance</p>
+<p>This instance is primarily intended for <strong>testing and reporting bugs</strong>. Service continuity is not guaranteed. We reserve the right to modify, restrict, or revoke access at any time.</p>
+</div>
+<h4 id="who-can-request-access">Who can request access?</h4>
 <ul>
-<li>Émilien Schultz (CREST)</li>
-<li>Axel Morin (CREST)</li>
-<li>Paul Girard (Ouestware)</li>
-<li>Léo Mignot (Centre Émile Durkheim)</li>
-<li>Jules Brion (Pacte)</li>
-<li>Annina Claesson (CREST)</li>
-<li>Émilien Ghomi (CREST)</li>
-<li>Amine Ouerfellii</li>
+<li>Researchers who have textual data to annotate</li>
+<li>Open source contributors who want to help improve the software</li>
 </ul>
-<h2 id="in-2025">In 2025</h2>
+<h4 id="how-to-get-access">How to get access</h4>
+<ol>
+<li>Fill this <a href="https://www.css.cnrs.fr/request-an-account-on-the-crest-instance/">form</a>.</li>
+<li>Once your account is created, you can:<ul>
+<li>Upload data and annotate text</li>
+<li>Train classification models</li>
+<li>Report bugs or suggest features via <a href="https://github.com/activetigger/activetigger/issues">GitHub issues</a></li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Account policy</p>
+<p>Accounts without any activity may be deactivated after 2 months.</p>
+</div>
+<h4 id="how-to-get-in-touch">How to get in touch</h4>
 <ul>
-<li>Jean-Baptiste Richardet</li>
-<li>Matthias Bussonnier</li>
+<li><strong><a href="https://github.com/activetigger/activetigger/issues">GitHub issues</a></strong> — for bug reports and feature suggestions</li>
+<li><strong><a href="https://discord.gg/3uNnjw2k">Discord</a></strong> — for questions and discussions</li>
 </ul>
-<h2 id="funding">Funding</h2>
+<h4 id="user-agreement">User agreement</h4>
+<div class="admonition warning">
+<p class="admonition-title">Terms of use</p>
 <ul>
-<li>DRARI Île-de-France</li>
-<li>CREST @ IPP</li>
-<li>Progedo</li>
+<li>Access to ActiveTigger is currently <strong>temporary</strong></li>
+<li><strong>Data storage and security are not guaranteed</strong> — do not upload sensitive data</li>
+<li>The service is hosted on <strong>ENSAE servers</strong> and intended <strong>solely for research purposes</strong></li>
+<li>We reserve the right to <strong>modify, restrict, or revoke access</strong> at any time without notice</li>
 </ul>
-<h2 id="how-to-contribute">How to contribute</h2>
-<p>We are happy to welcome all contributors : discuss the general features, modify the code or update the documentation. Please reach out. Before PR, don't hesitate to talk with us first :)</p>
+</div>
+<hr />
+<h2 id="option-2-install-locally">Option 2: Install locally</h2>
+<p>You can deploy your own instance of ActiveTigger on your machine or on a cloud server (e.g., <a href="https://www.ovhcloud.com/fr/public-cloud">OVH</a>).</p>
+<div class="admonition info">
+<p class="admonition-title">GPU recommended</p>
+<p>ActiveTigger can run on CPU, but a GPU will significantly speed up model training and predictions, especially with large models (BERT and sentence-bert). </p>
+</div>
+<p>For installation instructions, see the <a href="https://github.com/activetigger/activetigger/blob/main/DEPLOY.md">deployment guide</a>.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../roadmap/" class="btn btn-neutral float-left" title="Roadmap"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../semiology/" class="btn btn-neutral float-right" title="Doc semiology">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../prepare-your-dataset/" class="btn btn-neutral float-left" title="Prepare your dataset"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../functionalities/project-creation/" class="btn btn-neutral float-right" title="Project Creation">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -211,10 +243,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../roadmap/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../prepare-your-dataset/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../semiology/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../functionalities/project-creation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
