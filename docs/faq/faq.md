@@ -51,6 +51,10 @@ A few dozen annotations per label might be enough for a simple task on short tex
 
 In general, more is always better, but it also depends on how useful your annotations are (see *Active learning* section).
 
+<!--
+
+XXX
+
 ## Choose models made available? 
 
 ## Why can't I change the size of my sets on the go? 
@@ -60,3 +64,5 @@ In general, more is always better, but it also depends on how useful your annota
 ## Should I scale my features?
 
 ## What metrics should I use?
+
+-->

@@ -2,7 +2,7 @@
 
 ## Calendar
 
-- March 2026 : v1
+- May 2026 : v1
 - December 2026 : updated v1 (general design)
 
 ## Main next steps

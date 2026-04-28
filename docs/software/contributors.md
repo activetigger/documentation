@@ -20,7 +20,7 @@
 - Jules Brion (Pacte)
 - Annina Claesson (CREST)
 - Émilien Ghomi (CREST)
-- Amine Ouerfellii
+- Amine Ouerfelli
 
 ## In 2025
 

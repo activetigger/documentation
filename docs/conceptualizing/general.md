@@ -212,7 +212,7 @@ This reflects the difference between unsupervised and supervised learning: unsup
 
 In many cases, different annotations will appear close together in the projection: this means that your classification scheme goes beyond topic modeling.
 
-**TODO: details and links (in Glossary?)**
+**XXXX: details and links (in Glossary?)**
 
 
 ## Topic models
@@ -225,6 +225,6 @@ Topic modeling can either be an end in itself, or a useful step in a annotation/
 
 If your goal is to find the main topics in your corpus, you can use topic modeling as a first approximation, and then **Convert to scheme** in order to refine this using additional annotations and modeling.
 
-**TODO: details and links (in Glossary?)**
+**XXX: details and links (in Glossary?)**
 
 

@@ -43,7 +43,7 @@ What you can and cannot do with each scheme type:
 
 ## Embeddings
 
-[TODO]()
+In machine learning, embedding is a representation learning technique that maps complex, high-dimensional data into a lower-dimensional vector space of numerical vectors. [See Wikipedia definition](https://en.wikipedia.org/wiki/Embedding_(machine_learning))
 
 ## Model quality scores
 
@@ -89,5 +89,5 @@ Therefore, it is important to be aware of the language model's specific window s
 
 In order to check the tokenizers of different models, you can use sites such as [LLM Calculator](https://llm-calculator.com/), [LLM Token Counter](https://llmtokencounter.com/), [Token Calculator](https://token-calculator.net/), etc. Most of them are made for generative LLMs, but can still give you a rough estimation of how your corpus will be treated.
 
-**TODO link to relevant python module**
+**XXX  link to relevant python module**
 

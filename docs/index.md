@@ -14,7 +14,6 @@
 - are curious about computational methods and want an <span class="highlight">easy introduction</span>
 
 !!! tip "Example"
-    # REFORMULER EXEMPLE EN FONCTION DE COMMENT ON EN A PARLÉ SURTOUT PAR DES DÉBUTANTS
     Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 
     
     1. make the manual annotation process easier and 
@@ -25,13 +24,3 @@
 - Have a look to our [Quickstart](./quickstart/quickstart.md)
 - Follow one of our introductions (in live or replay)
 - Have a try !
-
-Add logo > Reprendre les mêmes trames que activetigger.com
-
-## Sommary
-
-How to use > Workflows
-
-How to use > functionnalities
-
-Better understand > tech concepts 

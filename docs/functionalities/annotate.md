@@ -67,7 +67,7 @@ Active Learning. Models trained on a reduced number of labels can be used, they 
 
 ## Curate
 
-TODO
+XXX
 
 ## Annotate (multi-label)
 
