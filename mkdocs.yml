@@ -2,13 +2,13 @@ site_name: ActiveTigger Documentation
 nav:
   - Home: index.md
   - Get started:
-      - Quickstart: quickstart/quickstart.md
-      - Main workflows: quickstart/workflows.md
-      - How people use it: ressources/exampleprojects.md
-      - Existing tutorials and videos: ressources/references.md
+      - Quickstart: getstarted/quickstart.md
+      - Main workflows: getstarted/workflows.md
+      - How people use it: getstarted/howpeopleuseit.md
+      - Existing tutorials and videos: getstarted/tutorials.md
   - Technicalities:
-      - Prepare your dataset: quickstart/prepare-your-dataset.md
-      - Install & access: quickstart/access.md
+      - Prepare your dataset: technicalities/prepare-your-dataset.md
+      - Install & access: technicalities/access.md
   - Functionalities:
       - Project Creation: functionalities/project-creation.md
       - Codebook Page: functionalities/codebook.md
@@ -20,15 +20,15 @@ nav:
       - Settings Page: functionalities/settings.md
       - Monitoring, Account and Users Pages: functionalities/monitoring-account-and-users.md
   - Conceptualizing:
-      - General concepts: theoretical-concepts/index.md
-      - Glossary: theoretical-concepts/glossary.md
+      - General concepts: conceptualizing/general.md
+      - Glossary: conceptualizing/glossary.md
   - Software:
-      - Architecture: software/software.md
+      - Architecture: software/architecture.md
       - Roadmap: software/roadmap.md
       - Contributors: software/contributors.md
       - Doc semiology: software/semiology.md
   - FAQ:
-      - Environemental impact: quickstart/environment.md
+      - Environemental impact: faq/environment.md
       - Main questions: faq/faq.md
 
 markdown_extensions:
