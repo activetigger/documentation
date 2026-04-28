@@ -26,6 +26,7 @@ nav:
       - Architecture: software/software.md
       - Roadmap: software/roadmap.md
       - Contributors: software/contributors.md
+      - Doc semiology: software/semiology.md
   - FAQ:
       - Environemental impact: quickstart/environment.md
       - Main questions: faq/faq.md
