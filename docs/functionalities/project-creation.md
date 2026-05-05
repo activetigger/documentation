@@ -9,13 +9,13 @@ Project creation is available on the main page and lets you create a new project
 These parameters define the general project, only a subset (⚙️) can be modified after this step.
 
 - ⚙️ <span class="parameter">Project name</span>: Unique name to identify the project.
-- <span class="parameter">Dataset</span>: Data to use. Can be loaded :
-    - From user, format Parquet, CSV or XLSX file, limit defined by the administrator. 
-    - From another project (with access right)
+- <span class="parameter">Dataset</span>: The data that will be used in the project. Can be uploaded:
+    - By a user, in Parquet, CSV or XLSX file format within size limits defined by the administrator. 
+    - From another project (to which the user has access)
 - <span class="parameter">Id column</span>: column with a unique identifier.
-- ⚙️ <span class="parameter">Text column(s)</span>: The column(s) to use as text input. If several columns are selected, its content will be concatenated using two line-breaks as separator.
-- ⚙️ <span class="parameter">Language of the corpus</span>: General parameter used to suggest which models to use in the treatment. 
-- ⚙️[^modify-column-annotation] <span class="parameter">Column(s) for existing annotations</span>: Load existing annotations. Each column is converted to a new scheme. Elements (XXX does it change how we select elements?)
+- ⚙️ <span class="parameter">Text column(s)</span>: The column(s) to use as text input (the text elements that will be annotated). If several columns are selected, its content will be concatenated using two line-breaks as a separator.
+- ⚙️ <span class="parameter">Language of the corpus</span>: General parameter used to suggest which models to use in the treatment. It is possible to work on languages not present in this list.
+- ⚙️[^modify-column-annotation] <span class="parameter">Column(s) for existing annotations</span>: Load existing annotations. Each column is converted to a new scheme. 
 - ⚙️ <span class="parameter">Column(s) for contextual information</span>: Information available to display in the [annotation page](./annotate.md).
 - ⚙️[^modify-n-rows-trainset] <span class="parameter">Number of elements in the train set</span>: Sample of the general dataset used as train set
 - ⚙️[^modify-valid-set] <span class="parameter">Number of elements in the validation set (optional)</span>: Sample of the general dataset used as validation set. Used for evaluation. This sample is randomly selected from the initial dataset before the train set.
@@ -23,7 +23,7 @@ These parameters define the general project, only a subset (⚙️) can be modif
 
 [^modify-column-annotation]: This parameter cannot be updated per se, but you can import annotations in [the Import tab in the Settings page](./settings.md#import)
 
-[^modify-n-rows-trainset]: You can add N rows to your dataset in [the Parameters tab in the Settings page](./settings.md#parameters) but the rows selected will not follow the stratification rules you set up. We recommend creating larger sets than you'd need rather than importing new rows afterwards.
+[^modify-n-rows-trainset]: You can add N rows to your dataset in [the Parameters tab in the Settings page](./settings.md#parameters) but the rows selected will not follow the stratification rules you set up. We recommend importing larger datasetssets than you plan to annotate rather than importing new rows afterwards.
 
 [^modify-valid-set]: This parameter cannot be updated per se, but you can drop the validation set and import a new one in [the Import tab in the Settings page](./settings.md#import)
 
@@ -35,7 +35,7 @@ After setting the compulsory parameters, clicking the "Create" button will redir
 
 Available in the "Advanced options" panel to configure specific treatments.
 
-- <span class="parameter secondary">Prioritize existing labels</span>: When loading existing annotations, select in priority annotated elements for the trainset. If there are not enough elements annotated to create all three sets, random elements will be picked. 
+- <span class="parameter secondary">Prioritize existing labels</span>: When loading existing annotations, prioritize annotated elements when selecting the train set. If there are not enough elements annotated to create all three sets, random elements will be picked. 
 - <span class="parameter secondary">Select elements at random</span>: If set to `True`, the train, validation and test sets will be created by picking elements at random. If `Prioritize existing labels` is set to `True`, this parameter is ignored.
 - <span class="parameter secondary">Stratify train set</span>: Force the stratification for the trainset ([What is stratification?](../theoretical-concepts/glossary.md#dataset-stratification)). If `Prioritize existing labels` is set to `True`, this parameter is ignored.
 - <span class="parameter secondary">Stratify test set</span>:  Force the stratification for the test set ([What is stratification?](../theoretical-concepts/glossary.md#dataset-stratification)). If `Prioritize existing labels` is set to `True`, this parameter is ignored.
