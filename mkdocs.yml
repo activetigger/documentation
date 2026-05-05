@@ -30,7 +30,7 @@ nav:
       - Contributors: software/contributors.md
       - Doc semiology: software/semiology.md
   - FAQ:
-      - Environemental impact: faq/environment.md
+      - Environmental impact: faq/environment.md
       - Main questions: faq/faq.md
 
 markdown_extensions:
