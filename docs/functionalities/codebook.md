@@ -12,14 +12,14 @@ At the top of the screen, you will find the scheme ([what is a scheme?](../theor
 - <span class="icon">![](../img/icons/plus.svg)</span> to create a new scheme, with a unique name and a type ([see available types](../theoretical-concepts/glossary.md#schemes))
 - <span class="icon">![](../img/icons/rename.svg)</span> to rename the current scheme.
 - <span class="icon">![](../img/icons/duplicate.svg)</span> to duplicate the current scheme with all annotations. 
-- <span class="icon">![](../img/icons/delete.svg)</span> to delete the current scheme and its annotations. *This action is definitive*.
+- <span class="icon">![](../img/icons/delete.svg)</span> to delete the current scheme and its annotations. *This action cannot be undone*.
 
 
 ## Guidelines
 
 Codebook allows to keep information on how to use the current scheme. 
 
-- <span class="icon">![](../img/icons/rename.svg)</span> to access edition mode.
+- <span class="icon">![](../img/icons/rename.svg)</span> to enter editing mode.
 - <span class="icon">![](../img/icons/book.svg)</span> to open the Codebook in a browser tab to access it during annotation.
 - <span class="icon">![](../img/icons/download.svg)</span> to download the Codebook as a markdown file.
 
@@ -28,7 +28,7 @@ Codebook allows to keep information on how to use the current scheme.
 
 - <span class="parameter">New label name</span> <span class="icon">![](../img/icons/plus.svg)</span> to create a new label.
 - <span class="icon">![](../img/icons/delete.svg)</span> to delete the specific label
-- <span class="icon">![](../img/icons/rename.svg)</span> to rename the specific label (renaming a label to the name of an existing label will result in merging the annotations) 
+- <span class="icon">![](../img/icons/rename.svg)</span> to rename the specific label (renaming a label to the name of an existing label will result in merging existing annotations) 
 
 
-The table summarizes existing labels in the current scheme, the distribution of annotations for each dataset (train, valid and test). The rows can be re-ordered, the order of the rows will manage the order of the labels in the [Annotate Page](./annotate.md)
+The table summarizes existing labels in the current scheme and the distribution of annotations for each dataset (train, validation and test). The rows can be re-ordered. Reordering rows will change the order of the labels in the [Annotate Page](./annotate.md)
