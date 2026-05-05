@@ -6,6 +6,12 @@ Many **use cases** are possible, as ActiveTigger offers several methodological o
 
 <div class="img"><img src="../../img/quickstart/steps.png"/></div>
 
+!!! tip "Example"
+    Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 
+    
+    1. make the manual annotation process easier and 
+    2. train a classifier model that can extend your coding scheme automatically on the entire dataset.
+
 **What you'll need before starting:**
 
 - A web browser through which you can access ActiveTigger either on a server or by running it locally on your computer (see [installation](./access.md#option-2-install-locally)).
