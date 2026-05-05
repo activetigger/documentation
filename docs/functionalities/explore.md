@@ -11,8 +11,8 @@ The tabular view displays your data in a tabular view. Filters are available to 
 - Filters available
     - Select the dataset to explore ("train", "valid" or "test").
     - Select elements with a tag.
-    - Select elements given a regex query.
-- The table: The table contains 6 columns including the id, the label, the user who produced the label, the text, any comment and the date the label was produced.
+    - Select elements given a [regex query](https://medium.com/@victoriousjvictor/understanding-regular-expressions-regex-e1c048f5aa6c).
+- The table: The table contains 6 columns including the id, the label, the user who produced the label, the text, comments (if any), and the date the label was produced.
     - Click on the <span class="action primary">id</span> to go to the [Annotate page](./annotate.md) and annotate the text input.
     - Click on the <span class="action primary">label</span> to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database.
 
@@ -56,11 +56,11 @@ The visual representation of the topics displays each text input as a node with 
 - <span class="action primary">Compute new BERTopic</span> to create a new topic model.
     - <span class="parameter">Name</span>: must be unique (per project)
     - <span class="parameter">Embedding model</span>: choose from the [available embedding models](../faq/faq.md#choose-models-made-available) to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.
-    - <span class="parameter">Number of neighbours</span>: [UMAP parameter](https://pair-code.github.io/understanding-umap/) — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the global structure (i.e. global topics) (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
-    - <span class="parameter">Min topic size</span>: [HDBSCAN parameter](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.HDBSCAN.html) — a clustering algorithm —, this parameters correspond to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate few large groups; decreasing this value will generate many small groups.
+    - <span class="parameter">Number of neighbours</span>: [UMAP parameter](https://pair-code.github.io/understanding-umap/) — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the overall structure (i.e. general topics) (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
+    - <span class="parameter">Min topic size</span>: [HDBSCAN parameter](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.HDBSCAN.html) — a clustering algorithm —, this parameters correspond to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate few large groups, while decreasing this value will generate many small groups.
     - <span class="parameter secondary">Outlier reduction</span>: If set to `True`, all text inputs considered as noise will be added to the closest topic ([more info](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#reduce-outliers-strategies)).
     - <span class="parameter secondary">Force compute embeddings</span>: If set to `True`, the app will first generate the embeddings overwriting any existing embeddings. 
-    - <span class="parameter secondary">Input dataset</span>: What dataset should be used to fit the model (train, train + test + valid or the complete dataset uploaded to the project).
+    - <span class="parameter secondary">Input dataset</span>: Which dataset should be used to fit the model (train, train + test + valid or the complete dataset uploaded to the project).
     - <span class="parameter secondary">Filter out texts of length lower than</span>: Before fitting the model, exclude text inputs of length inferior to this value. 
     - <span class="parameter secondary">Number of components</span>: [UMAP parameter](https://pair-code.github.io/understanding-umap/) — a dimension reduction algorithm; it defines the number of dimension the algorithm reduces the embeddings to. Low values will flatten the representation of the input texts, whereas higher values maintain a richer representation (more [here](https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters)).
 - <span class="action secondary">Parameters</span> to see the parameters of the current topic model.
