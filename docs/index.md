@@ -13,14 +13,9 @@
 - want to get an overview of <span class="highlight">key topics</span> in your text data
 - are curious about computational methods and want an <span class="highlight">easy introduction</span>
 
-!!! tip "Example"
-    Let's say you have a dataset of 10 000 newspaper headlines. You want to classify them into "political" and "non-political" categories. It would take you a very long time to classify this manually. By following the below five steps in ActiveTigger, you can 
-    
-    1. make the manual annotation process easier and 
-    2. train a classifier model that can extend your coding scheme automatically on the entire dataset.
 
 ## How to start ?
 
-- Have a look to our [Quickstart](./quickstart/quickstart.md)
-- Follow one of our introductions (in live or replay)
-- Have a try !
+- Take a look at our [Quickstart](./quickstart/quickstart.md) guide
+- Watch one of our live introduction sessions (recordings available)
+- Try it yourself!
