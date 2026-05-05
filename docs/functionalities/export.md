@@ -1,6 +1,6 @@
 # Export page
 
-This page describes the export possibilites.
+On this page, you can export your existing data, annotations, and models.
 
 ## Annotations
 
@@ -10,7 +10,7 @@ This tab allows users to dowbload annotated datasets (train, test, validation or
 
 - <span class="action primary">Tags: train</span>, <span class="action primary">Tags: test</span>, <span class="action primary">Tags: eval</span> to download the annotations for the train, test or valid dataset. Text inputs without an annotation are dropped. 
 - <span class="action primary">All annotations schemes</span> to download the the full dataset (train, test and eval) with all columns from the original dataset and a column per scheme. Text inputs without annotations are included.
-- <span class="action primary">Static link to the raw dataset (click right, save as...)</span> to download the the full dataset (as Parquet) as uploaded when creating the project.
+- <span class="action primary">Static link to the raw dataset (click right, save as...)</span> to download the the full dataset (as a Parquet file) as uploaded when creating the project.
 
 ## Features
 
