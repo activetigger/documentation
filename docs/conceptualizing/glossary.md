@@ -1,24 +1,23 @@
 # Glossary
 
-
-
 ## Projects
 
-Active Tigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as features or topic models. A project can be shared across users for collaborating.
+Active Tigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as [prediction models](../functionities/model.md), [features](./general.md#representing-texts-with-features), [projections](./general.md#projections) or [topic models](./general.md#topic-models). A project can be shared across users for collaborating.
 
-The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. It can be very large, in which case you will work on smaller subsets (see the [Train, Validation and Test sets](./index.md#train-validation-and-test-sets)).
+The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. It can be very large, in which case you will work on smaller subsets (see the [Train, Validation and Test sets](./general.md#train-validation-and-test-sets)).
 
-See [Project Creation page](../functionalities/project-creation.md)
+See [Project Creation page](../functionalities/project-creation.md) for more details.
+
 
 ## Schemes
 
-Each project contains one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models for to assist your exploration and annotation. In practice, it is a set of **labels** as well as the annotations, a **codebook** and classifier models (Quick or BERT).
+Each [project](#projects) contains one or several schemes. In short, it gathers the data you want to analyze, the corresponding annotations, and models to assist your exploration and annotation. In practice, it is a set of **labels** as well as the annotations, a **codebook** and classifier models (Quick or BERT).
 
-Users with access to a project can see all the schemes. 
+Users with access to a project can see all of its schemes. 
 
 !!! Example
 
-    A project contains corpus of speeches, and seeks to identify what topics are mentioned as well as the tone used. Users can create different schemes to separately work on identifying speeches mentionning the environment, another for social inequalities and finally one more to identify agressive tones.
+    A project contains corpus of speeches, and seeks to identify what topics are mentioned as well as the tone that is used. Users can create different schemes to separately work on identifying speeches mentionning the environment, another for social inequalities and yet another to identify agressive tones.
 
 There are different types of schemes in Active Tigger: 
 
@@ -40,14 +39,6 @@ What you can and cannot do with each scheme type:
 !!! tip
 
     Multiclass schemes can be imported from your dataset upon project creation.
-
-## Embeddings
-
-In machine learning, embedding is a representation learning technique that maps complex, high-dimensional data into a lower-dimensional vector space of numerical vectors. [See Wikipedia definition](https://en.wikipedia.org/wiki/Embedding_(machine_learning))
-
-## Model quality scores
-
-Quality scores provide valuable insights on predictive models performance.
 
 ### Evaluating Multiclass models
 
@@ -77,17 +68,17 @@ Stratification is performed upon [project creation](../functionalities/project-c
 
 ## Tokens and window sizes
 
-Large language models (including sentence embedding models) do not use plain texts to process data, but first decompose them into tokens in order to make them easier to handle. Tokens are either whole words or parts of words: very common words in a given language will typically have their own token, as well as common radicals and prefixes and suffixes. *For instance, in English, "iterat-", "-e", "re-", "-s", "-ing", or "-ion" are parts that have similar meanings across words, which is why it is more efficient to decompose "iterate", "iterates", "reiterate", "iterating", "iteration", etc. into tokens than to represent them as altogether separate terms.*
-Each unique symbol has its own token, so that any given word (including typos) can be read by the model.
+Large language models (including sentence embedding models) do not use plain texts to process data, but first decompose them into tokens in order to make them easier to handle. Tokens are either whole words or parts of words: very common words in a given language will typically have their own token, as well as common radicals and prefixes and suffixes. Each unique symbol has its own token, so that any given word (including typos) can be read by the model.
+
+!!! Example
+    In English, "iterat-", "-e", "re-", "-s", "-ing", or "-ion" are parts that have similar meanings across words, which is why it is more efficient to decompose "iterate", "iterates", "reiterate", "iterating", "iteration", etc. into tokens than to represent them as altogether separate terms.
 
 Each language model uses its own tokenizer (the algorithm that transforms raw text into tokens).
 
 One important feature of each language model is that it has a <span class="highlight">maximum window size</span>: the number of tokens it is able to process for any given text.
 Therefore, it is important to be aware of the language model's specific window size, as tokens beyond this limit will be ignored.[^1]
 
-[^1]: To assist you in the annotation process, the [Annotation tab](../functionalities/annotate.md#annotate-page) approximates the number of tokens per text input and displays excess tokens in italic. You can modify the limit in the **config menu** button. 
+[^1]: To assist you in the annotation process, the text box on the [Annotation page](../functionalities/annotate.md#annotate-page) approximates the number of tokens per text input and displays excess tokens in italic. You can modify this limit in the <span class="highlight">config menu</span>. 
 
 In order to check the tokenizers of different models, you can use sites such as [LLM Calculator](https://llm-calculator.com/), [LLM Token Counter](https://llmtokencounter.com/), [Token Calculator](https://token-calculator.net/), etc. Most of them are made for generative LLMs, but can still give you a rough estimation of how your corpus will be treated.
-
-**XXX  link to relevant python module**
 
