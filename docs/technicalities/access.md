@@ -17,7 +17,7 @@ There are two ways to get started:
 
 ### CREST development instance
 
-A development instance of ActiveTigger is running on GENES servers (with GPU support), accessible [here](https://activetigger.github.io/activetigger).
+A development instance of ActiveTigger is running on the Groupe ENSAE-ENSAI servers (with GPU support), accessible [here](https://activetigger.github.io/activetigger).
 
 !!! warning "Development instance"
     This instance is primarily intended for **testing and reporting bugs**. Service continuity is not guaranteed. We reserve the right to modify, restrict, or revoke access at any time.

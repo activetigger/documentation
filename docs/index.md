@@ -1,21 +1,21 @@
 
 
-## What is Active Tigger ?
+## What is ActiveTigger?
 
-*ActiveTigger*[^old] is an open-source software designed to support collaborative text annotation for computational social sciences. It is designed to assist exploration and model ([BERT](https://en.wikipedia.org/wiki/BERT_(language_model))) fine-tuning to annotate text dataset relying on active learning.
+*ActiveTigger*[^old] is an open-source software designed to support collaborative text annotation for computational social sciences. It is designed to assist exploration and model fine-tuning ([BERT](https://en.wikipedia.org/wiki/BERT_(language_model))) to annotate text datasets relying on active learning.
 
-[^old]: The current version is a refactor of [R Shiny ActiveTigger app](https://gitlab.univ-lille.fr/julien.boelaert/activetigger) (Julien Boelaert & Etienne Ollion). Active Tigger name is a pun that draws on the similarity between the words 'Tagger' and 'Tigger.'
+[^old]: The current version is a refactor of [R Shiny ActiveTigger app](https://gitlab.univ-lille.fr/julien.boelaert/activetigger) (Julien Boelaert & Etienne Ollion). ActiveTigger name is a pun that draws on the similarity between the words 'Tagger' and 'Tigger', and the possibility to use active learning (and yes, we're aware that good jokes shouldn't need a footnote).
 
 **ActiveTigger could help you if you…**
 
-- want to <span class="highlight">classify large amounts</span> of text data (social media posts, news articles...)
+- want to <span class="highlight">classify large datasets</span> of texts (social media posts, news articles...)
 - are <span class="highlight">working collaboratively</span> with other human annotators
 - want to get an overview of <span class="highlight">key topics</span> in your text data
-- are curious about computational methods and want an <span class="highlight">easy introduction</span>
+- are curious about supervised machine learning for text and want an <span class="highlight">easy introduction</span>
 
 
-## How to start ?
+## How to start?
 
-- Take a look at our [Quickstart](./quickstart/quickstart.md) guide
-- Watch one of our live introduction sessions (recordings available)
-- Try it yourself!
+- Take a look at our [Quickstart](./getstarted/quickstart.md) guide
+- Watch one of our [live introduction sessions](./getstarted/tutorials.md)
+- [Try it yourself](./technicalities/access.md)!

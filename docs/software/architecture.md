@@ -1,6 +1,6 @@
 # ActiveTigger -- Software Architecture
 
-This page describes Active Tigger technical architecture and implementation choices for dev and contributors.
+This page describes ActiveTigger's technical architecture and implementation choices for developers and contributors.
 
 ## High-level overview
 

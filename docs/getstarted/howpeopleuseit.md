@@ -7,10 +7,10 @@ ActiveTigger has been applied to a variety of research projects in the social sc
 Article (in French): [Le prix de la visibilité
 Une analyse computationnelle des interactions en ligne avec des député·es français·es (Revue française de science politique)](https://shs-cairn-info.scpo.idm.oclc.org/revue-revue-francaise-de-science-politique-2025-3-page-549?lang=fr)
 
-This project sought to quantify various types of Twitter reactions targeting French MPs, distinguishing between political criticism, abuse, and expressions of support. With access to the total number of tweets mentioning French MPs in 2022-2023 (a dataset of over 30 million tweets), manual annotation of more than a small sample would have been impossible. At the same time, the criteria for each category were not straightforward to automate, requiring a human understanding of nuance, sarcasm, and subtility. While applying ready-made models for detecting negative sentiment or hate speech would have been possible, these were not well adapted to the specific context of the French political Twittersphere.  
+This project sought to quantify various types of Twitter reactions targeting French MPs, distinguishing between political criticism, abuse, and expressions of support. With access to the total number of tweets mentioning French MPs in 2022-2023 (a dataset of over 30 million tweets), manual annotation of more than a small sample would have been impossible. At the same time, the criteria for each category were not straightforward to automate, requiring a human understanding of nuance, sarcasm, and subtlety. While applying ready-made models for detecting negative sentiment or hate speech would have been possible, these were not well adapted to the specific context of the French political Twittersphere.  
 
 **Solution**: fine-tuning three separate bespoke BERT classifier models using ActiveTigger.
-The objective was to develop classifier models that could correctly identify diverse and creatively formulated types of tweets that could be classified into each category (criticism, abuse, support). This required a XXX
+The objective was to develop classifier models that could correctly identify diverse and creatively formulated types of tweets that could be classified into each category (criticism, abuse, support).
 
 **Workflow**: 
 
@@ -26,7 +26,7 @@ The objective was to develop classifier models that could correctly identify div
 - Support: 0.74
 
 **Lessons learned**
-Distinguishing between these three categories of tweets was a complex task for both humans and machines alike - many subtilities made it difficult to draw clear lines between tweets that "crossed the line" into abuse. Spending a significant amount of time in the annotation phase to create a functional but flexible coding scheme helped to clarify the object of study for both the human researcher and for the models. Creating three binary models and running each one separately made it possible to look at cases that overlapped several categories at the analysis stage.
+Distinguishing between these three categories of tweets was a complex task for both humans and machines alike - many subtleties made it difficult to draw clear lines between tweets that "crossed the line" into abuse. Spending a significant amount of time in the annotation phase to create a functional but flexible coding scheme helped to clarify the object of study for both the human researcher and for the models. Creating three binary models and running each one separately made it possible to look at cases that overlapped several categories at the analysis stage.
 
 That said, many unexpected challenges arose in translating human logic to a model. For example, the "support" classifier was surprisingly the most challenging to develop due to the heavy presence of sarcasm in the corpus (contrast "bravo!" vs "bravo..."). Using active learning and regex functions to target these ambiguous cases (for example, by targeting tweets that contained different emojis that changed the semantic meaning of the tweet) was helpful in improving the model's understanding of what made a tweet sarcastic.
 

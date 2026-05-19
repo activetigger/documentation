@@ -1,14 +1,14 @@
-# What is the environmental impact of the models used on Active Tigger?
+# What is the environmental impact of the models used on ActiveTigger?
 
 Using AI models inevitably consumes energy and resources, which is important to consider when assessing their utility. This page discusses the environmental impact of the type of models used in ActiveTigger.
 
 ## The environmental impact of AI models
 
-The environmental impact of AI raises [important concerns](https://www.nytimes.com/2024/08/26/climate/ai-planet-climate-change.html) and has become an [increasingly urgent issue for research](https://arxiv.org/abs/2111.00364) as [methodologies to mesure these impacts] advance(https://iopscience.iop.org/article/10.1088/2515-7620/acf81b).
+The environmental impact of AI raises [important concerns](https://www.nytimes.com/2024/08/26/climate/ai-planet-climate-change.html) and has become an [increasingly urgent issue for research](https://arxiv.org/abs/2111.00364) as [methodologies to measure these impacts advance](https://iopscience.iop.org/article/10.1088/2515-7620/acf81b).
 
-For NLP methods (such as using language models), the energy consumption can vary greatly depending on the [**type of technology used**](https://dl.acm.org/doi/abs/10.1145/3729396), **the energy source used to run the servers** but also on the **the methodology chosen** to evaluate their impacts.
+For NLP methods (such as using language models), the energy consumption can vary greatly depending on the [**type of technology used**](https://dl.acm.org/doi/abs/10.1145/3729396), **the energy source used to run the servers**, but also on **the methodology chosen** to evaluate their impacts.
 
-Active Tigger is designed to make the most of small models with reduced energy dependency (compared to generative AI). It primarily uses **BERT** models, which are small, and **less energy-intensive than large generative models**. However, it is still important to understand the environmental impact of these models and the methodologies used to evaluate them.
+ActiveTigger is designed to make the most of small models with reduced energy dependency (compared to generative AI). It primarily uses **BERT** models, which are small, and **less energy-intensive than large generative models**. However, it is still important to understand the environmental impact of these models and the methodologies used to evaluate them.
 
 *Perspective for comparison: a flight between Paris and New York emits about [2 tonnes of CO₂ per passenger](https://co2.myclimate.org/en/portfolios?calculation_id=8052722&localized_currency=EURs).*
 
@@ -18,9 +18,9 @@ There are 3 main phases in the life cycle of a model that can consume energy and
 
 ### ⚙️ Training phase
 
-This phase involve using a huge text dataset to train a model. **Several studies show that generative models (such as GPT) consume vast resources at this stage**. [An analysis of the GPT-3 model](https://arxiv.org/abs/2104.10350), which contains 175 billion parameters, estimated it generated 552.1 tonnes of CO₂.
+This phase involves using a huge text dataset to train a model. **Several studies show that generative models (such as GPT) consume vast resources at this stage**. [An analysis of the GPT-3 model](https://arxiv.org/abs/2104.10350), which contains 175 billion parameters, estimated it generated 552.1 tonnes of CO₂.
 
-By contrast, **smaller models such as BERT (~100 millions parameters) consume less energy**. [As an example, this study](https://arxiv.org/abs/2311.10267) trained several BERT models using different configurations (hardware, batch size, sequence length). The environmental cost ranged from 58.9 kg of CO₂ for 124.1 kWh to 199.1 kg of CO₂ for 419.6 kWh.
+By contrast, **smaller models such as BERT (~100 million parameters) consume less energy**. [As an example, this study](https://arxiv.org/abs/2311.10267) trained several BERT models using different configurations (hardware, batch size, sequence length). The environmental cost ranged from 58.9 kg of CO₂ for 124.1 kWh to 199.1 kg of CO₂ for 419.6 kWh.
 
 [Another study](https://arxiv.org/abs/1906.02243) measured 1,438 kg of CO₂ for training a BERT base model on 64 V100 GPUs — **showing how emissions depend heavily on the hardware used and the data volume processed**.
 
@@ -37,6 +37,7 @@ Inference is the phase where the model is used to make predictions or generate t
 In research, models are not generally scaled for millions of users, so their use is less energy-intensive than general public applications. However, **the energy consumption of inference can still be significant**, especially for large models or when processing large volumes of data.
 
 ## Going further: how to evaluate the environmental impact of AI models?
+
 
 ### The energy consumption of models
 

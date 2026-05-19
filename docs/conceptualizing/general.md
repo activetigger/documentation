@@ -1,4 +1,4 @@
-# General concepts in Active Tigger
+# General concepts in ActiveTigger
 
 ## Train, Validation and Test sets
 
@@ -6,13 +6,13 @@ In supervised machine learning (aka predictive models), it is common practice to
 
 Each set plays a different role: 
 
-- <span class="highlight">train set</span>: this set that will be used to train models[^1].
-- <span class="highlight">validation set</span>: this set used to compare model performances across hyperparameters. 
-- <span class="highlight">test set</span>: this set is used to evaluate the generalization quality of your final model. Do not use this choose models, otherwise your evaluation scores will not be valid (see [Goodhart's law](https://en.wikipedia.org/wiki/Goodhart's_law)). 
+- <span class="highlight">train set</span>: the set that will be used to train models[^1].
+- <span class="highlight">validation set</span>: the set used to compare model performances across hyperparameters. 
+- <span class="highlight">test set</span>: the set used to evaluate the generalization quality of your final model. Do not use this set to choose models, otherwise your evaluation scores will not be valid (see [Goodhart's law](https://en.wikipedia.org/wiki/Goodhart's_law)). 
 
 [^1]: Note that this set is itself split into a main training and a train-eval subset (usually 80%-20%). The train-eval subset is used to evaluate the model's generalization capabilities during training. The combination of the train subset and the train-eval subset makes choosing hyperparameters easier. See [Reading the loss curve](#reading-the-loss-curve).
 
-In Active Tigger, we enforce some "good practice" measures:
+In ActiveTigger, we enforce some "good practice" measures:
 
 - Splitting is performed at [project creation](../functionalities/project-creation.md), so that the choice of validation and test sets is not influenced by choices made during annotation of the training set.
 - Model predictions and active learning features are not available when annotating the validation and test sets, to prevent the annotator from being influenced by model predictions.
@@ -28,7 +28,7 @@ When using machine learning in text analysis settings, the first step is always 
 
 These features can be used to compute visualizations, fit topic models or quick models. Note that BERT models (and generative LLMs) compute their own features internally, so you don't need to compute your own features to use them.
 
-In Active Tigger, there are five kinds of features, which can be created in the [Settings](../functionalities/settings.md#features) tab:
+In ActiveTigger, there are five kinds of features, which can be created in the [Settings](../functionalities/settings.md#features) tab:
 
 - <span class="highlight">Sentence embeddings</span>: Computed with transformer models, this is the most advanced method for representing each text input [^3] as a vector, because it works on the whole text instead of word by word. As for all transformer models, each model has a [maximum window size](./glossary.md#tokens-and-window-sizes).
 - <span class="highlight">FastText</span>: Each text input is first split into words (using the [SpaCy](https://spacy.io/) tokenizer), then each word is represented by a pre-computed embedding, and the final text embedding is computed as the average of all its word embeddings. Note that this method does not take into account the order in which the words appear. See the [fastText](https://fasttext.cc) webpage for details.
@@ -42,22 +42,22 @@ In Active Tigger, there are five kinds of features, which can be created in the 
     
     Several types of features (Sentence embeddings, Regex...) can be used simultaneously for computing visualizations or quick models. They will just be concatenated into a single large vector.
 
-## What is Active Learning ?
+## What is Active Learning?
 
 <span class="highlight">Active learning</span> is a method to increase annotation efficiency, it lowers the number of annotations necessary to train performant models. 
 
 The key idea: Instead of picking texts at random when choosing which one to annotate next, the algorithm picks the one that is the most ambiguous for the current prediction model, which is more likely to help it get better during the next training. Mathematically, this ambiguity is computed by the model's prediction entropy for each text, which is lowest when all the probability is assigned to a single label, and highest when it is spread evenly across all labels.
 
-An additional benefit of active learning is that it challenges the definition of each label forcing annotators to refine the codebook.
+An additional benefit of active learning is that it challenges the definition of each label, forcing annotators to refine the codebook.
 
-Active learning can be used with [quick models](#training-quick-models) and [BERT model](#what-are-bert-models), and can be turned on and off in the [Annotation page](../functionalities/annotate.md#active-learning-in-practice). If your ultimate goal is to train a BERT model, it is recommended to start by active learning with quick models until enough texts have been annotated to train a BERT model, and then switch to active learning with your latest BERT model.
+Active learning can be used with [quick models](#training-quick-models) and [BERT models](#what-are-bert-models), and can be turned on and off in the [Annotation page](../functionalities/annotate.md#active-learning-in-practice). If your ultimate goal is to train a BERT model, it is recommended to start by active learning with quick models until enough texts have been annotated to train a BERT model, and then switch to active learning with your latest BERT model.
 
 ## Training Quick models
 
 Quick models are standard supervised machine learning models, trained on [features](#representing-texts-with-features) in order to predict labels. 
 Compared to BERT models, they are lightweight and quick to train, hence their name. 
 They are typically used in the early stages of annotation, as described in the workflow above. 
-See to [Model page](../functionalities/model.md) for more details on how to train quick models.
+See the [Model page](../functionalities/model.md) for more details on how to train quick models.
 
 ## Training BERT models
 
@@ -69,7 +69,7 @@ They are pre-trained encoder language models[^4], meaning that they have been tr
 
 [^4]: As opposed to decoder models i.e. generative models, encoder models' only goal is to create an embedding space that encapsulates semantic properties that are relevant to downstream tasks (eg. classification).
 
-Fine-tuning a BERT model is the process of adjusting its internal weights using optimization algorithms[^5] to minimize a given cost function. This is a delicate art, involving a trial-and-error in order to find the [best hyperparameters](#which-hyper-parameters-to-choose), typically by reading the [loss curve](#reading-the-loss-curve). There are many resources if you want to learn more about fine-tuning neural networks, both online and in handbooks; see [this video](https://youtu.be/IHZwWFHWa-w?si=WOzTeU4U6b62uq_s) for a great introduction.
+Fine-tuning a BERT model is the process of adjusting its internal weights using optimization algorithms[^5] to minimize a given cost function. This is a delicate art, involving trial-and-error in order to find the [best hyperparameters](#which-hyper-parameters-to-choose), typically by reading the [loss curve](#reading-the-loss-curve). There are many resources if you want to learn more about fine-tuning neural networks, both online and in handbooks; see [this video](https://youtu.be/IHZwWFHWa-w?si=WOzTeU4U6b62uq_s) for a great introduction.
 
 [^5]: As usual with neural networks, they are trained by a form of [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent). The current standard algorithm for fine-tuning BERT models is AdamW.
 
@@ -124,6 +124,7 @@ What to do:
 ![](../img/theoretical-concepts/bertrain-flat.png)
 
 The model has underfitted:
+
 - Both curves are flat, the model hasn't learned at all
 
 What to do:
@@ -201,7 +202,7 @@ What to do:
 
 ## Projections
 
-A projection is a 2D (dimensional reduction)[https://en.wikipedia.org/wiki/Dimensionality_reduction] of your training data, used for visualization (in the [Explore](../functionalities/explore.md) page).
+A projection is a 2D [dimensional reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) of your training data, used for visualization (in the [Explore](../functionalities/explore.md) page).
 
 It uses an unsupervised model in order to reduce a high-dimensional [set of features](#representing-texts-with-features) to two dimensions: similar texts will be grouped together.
 
@@ -218,7 +219,7 @@ In many cases, different annotations will appear close together in the projectio
 
 A topic model is an unsupervised model meant to capture the main themes that are present in a corpus, based on text [features](#representing-texts-with-features).
 
-Active Tigger features BERTopic models, which work in three successive steps: first an (embedding)[#representing-texts-with-features] step using sentence transformers, then a dimensionality reduction step (just as in (projections)[#projections], but usually in more than 2 dimensions), and then a clustering step.
+ActiveTigger features BERTopic models, which work in three successive steps: first an [embedding](#representing-texts-with-features) step using sentence transformers, then a dimensionality reduction step (just as in [projections](#projections), but usually in more than 2 dimensions), and then a clustering step.
 
-Topic modeling can either be an end in itself, or a useful step in an annotation/prediction workflow. For more details on how to use it in Active Tigger, see [here](../functionalities/explore.md#topic-model).
+Topic modeling can either be an end in itself, or a useful step in an annotation/prediction workflow. For more details on how to use it in ActiveTigger, see [here](../functionalities/explore.md#topic-model).
 

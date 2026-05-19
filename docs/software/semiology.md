@@ -1,4 +1,4 @@
-The main rules to format the documentation, use a specific css crafted for rendering `style.css`
+The main rules to format the documentation use a specific CSS crafted for rendering: `style.css`.
 
 ## Inspired by the ActiveTigger UX
 
@@ -15,7 +15,7 @@ When possible, use similar icons. They are stored in `docs/img/icons`. Use `<spa
 
 ## Images
 
-Images are stored `docs/img/`. They are included with `<div class="img"><img src="../../img/image.png"/></div>` 
+Images are stored in `docs/img/`. They are included with `<div class="img"><img src="../../img/image.png"/></div>`.
 
 ## Other
 

@@ -24,23 +24,23 @@ This page displays the parameters of the project and allows editing or deleting 
 
 Displays the available features and their parameters. 
 
-- <span class="action primary">Add a new feature</span> to compute new features ([more details on the available features modes](../theoretical-concepts/index.md#representing-texts-with-features)).
+- <span class="action primary">Add a new feature</span> to compute new features ([more details on the available features modes](../conceptualizing/general.md#representing-texts-with-features)).
     - if using **embeddings**:
         - <span class="parameter">Feature name</span>
         - <span class="parameter">Model to use</span>
         - <span class="parameter">Context window size</span>: The number of token per entry. After tokenization each input is truncated/padded to match this size.
-    - if using **fasttext** (See the [Features concept](/Users/emilien/Scripts/documentation/docs/theoretical-concepts/index.md)):
+    - if using **fasttext** (See the [Features concept](../conceptualizing/general.md#representing-texts-with-features)):
         - <span class="parameter">Feature name</span>
         - <span class="parameter">Model to use</span>
-    - if using **dfm**: Using `CountVectorizer` XXX @Julien
+    - if using **dfm**: Using `CountVectorizer`
         - <span class="parameter">Feature name</span>
-        - <span class="parameter">TF-IDF</span>: if set to True, applies TF-IDF to the feature matrix (XXX).
+        - <span class="parameter">TF-IDF</span>: if set to True, applies TF-IDF.
         - <span class="parameter">n-grams</span>: the size of n-grams to account for.
-        - <span class="parmater">min term freq</span>: the minimum frequence for a n-gram to be included in the vocabulary.
-        - <span class="parmater">max term freq</span>: the maximum frequence for a n-gram to be included in the vocabulary.
-        - <span class="parameter">Norm</span>: if set to True, normalize the featres XXX What normalisation? before or after log ?
-        - <span class="parameter">Log</span>: if set to True, apply logarithm function to the feature the featres.
-    - if using **regex**: creates a boolean feature whether the regex query if found in the text input
+        - <span class="parameter">min term freq</span>: the minimum frequency for an n-gram to be included in the vocabulary.
+        - <span class="parameter">max term freq</span>: the maximum frequency for an n-gram to be included in the vocabulary.
+        - <span class="parameter">Norm</span>: if set to True, normalize the features at the end
+        - <span class="parameter">Log</span>: if set to True, apply logarithm function to the features.
+    - if using **regex**: creates a boolean feature indicating whether the regex query is found in the text input
         - <span class="parameter">Feature name</span>
         - <span class="parameter">Regex query</span>
     - if using **dataset**: imports from a column in the original dataset
@@ -55,9 +55,9 @@ The import tab allows you to import data for the current process outside of the 
 
 ![](../img/functionalities/import.png)
 
-- **Import annotations**: import the annotations for the text inputs in the train dataset. The IDs must match. if the labels differ, new labels will be created. XXX or ignored? no idea. If annotations already exists, they will be overwritten.
+- **Import annotations**: import the annotations for the text inputs in the train dataset. The IDs must match. If the labels differ, new labels will be created. If annotations already exist, they will be overwritten.
     - <span class="parameter">File to upload</span>: Parquet, CSV or XLSX file, limit defined by the administrator.
-    - <span class="parameter">Column for ID</span>: column from the loaded dataset that must match the IDs from the current text inputs. XXX Internal or external? 
+    - <span class="parameter">Column for ID</span>: column from the loaded dataset that must match the external IDs from the current text inputs.
     - <span class="parameter">Column for annotations</span>: column from the loaded dataset that contains the annotations to import.
     - <span class="action primary">Import annotations</span> to finalise the importation.
 - **Validation set** and **Test set**: drop or import the validation or test set.

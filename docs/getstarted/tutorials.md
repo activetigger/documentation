@@ -7,4 +7,4 @@
 
 ## Posters
 
-- [Exploring Inequality in the Digital Age 2025 - Active Tigger. AI and Society](https://cnrs.hal.science/hal-05097192)
+- [Exploring Inequality in the Digital Age 2025 - ActiveTigger. AI and Society](https://cnrs.hal.science/hal-05097192)

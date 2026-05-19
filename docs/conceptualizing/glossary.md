@@ -2,7 +2,7 @@
 
 ## Projects
 
-Active Tigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as [prediction models](../functionities/model.md), [features](./general.md#representing-texts-with-features), [projections](./general.md#projections) or [topic models](./general.md#topic-models). A project can be shared across users for collaborating.
+ActiveTigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as [prediction models](../functionalities/model.md), [features](./general.md#representing-texts-with-features), [projections](./general.md#projections) or [topic models](./general.md#topic-models). A project can be shared across users for collaborating.
 
 The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. It can be very large, in which case you will work on smaller subsets (see the [Train, Validation and Test sets](./general.md#train-validation-and-test-sets)).
 
@@ -17,9 +17,9 @@ Users with access to a project can see all of its schemes.
 
 !!! Example
 
-    A project contains corpus of speeches, and seeks to identify what topics are mentioned as well as the tone that is used. Users can create different schemes to separately work on identifying speeches mentionning the environment, another for social inequalities and yet another to identify agressive tones.
+    A project contains a corpus of speeches, and seeks to identify what topics are mentioned as well as the tone that is used. Users can create different schemes to separately work on identifying speeches mentioning the environment, another for social inequalities and yet another to identify aggressive tones.
 
-There are different types of schemes in Active Tigger: 
+There are different types of schemes in ActiveTigger: 
 
 - <span class="highlight">Multiclass</span>: each text will be given a single label.
 - <span class="highlight">Multilabel</span>: each text can be given several labels simultaneously.
@@ -42,7 +42,7 @@ What you can and cannot do with each scheme type:
 
 ### Evaluating Multiclass models
 
-Active Tigger displays 3 scores per class as well as score weighted across all classes. Each score is bounded between 0 and 1 (the higher the better).
+ActiveTigger displays 3 scores per class as well as a score weighted across all classes. Each score is bounded between 0 and 1 (the higher the better).
 
 |Measure|Data|Interpretation|
 |---|---|---|
@@ -58,7 +58,7 @@ Active Tigger displays 3 scores per class as well as score weighted across all c
 ## Dataset stratification 
 
 A corpus might come from different sources, or different time periods, that you might want to treat equally in an annotation workflow.
-Stratifying the dataset prevents from working on unbalanced datasets. This is a common challenge in machine learning: training on non-representative samples leads to models failing on minority subsets. 
+Stratifying the dataset prevents working on unbalanced datasets. This is a common challenge in machine learning: training on non-representative samples leads to models failing on minority subsets. 
 
 !!! Example
     If working on newspaper articles with 80% of all articles coming from LeMonde and only 20% coming from LePoint, training a model will most likely adapt to LeMonde's writing but not LePoint's. The source becomes a descriptor for your annotation whereas it shouldn't.

@@ -35,4 +35,4 @@
 
 ## How to contribute
 
-We are happy to welcome all contributors : discuss the general features, modify the code or update the documentation. Please reach out. Before PR, don't hesitate to talk with us first :)
+We are happy to welcome all contributors: discuss the general features, modify the code or update the documentation. Please reach out. Before PR, don't hesitate to talk with us first :)
