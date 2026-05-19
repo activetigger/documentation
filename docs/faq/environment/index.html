@@ -84,6 +84,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring/">Monitoring</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/experimental/">Experimental features</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul>
@@ -156,18 +158,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="what-is-the-environmental-impact-of-the-models-used-on-active-tigger">What is the environmental impact of the models used on Active Tigger?</h1>
+                <h1 id="what-is-the-environmental-impact-of-the-models-used-on-activetigger">What is the environmental impact of the models used on ActiveTigger?</h1>
 <p>Using AI models inevitably consumes energy and resources, which is important to consider when assessing their utility. This page discusses the environmental impact of the type of models used in ActiveTigger.</p>
 <h2 id="the-environmental-impact-of-ai-models">The environmental impact of AI models</h2>
-<p>The environmental impact of AI raises <a href="https://www.nytimes.com/2024/08/26/climate/ai-planet-climate-change.html">important concerns</a> and has become an <a href="https://arxiv.org/abs/2111.00364">increasingly urgent issue for research</a> as [methodologies to mesure these impacts] advance(https://iopscience.iop.org/article/10.1088/2515-7620/acf81b).</p>
-<p>For NLP methods (such as using language models), the energy consumption can vary greatly depending on the <a href="https://dl.acm.org/doi/abs/10.1145/3729396"><strong>type of technology used</strong></a>, <strong>the energy source used to run the servers</strong> but also on the <strong>the methodology chosen</strong> to evaluate their impacts.</p>
-<p>Active Tigger is designed to make the most of small models with reduced energy dependency (compared to generative AI). It primarily uses <strong>BERT</strong> models, which are small, and <strong>less energy-intensive than large generative models</strong>. However, it is still important to understand the environmental impact of these models and the methodologies used to evaluate them.</p>
+<p>The environmental impact of AI raises <a href="https://www.nytimes.com/2024/08/26/climate/ai-planet-climate-change.html">important concerns</a> and has become an <a href="https://arxiv.org/abs/2111.00364">increasingly urgent issue for research</a> as <a href="https://iopscience.iop.org/article/10.1088/2515-7620/acf81b">methodologies to measure these impacts advance</a>.</p>
+<p>For NLP methods (such as using language models), the energy consumption can vary greatly depending on the <a href="https://dl.acm.org/doi/abs/10.1145/3729396"><strong>type of technology used</strong></a>, <strong>the energy source used to run the servers</strong>, but also on <strong>the methodology chosen</strong> to evaluate their impacts.</p>
+<p>ActiveTigger is designed to make the most of small models with reduced energy dependency (compared to generative AI). It primarily uses <strong>BERT</strong> models, which are small, and <strong>less energy-intensive than large generative models</strong>. However, it is still important to understand the environmental impact of these models and the methodologies used to evaluate them.</p>
 <p><em>Perspective for comparison: a flight between Paris and New York emits about <a href="https://co2.myclimate.org/en/portfolios?calculation_id=8052722&amp;localized_currency=EURs">2 tonnes of CO₂ per passenger</a>.</em></p>
 <h2 id="when-does-a-model-consume-energy">When does a model consume energy?</h2>
 <p>There are 3 main phases in the life cycle of a model that can consume energy and have an environmental impact: the <strong>training phase</strong>, the <strong>fine-tuning phase</strong>, and the <strong>inference phase</strong>.</p>
 <h3 id="training-phase">⚙️ Training phase</h3>
-<p>This phase involve using a huge text dataset to train a model. <strong>Several studies show that generative models (such as GPT) consume vast resources at this stage</strong>. <a href="https://arxiv.org/abs/2104.10350">An analysis of the GPT-3 model</a>, which contains 175 billion parameters, estimated it generated 552.1 tonnes of CO₂.</p>
-<p>By contrast, <strong>smaller models such as BERT (~100 millions parameters) consume less energy</strong>. <a href="https://arxiv.org/abs/2311.10267">As an example, this study</a> trained several BERT models using different configurations (hardware, batch size, sequence length). The environmental cost ranged from 58.9 kg of CO₂ for 124.1 kWh to 199.1 kg of CO₂ for 419.6 kWh.</p>
+<p>This phase involves using a huge text dataset to train a model. <strong>Several studies show that generative models (such as GPT) consume vast resources at this stage</strong>. <a href="https://arxiv.org/abs/2104.10350">An analysis of the GPT-3 model</a>, which contains 175 billion parameters, estimated it generated 552.1 tonnes of CO₂.</p>
+<p>By contrast, <strong>smaller models such as BERT (~100 million parameters) consume less energy</strong>. <a href="https://arxiv.org/abs/2311.10267">As an example, this study</a> trained several BERT models using different configurations (hardware, batch size, sequence length). The environmental cost ranged from 58.9 kg of CO₂ for 124.1 kWh to 199.1 kg of CO₂ for 419.6 kWh.</p>
 <p><a href="https://arxiv.org/abs/1906.02243">Another study</a> measured 1,438 kg of CO₂ for training a BERT base model on 64 V100 GPUs — <strong>showing how emissions depend heavily on the hardware used and the data volume processed</strong>.</p>
 <h3 id="fine-tuning-phase">🧪 Fine-tuning phase</h3>
 <p>Fine-tuning involves adapting a pre-trained language model to a specific task. <strong>This phase is less energy-intensive than the initial training phase</strong>. Nevertheless, it is performed far more frequently than the initial training.</p>

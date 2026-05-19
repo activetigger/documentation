@@ -92,6 +92,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../monitoring/">Monitoring</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul>
@@ -165,29 +167,29 @@
 <h2 id="features">Features</h2>
 <p>Displays the available features and their parameters. </p>
 <ul>
-<li><span class="action primary">Add a new feature</span> to compute new features (<a href="../theoretical-concepts/index.md#representing-texts-with-features">more details on the available features modes</a>).<ul>
+<li><span class="action primary">Add a new feature</span> to compute new features (<a href="../../conceptualizing/general/#representing-texts-with-features">more details on the available features modes</a>).<ul>
 <li>if using <strong>embeddings</strong>:<ul>
 <li><span class="parameter">Feature name</span></li>
 <li><span class="parameter">Model to use</span></li>
 <li><span class="parameter">Context window size</span>: The number of token per entry. After tokenization each input is truncated/padded to match this size.</li>
 </ul>
 </li>
-<li>if using <strong>fasttext</strong> (See the <a href="/Users/emilien/Scripts/documentation/docs/theoretical-concepts/index.md">Features concept</a>):<ul>
+<li>if using <strong>fasttext</strong> (See the <a href="../../conceptualizing/general/#representing-texts-with-features">Features concept</a>):<ul>
 <li><span class="parameter">Feature name</span></li>
 <li><span class="parameter">Model to use</span></li>
 </ul>
 </li>
-<li>if using <strong>dfm</strong>: Using <code>CountVectorizer</code> XXX @Julien<ul>
+<li>if using <strong>dfm</strong>: Using <code>CountVectorizer</code><ul>
 <li><span class="parameter">Feature name</span></li>
-<li><span class="parameter">TF-IDF</span>: if set to True, applies TF-IDF to the feature matrix (XXX).</li>
+<li><span class="parameter">TF-IDF</span>: if set to True, applies TF-IDF.</li>
 <li><span class="parameter">n-grams</span>: the size of n-grams to account for.</li>
-<li><span class="parmater">min term freq</span>: the minimum frequence for a n-gram to be included in the vocabulary.</li>
-<li><span class="parmater">max term freq</span>: the maximum frequence for a n-gram to be included in the vocabulary.</li>
-<li><span class="parameter">Norm</span>: if set to True, normalize the featres XXX What normalisation? before or after log ?</li>
-<li><span class="parameter">Log</span>: if set to True, apply logarithm function to the feature the featres.</li>
+<li><span class="parameter">min term freq</span>: the minimum frequency for an n-gram to be included in the vocabulary.</li>
+<li><span class="parameter">max term freq</span>: the maximum frequency for an n-gram to be included in the vocabulary.</li>
+<li><span class="parameter">Norm</span>: if set to True, normalize the features at the end</li>
+<li><span class="parameter">Log</span>: if set to True, apply logarithm function to the features.</li>
 </ul>
 </li>
-<li>if using <strong>regex</strong>: creates a boolean feature whether the regex query if found in the text input<ul>
+<li>if using <strong>regex</strong>: creates a boolean feature indicating whether the regex query is found in the text input<ul>
 <li><span class="parameter">Feature name</span></li>
 <li><span class="parameter">Regex query</span></li>
 </ul>
@@ -205,9 +207,9 @@
 <p>The import tab allows you to import data for the current process outside of the <a href="../project-creation/">Project Creation page</a>. </p>
 <p><img alt="" src="../../img/functionalities/import.png" /></p>
 <ul>
-<li><strong>Import annotations</strong>: import the annotations for the text inputs in the train dataset. The IDs must match. if the labels differ, new labels will be created. XXX or ignored? no idea. If annotations already exists, they will be overwritten.<ul>
+<li><strong>Import annotations</strong>: import the annotations for the text inputs in the train dataset. The IDs must match. If the labels differ, new labels will be created. If annotations already exist, they will be overwritten.<ul>
 <li><span class="parameter">File to upload</span>: Parquet, CSV or XLSX file, limit defined by the administrator.</li>
-<li><span class="parameter">Column for ID</span>: column from the loaded dataset that must match the IDs from the current text inputs. XXX Internal or external? </li>
+<li><span class="parameter">Column for ID</span>: column from the loaded dataset that must match the external IDs from the current text inputs.</li>
 <li><span class="parameter">Column for annotations</span>: column from the loaded dataset that contains the annotations to import.</li>
 <li><span class="action primary">Import annotations</span> to finalise the importation.</li>
 </ul>

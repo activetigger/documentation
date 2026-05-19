@@ -84,6 +84,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring/">Monitoring</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/experimental/">Experimental features</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul class="current">
@@ -150,7 +152,7 @@
               
                 <h1 id="glossary">Glossary</h1>
 <h2 id="projects">Projects</h2>
-<p>Active Tigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as <a href="../functionities/model.md">prediction models</a>, <a href="../general/#representing-texts-with-features">features</a>, <a href="../general/#projections">projections</a> or <a href="../general/#topic-models">topic models</a>. A project can be shared across users for collaborating.</p>
+<p>ActiveTigger is organized around projects. Each project consists of a dataset, a set of schemes, and additional assets such as <a href="../../functionalities/model/">prediction models</a>, <a href="../general/#representing-texts-with-features">features</a>, <a href="../general/#projections">projections</a> or <a href="../general/#topic-models">topic models</a>. A project can be shared across users for collaborating.</p>
 <p>The dataset is a table that contains the texts that you want to work on, and optionally some other columns that will help you in the process. It can be very large, in which case you will work on smaller subsets (see the <a href="../general/#train-validation-and-test-sets">Train, Validation and Test sets</a>).</p>
 <p>See <a href="../../functionalities/project-creation/">Project Creation page</a> for more details.</p>
 <h2 id="schemes">Schemes</h2>
@@ -158,9 +160,9 @@
 <p>Users with access to a project can see all of its schemes. </p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>A project contains corpus of speeches, and seeks to identify what topics are mentioned as well as the tone that is used. Users can create different schemes to separately work on identifying speeches mentionning the environment, another for social inequalities and yet another to identify agressive tones.</p>
+<p>A project contains a corpus of speeches, and seeks to identify what topics are mentioned as well as the tone that is used. Users can create different schemes to separately work on identifying speeches mentioning the environment, another for social inequalities and yet another to identify aggressive tones.</p>
 </div>
-<p>There are different types of schemes in Active Tigger: </p>
+<p>There are different types of schemes in ActiveTigger: </p>
 <ul>
 <li><span class="highlight">Multiclass</span>: each text will be given a single label.</li>
 <li><span class="highlight">Multilabel</span>: each text can be given several labels simultaneously.</li>
@@ -220,7 +222,7 @@
 <p>Multiclass schemes can be imported from your dataset upon project creation.</p>
 </div>
 <h3 id="evaluating-multiclass-models">Evaluating Multiclass models</h3>
-<p>Active Tigger displays 3 scores per class as well as score weighted across all classes. Each score is bounded between 0 and 1 (the higher the better).</p>
+<p>ActiveTigger displays 3 scores per class as well as a score weighted across all classes. Each score is bounded between 0 and 1 (the higher the better).</p>
 <table>
 <thead>
 <tr>
@@ -258,7 +260,7 @@
 </div>
 <h2 id="dataset-stratification">Dataset stratification</h2>
 <p>A corpus might come from different sources, or different time periods, that you might want to treat equally in an annotation workflow.
-Stratifying the dataset prevents from working on unbalanced datasets. This is a common challenge in machine learning: training on non-representative samples leads to models failing on minority subsets. </p>
+Stratifying the dataset prevents working on unbalanced datasets. This is a common challenge in machine learning: training on non-representative samples leads to models failing on minority subsets. </p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>If working on newspaper articles with 80% of all articles coming from LeMonde and only 20% coming from LePoint, training a model will most likely adapt to LeMonde's writing but not LePoint's. The source becomes a descriptor for your annotation whereas it shouldn't.</p>

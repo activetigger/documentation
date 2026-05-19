@@ -90,6 +90,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring/">Monitoring</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/experimental/">Experimental features</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul>
@@ -146,9 +148,9 @@
 <p><em>Annina Claesson</em>
 Article (in French): <a href="https://shs-cairn-info.scpo.idm.oclc.org/revue-revue-francaise-de-science-politique-2025-3-page-549?lang=fr">Le prix de la visibilité
 Une analyse computationnelle des interactions en ligne avec des député·es français·es (Revue française de science politique)</a></p>
-<p>This project sought to quantify various types of Twitter reactions targeting French MPs, distinguishing between political criticism, abuse, and expressions of support. With access to the total number of tweets mentioning French MPs in 2022-2023 (a dataset of over 30 million tweets), manual annotation of more than a small sample would have been impossible. At the same time, the criteria for each category were not straightforward to automate, requiring a human understanding of nuance, sarcasm, and subtility. While applying ready-made models for detecting negative sentiment or hate speech would have been possible, these were not well adapted to the specific context of the French political Twittersphere.  </p>
+<p>This project sought to quantify various types of Twitter reactions targeting French MPs, distinguishing between political criticism, abuse, and expressions of support. With access to the total number of tweets mentioning French MPs in 2022-2023 (a dataset of over 30 million tweets), manual annotation of more than a small sample would have been impossible. At the same time, the criteria for each category were not straightforward to automate, requiring a human understanding of nuance, sarcasm, and subtlety. While applying ready-made models for detecting negative sentiment or hate speech would have been possible, these were not well adapted to the specific context of the French political Twittersphere.  </p>
 <p><strong>Solution</strong>: fine-tuning three separate bespoke BERT classifier models using ActiveTigger.
-The objective was to develop classifier models that could correctly identify diverse and creatively formulated types of tweets that could be classified into each category (criticism, abuse, support). This required a XXX</p>
+The objective was to develop classifier models that could correctly identify diverse and creatively formulated types of tweets that could be classified into each category (criticism, abuse, support).</p>
 <p><strong>Workflow</strong>: </p>
 <ul>
 <li>An iterative annotation process to improve coding scheme and understand dataset, regular consultation with colleagues.</li>
@@ -163,7 +165,7 @@ The objective was to develop classifier models that could correctly identify div
 <li>Support: 0.74</li>
 </ul>
 <p><strong>Lessons learned</strong>
-Distinguishing between these three categories of tweets was a complex task for both humans and machines alike - many subtilities made it difficult to draw clear lines between tweets that "crossed the line" into abuse. Spending a significant amount of time in the annotation phase to create a functional but flexible coding scheme helped to clarify the object of study for both the human researcher and for the models. Creating three binary models and running each one separately made it possible to look at cases that overlapped several categories at the analysis stage.</p>
+Distinguishing between these three categories of tweets was a complex task for both humans and machines alike - many subtleties made it difficult to draw clear lines between tweets that "crossed the line" into abuse. Spending a significant amount of time in the annotation phase to create a functional but flexible coding scheme helped to clarify the object of study for both the human researcher and for the models. Creating three binary models and running each one separately made it possible to look at cases that overlapped several categories at the analysis stage.</p>
 <p>That said, many unexpected challenges arose in translating human logic to a model. For example, the "support" classifier was surprisingly the most challenging to develop due to the heavy presence of sarcasm in the corpus (contrast "bravo!" vs "bravo..."). Using active learning and regex functions to target these ambiguous cases (for example, by targeting tweets that contained different emojis that changed the semantic meaning of the tweet) was helpful in improving the model's understanding of what made a tweet sarcastic.</p>
 <p>The F1 scores can be considered good but not perfect. This was largely due to the complexity of each category, which were intended to span many different kinds of expressions under the same umbrella (for example, the abuse category covered everything from subtle insults to overt hate speech). More targeted models focusing on more narrow forms of expression in tweets would likely have made for better-performing models.</p>
 <p>Nevertheless, ActiveTigger made it possible to quantify different types of reactions targeting politicians, which had never been done for the French context. The final paper explores differences between political groups and sociodemographic characteristics in terms of which MPs become targets for which types of tweets, notably from a gender perspective.</p>

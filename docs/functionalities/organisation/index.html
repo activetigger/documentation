@@ -84,6 +84,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../monitoring/">Monitoring</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../experimental/">Experimental features</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
               <ul>
@@ -136,36 +138,36 @@
                 <h1 id="documentation">Documentation</h1>
 <!-- TODO: Include layout description -->
 
-<p>This documentation details the different logics and functionalities of Active Tigger. It is a work in progress. It will be updated as the project evolves. </p>
+<p>This documentation details the different logics and functionalities of ActiveTigger. It is a work in progress. It will be updated as the project evolves. </p>
 <p><em>If you see features that need more explanations, please open an issue.</em></p>
 <h2 id="accounts-and-rights">Accounts and rights</h2>
-<p>ActiveTigger is based on a dual system of rights : type of accounts and rights on projects.</p>
-<p>A user account can have one of the following status :</p>
+<p>ActiveTigger is based on a dual system of rights: type of accounts and rights on projects.</p>
+<p>A user account can have one of the following statuses:</p>
 <ul>
 <li><strong>root</strong>: can do everything (especially access all projects and the /monitor page)</li>
 <li><strong>manager</strong>: can create new projects and manage them (adding users on those projects)</li>
 <li><strong>annotator</strong>: can only annotate on projects with a simplified frontend</li>
 </ul>
-<p>Users have specific rights on projects :</p>
+<p>Users have specific rights on projects:</p>
 <ul>
 <li><strong>manager</strong>: can manage the project, add users, launch processes and access data.</li>
 <li><strong>contributor</strong>: can create elements in a project (scheme, annotation, model) but never delete things</li>
 <li><strong>annotator</strong>: can only annotate on the project without changing the project settings (schemes, labels, models, etc.).</li>
 </ul>
-<p>Comments :</p>
+<p>Comments:</p>
 <ul>
 <li>There is no management at the scheme level</li>
 </ul>
 <h2 id="queue-and-processes">Queue and processes</h2>
-<p>Users can compute models. Each run is called a <em>process</em>. By default, only one process is allowed at the same time by user. There are two types of processes in Active Tigger:</p>
+<p>Users can compute models. Each run is called a <em>process</em>. By default, only one process is allowed at a time per user. There are two types of processes in ActiveTigger:</p>
 <ul>
 <li><strong>CPU processes</strong>: they are used to prepare data, train quick models, etc.</li>
-<li><strong>GPU processes</strong>: these processes are using GPU if available in the server. By default, the configuration of the server only accept one GPU process at once.</li>
+<li><strong>GPU processes</strong>: these processes use the GPU if available on the server. By default, the configuration of the server only accepts one GPU process at once.</li>
 </ul>
-<p>Comments :</p>
+<p>Comments:</p>
 <ul>
 <li>Some processes are costly to run and can take time</li>
-<li>If processes are launched and no worker is avaiable, processes are put in a queue and wait for available workers.</li>
+<li>If processes are launched and no worker is available, processes are put in a queue and wait for available workers.</li>
 <li>When launching a process, you can stop it with the "Stop" button or with the <span class="icon"><img alt="" src="../../img/icons/stop.svg" /></span></li>
 </ul>
 <!-- TODO : Mention the auto log off behaviour -->

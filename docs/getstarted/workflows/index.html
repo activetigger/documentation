@@ -52,7 +52,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#annotate-a-corpus-collaboratively">Annotate a corpus collaboratively</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#accelerate-annotation-with-active-learning">Accelerate annotation with Active learning</a>
+    <li class="toctree-l2"><a class="reference internal" href="#accelerate-annotation-with-active-learning-and-bert-fine-tuning">Accelerate annotation with active learning and BERT fine-tuning</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#explore-your-data">Explore your data</a>
     </li>
@@ -91,6 +91,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../functionalities/account-and-users/">Account and Users</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring/">Monitoring</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/experimental/">Experimental features</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
@@ -142,77 +144,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="workflows">Workflows</h1>
-<p>This page presents possible ways of using Tigger for your research and how to do it.</p>
+                <h1 id="main-workflows">Main workflows</h1>
+<p>There are different ways of using a software. This page presents possible ways of using ActiveTigger for your research. </p>
 <h2 id="annotate-a-corpus-collaboratively">Annotate a corpus collaboratively</h2>
-<p>Active Tigger's makes collaborative annotation seamless through the following features:</p>
+<p>ActiveTigger makes collaborative annotation seamless through the following features:</p>
 <ul>
-<li>Creation of a scheme (<a href="../theoretical-concepts/glossary.md#schemes">what is a scheme?</a>) and a codebook for the project.</li>
+<li>Creation of a scheme (<a href="../../conceptualizing/glossary/#schemes">what is a scheme?</a>) and a codebook for the project.</li>
 <li>Annotation of the text inputs by each user.</li>
-<li>Comparison of annotations and measure agreement</li>
-<li>Export the annotated corpus for analysis</li>
+<li>Comparison of annotations and measurement of agreement.</li>
+<li>Export the annotated corpus for analysis.</li>
 </ul>
-<p>Why choose Active Tigger for this task: </p>
+<p>Why choose ActiveTigger for this task: </p>
 <ul>
 <li>User friendly interface, on any device.</li>
 <li>Seamless integration of collaborative work.</li>
-<li>Safe storage of data.</li>
 </ul>
 <p>Here is an overview of the steps necessary to set up and undertake an annotation project with manual annotation:</p>
 <ul>
 <li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="../../functionalities/project-creation/#note-on-preparing-your-input-dataset">More information here</a></li>
 <li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to the size of your dataset. You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
-<li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (multiclass, multilabel or span — <a href="../theoretical-concepts/glossary.md#schemes">more info on the available schemes</a>) and start writing the instructions for labelling the corpus. All users can see the schemes, labels and codebook of your project, but only managers and contributors can edit them.</li>
-<li><span class="step">Step 3 — Give your collaborators access to your project:</span> Go to the <a href="../functionalities/monitoring-account-and-users.md">Users page</a> and authorize your collaborators to access and annotate text inputs from your project.</li>
-<li><span class="step">Step 4 — Each collaborator starts annotating the corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process. You can:<ul>
-<li>Add a label (<span class="action primary">LABEL</span>), remove a label (<span class="action primary">No tag</span>), or move forward (<span class="action primary">Skip</span>).</li>
-<li>Add a comment to your annotation.</li>
-<li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).</li>
-</ul>
-</li>
+<li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (multiclass, multilabel or span — <a href="../../conceptualizing/glossary/#schemes">more info on the available schemes</a>) and start writing the instructions for labelling the corpus. All users can see the schemes, labels and codebook of your project, but only managers and contributors can edit them.</li>
+<li><span class="step">Step 3 — Give your collaborators access to your project:</span> Go to the <a href="../../functionalities/account-and-users/">Users page</a> and authorize your collaborators to access and annotate text inputs from your project.</li>
+<li><span class="step">Step 4 — Each collaborator starts annotating the corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process.</li>
 <li><span class="step">Step 5 — Curate the annotation (Only available to projects with more than one user):</span> On the <a href="../../functionalities/annotate/">Annotate page</a>, choose <a href="../../functionalities/annotate/#curate">"Curate"</a>. You will be able to see annotations differences between schemes or between users and choose which annotation to keep (as well as agreement metrics).</li>
 <li><span class="step">Step 6 — Export your annotated corpus:</span> On the <a href="../../functionalities/export/">Export page</a>, choose <a href="../../functionalities/export/#annotations">"Annotations"</a> and <span class="action primary">All annotations/schemes</span> to download your corpus as a CSV file, or XLSX or parquet.</li>
 </ul>
 <p>In practice, the annotation process is not so linear. It is normal to move back and forth between <span class="step">step 3</span>, <span class="step">step 4</span> and <span class="step">step 5</span> to refine your codebook and change your annotation strategy. You may also want to use exploration tools (<a href="#explore-your-data">see below</a>), or use machine learning to find the most challenging text inputs and test your codebook on rare or ambiguous cases.</p>
-<h2 id="accelerate-annotation-with-active-learning">Accelerate annotation with Active learning</h2>
-<p>Active Tigger makes machine learning methods easily available to social scientists, in particular by implementing the full pipeline for finetuning <em>classifier models</em> (<a href="../theoretical-concepts/index.md#what-are-bert-models">what are BERT models?</a>; <a href="../theoretical-concepts/index.md#training-bert-models">How to finetune BERT models?</a> ). These models can automatically extend your human-developed annotation scheme on a larger dataset. This workflow consists of: </p>
+<h2 id="accelerate-annotation-with-active-learning-and-bert-fine-tuning">Accelerate annotation with active learning and BERT fine-tuning</h2>
+<p>ActiveTigger makes machine learning methods easily available to social scientists, in particular by implementing the full pipeline for finetuning <em>classifier models</em> (<a href="../../conceptualizing/general/#what-are-bert-models">what are BERT models?</a> <a href="../../conceptualizing/general/#training-bert-models">How to finetune BERT models?</a> ). These models can automatically extend your human-developed annotation scheme on a larger dataset. This workflow consists of: </p>
 <ul>
-<li>Creation of a scheme (<a href="../theoretical-concepts/glossary.md#schemes">what is a scheme?</a>) and a codebook for the project.</li>
+<li>Creation of a scheme (<a href="../../conceptualizing/glossary/#schemes">what is a scheme?</a>) and a codebook for the project.</li>
 <li>Annotation of the text inputs.</li>
 <li>Training classifier models.</li>
-<li>Infer labels on non-annotated data.</li>
-<li>Export human and infered annotations corpus for analysis</li>
+<li>Inferring labels on non-annotated data.</li>
+<li>Export human and inferred annotations for analysis.</li>
 </ul>
-<p>Why choose Active Tigger for this task: </p>
+<p>Why choose ActiveTigger for this task: </p>
 <ul>
 <li>User friendly interface and model training without any coding skills required.</li>
-<li>Safer and reproducible use of machine learning tool for annotating a corpus.</li>
+<li>Safer and reproducible use of machine learning tools for annotating a corpus.</li>
 <li>An easy introduction to good practices in machine learning.</li>
 </ul>
 <p>Here is an overview of the steps to complete this workflow:</p>
 <ul>
 <li><span class="step">Step 0 — Prepare your corpus:</span> Prepare your corpus as a CSV, XLSX or parquet file. <a href="../../functionalities/project-creation/#note-on-preparing-your-input-dataset">More information here</a></li>
 <li><span class="step">Step 1 — Create your project:</span> On the <a href="../../functionalities/project-creation/">Project Creation page</a>, give the project a name, upload the data file and enter the columns you require for the annotation (ID, text, contextual). Set the number of rows in the train set to about 70% of your dataset, 15% to the test set and 15% to the validation set (<a href="../../faq/faq/#how-large-should-my-different-sets-be">more info</a>). You may consider setting <a href="../../functionalities/project-creation/#secondary-parameters">secondary parameters</a>.</li>
-<li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (for now, only multiclass schemes can be used for training classifier models — <a href="../theoretical-concepts/glossary.md#schemes">more info on the available schemes</a>) and start writing the instructions for labelling the corpus.</li>
+<li><span class="step">Step 2 — Create your scheme and write down your codebook:</span> On the <a href="../../functionalities/codebook/">Codebook page</a>, create a scheme that fits your study (for now, only multiclass schemes can be used for training classifier models — <a href="../../conceptualizing/glossary/#schemes">more info on the available schemes</a>) and start writing the instructions for labelling the corpus.</li>
 <li><span class="step">Step 3 — Start annotating your corpus:</span> Go to the <a href="../../functionalities/annotate/">Annotate page</a> and start the annotation process. You can:<ul>
 <li>Annotate text inputs (add, remove or skip) and leave comments</li>
 <li>Choose which text inputs to annotate or the order in which you wish to see them (<a href="../../functionalities/annotate/#selecting-text-inputs-to-annotate">more info</a>).</li>
-<li>Use <span class="highlight">Active Learning</span> to primarly annotate text inputs that will lead to better classifiers, more quickly (<a href="../theoretical-concepts/index.md#what-is-active-learning">more info</a>).</li>
 </ul>
 </li>
-<li><span class="step">Step 4 — Train a BERT model</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#training">Training tab</a>, <span class="action primary">Create new BERT model</span> and <a href="../../functionalities/model/#bertmodel">set hyperparameters</a> (<a href="../theoretical-concepts/index.md#training-bert-models">more info on setting hyperparameters</a>)</li>
-<li><span class="step">Step 5 — Evaluate the model on validation set:</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#evaluation">Evaluation tab</a>, select your model and <span class="action primary">Compute predictions</span> to classify text inputs from the validation and test set to compute metrics on these sets.<ul>
+<li><span class="step">Step 4 — Train a quick model to enable active learning:</span> Once you have annotated a small initial batch (a few dozen examples covering each label), go to the <a href="../../functionalities/model/">Model page</a> and <span class="action primary">Create new quick model</span> in the <a href="../../functionalities/model/#quick-models">Quick Models section</a>. Quick models are lightweight classifiers trained on pre-computed <a href="../../conceptualizing/general/#representing-texts-with-features">features</a> (be sure to have at least one available) — they train in seconds and run on CPU. Once trained, you can return to the <a href="../../functionalities/annotate/">Annotate page</a> and turn on <span class="highlight">Active Learning</span> to surface the text inputs the model is most uncertain about (<a href="../../conceptualizing/general/#what-is-active-learning">more info</a>). Retrain the quick model periodically as you accumulate more annotations.</li>
+<li><span class="step">Step 5 — Train a BERT model:</span> Once you have enough annotations for the quick model to plateau, switch to a BERT classifier for higher quality. On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#training">Training tab</a>, <span class="action primary">Create new BERT model</span> and <a href="../../functionalities/model/#bertmodel">set hyperparameters</a> (<a href="../../conceptualizing/general/#training-bert-models">more info on setting hyperparameters</a>). You can also use the BERT model itself to drive active learning from this point on.</li>
+<li><span class="step">Step 6 — Evaluate the model on validation set:</span> On the <a href="../../functionalities/model/">Model page</a> and in the <a href="../../functionalities/model/#evaluation">Evaluation tab</a>, select your model and <span class="action primary">Compute predictions</span> to classify text inputs from the validation and test set to compute metrics on these sets.<ul>
 <li>Once you have annotated your training set, you will probably have a better understanding of your data, and stabilized the definitions of your labels.</li>
 <li>You can now annotate your validation set, and check whether your model performs as well as on the training set.</li>
 <li>Again, iterate between annotation and validation quality, until you are satisfied with the quality scores.</li>
-<li>If you have trained several models, choose the model maximizing the <a href="../theoretical-concepts/glossary.md#model-quality-scores">quality scores</a> on the validation set.</li>
+<li>If you have trained several models, choose the model maximizing the <a href="../../conceptualizing/glossary/#model-quality-scores">quality scores</a> on the validation set.</li>
 </ul>
 </li>
 <li>
-<p><span class="step">Step 6 — Annotate the test set </span> this is the final step, which should only be used to evaluate the quality of your final model ⚠️ Optimising the quality scores on the test set will lead to biased performance estimators!</p>
+<p><span class="step">Step 7 — Annotate the test set:</span> this is the final step, which should only be used to evaluate the quality of your final model. ⚠️ Optimising the quality scores on the test set will lead to biased performance estimators!</p>
 </li>
 <li>
-<p><span class="step">Step 7 — Export your annotated corpus and model:</span> On the <a href="../../functionalities/export/">Export page</a> and <a href="../../functionalities/export/#models">"Models tab"</a>, select the bert model:</p>
+<p><span class="step">Step 8 — Export your annotated corpus and model:</span> On the <a href="../../functionalities/export/">Export page</a> and <a href="../../functionalities/export/#models">"Models tab"</a>, select the bert model:</p>
 <ul>
 <li><span class="action primary">Prediction on complete dataset</span> infer labels on the full dataset as imported upon project creation.</li>
 <li><span class="action primary">Prediction on external dataset</span> to import a dataset and infer the labels.</li>
@@ -220,9 +216,9 @@
 </ul>
 </li>
 </ul>
-<p>Once again, this workflow tends to be much less linear in practice. You will likely move back and forth between <span class="step">step 3</span> and <span class="step">step 4</span> to accumulate enough annotations to develop a model that works as well as you want it to, as well as between <span class="step">step 4</span> and <span class="step">step 5</span> to <a href="../theoretical-concepts/index.md#training-bert-models">refine your hyperparameters</a>. This workflow is compatible with the collaborative annotation workflow as well as the exploration workflow.</p>
+<p>Once again, this workflow tends to be much less linear in practice. You will likely move back and forth between <span class="step">step 3</span> and <span class="step">step 4</span> — annotating a batch, retraining the quick model, annotating more with active learning — until you have enough data to train a BERT model in <span class="step">step 5</span>, and then between <span class="step">step 5</span> and <span class="step">step 6</span> to <a href="../../conceptualizing/general/#training-bert-models">refine your hyperparameters</a>. This workflow is compatible with the collaborative annotation workflow as well as the exploration workflow.</p>
 <h2 id="explore-your-data">Explore your data</h2>
-<p>Sometimes, with a large textual dataset, it is difficult to get an overview of what your dataset contains. Active Tigger provides tools to explore your corpus (either as an independent step or as part of an annotation process), helping you understand its structure, identify clusters of similar content, and make more informed annotation decisions. You can use of the tabular oversight functionality of the interface, or make use of  <a href="../theoretical-concepts/index.md#topic-models">topic models</a>.</p>
+<p>Sometimes, with a large textual dataset, it is difficult to get an overview of what your dataset contains. ActiveTigger provides tools to explore your corpus (either as an independent step or as part of an annotation process), helping you understand its structure, identify clusters of similar content, and make more informed annotation decisions. You can use of the tabular oversight functionality of the interface, or make use of <a href="../../conceptualizing/general/#topic-models">topic models</a>.</p>
 <p>For instance, you have a large dataset and you want to identify the sample on which you will really work.</p>
 <p>This workflow consists of:</p>
 <ul>
@@ -231,7 +227,7 @@
 <li>Using topics to guide annotation or as a starting point for a scheme.</li>
 <li>Exporting topic outputs for further analysis.</li>
 </ul>
-<p>Why choose Active Tigger for this task:</p>
+<p>Why choose ActiveTigger for this task:</p>
 <ul>
 <li>No-code access to state-of-the-art topic modelling (BERTopic).</li>
 <li>Visual, interactive exploration of your corpus.</li>

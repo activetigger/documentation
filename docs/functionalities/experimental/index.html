@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Prepare your dataset - ActiveTigger Documentation</title>
+    <title>Experimental features - ActiveTigger Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Prepare your dataset";
-        var mkdocs_page_input_path = "technicalities/prepare-your-dataset.md";
+        var mkdocs_page_name = "Experimental features";
+        var mkdocs_page_input_path = "functionalities/experimental.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -56,37 +56,41 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Technicalities</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Prepare your dataset</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/prepare-your-dataset/">Prepare your dataset</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../access/">Install & access</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technicalities/access/">Install & access</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Functionalities</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/project-creation/">Project Creation</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../project-creation/">Project Creation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/codebook/">Codebook Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../codebook/">Codebook Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/explore/">Explore Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../explore/">Explore Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/annotate/">Annotate Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../annotate/">Annotate Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/model/">Model Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../model/">Model Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/export/">Export Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../export/">Export Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/generative/">Generative Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../generative/">Generative Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/settings/">Settings Page</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings Page</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/account-and-users/">Account and Users</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../account-and-users/">Account and Users</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/monitoring/">Monitoring</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../monitoring/">Monitoring</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../functionalities/experimental/">Experimental features</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Experimental features</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-try-an-experimental-feature">How to try an experimental feature</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#current-experimental-features">Current experimental features</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Conceptualizing</span></p>
@@ -128,8 +132,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Technicalities</li>
-      <li class="breadcrumb-item active">Prepare your dataset</li>
+          <li class="breadcrumb-item">Functionalities</li>
+      <li class="breadcrumb-item active">Experimental features</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -138,41 +142,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="note-on-preparing-your-input-dataset">Note on preparing your input dataset</h2>
-<p>The input dataset should be a CSV, Parquet, or XLSX file. The text columns must be well prepared and curated before upload as <span class="highlight">ActiveTigger does not propose any text treatment option</span>. The only text manipulation implemented is the concatenation of text columns. Cleaning your dataset can include, but is not limited to, the following: </p>
-<ul>
-<li>Removing semanticless characters (html tags, encoding artefacts, emojis<sup id="fnref:note-emoji"><a class="footnote-ref" href="#fn:note-emoji">1</a></sup>, ...).</li>
-<li>Removing any duplicates.</li>
-<li>Splitting texts at the sentence/paragraph level.</li>
-<li>Ensuring all inputs are written in a single language (depending on the task).</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Size of the texts</p>
-<p>If you use models, please mind that they have a limited context window. It means that if texts exceed this window (depending on the model, from a few hundred to a few thousand words), they will be truncated.</p>
+                <h1 id="experimental-features">Experimental features</h1>
+<p>This page lists features that are under active development and <strong>not yet part of the main release</strong>. They are exploratory: behavior, parameters, and even the existence of the feature can change without notice. You need to switch to the experimental mode (bottom of the main page, when available).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Experimental features usually live in <strong>dedicated branches</strong> of the <a href="https://github.com/activetigger/activetigger">ActiveTigger repository</a> rather than <code>main</code>. To try them, you will need to check out the corresponding branch and run the application from source. Hosted instances may not expose these features.</p>
 </div>
-<p>We also encourage users to <span class="highlight">carefully set up their ID column</span> as this will ease the process of aggregating the annotations with external metadata for downstream analysis.</p>
-<div class="admonition note">
-<p class="admonition-title">Troubleshoot using Parquet files</p>
-<p>If you upload a parquet file, you can encounter issues related to the format of your parquet file. Easy fix includes: </p>
-<ul>
-<li>Make sure that data contained is formatted as a string.</li>
-<li>Make sure to not have nested columns (columns and sub-columns).</li>
-</ul>
-</div>
-<div class="footnote">
-<hr />
+<h2 id="how-to-try-an-experimental-feature">How to try an experimental feature</h2>
 <ol>
-<li id="fn:note-emoji">
-<p>Depending on your task you may want to keep them because they carry significant information, or remove them because they will act as noise. Also, models may not have been trained on emojis, meaning that they will be replaced by <code>[unk]</code> tokens, adding noise to your text inputs.&#160;<a class="footnote-backref" href="#fnref:note-emoji" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
+<li>Identify the branch where the feature is being developed (mentioned in the section below, or in the related pull request / issue).</li>
+<li>Clone the repository and switch to that branch:
+    <code>bash
+    git clone https://github.com/activetigger/activetigger.git
+    cd activetigger
+    git checkout &lt;branch-name&gt;</code></li>
+<li>Follow the install instructions on <a href="../../technicalities/access/">Install &amp; access</a>.</li>
 </ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Experimental features may require database migrations or specific configuration that differs from the main release. Use a fresh project to avoid corrupting existing data.</p>
 </div>
+<h2 id="current-experimental-features">Current experimental features</h2>
+<ul>
+<li><code>image</code> : it allows to create image projects, to annotate images</li>
+</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../getstarted/tutorials/" class="btn btn-neutral float-left" title="Existing tutorials and videos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../access/" class="btn btn-neutral float-right" title="Install & access">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../monitoring/" class="btn btn-neutral float-left" title="Monitoring"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../conceptualizing/general/" class="btn btn-neutral float-right" title="General concepts">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -195,10 +194,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../getstarted/tutorials/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../monitoring/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../access/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../conceptualizing/general/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
