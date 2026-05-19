@@ -27,11 +27,12 @@
 - Jean-Baptiste Richardet
 - Matthias Bussonnier
 
-## Funding
+## Fundings
 
-- DRARI Île-de-France
+- DRARI Île-de-France projet DIAD
 - CREST @ IPP
-- Progedo
+- Progedo projet MIA
+- ANR Pantagruel
 
 ## How to contribute
 
