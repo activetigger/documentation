@@ -193,11 +193,11 @@ What to do:
 |Gradient accumulation|General / Regularization|Number of batches accumulated to perform a gradient descent step.<br>Use higher values for small GPUs.|1-64 (1)|
 |Eval|General|Number of times the model will be evaluated on the evaluation set during training (aka checkpoints).|9|
 |Train-eval split size|General|Portion of the data that will be used for evaluation during training.|0.2|
-|Balance classes|General|Whether to use only the number of observations of the smallest class during training.|Deactivated|
-|Loss|General|Which loss function is optimized: use Weighted cross entropy for unbalanced class|Cross entropy|
-|Keep the best model|General|Whether to keep the best checkpoint according to evaluation loss,<br>instead of the final checkpoint.|Activated|
-|Class threshold|Data|Minimum number of observations for a class to be used during training.<br>Use higher values to exclude small classes.|1|
-|Labels to ignore|Data|Which classes to ignore during training|None|
+|Balance labels|General|Whether to use only the number of observations of the smallest number of labels during training.|Deactivated|
+|Loss|General|Which loss function is optimized: use Weighted cross entropy for unbalanced labels distributions|Cross entropy|
+|Keep the best model|Genera l|Whether to keep the best checkpoint according to evaluation loss,<br>instead of the final checkpoint.|Activated|
+|Label threshold|Data|Minimum number of observations for a label to be used during training.<br>Use higher values to exclude labels with few annotations.|1|
+|Labels to ignore|Data|Remove all text inputs annotated with a given label for training|None|
 
 
 ## Projections

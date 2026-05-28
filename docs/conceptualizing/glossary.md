@@ -42,14 +42,14 @@ What you can and cannot do with each scheme type:
 
 ### Evaluating Multiclass models
 
-ActiveTigger displays 3 scores per class as well as a score weighted across all classes. Each score is bounded between 0 and 1 (the higher the better).
+ActiveTigger displays 3 scores per label as well as a score weighted across all labels. Each score is bounded between 0 and 1 (the higher the better).
 
 |Measure|Data|Interpretation|
 |---|---|---|
-|[Precision](https://en.wikipedia.org/wiki/Precision_and_recall)|Per class|How confident you can be about the positive predictions of each class|
-|[Recall](https://en.wikipedia.org/wiki/Precision_and_recall)|Per class|Portion of the actual positive cases that are found by the model|
-|[F1](https://en.wikipedia.org/wiki/Precision_and_recall#F-measure)|Per class|Overall quality of the model's predictions for each class|
-|[Macro F1](https://en.wikipedia.org/wiki/F-score#Macro_F1)|Overall|Overall quality of the model on all classes|
+|[Precision](https://en.wikipedia.org/wiki/Precision_and_recall)|Per label|How confident you can be about the positive predictions of each label|
+|[Recall](https://en.wikipedia.org/wiki/Precision_and_recall)|Per label|Portion of the actual positive cases that are found by the model|
+|[F1](https://en.wikipedia.org/wiki/Precision_and_recall#F-measure)|Per label|Overall quality of the model's predictions for each label|
+|[Macro F1](https://en.wikipedia.org/wiki/F-score#Macro_F1)|Overall|Overall quality of the model on all labels|
 
 !!! Note
     Each score is computed separately for the train set, the validation and test sets.

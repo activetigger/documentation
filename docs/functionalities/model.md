@@ -36,7 +36,7 @@ Models available include:
 On top of model-specific parameters, additional parameters can be set: 
 
 - <span class="parameter">Name for the model</span>: The name used as a reference in the interface. It must be unique within a project.
-- <span class="parameter">Automatically balance classes</span>: If set to True, the model will be trained on a subset of the train dataset[^2] constructed by picking an equal number of text inputs across labels. 
+- <span class="parameter">Automatically balance labels</span>: If set to True, the model will be trained on a subset of the train dataset[^2] constructed by picking an equal number of text inputs across labels. 
 - <span class="parameter">10-fold cross validation</span>: Computes performance test using the [10-fold cross validation technique](http://scikit-learn.org/stable/modules/cross_validation.html).
 - <span class="parameter">Labels to ignore</span>: Labels selected will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for Active Learning (see [Annotation page](./annotate.md#active-learning-in-practice)). 
 

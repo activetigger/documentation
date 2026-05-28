@@ -32,8 +32,8 @@ Go to the project tab, navigate to Settings, and select Update Project. Please n
 
 While there is no golden answer to this question, here are some guidelines:
 
-- The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the classes you are looking for are infrequent.
-- The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the classes you are annotating. One rule of thumb is to have at least 100 observations of each label: if your smallest class is expected to appear in 20\% of texts, use 500 validation and test cases. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.
+- The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the labels you are looking for are infrequent.
+- The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the labels you are annotating. One rule of thumb is to have at least 100 observations of each label _(for a label representing roughly 20% of all annotations, consider annotating 500 text inputs for the validation set, and 500 more for the test set)_. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.
 
 ## What set should I annotate first? 
 
