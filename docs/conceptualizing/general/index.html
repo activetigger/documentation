@@ -385,33 +385,33 @@ There is no golden rule for which model to choose: try different ones, and see w
 <td>0.2</td>
 </tr>
 <tr>
-<td>Balance classes</td>
+<td>Balance labels</td>
 <td>General</td>
-<td>Whether to use only the number of observations of the smallest class during training.</td>
+<td>Whether to use only the number of observations of the smallest number of labels during training.</td>
 <td>Deactivated</td>
 </tr>
 <tr>
 <td>Loss</td>
 <td>General</td>
-<td>Which loss function is optimized: use Weighted cross entropy for unbalanced class</td>
+<td>Which loss function is optimized: use Weighted cross entropy for unbalanced labels distributions</td>
 <td>Cross entropy</td>
 </tr>
 <tr>
 <td>Keep the best model</td>
-<td>General</td>
+<td>Genera l</td>
 <td>Whether to keep the best checkpoint according to evaluation loss,<br>instead of the final checkpoint.</td>
 <td>Activated</td>
 </tr>
 <tr>
-<td>Class threshold</td>
+<td>Label threshold</td>
 <td>Data</td>
-<td>Minimum number of observations for a class to be used during training.<br>Use higher values to exclude small classes.</td>
+<td>Minimum number of observations for a label to be used during training.<br>Use higher values to exclude labels with few annotations.</td>
 <td>1</td>
 </tr>
 <tr>
 <td>Labels to ignore</td>
 <td>Data</td>
-<td>Which classes to ignore during training</td>
+<td>Remove all text inputs annotated with a given label for training</td>
 <td>None</td>
 </tr>
 </tbody>

@@ -178,8 +178,8 @@
 <h2 id="how-large-should-my-different-sets-be">How large should my different sets be?</h2>
 <p>While there is no golden answer to this question, here are some guidelines:</p>
 <ul>
-<li>The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the classes you are looking for are infrequent.</li>
-<li>The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the classes you are annotating. One rule of thumb is to have at least 100 observations of each label: if your smallest class is expected to appear in 20\% of texts, use 500 validation and test cases. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.</li>
+<li>The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the labels you are looking for are infrequent.</li>
+<li>The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the labels you are annotating. One rule of thumb is to have at least 100 observations of each label <em>(for a label representing roughly 20% of all annotations, consider annotating 500 text inputs for the validation set, and 500 more for the test set)</em>. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.</li>
 </ul>
 <h2 id="what-set-should-i-annotate-first">What set should I annotate first?</h2>
 <p>We recommend starting by annotating your training set first, in order to get a grasp on your corpus and to stabilize the codebook. Only start annotating the validation and test sets once you are sure of the precise definition of each of your labels.</p>
