@@ -6,7 +6,7 @@ There are different ways of using a software. This page presents possible ways o
 
 ActiveTigger makes collaborative annotation seamless through the following features:
 
-- Creation of a scheme ([what is a scheme?](../conceptualizing/glossary.md#schemes)) and a codebook for the project.
+- Creation of a [scheme](../conceptualizing/glossary.md#schemes)) and a codebook for the project.
 - Annotation of the text inputs by each user.
 - Comparison of annotations and measurement of agreement.
 - Export the annotated corpus for analysis.
@@ -32,7 +32,7 @@ In practice, the annotation process is not so linear. It is normal to move back 
 
 ActiveTigger makes machine learning methods easily available to social scientists, in particular by implementing the full pipeline for finetuning *classifier models* ([what are BERT models?](../conceptualizing/general.md#what-are-bert-models) [How to finetune BERT models?](../conceptualizing/general.md#training-bert-models) ). These models can automatically extend your human-developed annotation scheme on a larger dataset. This workflow consists of: 
 
-- Creation of a scheme ([what is a scheme?](../conceptualizing/glossary.md#schemes)) and a codebook for the project.
+- Creation of a [scheme](../conceptualizing/glossary.md#schemes) and a codebook for the project.
 - Annotation of the text inputs.
 - Training classifier models.
 - Inferring labels on non-annotated data.

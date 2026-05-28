@@ -6,7 +6,7 @@ This section describes the Codebook page, the key elements and their interaction
 
 ## Scheme management
 
-At the top of the screen, you will find the scheme ([what is a scheme?](../conceptualizing/glossary.md#schemes)) management component. It consists of a dropdown menu and 4 action buttons. 
+At the top of the screen, you will find the [scheme](../conceptualizing/glossary.md#schemes) management component. It consists of a dropdown menu and 4 action buttons. 
 
 - <span class="action primary">Current scheme</span>: Scheme to use for the current session.
 - <span class="icon">![](../img/icons/plus.svg)</span> to create a new scheme, with a unique name and a type ([see available types](../conceptualizing/glossary.md#schemes))

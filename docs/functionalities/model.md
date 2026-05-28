@@ -10,7 +10,7 @@ This section describes the Training tab, the parameters available for training a
 
 ### Quick Models
 
-The Quick Models are classification models from [scikit-learn](http://scikit-learn.org/stable/supervised_learning.html) trained on pre-computed features ([what are features?](../conceptualizing/general.md#representing-texts-with-features)). They are quick to train and do not require GPUs. These models can be used for Active Learning ([what is Active Learning?](../conceptualizing/general.md#what-is-active-learning)) in the [Annotate page](./annotate.md).
+The Quick Models are classification models from [scikit-learn](http://scikit-learn.org/stable/supervised_learning.html) trained on pre-computed features ([what are features?](../conceptualizing/general.md#representing-texts-with-features)). They are quick to train and do not require GPUs. These models can be used for [Active Learning](../conceptualizing/general.md#what-is-active-learning) in the [Annotate page](./annotate.md).
 
 When launching a model training, the model will be trained on the subset of the train set where labels exist. For this reason, there must be a few label annotated for each category (around 10). Once trained, the model will predict the labels for the rest of the train set in order to be used in Active Learning (see [Annotation page](./annotate.md#active-learning-in-practice))
 
@@ -44,7 +44,7 @@ On top of model-specific parameters, additional parameters can be set:
 
 ### BERTmodel
 
-The BERT Models are pre-trained encoders models with a classification layer [trained with the huggingface framework](https://huggingface.co/docs/transformers/tasks/sequence_classification). They can take a dozen minutes to train and require GPUs[^1]. These models can be used for Active Learning ([what is Active Learning?](../conceptualizing/general.md#what-is-active-learning)) in the [Annotate page](./annotate.md).
+The BERT Models are pre-trained encoders models with a classification layer [trained with the huggingface framework](https://huggingface.co/docs/transformers/tasks/sequence_classification). They can take a dozen minutes to train and require GPUs[^1]. These models can be used for [Active Learning](../conceptualizing/general.md#what-is-active-learning) in the [Annotate page](./annotate.md).
 
 [^1]: You can train on the CPU but that would be sub-optimal.
 

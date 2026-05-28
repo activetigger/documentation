@@ -18,7 +18,7 @@ The tabular view displays your data in a tabular view. Filters are available to 
 
 ## Visualization
 
-The visualization tab displays a projection of the embedding space in two dimensions ([what is a projection?](../conceptualizing/general.md#projections)). Projections are computed with either [UMAP](https://pair-code.github.io/understanding-umap/) or [t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding). 
+The visualization tab displays a [projection](../conceptualizing/general.md#projections) of the embedding space in two dimensions. Projections are computed with either [UMAP](https://pair-code.github.io/understanding-umap/) or [t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding). 
 
 !!! warning 
     There is only one projection per project. 
@@ -45,7 +45,7 @@ Projections can be downloaded from the [Export page](./export.md#features).
 
 ## Topic model
 
-The topic model ([what is a topic model?](../conceptualizing/general.md#topic-models)) section displays existing topic models (for a given project, across all users) and allows to compute new ones with [BERTopic](https://bertopic.com/)[^1]. 
+The [topic model](../conceptualizing/general.md#topic-models)) section displays existing topic models (for a given project, across all users) and allows to compute new ones with [BERTopic](https://bertopic.com/)[^1]. 
 
 [^1]: Find a full tutorial on BERTopic for the social sciences [here](https://www.css.cnrs.fr/the-general-inquirer-in-the-time-of-llms-a-bertopic-tutorial/).
 
