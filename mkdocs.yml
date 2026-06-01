@@ -6,6 +6,7 @@ nav:
       - Main workflows: getstarted/workflows.md
       - How people use it: getstarted/howpeopleuseit.md
       - Existing tutorials and videos: getstarted/tutorials.md
+      - Scientific outputs: getstarted/scientific-outputs.md
   - Technicalities:
       - Prepare your dataset: technicalities/prepare-your-dataset.md
       - Install & access: technicalities/access.md
