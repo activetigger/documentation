@@ -22,7 +22,7 @@
 - Émilien Ghomi (CREST)
 - Amine Ouerfelli
 
-## In 2025
+### In 2025
 
 - Jean-Baptiste Richardet
 - Matthias Bussonnier
@@ -37,3 +37,5 @@
 ## How to contribute
 
 We are happy to welcome all contributors: discuss the general features, modify the code or update the documentation. Please reach out. Before PR, don't hesitate to talk with us first :)
+
+[More information in the repository](https://github.com/activetigger/activetigger/blob/main/CONTRIBUTING.md)
