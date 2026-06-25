@@ -11,7 +11,7 @@ There are several ways to select a subset of text inputs.
 - <span class="parameter">Dataset</span>: Select the dataset on which you are working (train, validation or test).
 - <span class="parameter">Selection mode</span>: Change the order in which elements are shown (fixed (in the order of the original dataset) or random).
 - <span class="parameter">Active Mode</span>: Toggling this mode allows you to choose a model for Active Learning (more about the [concept](../conceptualizing/general.md#what-is-active-learning); more [on this page](#active-learning-in-practice)). This unlocks new selection modes: 
-    - Max prob LABEL: orders the text inputs by decreasing probability to be of a given LABEL.
+    - Max LABEL: orders the text inputs by decreasing probability to be of a given LABEL.
     - Active: orders the text inputs by decreasing entropy (prioritizing uncertain predictions).
     - Active LABEL: orders the text inputs by decreasing entropy with regard to this specific LABEL.
 - <a class="parameter">Filter by content</a>: Only displays elements with specific characteristics
@@ -64,7 +64,7 @@ To use BERT models in active learning, you must first compute the predictions on
  Models trained on a reduced number of labels can be used, they will simply ignore unseen labels.
 
 !!! tip
-    The selection mode Max prob LABEL is especially useful in the early stages when the model "fails with confidence". This mode selects the elements on which the selected model makes confident predictions, but these may very well be incorrect. You can correct these predictions by correctly labelling elements in this mode, steering the model toward a correct definition of each label. Conversely, the selection mode Active LABEL picks elements on which the model is least confident in its prediction, allowing you to correct it in the same way. Switching between these modes in the annotations phase is often a helpful way to produce a functioning model faster.
+    The selection mode Max LABEL is especially useful in the early stages when the model "fails with confidence". This mode selects the elements on which the selected model makes confident predictions, but these may very well be incorrect. You can correct these predictions by correctly labelling elements in this mode, steering the model toward a correct definition of each label. Conversely, the selection mode Active LABEL picks elements on which the model is least confident in its prediction, allowing you to correct it in the same way. Switching between these modes in the annotations phase is often a helpful way to produce a functioning model faster.
 
 ## Curate
 
