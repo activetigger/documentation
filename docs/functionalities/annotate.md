@@ -16,8 +16,9 @@ There are several ways to select a subset of text inputs.
     - Active LABEL: orders the text inputs by decreasing entropy with regard to this specific LABEL.
 - <a class="parameter">Filter by content</a>: Only displays elements with specific characteristics
     - Being labeled with LABEL
-    - Being labeled by a user
-    - With comments
+    - Being labeled by a specific user
+    - With comments : elements which have a comment
+    - Wrong prediction : elements for those there is a disagreement between annotation and prediction
     - Predicted as LABEL by current active model
     - Matching a search / regex expression
 
