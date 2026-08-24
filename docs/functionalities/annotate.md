@@ -21,6 +21,8 @@ There are several ways to select a subset of text inputs.
     - Wrong prediction : elements for those there is a disagreement between annotation and prediction
     - Predicted as LABEL by current active model
     - Matching a search / regex expression
+    - *To search in the context variables, use `CONTEXT=[your regex]` before the search
+    - *Possibility to use a query for more complex selection with under the hood [Pandas query](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html) ; use `QUERY=[your query]`.
 
 
 ## Annotation panel

@@ -4,7 +4,7 @@ The settings page contains many tabs with **moderate** to **high impacts** on yo
 
 ## Parameters
 
-This page displays the parameters of the project and allows editing or deleting the project.
+This page displays the parameters of the project and allows editing or deleting the project. For instance, you can *change its name* (but not its id).
 
 ![](../img/functionalities/parameters.png)
 
