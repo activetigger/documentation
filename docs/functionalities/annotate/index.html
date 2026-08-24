@@ -174,10 +174,13 @@
 </li>
 <li><a class="parameter">Filter by content</a>: Only displays elements with specific characteristics<ul>
 <li>Being labeled with LABEL</li>
-<li>Being labeled by a user</li>
-<li>With comments</li>
+<li>Being labeled by a specific user</li>
+<li>With comments : elements which have a comment</li>
+<li>Wrong prediction : elements for those there is a disagreement between annotation and prediction</li>
 <li>Predicted as LABEL by current active model</li>
 <li>Matching a search / regex expression</li>
+<li>*To search in the context variables, use <code>CONTEXT=[your regex]</code> before the search</li>
+<li>*Possibility to use a query for more complex selection with under the hood <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html">Pandas query</a> ; use <code>QUERY=[your query]</code>.</li>
 </ul>
 </li>
 </ul>
