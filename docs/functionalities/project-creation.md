@@ -35,11 +35,12 @@ After setting the compulsory parameters, clicking the "Create" button will redir
 
 Available in the "Advanced options" panel to configure specific treatments.
 
-- <span class="parameter secondary">Prioritize existing labels</span>: When loading existing annotations, prioritize annotated elements when selecting the train set. If there are not enough elements annotated to create all three sets, random elements will be picked. 
-- <span class="parameter secondary">Select elements at random</span>: If set to `True`, the train, validation and test sets will be created by picking elements at random. If `Prioritize existing labels` is set to `True`, this parameter is ignored.
+- <span class="parameter secondary">Split by existing column</span>: Split the data between train, validation and test sets by selecting an existing column whose values are "test", "valid", or "train". Other values (NA) are ignored. If a column is selected, other split options are disabled. 
+- <span class="parameter secondary">Select rows at random</span>: If set to `True`, the train, validation and test sets will be created by picking elements at random. If `Prioritize existing labels` is set to `True`, this parameter is ignored.
+- <span class="parameter secondary">Prioritize rows with a label</span>: When loading existing annotations, prioritize annotated elements when selecting the train set. If there are not enough elements annotated to create all three sets, random elements will be picked. 
 - <span class="parameter secondary">Stratify train set</span>: Force the [stratification](../conceptualizing/glossary.md#dataset-stratification) for the trainset. If `Prioritize existing labels` is set to `True`, this parameter is ignored.
 - <span class="parameter secondary">Stratify test set</span>:  Force the [stratification](../conceptualizing/glossary.md#dataset-stratification) for the test set. If `Prioritize existing labels` is set to `True`, this parameter is ignored.
 - <span class="parameter secondary">Column(s) used for stratification</span>: If `Stratify train set` and/or `Stratify test set`, the [stratification](../conceptualizing/glossary.md#dataset-stratification) will use the selected columns. If `Prioritize existing labels` is set to `True`, this parameter is ignored.
 - <span class="parameter secondary">Drop annotations for testset</span>: If set to `True` and columns have been selected for existing annotations, the annotations of elements in the testset will be dropped. 
-- <span class="parameter secondary">Compute embeddings</span>: If set to `True`, upon creating the project, embeddings for the text inputs in the train, validation and test sets will start using [Sentence BERT](https://sbert.net/)
+- <span class="parameter secondary">Compute sentence embeddings</span>: If set to `True`, upon creating the project, sentence embeddings for the text inputs in the train, validation and test sets will start using [Sentence BERT](https://sbert.net/)
 - <span class="parameter secondary">Seed</span>: The [seed](https://en.wikipedia.org/wiki/Random_seed) used for all random operations in the project.
