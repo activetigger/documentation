@@ -22,6 +22,7 @@
 - Émilien Ghomi (CREST)
 - Amine Ouerfelli
 - Damien Ngo (Hi Paris Engineering Team / Cap Gemini)
+- Lola Pottier (CREST)
 
 ### In 2025
 
