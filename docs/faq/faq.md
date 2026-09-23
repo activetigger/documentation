@@ -1,53 +1,61 @@
 # FAQ
 
-## How can I recover my password?
+## Access and account management
+
+### How can I recover my password?
 
 For the moment, the only solution is to contact the administrator of your service to reinitialize it for you.
 
-## Can I launch processes if the GPU is already full?
-
-You need to wait for enough GPU memory to be able to launch your process. There is no queue system for the moment. You can try to decrease the batch size to lower the required memory.
-
-## If I destroyed my project, is it possible to recover the data?
+### If I destroyed my project, is it possible to recover the data?
 
 No.
 
-## I have bugs or repetitive problems
+### I have bugs or repetitive problems
 
 Please open an issue on Github.
 
-## I have difficulties annotating my texts with my current scheme
+### Can I launch processes if the GPU is already full?
 
-If as a human annotator you are not able to decide how to annotate a text with the current scheme, maybe you would need to redesign your scheme (increasing or decreasing the number of labels, or re-conceptualizing them)
+You need to wait for enough GPU memory to be able to launch your process. There is no queue system for the moment. You can try to decrease the batch size to lower the required memory.
 
-## I have both good and bad prediction scores for my labels (I have annotated enough elements !)
+## Training, validation and test sets
 
-Having heterogeneous scores can be a sign of ill-defined labels. We advise testing each label in a binary scheme to evaluate its relevance, in order to refine your codebook based on those results.
-
-## I have just created a project but want to modify certain parameters (e.g., increase the trainset size).
-
-Go to the project tab, navigate to Settings, and select Update Project. Please note that if you increase the size of your project, you then need to create a new feature in the Prepare tab. 
-
-## How large should my different sets be?
+### How large should my different sets be?
 
 While there is no golden answer to this question, here are some guidelines:
 
 - The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the labels you are looking for are infrequent.
 - The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the labels you are annotating. One rule of thumb is to have at least 100 observations of each label _(for a label representing roughly 20% of all annotations, consider annotating 500 text inputs for the validation set, and 500 more for the test set)_. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.
 
-## What set should I annotate first? 
+### I have just created a project but want to modify certain parameters (e.g., increase the trainset size).
+
+Go to the project tab, navigate to Settings, and select Update Project. Please note that if you increase the size of your project, you then need to create a new feature in the Prepare tab. 
+
+## Data annotation
+
+### What set should I annotate first? 
 
 We recommend starting by annotating your training set first, in order to get a grasp on your corpus and to stabilize the codebook. Only start annotating the validation and test sets once you are sure of the precise definition of each of your labels.
 
-## What sets of features should I use?
-
-Generally, the recommended features are Sentence embeddings for computing visualizations, topic models, and quick models. For quick models, they can be used along with regex features, if there are some keywords that are particularly informative (or that you want to disambiguate). In low-resource environments, fastText or DFM embeddings can be used instead of sentence embeddings. 
-
-## How many annotations do I need?
+### How many annotations do I need?
 
 There is no golden rule: it depends on the difficulty of the classification task.
 
 A few dozen annotations per label might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts.
 
 In general, more is always better, but it also depends on how useful your annotations are (see *Active learning* section).
+
+### I have difficulties annotating my texts with my current scheme
+
+If as a human annotator you are not able to decide how to annotate a text with the current scheme, maybe you would need to redesign your scheme (increasing or decreasing the number of labels, or re-conceptualizing them)
+
+## Model hyperparameters and performance
+
+### What sets of features should I use?
+
+Generally, the recommended features are Sentence embeddings for computing visualizations, topic models, and quick models. For quick models, they can be used along with regex features, if there are some keywords that are particularly informative (or that you want to disambiguate). In low-resource environments, fastText or DFM embeddings can be used instead of sentence embeddings. 
+
+### I have both good and bad prediction scores for my labels (I have annotated enough elements !)
+
+Having heterogeneous scores can be a sign of ill-defined labels. We advise testing each label in a binary scheme to evaluate its relevance, in order to refine your codebook based on those results.
 
