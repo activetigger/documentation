@@ -1,5 +1,8 @@
 # FAQ
 
+In this section you will find frequently asked questions (FAQ) on ActiveTigger. 
+For specific questions do not hesitate to reach out on [Discord](https://discord.gg/3uNnjw2k).
+
 ## Access and account management
 
 ### How can I recover my password?
