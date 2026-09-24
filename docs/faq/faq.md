@@ -1,6 +1,6 @@
 # FAQ
 
-In this section you will find frequently asked questions (FAQ) on ActiveTigger. 
+In this section you will find frequently asked questions (FAQ) on ActiveTigger.   
 For specific questions do not hesitate to reach out on [Discord](https://discord.gg/3uNnjw2k).
 
 ## Access and account management
@@ -11,7 +11,7 @@ For the moment, the only solution is to contact the administrator of your servic
 
 ### If I destroyed my project, is it possible to recover the data?
 
-No.
+No. 
 
 ### I have bugs or repetitive problems
 
@@ -19,7 +19,7 @@ Please open an issue on Github.
 
 ### Can I launch processes if the GPU is already full?
 
-You need to wait for enough GPU memory to be able to launch your process. There is no queue system for the moment. You can try to decrease the batch size to lower the required memory.
+Yes, but your process will be put in a queue and you will need to wait for enough GPU memory to be available for the process to start. You can see your position in the queue at the bottom left-hand corner of the screen. You can try to decrease the batch size to lower the required memory.
 
 ## Training, validation and test sets
 
@@ -27,12 +27,15 @@ You need to wait for enough GPU memory to be able to launch your process. There 
 
 While there is no golden answer to this question, here are some guidelines:
 
-- The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the labels you are looking for are infrequent.
-- The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the labels you are annotating. One rule of thumb is to have at least 100 observations of each label _(for a label representing roughly 20% of all annotations, consider annotating 500 text inputs for the validation set, and 500 more for the test set)_. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order.
+- The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the labels you are looking for are infrequent. 
+- The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the labels you are annotating. One rule of thumb is to have at least 100 observations of each label _(for a label representing roughly 20% of all annotations, consider annotating 500 text inputs for the validation set, and 500 more for the test set)_. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order. 
+- If you are unsure about validation and test sizes, refrain from allocating all of your data into training, validation and test sets so that you can add data to these sets if you need to.
 
-### I have just created a project but want to modify certain parameters (e.g., increase the trainset size).
+If you are still undecided, start by allocating 70% of your dataset to the train set, 5-10% to the validation set and 5-10% to the test set, but keep in mind that you may need to adjust these later. 
 
-Go to the project tab, navigate to Settings, and select Update Project. Please note that if you increase the size of your project, you then need to create a new feature in the Prepare tab. 
+### Can I increase the size of the train set after creating the project?
+
+Yes. In your project, click on the Settings tab and select Change parameters. There you can add N elements to the train set (without stratification). Please note that if you increase the size of your project, you then need to create a new feature in the Features tab of the Settings.  
 
 ## Data annotation
 
