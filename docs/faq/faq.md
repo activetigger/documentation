@@ -7,17 +7,19 @@ For specific questions do not hesitate to reach out on [Discord](https://discord
 
 ### How can I recover my password?
 
-For the moment, the only solution is to contact the administrator of your service to reinitialize it for you.
+If you are using the CREST instance (default online version), you can reset your password by clicking on the "Reset password" button on the log page. You will receive an email at the registered address with instructions to reset it. 
+If you are deploying your own instance, the only solution is to contact the administrator to reinitialize it for you.
 
 ### If I destroyed my project, is it possible to recover the data?
 
-No. 
+No. There is no copy of the data outside the one which is used by the project. We recommend you export your annotations regularly. 
 
-### I have bugs or repetitive problems
+### I have bugs or repetitive problems.
 
-Please open an issue on Github.
+You can have a look at the "Help" and "Bugs" sections of our [Discord community](https://discord.gg/3uNnjw2k) to see if someone else has had or is having the same issue. You can also directly expose your problem and ask your questions in these dedicated channels.     
+If you are sure that there is a bug, we invite you to open an issue on [Github](https://github.com/activetigger/activetigger).
 
-### Can I launch processes if the GPU is already full?
+### Can I launch processes if the GPU is already under use?
 
 Yes, but your process will be put in a queue and you will need to wait for enough GPU memory to be available for the process to start. You can see your position in the queue at the bottom left-hand corner of the screen. You can try to decrease the batch size to lower the required memory.
 
@@ -27,11 +29,11 @@ Yes, but your process will be put in a queue and you will need to wait for enoug
 
 While there is no golden answer to this question, here are some guidelines:
 
-- The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, especially if some of the labels you are looking for are infrequent. 
+- The training set will be the largest, and you will typically not annotate all of it, especially if using active learning. Because of this, you can make it as large as you want, in particular if some of your labels are infrequent. However, keep in mind that the train set will be loaded in memory and making it larger can add a computational cost. 
 - The validation and test set size mainly depend on how precise you want your model evaluation to be, how much data you are willing to annotate, and the expected frequency of the labels you are annotating. One rule of thumb is to have at least 100 observations of each label _(for a label representing roughly 20% of all annotations, consider annotating 500 text inputs for the validation set, and 500 more for the test set)_. You can also make the sets a bit larger and not annotate them completely, if you annotate them in random order. 
 - If you are unsure about validation and test sizes, refrain from allocating all of your data into training, validation and test sets so that you can add data to these sets if you need to.
 
-If you are still undecided, start by allocating 70% of your dataset to the train set, 5-10% to the validation set and 5-10% to the test set, but keep in mind that you may need to adjust these later. 
+If you are still undecided, start with a size of 10,000 data points for the train set, 1,000 for the validation set, and 1,000 for the test set. You may need to adjust these later as your knowledge of the data improves. 
 
 ### Can I increase the size of the train set after creating the project?
 
