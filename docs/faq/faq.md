@@ -21,7 +21,7 @@ If you are sure that there is a bug, we invite you to open an issue on [Github](
 
 ### Can I launch processes if the GPU is already under use?
 
-Yes, but your process will be put in a queue and you will need to wait for enough GPU memory to be available for the process to start. You can see your position in the queue at the bottom left-hand corner of the screen. You can try to decrease the batch size to lower the required memory.
+Yes, but your process will be put in a queue and you will need to wait for enough GPU memory to be available for the process to start. You can see your position in the queue at the bottom left-hand corner of the screen.
 
 ## Train, validation and test sets
 
