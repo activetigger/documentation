@@ -8,7 +8,7 @@ For specific questions do not hesitate to reach out on [Discord](https://discord
 ### How can I recover my password?
 
 If you are using the CREST instance (default online version), you can reset your password by clicking on the "Reset password" button on the log page. You will receive an email at the registered address with instructions to reset it. 
-If you are deploying your own instance, the only solution is to contact the administrator to reinitialize it for you.
+If you are deploying your own instance, it will depend if the mail option is activated. If not, the only solution is to contact the administrator to reinitialize it for you.
 
 ### If I destroyed my project, is it possible to recover the data?
 
