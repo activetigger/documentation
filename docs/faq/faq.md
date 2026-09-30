@@ -7,7 +7,7 @@ For specific questions do not hesitate to reach out on [Discord](https://discord
 
 ### How can I recover my password?
 
-If you are using the CREST instance (default online version), you can reset your password by clicking on the "Reset password" button on the log page. You will receive an email at the registered address with instructions to reset it. 
+If you are using the CREST instance (default online version), you can reset your password by clicking on the "Reset password" button on the log page. You will receive an email at the registered address with instructions to reset it.    
 If you are deploying your own instance, it will depend if the mail option is activated. If not, the only solution is to contact the administrator to reinitialize it for you.
 
 ### If I destroyed my project, is it possible to recover the data?
@@ -44,21 +44,21 @@ Yes. You can add your validation and/or test sets whenever you want. You need to
 ### What should I do if I realise that the test set (or validation set) is the wrong size?
 If you think that it is too big, you don’t have to do anything. Simply annotate the number of data points that you want *in random order*. Untagged values will be ignored.   
 
-If you think that it is too small, you can drop your current test set and upload another one
-- First, export your test set and all your annotations: click on Export, then on “Tags: test” and “All annotations / schemes”.
-- Using external tools (e.g. R or Python editors), gather the elements that have not been allocated to any set: take your original dataset and remove the elements present in “All annotations / schemes" dataset. Randomly draw the N elements that you wish to add and combine them with the “Tags: test” set that you have exported. 
-- Back in ActiveTigger, drop the current test set: go to Settings, click on Import, then on “Drop Test set”.
-- In the same window, you can now import the new test set containing the additional N elements. 
+If you think that it is too small, you can drop your current test set and upload another one:   
+- First, export your test set and all your annotations: click on Export, then on “Tags: test” and “All annotations / schemes”.   
+- Using external tools (e.g. R or Python editors), gather the elements that have not been allocated to any set: take your original dataset and remove the elements present in “All annotations / schemes" dataset. Randomly draw the N elements that you wish to add and combine them with the “Tags: test” set that you have exported.    
+- Back in ActiveTigger, drop the current test set: go to Settings, click on Import, then on “Drop Test set”.   
+- In the same window, you can now import the new test set containing the additional N elements.    
 
 ## Data annotation
 
 ### Should I annotate my data at the sentence-level, paragraph-level or document-level? 
-The choice of an annotation unit depends on your research question, your data and the technical means available to you. Here are five questions you should pay attention to to make up your mind:
-- What are you _looking for_? This may be the most important question. For instance, if you are looking for the presence of a word or a sentence within a text, then the sentence-level is enough; if you are looking to extract a theme where the meaning of a sentence depends on neighbouring sentences, then you should work at least at the paragraph level. 
-- Does your chosen unit have _thematic homogeneity_? If a unit addresses several themes at once, meaning will be diluted and the model’s performance will deteriorate. You should select a unit with more consistency. 
+The choice of an annotation unit depends on your research question, your data and the technical means available to you. Here are five questions you should pay attention to to make up your mind:   
+- What are you _looking for_? This may be the most important question. For instance, if you are looking for the presence of a word or a sentence within a text, then the sentence-level is enough; if you are looking to extract a theme where the meaning of a sentence depends on neighbouring sentences, then you should work at least at the paragraph level.    
+- Does your chosen unit have _thematic homogeneity_? If a unit addresses several themes at once, meaning will be diluted and the model’s performance will deteriorate. You should select a unit with more consistency.    
 - What is the likely _distribution of your labels_ across units? Though low units are generally easier to deal with, choosing a low unit can sometimes make a rare label even rarer. If two annotation units make sense, choose the one for which labels will be most evenly distributed.
-- Is there a model appropriate to your data whose _context window_ fits your chosen unit? For each model, the size that each entry can be (the context window) is capped. The base context window is 512 tokens (approx 300-400 English words), but some models can now go up to 8192 tokens. If no model appropriate to your data has a right context window, you should consider a lower annotation unit. Otherwise, ask yourself whether it is acceptable that data points exceeding the context window are truncated. 
-- Do you have enough _computing power_ to deal with your chosen unit? The bigger the context window is, the more computing power is needed to fine-tune the model. Be aware that if you do not have your own GPU and plan on using the CREST instance, the maximum context window that you can reasonably compute is 1024 tokens. 
+- Is there a model appropriate to your data whose _context window_ fits your chosen unit? For each model, the size that each entry can be (the context window) is capped. The base context window is 512 tokens (approx 300-400 English words), but some models can now go up to 8192 tokens. If no model appropriate to your data has a right context window, you should consider a lower annotation unit. Otherwise, ask yourself whether it is acceptable that data points exceeding the context window are truncated.    
+- Do you have enough _computing power_ to deal with your chosen unit? The bigger the context window is, the more computing power is needed to fine-tune the model. Be aware that if you do not have your own GPU and plan on using the CREST instance, the maximum context window that you can reasonably compute is 1024 tokens.    
 
 ### What set should I annotate first? 
 
@@ -66,15 +66,13 @@ We recommend starting by annotating your training set first, in order to get a g
 
 ### How many annotations do I need in the train set?
 
-There is no golden rule: it depends on the difficulty of the classification task.
-
-A few dozen annotations per label might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts. In any case, it is good practice to annotate roughly the same amount of texts per label. 
-
+There is no golden rule: it depends on the difficulty of the classification task.   
+A few dozen annotations per label might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts. In any case, it is good practice to annotate roughly the same amount of texts per label.    
 In general, more is always better, but it also depends on how useful your annotations are (see *Active learning* section).
 
 ### I have difficulties annotating my texts with my current scheme
 
-If as a human annotator you are not able to decide how to annotate a text with the current scheme, maybe you would need to redesign your scheme (increasing or decreasing the number of labels, or re-conceptualizing them)
+If as a human annotator you are not able to decide how to annotate a text with the current scheme, maybe you would need to redesign your scheme (increasing or decreasing the number of labels, or re-conceptualizing them). 
 
 ## Model hyperparameters and performance
 
