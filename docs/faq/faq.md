@@ -45,20 +45,24 @@ Yes. You can add your validation and/or test sets whenever you want. You need to
 If you think that it is too big, you don’t have to do anything. Simply annotate the number of data points that you want *in random order*. Untagged values will be ignored.   
 
 If you think that it is too small, you can drop your current test set and upload another one:   
-- First, export your test set and all your annotations: click on Export, then on “Tags: test” and “All annotations / schemes”.   
-- Using external tools (e.g. R or Python editors), gather the elements that have not been allocated to any set: take your original dataset and remove the elements present in “All annotations / schemes" dataset. Randomly draw the N elements that you wish to add and combine them with the “Tags: test” set that you have exported.    
-- Back in ActiveTigger, drop the current test set: go to Settings, click on Import, then on “Drop Test set”.   
-- In the same window, you can now import the new test set containing the additional N elements.    
+* First, export your test set and all your annotations: click on Export, then on “Tags: test” and “All annotations / schemes”.   
+* Using external tools (e.g. R or Python editors), gather the elements that have not been allocated to any set: take your original dataset and remove the elements present in “All annotations / schemes" dataset. Randomly draw the N elements that you wish to add and combine them with the “Tags: test” set that you have exported.    
+* Back in ActiveTigger, drop the current test set: go to Settings, click on Import, then on “Drop Test set”.   
+* In the same window, you can now import the new test set containing the additional N elements.    
 
 ## Data annotation
 
 ### Should I annotate my data at the sentence-level, paragraph-level or document-level? 
 The choice of an annotation unit depends on your research question, your data and the technical means available to you. Here are five questions you should pay attention to to make up your mind:   
-- What are you _looking for_? This may be the most important question. For instance, if you are looking for the presence of a word or a sentence within a text, then the sentence-level is enough; if you are looking to extract a theme where the meaning of a sentence depends on neighbouring sentences, then you should work at least at the paragraph level.    
-- Does your chosen unit have _thematic homogeneity_? If a unit addresses several themes at once, meaning will be diluted and the model’s performance will deteriorate. You should select a unit with more consistency.    
-- What is the likely _distribution of your labels_ across units? Though low units are generally easier to deal with, choosing a low unit can sometimes make a rare label even rarer. If two annotation units make sense, choose the one for which labels will be most evenly distributed.
-- Is there a model appropriate to your data whose _context window_ fits your chosen unit? For each model, the size that each entry can be (the context window) is capped. The base context window is 512 tokens (approx 300-400 English words), but some models can now go up to 8192 tokens. If no model appropriate to your data has a right context window, you should consider a lower annotation unit. Otherwise, ask yourself whether it is acceptable that data points exceeding the context window are truncated.    
-- Do you have enough _computing power_ to deal with your chosen unit? The bigger the context window is, the more computing power is needed to fine-tune the model. Be aware that if you do not have your own GPU and plan on using the CREST instance, the maximum context window that you can reasonably compute is 1024 tokens.    
+* What are you _looking for_? This may be the most important question. For instance, if you are looking for the presence of a word or a sentence within a text, then the sentence-level is enough; if you are looking to extract a theme where the meaning of a sentence depends on neighbouring sentences, then you should work at least at the paragraph level.    
+* Does your chosen unit have _thematic homogeneity_? If a unit addresses several themes at once, meaning will be diluted and the model’s performance will deteriorate. You should select a unit with more consistency.    
+* What is the likely _distribution of your labels_ across units? Though low units are generally easier to deal with, choosing a low unit can sometimes make a rare label even rarer. If two annotation units make sense, choose the one for which labels will be most evenly distributed.    
+* Is there a model appropriate to your data whose _context window_ fits your chosen unit? For each model, the size that each entry can be (the context window) is capped. The base context window is 512 tokens (approx 300-400 English words), but some models can now go up to 8192 tokens. If no model appropriate to your data has a right context window, you should consider a lower annotation unit. Otherwise, ask yourself whether it is acceptable that data points exceeding the context window are truncated.    
+* Do you have enough _computing power_ to deal with your chosen unit? The bigger the context window is, the more computing power is needed to fine-tune the model. Be aware that if you do not have your own GPU and plan on using the CREST instance, the maximum context window that you can reasonably compute is 1024 tokens.   
+
+### How to account for the specificities of my data (language, language register, time period)?
+The choice of model is instrumental to the way that text will be represented during the fine-tuning process. Among other characteristics, models vary in the nature of their _pre-training data_, which is the data that was used to teach models how to “understand” language. In general, the more of a language type a model has seen during pre-training, the better it is at representing meaning in that language type. That is why some models are pre-trained to be specifically tailored to a context, for instance to a contemporary or a historical instance of a language. Other models are efficiently generalist, but they may perform poorly in low-resource contexts (to what extent and how to fix this, in particular on historical corpora, is still an open research avenue). We encourage you to read the different models’ documentation on HuggingFace to find the model that suits your data best.          
+Then, of course, how you craft your codebook also matters. You should be careful to create labels that are relevant to the context(s) of your dataset as a whole.    
 
 ### What set should I annotate first? 
 
@@ -68,7 +72,7 @@ We recommend starting by annotating your training set first, in order to get a g
 
 There is no golden rule: it depends on the difficulty of the classification task.   
 A few dozen annotations per label might be enough for a simple task on short texts, but you might need several hundreds if you are looking for subtle details in longer texts. In any case, it is good practice to annotate roughly the same amount of texts per label.    
-In general, more is always better, but it also depends on how useful your annotations are (see *Active learning* section).
+In general, more is always better, but it also depends on how useful your annotations are (see [active learning](https://activetigger.com/documentation/conceptualizing/general/#what-is-active-learning) section).
 
 ### I have difficulties annotating my texts with my current scheme
 
