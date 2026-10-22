@@ -1,7 +1,7 @@
 # FAQ
 
 In this section you will find frequently asked questions (FAQ) on ActiveTigger.   
-For specific questions do not hesitate to reach out on [Discord](https://discord.gg/3uNnjw2k).
+For specific questions do not hesitate to reach out on [Discord](https://discord.gg/YqB3cNjZft).
 
 ## Access and account management
 
@@ -16,7 +16,7 @@ No. There is no copy of the data outside the one which is used by the project. W
 
 ### I have bugs or repetitive problems.
 
-You can have a look at the "Help" and "Bugs" sections of our [Discord community](https://discord.gg/3uNnjw2k) to see if someone else has had or is having the same issue. You can also directly expose your problem and ask your questions in these dedicated channels.     
+You can have a look at the "Help" and "Bugs" sections of our [Discord community](https://discord.gg/YqB3cNjZft) to see if someone else has had or is having the same issue. You can also directly expose your problem and ask your questions in these dedicated channels.     
 If you are sure that there is a bug, we invite you to open an issue on [Github](https://github.com/activetigger/activetigger).
 
 ### Can I launch processes if the GPU is already under use?
