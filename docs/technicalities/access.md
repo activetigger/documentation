@@ -41,7 +41,7 @@ A development instance of ActiveTigger is running on the Groupe ENSAE-ENSAI serv
 #### How to get in touch
 
 - **[GitHub issues](https://github.com/activetigger/activetigger/issues)** — for bug reports and feature suggestions
-- **[Discord](https://discord.gg/3uNnjw2k)** — for questions and discussions
+- **[Discord](https://discord.gg/YqB3cNjZft)** — for questions and discussions
 
 #### User agreement
 

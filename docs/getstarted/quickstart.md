@@ -123,6 +123,6 @@ Lastly, export your annotations, models and predictions to carry on the analysis
 
 If you encounter a bug or have a suggestion, feel free to raise an [issue on Github](https://github.com/activetigger/activetigger/issues).
 
-We also have an active [Discord community](https://discord.gg/3uNnjw2k) used to signal troubleshooting, exchange ideas, and ask questions about ActiveTigger. 
+We also have an active [Discord community](https://discord.gg/YqB3cNjZft) used to signal troubleshooting, exchange ideas, and ask questions about ActiveTigger. 
 
 For any other inquiry, please reach out at <a href="mailto:css@ensae.fr">css@ensae.fr</a>.
