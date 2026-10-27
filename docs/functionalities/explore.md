@@ -57,10 +57,10 @@ The Visualization tab displays a [projection](../conceptualizing/general.md#proj
 
 - <span class="action secondary">Parameters</span> to see the parameters of the current projection.
 
-- The visualization panel displays each text input in a 2D space. The color of the node depends on the label, _or the absence thereof_. 
-    - <span class="icon">![](../img/icons/visualisation-control/frame.svg)</span> to select a subset of text inputs.
+- The visualization panel displays each text input in a 2D space. By default, the color of the node depends on the label. However, if an active learning model is selected in the [Annotation page](./annotate.md), you can choose to color the nodes along the predictions of the said model (<span class="parameter"> Color by:</span> menu). 
+    - <span class="icon">![](../img/icons/visualisation-control/frame.svg)</span> to select a subset of text inputs in a frame.
     - <span class="icon">![](../img/icons/visualisation-control/frame-off.svg)</span> removes the frame.
-    - _If a frame exists_, <span class="icon">![](../img/icons/visualisation-control/lock.svg)</span><span class="action secondary"> Lock on selection</span> to lock on the frame. This will induce the [Annotate page](./annotate.md) to only display elements in the frame.
+    - If a frame exists, <span class="icon">![](../img/icons/visualisation-control/lock.svg)</span><span class="parameter"> Lock on selection</span> to lock on the frame. This will induce the [Annotate page](./annotate.md) to only display elements in the frame. 
     - Clicking a node displays the text input as well as previous annotations and the [Annotation Panel](./annotate.md#annotation-panel), much like in the [Annotation page](./annotate.md)
 
 Projection nodes' coordinates can be downloaded from the [Export page](./export.md#features).
