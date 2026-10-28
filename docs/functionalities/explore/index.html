@@ -74,6 +74,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#tabular-view">Tabular View</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lexicometry">Lexicometry</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#visualization">Visualization</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#topic-model">Topic model</a>
@@ -147,84 +149,121 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="explore-page">Explore Page</h1>
-<p>The explore panel allows to get an overview of the text datasets, either as a table or visualisation.</p>
+<p>The Explore panel allows to get an overview of your dataset by visualizing your data as a table and computing statistics, projections and topic modeling.</p>
 <h2 id="tabular-view">Tabular View</h2>
-<p>The tabular view displays your data in a tabular view. Filters are available to assist your exploration.</p>
+<p>The Tabular view displays your data as a table. Filters are available to assist your exploration.</p>
 <p><img alt="" src="../../img/functionalities/tabular-view.png" /></p>
 <ul>
-<li>Filters available<ul>
-<li>Select the dataset to explore ("train", "valid" or "test").</li>
-<li>Select elements with a tag.</li>
+<li>The table contains 6 columns including the text id, the assigned label, the user who assigned the label, the text, comments (if any), and the date the label was assigned.</li>
+<li>Click on one <span class="action secondary">id</span> to go to the <a href="../annotate/">Annotate page</a> and annotate the selected text input. This is also where you can edit or delete a comment (re-assign the label to save your changes). </li>
+<li>
+<p>Double-click on a <span class="action secondary">label</span> cell to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database. </p>
+</li>
+<li>
+<p>Filters available</p>
+<ul>
+<li>Select the dataset to explore ("train", "validation" or "test").</li>
+<li>Select elements with a given label or annotated by a given user. </li>
 <li>Select elements given a <a href="https://medium.com/@victoriousjvictor/understanding-regular-expressions-regex-e1c048f5aa6c">regex query</a>.</li>
 </ul>
 </li>
-<li>The table: The table contains 6 columns including the id, the label, the user who produced the label, the text, comments (if any), and the date the label was produced.<ul>
-<li>Click on the <span class="action primary">id</span> to go to the <a href="../annotate/">Annotate page</a> and annotate the text input.</li>
-<li>Click on the <span class="action primary">label</span> to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database.</li>
 </ul>
-</li>
-</ul>
-<h2 id="visualization">Visualization</h2>
-<p>The visualization tab displays a <a href="../../conceptualizing/general/#projections">projection</a> of the embedding space in two dimensions. Projections are computed with either <a href="https://pair-code.github.io/understanding-umap/">UMAP</a> or <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a>. </p>
+<h2 id="lexicometry">Lexicometry</h2>
+<p>The Lexicometry tab displays various statistics on your "train" data. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>There is only one projection per project. 
-Computing a new projection will overwrite the current projection.</p>
+<p>There can only be one lexicometry computation per project. <br />
+Be aware that recomputing lexicometrics it will overwrite the current computation. </p>
 </div>
+<p><img alt="" src="../../img/functionalities/lexicometry.png" /></p>
+<ul>
+<li>Document length: This section provides statistics over word and token counts (using the bert-base-multilingual-cased tokenizer). </li>
+<li>The table shows descriptive statistics over the set of documents. </li>
+<li>
+<p>The graphs show the distribution of documents according to their length in words (top graph) or tokens (bottom graph). Information on the histogram's bin width is available underneath. </p>
+</li>
+<li>
+<p>Most frequent words (stopword excluded): This section shows the most frequent words across your train set, with their associated frequency count. </p>
+</li>
+<li>
+<p>TF-IDF explorer: This section uses the <a href="https://en.wikipedia.org/wiki/Tf–idf">TF-IDF measure</a> to display the most significative words in your corpus. TF-IDF scores are computed for each word in each document: a high score means that the word is both highly frequent in the document and rare in the overall corpus.</p>
+</li>
+<li>By word: displays the first twenty-five documents where the selected word is the word with the highest TF-IDF score, along with the score. In the <span class="parameter">Select a word</span> menu, you can see the total number of documents in which a given word has the highest TF-IDF score. </li>
+<li>By document: for each document, displays the words that have the highest TF-IDF scores, along with the scores. The table only shows the first fifty documents. You can search for a specific document using its id. </li>
+</ul>
+<h2 id="visualization">Visualization</h2>
+<p>The Visualization tab displays a <a href="../../conceptualizing/general/#projections">projection</a> of the embedding space in two dimensions. Projections are computed with either <a href="https://pair-code.github.io/understanding-umap/">UMAP</a> or <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a>. </p>
 <p><img alt="" src="../../img/functionalities/visualisation.png" /></p>
 <ul>
-<li><span class="action primary">Compute new projection</span><ul>
-<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../conceptualizing/general/#representing-texts-with-features">what are features?</a>) to use for the projection. If choosing several sets of features, they will be concatenated before projection. <span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
-<li>When using <strong>UMAP</strong>:<ul>
-<li><span class="parameter">n neighbors</span>: Defines the size of a neighbourhood, hence whether two points are considered as "close" and should be kept together in the process or not.</li>
-<li><span class="parameter">min distance</span>: Aesthetic parameter, low values generate denser representations.</li>
+<li>
+<p><span class="action primary">Compute new projection</span></p>
+<ul>
+<li><span class="parameter">Name</span>: unique name (per project) for the projection.</li>
+<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../conceptualizing/general/#representing-texts-with-features">what are features?</a>) to use for the projection. If choosing several sets of features, they will be concatenated before projection.   <br />
+<span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
+<li>When <span class="parameter secondary">Select a model</span> is <strong>UMAP</strong> (default):<ul>
+<li><span class="parameter secondary">n_neighbors</span>: defines the size of a neighborhood, hence whether two points are considered as "close" and should be kept together in the process or not.</li>
+<li><span class="parameter secondary">min_dist</span>: aesthetic parameter for how close the kept points should be represented. Low values generate denser representations.</li>
 </ul>
 </li>
-<li>When using <strong>t-SNE</strong>:<ul>
-<li><span class="parameter">perplexity</span>: It controls the effective number of neighbors that each point considers during the dimensionality reduction process. (<a href="https://opentsne.readthedocs.io/en/latest/parameters.html#perplexity">Source</a>).</li>
+<li>When <span class="parameter secondary">Select a model</span> is <strong>t-SNE</strong>:<ul>
+<li><span class="parameter secondary">perplexity</span>: controls the effective number of neighbors that each point considers during the dimensionality reduction process (<a href="https://opentsne.readthedocs.io/en/latest/parameters.html#perplexity">more information</a>).</li>
 </ul>
 </li>
-<li><span class="parameter">Feature scaling</span>: this method normalizes the range of independent variables (i.e. each feature) (<a href="../../faq/faq/#should-i-scale-my-features">should I scale my features?</a>).</li>
+<li><span class="parameter secondary">Feature scaling</span>: this method normalizes the range of independent variables (i.e. each feature) (<a href="../../faq/faq/#should-i-scale-my-features">should I scale my features?</a>).</li>
 </ul>
 </li>
-<li><span class="action secondary">Parameters</span> to see the parameters of the current projection.</li>
-<li>The visualization panel displays each text input in a 2D space. The color of the node depends on the label, <em>or the absence thereof</em>. <ul>
-<li><span class="icon"><img alt="" src="../../img/icons/visualisation-control/frame.svg" /></span> to select a subset of text inputs.</li>
+<li>
+<p><span class="action secondary">Parameters</span> to see the parameters of the current projection.</p>
+</li>
+<li>
+<p>The visualization panel displays each text input in a 2D space. By default, the color of the node depends on the label. However, if an active learning model is selected in the <a href="../annotate/">Annotation page</a>, you can choose to color the nodes along the predictions of the said model (<span class="parameter"> Color by:</span> menu). </p>
+<ul>
+<li><span class="icon"><img alt="" src="../../img/icons/visualisation-control/frame.svg" /></span> to select a subset of text inputs in a frame.</li>
 <li><span class="icon"><img alt="" src="../../img/icons/visualisation-control/frame-off.svg" /></span> removes the frame.</li>
-<li><em>If a frame exists</em>, <span class="icon"><img alt="" src="../../img/icons/visualisation-control/lock.svg" /></span><span class="action secondary"> Lock the selection</span> to lock on the frame. Going to the <a href="../annotate/">Annotate page</a> will only display elements in the frame.</li>
+<li>If a frame exists, <span class="icon"><img alt="" src="../../img/icons/visualisation-control/lock.svg" /></span><span class="parameter"> Lock on selection</span> to lock on the frame. This will induce the <a href="../annotate/">Annotate page</a> to only display elements in the frame. </li>
 <li>Clicking a node displays the text input as well as previous annotations and the <a href="../annotate/#annotation-panel">Annotation Panel</a>, much like in the <a href="../annotate/">Annotation page</a></li>
 </ul>
 </li>
 </ul>
-<p>Projections can be downloaded from the <a href="../export/#features">Export page</a>.</p>
+<p>Projection nodes' coordinates can be downloaded from the <a href="../export/#features">Export page</a>.</p>
 <h2 id="topic-model">Topic model</h2>
-<p>The <a href="../../conceptualizing/general/#topic-models">topic model</a>) section displays existing topic models (for a given project, across all users) and allows to compute new ones with <a href="https://bertopic.com/">BERTopic</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
+<p>The Topic model section displays existing <a href="../../conceptualizing/general/#topic-models">topic models</a> on the "train" dataset (for a given project, across all users) and allows to compute new ones with <a href="https://bertopic.com/">BERTopic</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
 <p>The visual representation of the topics displays each text input as a node with a color corresponding to the topic generated by the topic model.</p>
 <p><img alt="" src="../../img/functionalities/bertopic.png" /></p>
 <ul>
-<li><span class="action primary">Compute new BERTopic</span> to create a new topic model.<ul>
-<li><span class="parameter">Name</span>: must be unique (per project)</li>
-<li><span class="parameter">Embedding model</span>: choose from the <a href="../../faq/faq/#choose-models-made-available">available embedding models</a> to compute the embeddings that will be used for fitting the model. These embeddings will be computed if they do not exist already for a given dataset.</li>
-<li><span class="parameter">Number of neighbours</span>: <a href="https://pair-code.github.io/understanding-umap/">UMAP parameter</a> — a dimension reduction algorithm; low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the overall structure (i.e. general topics) (more <a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">here</a>).</li>
-<li><span class="parameter">Min topic size</span>: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.HDBSCAN.html">HDBSCAN parameter</a> — a clustering algorithm —, this parameter corresponds to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate a few large groups, while decreasing this value will generate many small groups.</li>
-<li><span class="parameter secondary">Outlier reduction</span>: If set to <code>True</code>, all text inputs considered as noise will be added to the closest topic (<a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#reduce-outliers-strategies">more info</a>).</li>
-<li><span class="parameter secondary">Force compute embeddings</span>: If set to <code>True</code>, the app will first generate the embeddings overwriting any existing embeddings. </li>
-<li><span class="parameter secondary">Input dataset</span>: Which dataset should be used to fit the model (train, train + test + valid or the complete dataset uploaded to the project).</li>
-<li><span class="parameter secondary">Filter out texts of length lower than</span>: Before fitting the model, exclude text inputs of length inferior to this value. </li>
-<li><span class="parameter secondary">Number of components</span>: <a href="https://pair-code.github.io/understanding-umap/">UMAP parameter</a> — a dimension reduction algorithm; it defines the number of dimensions the algorithm reduces the embeddings to. Low values will flatten the representation of the input texts, whereas higher values maintain a richer representation (more <a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">here</a>).</li>
+<li>
+<p><span class="action primary">Compute new BERTopic</span> to create a new topic model.</p>
+<ul>
+<li><span class="parameter">Name</span>: unique name (per project) for the computation.</li>
+<li><span class="parameter">Embeddings feature</span>: choose an already-computed sentence-embedding feature. To use a different embedding model, first compute it from <a href="../settings/#features">the Features tab of the Settings</a>. </li>
+<li><span class="parameter">Number of neighbors</span>: dimension reduction parameter from the<a href="https://pair-code.github.io/understanding-umap/">UMAP algorithm</a>. Low values will generate a topic model focusing on local structures (i.e. very specific topics) whereas higher values will generate a topic model focusing on the overall structure (i.e. general topics) (<a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">more information</a>).</li>
+<li><span class="parameter">Min topic size</span>: clustering parameter from the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.HDBSCAN.html">HDBSCAN algorithm</a>. This parameter corresponds to the minimum number of elements in a group to be considered a cluster, otherwise the group is considered as noise. Increasing this value will generate a few large topics, while decreasing this value will generate many small topics.</li>
+<li><span class="parameter secondary">Outlier reduction</span>: if ticked (default), all text inputs considered as noise will be added to the closest topic (<a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#reduce-outliers-strategies">more information</a>).</li>
+<li><span class="parameter secondary">Input dataset</span>: which dataset should be used to fit the model (train or train + test + valid).</li>
+<li><span class="parameter secondary">Filter out texts of length lower than</span>: before fitting the model, exclude text inputs of length inferior to this value. </li>
+<li><span class="parameter secondary">Number of components</span>: dimension reduction parameter from the <a href="https://pair-code.github.io/understanding-umap/">UMAP algorithm</a>. It defines the number of dimensions that the algorithm reduces the embeddings to. Low values flatten the representation of the input texts, whereas higher values maintain a richer representation (<a href="https://css-polytechnique.github.io/css-ipp-materials/pages/techy-notes.html#tbl-umap-parameters">more information</a>).</li>
 </ul>
 </li>
-<li><span class="action secondary">Parameters</span> to see the parameters of the current topic model.</li>
-<li><span class="action primary">Convert to scheme</span> to create a <a href="../../conceptualizing/glossary/#schemes">scheme</a> and assign labels using the topics generated. <em>Topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation</em>.</li>
-<li><span class="action primary">Export topics</span> to download (csv file) the topic table displayed underneath.</li>
-<li><span class="action primary">Export topic per text</span> to download a mapping of each element id<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> to the topic index.</li>
-<li><span class="action primary">Topic model report</span> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and the parameters of the model).</li>
-<li>The table summarises the topic model. <ul>
+<li>
+<p><span class="action secondary">Parameters</span> to see the parameters of the current topic model.</p>
+</li>
+<li><span class="action secondary">Convert to scheme</span> to create a <a href="../../conceptualizing/glossary/#schemes">scheme</a> and assign labels using the topics generated. <em>Topic-generated labels should be used with caution and carefully reviewed, since they are not based on human annotation</em>.</li>
+<li><span class="action secondary">Convert to feature</span> to create a new feature based on the embeddings of the current topic model.</li>
+<li><span class="action secondary">Export topics</span> to download the topic table displayed underneath (in CSV format).</li>
+<li><span class="action secondary">Export topic per text</span> to download a mapping of each element id<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> to the topic index it corresponds to (in CSV format). </li>
+<li><span class="action secondary">Topic model report</span> to download an HTML report with key insights (topics description, 2D map, hierarchical representation, representative documents and parameters of the model).</li>
+<li>
+<p><span class="action secondary">Embeddings</span> to download the embeddings of the current topic model (in parquet format).</p>
+</li>
+<li>
+<p>The table summarises the topic model. </p>
+<ul>
 <li>Topic: the topic id.</li>
 <li>Count: the number of elements in the topic.</li>
-<li>Name: A standard name for the topic.</li>
-<li>Representation: A list of keywords that represent the topic.</li>
-<li>Representative docs: A list of documents that are at the core of the topic generated.</li>
+<li>Name: a standard name for the topic.</li>
+<li>Representation: a list of keywords that represent the topic.</li>
+<li>Representative docs: a list of documents that are at the core of the topic generated.</li>
 </ul>
 </li>
 </ul>

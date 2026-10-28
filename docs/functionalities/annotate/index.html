@@ -159,61 +159,86 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="annotate-page">Annotate page</h1>
-<p>The annotate panel is the main page of the app to annotate your text data. </p>
+<p>The Annotate panel is the main page of the app to annotate your data. </p>
 <p><img alt="" src="../../img/functionalities/annotate.png" /></p>
 <h2 id="selecting-text-inputs-to-annotate">Selecting text inputs to annotate</h2>
 <p>There are several ways to select a subset of text inputs.</p>
 <ul>
-<li><span class="parameter">Dataset</span>: Select the dataset on which you are working (train, validation or test).</li>
-<li><span class="parameter">Selection mode</span>: Change the order in which elements are shown (fixed (in the order of the original dataset) or random).</li>
-<li><span class="parameter">Active Mode</span>: Toggling this mode allows you to choose a model for Active Learning (more about the <a href="../../conceptualizing/general/#what-is-active-learning">concept</a>; more <a href="#active-learning-in-practice">on this page</a>). This unlocks new selection modes: <ul>
-<li>Max LABEL: orders the text inputs by decreasing probability to be of a given LABEL.</li>
-<li>Active: orders the text inputs by decreasing entropy (prioritizing uncertain predictions).</li>
-<li>Active LABEL: orders the text inputs by decreasing entropy with regard to this specific LABEL.</li>
+<li><span class="parameter">Dataset</span>: select the dataset on which you are working (train, validation or test).</li>
+<li><span class="parameter">Selection method</span>: change the order in which elements are shown. </li>
+<li>fixed (in the order of the original dataset)</li>
+<li>random</li>
+<li><span class="parameter">Active Mode</span>: toggling this mode allows you to choose a model for Active Learning (more about the <a href="../../conceptualizing/general/#what-is-active-learning">concept</a>, more about its <a href="#active-learning-in-practice">implementation</a>). This unlocks new selection methods: <ul>
+<li>max LABEL: orders the text inputs by decreasing probability to be of a given LABEL.</li>
+<li>active: orders the text inputs by decreasing entropy (prioritizing uncertain predictions).</li>
+<li>active LABEL: orders the text inputs by decreasing entropy with regard to this specific LABEL.</li>
 </ul>
 </li>
-<li><a class="parameter">Filter by content</a>: Only displays elements with specific characteristics<ul>
-<li>Being labeled with LABEL</li>
-<li>Being labeled by a specific user</li>
-<li>With comments : elements which have a comment</li>
-<li>Wrong prediction : elements for those there is a disagreement between annotation and prediction</li>
-<li>Predicted as LABEL by current active model</li>
-<li>Matching a search / regex expression</li>
-<li>*To search in the context variables, use <code>CONTEXT=[your regex]</code> before the search</li>
-<li>*Possibility to use a query for more complex selection with under the hood <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html">Pandas query</a> ; use <code>QUERY=[your query]</code>.</li>
+<li><span class="parameter">Prompts</span>: only displays elements matching a specific prompt. Elements are ranked by descending similarity with the prompt.   <ul>
+<li>To use this mode: type a prompt, then <span class="action primary">Create prompt</span>, and exit the window. This unlocks a new selection method, <span class="parameter">prompt (embedding)</span> which allows you to then select the prompt you have typed.</li>
+<li>The <span class="parameter">Max similarity</span> slider allows you to display only the elements with at most the selected similarity with the prompt. Lowering similarity can be helpful to find related but not identical items. </li>
 </ul>
 </li>
+<li><span class="parameter">Filter by Tag/Users</span>: only displays elements with specific characteristics<ul>
+<li>being labeled with LABEL</li>
+<li>being labeled by a specific user</li>
+<li>with comments: elements which have a comment</li>
+<li>wrong prediction: elements for those there is a disagreement between annotation and prediction</li>
+<li>predicted as LABEL by current active model</li>
+</ul>
+</li>
+<li><span class="parameter">Filter by content</span>: only displays elements matching a search / RegEx expression (more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet">RegEx</a>).<ul>
+<li>To search in the context variables, use <code>CONTEXT=[your regex]</code> before the search</li>
+<li>It is possible to use a query for more complex selection with under the hood <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html">Pandas query</a> ; use <code>QUERY=[your query]</code>.</li>
+</ul>
+</li>
+<li><span class="parameter">Filter by projection</span>: when inputs are selected via a frame in the <a href="../explore/#visualization">Visualization tab of the Explore page</a>, you can <span class="parameter">Lock on projection</span> to only display the inputs contained in the frame. </li>
 </ul>
 <h2 id="annotation-panel">Annotation panel</h2>
-<p>The center of the page displays the text box as well as several buttons: </p>
+<p>The center of the page displays the text box as well as several buttons. </p>
 <ul>
-<li><span class="action primary">LABEL</span>: To tag the text input with the given LABEL and move on to the next text input.</li>
-<li><span class="action primary"><img alt="" src="../../img/icons/no-tag.svg" /> No tag</span>: if a tag exists, remove it and move on to the next text input.</li>
-<li><span class="action primary">Skip</span>: Move on to the next text input without altering the annotation.</li>
+<li><span class="action primary">LABEL</span> : tag the text input with the given LABEL and move on to the next text input.</li>
+<li><span class="action primary"><img alt="" src="../../img/icons/no-tag.svg" /> No tag</span> : if a tag exists, remove it and move on to the next text input.</li>
+<li><span class="action primary">Skip</span> : move on to the next text input without altering the annotation.</li>
 <li>Add a comment to your annotation in the comment text box.</li>
+<li>If you want to access the Codebook during annotation, click on <span class="action secondary"><img alt="" src="../../img/icons/book.svg" /></span>. </li>
 </ul>
-<p>Most actions can be triggered with hotkeys (1,2,3 .. S or DEL).</p>
+<p>Most actions can be triggered with hotkeys (1,2,3 .. → or DEL).</p>
 <h3 id="display-parameters">Display parameters</h3>
 <p><span class="action secondary"><img alt="" src="../../img/icons/display.svg" /></span> opens a modal to modify the annotation panel display.</p>
 <ul>
-<li><span class="parameter">Annotation History</span>: to display previous annotations of the given text input.</li>
-<li><span class="parameter">Existing annotation</span>: to display existing annotation on the current text input.</li>
-<li><span class="parameter">Show prediction button</span>: to display a button for the label predicted by the model, bound to the hotkey "P" (if Active Mode is on).</li>
-<li><span class="parameter">Show prediction stats</span>: to display the model's probability as well as the predicted label (if Active Mode is on).</li>
-<li><span class="parameter">Element history</span>: to display previous tags at the bottom of the text box.</li>
-<li><span class="parameter">Tokens approximation</span>: Approximate an estimation of text truncation. Given a window size, text inputs exceeding this limit will be written in another column to emphasise possible truncation. This parameter is only visual and has no other impact.</li>
-<li><span class="parameter">Height</span>: to set the height of the text box.</li>
-<li><span class="parameter">Width</span>: to set the width of the text box.</li>
-<li><span class="parameter">Force one column layout</span>: to display the label buttons in a column.</li>
+<li><span class="parameter">Annotation History</span>: if ticked, displays previous annotations of the session.</li>
+<li><span class="parameter">Existing annotation</span>: if ticked, displays existing annotation of the current text input.</li>
+<li><span class="parameter">Show prediction</span>: if ticked, displays a button for the label predicted by the model (bound to the hotkey "P") when Active Mode is on.</li>
+<li><span class="parameter">Show prediction stats</span>: if ticked, displays the model's probability as well as the predicted label (if Active Mode is on).</li>
+<li><span class="parameter">Element history</span>: if ticked, displays previous tags of the current text input at the bottom of the text box.</li>
+<li><span class="parameter">Mean annotation time</span>: if ticked, displays at the bottom of the screen the mean annotation time for the future annotations performed during the session. If the history is cleared, the annotation time is reset. </li>
+<li><span class="parameter">Tokens</span>: approximate an estimation of text truncation. Given a window size, text inputs exceeding this limit will be written in another color to emphasise possible truncation. This parameter is only visual and has no other impact.</li>
+<li><span class="parameter">Height</span>: set the height of the text box.</li>
+<li><span class="parameter">Width</span>: set the width of the text box.</li>
+<li><span class="parameter">Force bottom labels</span>: if ticked, displays the label buttons horizontally under the text box.</li>
+<li><span class="parameter">Force complete labels</span>: if ticked, adapts the label buttons' font size so that the whole label is legible.</li>
+<li><span class="parameter">Highlight first</span> </li>
 <li><span class="parameter">Highlight words in the text</span> Similar to <span class="parameter">Filter by content</span> but without removing items not containing the regex expression.</li>
 </ul>
 <h3 id="annotation-history">Annotation history</h3>
-<p>The last 100 text inputs annotated are visible underneath the annotation page. For Active Learning to work best, the application retains, at all times, the list of text inputs annotated. This way, unless you <span class="action secondary">Clear history</span>, these elements will not be shown again.</p>
+<p>The last hundred inputs annotated are visible underneath the annotation panel. For Active Learning to work best, the application retains, at all times, the list of text inputs annotated. This way, unless you <span class="action secondary">Clear history</span>, these elements will not be shown again.</p>
+<ul>
+<li>You can choose to view your annotation history as cards (default) or as a table (by clicking on <span class="action secondary"><img alt="" src="../../img/icons/display-as-table.svg" /></span>). </li>
+<li>You can also hide the history without clearing it by clicking on <span class="action secondary"><img alt="" src="../../img/icons/hide-history.svg" /></span>.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Changing scheme will automatically clear the history.</p>
+</div>
 <h3 id="active-learning-in-practice">Active Learning in practice</h3>
-<p><em>Read about the concept of <a href="../../conceptualizing/general/#what-is-active-learning">Active learning</a></em></p>
-<p>In the Annotate page, you can select a model (quick or BERT) to use its predictions for <span class="icon"><img alt="" src="../../img/icons/active-tiger.svg" /></span> Active Learning. <br/> This will permit you to see the chosen model's predictions ("guesses") for which category a given element belongs to, allowing you to correct it or confirm this prediction by manual annotation.
-Quick models can be <span class="action primary"><img alt="" src="../../img/icons/refresh.svg" /></span> retrained, all models can be <span class="action primary"><img alt="" src="../../img/icons/no-tag.svg" /></span> unselected. <br/>
-To use BERT models in active learning, you must first compute the predictions on the dataset, in the <a href="../model/#evaluation">Evaluate tab</a> <span class="action primary">Compute statistics on current annotations</span>.</p>
+<p><em>Read about the concept of <a href="../../conceptualizing/general/#what-is-active-learning">Active learning</a></em>.</p>
+<p>In the Annotate page, you can select a model (quick or BERT) to use its predictions for <span class="icon"><img alt="" src="../../img/icons/active-tiger.svg" /></span> Active Learning. <br/> This will allow you to see the chosen model's predictions ("guesses") for which category a given element belongs to, allowing you to correct it or confirm this prediction by manual annotation.</p>
+<p>To use BERT models in active learning, you must first compute the predictions on the dataset, in the <a href="../model/#evaluation">Evaluate tab</a> <span class="action primary">Compute statistics on current annotations</span>.</p>
+<p>When active learning is on, clicking on <span class="icon"><img alt="" src="../../img/icons/active-tiger.svg" /> Model name</span> can allow you to: 
+- Retrain quick model, either manually (<span class="action secondary"><img alt="" src="../../img/icons/refresh.svg" /> Retrain now</span>) or every x annotations.
+- Change model used for active learning.
+- Deactivate active learning (<span class="action secondary"><img alt="" src="../../img/icons/no-tag.svg" /> Deactivate</span>). <br/></p>
 <p>Models trained on a reduced number of labels can be used, they will simply ignore unseen labels.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -224,9 +249,11 @@ To use BERT models in active learning, you must first compute the predictions on
 <p>In the "Current scheme" tab, disagreements between different users are displayed, meaning cases when several users annotating data in a given project have annotated the same element differently. You can resolve these disagreements by choosing a final label.</p>
 <p>In the "Between scheme" tab, you can compare different annotations of the same element between different coding schemes.</p>
 <h2 id="annotate-multi-label">Annotate (multi-label)</h2>
-<p>When applying multiple labels to the same element, the general layout is unchanged. To annotate elements, select one or more labels in the dropdown menu and <span class="action primary"><img alt="" src="../../img/icons/validate.svg" /></span> to save the annotation and move on to the next text input.</p>
+<p>When applying multiple labels to the same element, the general layout is unchanged. To annotate elements, select one or more labels in the dropdown menu and <span class="action primary"><img alt="" src="../../img/icons/validate.svg" /> Validate</span> to save the annotation and move on to the next element.</p>
 <h2 id="annotate-span">Annotate (span)</h2>
-<p>To annotate the text, first select a <span class="action primary">LABEL</span>, then highlight the text in the text box. Click on the highlight to remove. <span class="action primary"><img alt="" src="../../img/icons/validate.svg" /> Validate the annotation</span> to save the annotation and move on to the next text input.</p>
+<p>To annotate the text, first select a <span class="action primary">LABEL</span>, then highlight the text in the text box. 
+Click on the highlight to remove it.  <br />
+<span class="action primary"><img alt="" src="../../img/icons/validate.svg" /> Validate</span> the annotation to save the annotation and move on to the next text input.</p>
               
             </div>
           </div><footer>
