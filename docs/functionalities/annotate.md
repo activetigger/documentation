@@ -72,8 +72,13 @@ The last hundred inputs annotated are visible underneath the annotation panel. F
 *Read about the concept of [Active learning](../conceptualizing/general.md#what-is-active-learning)*.
 
 In the Annotate page, you can select a model (quick or BERT) to use its predictions for <span class="icon">![](../img/icons/active-tiger.svg)</span> Active Learning. <br/> This will allow you to see the chosen model's predictions ("guesses") for which category a given element belongs to, allowing you to correct it or confirm this prediction by manual annotation.
-Quick models can be <span class="action primary">![](../img/icons/refresh.svg)</span> retrained, all models can be <span class="action primary">![](../img/icons/no-tag.svg)</span> unselected. <br/>
+
 To use BERT models in active learning, you must first compute the predictions on the dataset, in the [Evaluate tab](./model.md#evaluation) <span class="action primary">Compute statistics on current annotations</span>.
+
+When active learning is on, clicking on <span class="icon">![](../img/icons/active-tiger.svg) Model name</span> can allow you to: 
+- Retrain quick model, either manually (<span class="action secondary">![](../img/icons/refresh.svg) Retrain now</span>) or every x annotations.
+- Change model used for active learning.
+- Deactivate active learning (<span class="action secondary">![](../img/icons/no-tag.svg) Deactivate</span>). <br/>
 
  Models trained on a reduced number of labels can be used, they will simply ignore unseen labels.
 
