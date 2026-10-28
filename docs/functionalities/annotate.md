@@ -16,9 +16,9 @@ There are several ways to select a subset of text inputs.
     - max LABEL: orders the text inputs by decreasing probability to be of a given LABEL.
     - active: orders the text inputs by decreasing entropy (prioritizing uncertain predictions).
     - active LABEL: orders the text inputs by decreasing entropy with regard to this specific LABEL.
-- <span class="parameter">Prompts</span>: only displays elements matching a specific prompt. 
-    - Enter a prompt, then <span class="action primary">Create prompt</span>, and exit the window.
-    - This unlocks a new selection method, <span class="parameter">prompt (embedding)</span> which allows you to select the prompt you've typed.
+- <span class="parameter">Prompts</span>: only displays elements matching a specific prompt. Elements are ranked by descending similarity with the prompt.   
+    - To use this mode: type a prompt, then <span class="action primary">Create prompt</span>, and exit the window. This unlocks a new selection method, <span class="parameter">prompt (embedding)</span> which allows you to then select the prompt you have typed.
+    - The <span class="parameter">Max similarity</span> slider allows you to display only the elements with at most the selected similarity with the prompt. Lowering similarity can be helpful to find related but not identical items. 
 - <span class="parameter">Filter by Tag/Users</span>: only displays elements with specific characteristics
     - being labeled with LABEL
     - being labeled by a specific user
