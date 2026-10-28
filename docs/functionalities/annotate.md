@@ -16,6 +16,9 @@ There are several ways to select a subset of text inputs.
     - max LABEL: orders the text inputs by decreasing probability to be of a given LABEL.
     - active: orders the text inputs by decreasing entropy (prioritizing uncertain predictions).
     - active LABEL: orders the text inputs by decreasing entropy with regard to this specific LABEL.
+- <span class="parameter">Prompts</span>: only displays elements matching a specific prompt. 
+    - Enter a prompt, then <span class="action primary">Create prompt</span>, and exit the window.
+    - This unlocks a new selection method, <span class="parameter">prompt (embedding)</span> which allows you to select the prompt you've typed.
 - <span class="parameter">Filter by Tag/Users</span>: only displays elements with specific characteristics
     - being labeled with LABEL
     - being labeled by a specific user
@@ -25,6 +28,7 @@ There are several ways to select a subset of text inputs.
 - <span class="parameter">Filter by content</span>: only displays elements matching a search / RegEx expression (more about [RegEx](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet)).
     - To search in the context variables, use `CONTEXT=[your regex]` before the search
     - It is possible to use a query for more complex selection with under the hood [Pandas query](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html) ; use `QUERY=[your query]`.
+- <span class="parameter">Filter by projection</span>: when inputs are selected via a frame in the [Visualization tab of the Explore page](../functionalities/explore.md#visualization), you can <span class="parameter">Lock on projection</span> to only display the inputs contained in the frame. 
 
 
 ## Annotation panel
