@@ -27,7 +27,7 @@ The Codebook allows you to keep information on how to use the current scheme.
 
 The table summarizes existing labels in the current scheme and the distribution of annotations for each dataset (train, validation and test). 
 
-- <span class="parameter">New label name</span> <span class="action primary">Add</span> to create a new label.
+- <span class="action input">New label name</span> then <span class="action primary">Add</span> to create a new label.
 - <span class="icon">![](../img/icons/delete.svg)</span> to delete the specific label.
 - <span class="icon">![](../img/icons/rename.svg)</span> to rename the specific label (renaming a label to the name of an existing label will result in merging existing annotations).
 

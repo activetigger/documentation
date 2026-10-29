@@ -30,7 +30,7 @@ The Lexicometry tab displays various statistics on your "train" data.
 - Most frequent words (stopword excluded): This section shows the most frequent words across your train set, with their associated frequency count. 
 
 - TF-IDF explorer: This section uses the [TF-IDF measure](https://en.wikipedia.org/wiki/Tf–idf) to display the most significative words in your corpus. TF-IDF scores are computed for each word in each document: a high score means that the word is both highly frequent in the document and rare in the overall corpus.
-    - By word: displays the first twenty-five documents where the selected word is the word with the highest TF-IDF score, along with the score. In the <span class="parameter">Select a word</span> menu, you can see the total number of documents in which a given word has the highest TF-IDF score. 
+    - By word: displays the first twenty-five documents where the selected word is the word with the highest TF-IDF score, along with the score. In the <span class="action input">Select a word</span> menu, you can see the total number of documents in which a given word has the highest TF-IDF score. 
     - By document: for each document, displays the words that have the highest TF-IDF scores, along with the scores. The table only shows the first fifty documents. You can search for a specific document using its id. 
 
 !!! warning 
