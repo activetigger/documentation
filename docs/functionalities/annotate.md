@@ -2,7 +2,7 @@
 
 The Annotate Page is the main page of the app to annotate your data. 
 
-All annotation modes share the same layout, with some specificities for multi-label and span annotation that you can find [below](../functionalities/annotate.md#annotate-multi-label). 
+All annotation types share the same layout, with some specificities for multi-label and span annotation that you can find [below](../functionalities/annotate.md#annotate-multi-label). 
 
 ![](../img/functionalities/annotate.png)
 
