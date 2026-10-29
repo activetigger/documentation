@@ -77,7 +77,7 @@ The import tab allows you to import data for the current process outside of the 
         - <span class="parameter">File to upload</span>: Parquet, CSV or XLSX file, limit defined by the administrator.
         - <span class="parameter">ID column</span>: index to identify each element in the treatment ; either from an existing column or row number. If the chosen index is not unique, an internal index is created different from the external index.
         - <span class="parameter">Text column(s)</span>: The column(s) to use as text input. If several columns are selected, content of the columns will be concatenated with two linebreaks. 
-        - <span class="parameter">Column(s) for existing annotations (optional)</span>: Load existing annotations. If labels are not found in the current scheme, they will be ignored.
+        - <span class="parameter">Column(s) for existing annotations (optional)</span>: load existing annotations. The column(s) containing the labels must have the same name as the scheme(s) in which the labels and the set will be imported. If labels are not found in the scheme, they will be ignored.
         - <span class="parameter">Number of elements</span>: number of rows in the set. 
 
 ## Session history 
