@@ -1,10 +1,10 @@
 # Model Page
 
-The model panel allows the management of models, i.e. their training and evaluation.
+The model panel allows the training and evaluation of models, as well as the final prediction over whole datasets.
 
 ## Training
 
-This section describes the Training tab, the parameters available for training as well as the key insights displayed on the page.
+This section describes the Training tab, the parameters available for training as well as the key insights displayed on the page. Every action in this tab is performed on the train dataset, that is the subset of the train set where labels exist. 
 
 ![](../img/functionalities/models.png) 
 
@@ -16,7 +16,7 @@ When launching a model training, the model will be trained on the subset of the 
 
 Models available include: 
 
-- [Logistic model](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) with L2 penalty: A linear classifier that combines features with weighted coefficients and applies an L2 (ridge) penalty to keep weights small and reduce overfitting. The parameters are: 
+- [Logistic model](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) with L2 penalty (default): A linear classifier that combines features with weighted coefficients and applies an L2 (ridge) penalty to keep weights small and reduce overfitting. The parameters are: 
     - <span class="parameter">Cost</span>: Inverse of regularization strength (scikit-learn's `C`). Lower values mean stronger regularization (smaller weights); higher values fit the training data more closely.
 - [Logistic model](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) with L1 penalty: Same as above but with an L1 (lasso) penalty, which tends to drive uninformative feature weights exactly to zero (sparse model). Useful for feature selection. The parameters are: 
     - <span class="parameter">Cost</span>: Same as for L2 — lower values mean stronger regularization.
@@ -35,16 +35,17 @@ Models available include:
 
 On top of model-specific parameters, additional parameters can be set: 
 
-- <span class="parameter">Name for the model</span>: The name used as a reference in the interface. It must be unique within a project.
-- <span class="parameter">Automatically balance labels</span>: If set to True, the model will be trained on a subset of the train dataset[^2] constructed by picking an equal number of text inputs across labels. 
+- <span class="parameter">Model name</span>: The name used as a reference in the interface. It must be unique within a project.
+- <span class="parameter">Automatically balance labels</span>: If ticked, the model will be trained on a subset of the train dataset[^2] constructed by picking an equal number of inputs across labels. 
+- <span class="parameter">Train-eval split size</span>: The share of your train set that will be allocated to evaluating the model at every training step.   
 - <span class="parameter">10-fold cross validation</span>: Computes performance test using the [10-fold cross validation technique](http://scikit-learn.org/stable/modules/cross_validation.html).
-- <span class="parameter">Labels to ignore</span>: Labels selected will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for Active Learning (see [Annotation page](./annotate.md#active-learning-in-practice)). 
+- <span class="parameter">Labels to ignore</span>: Selected labels will be ignored. You need at least two labels to start training a model. Models with ignored labels are available for Active Learning (see [Annotation page](./annotate.md#active-learning-in-practice)). 
 
 <!-- TODO: ADD the retraining process-->
 
-### BERTmodel
+### BERT Models
 
-The BERT Models are pre-trained encoders models with a classification layer [trained with the huggingface framework](https://huggingface.co/docs/transformers/tasks/sequence_classification). They can take a dozen minutes to train and require GPUs[^1]. These models can be used for [Active Learning](../conceptualizing/general.md#what-is-active-learning) in the [Annotate page](./annotate.md).
+The BERT Models are pre-trained encoders models with a classification layer [trained with the HuggingFace framework](https://huggingface.co/docs/transformers/tasks/sequence_classification). They can take a dozen minutes to train and require GPUs[^1]. These models can be used for [Active Learning](../conceptualizing/general.md#what-is-active-learning) in the [Annotate page](./annotate.md).
 
 [^1]: You can train on the CPU but that would be sub-optimal.
 
@@ -55,36 +56,34 @@ When launching a model training, the model will be trained on the subset of the 
 The parameters for the model are: 
 
 - <span class="parameter">Name for the model</span> The name used as a reference in the interface.
-- <span class="parameter">Model base</span>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface ([which models can I train?](../faq/faq.md#choose-models-made-available)). 
-- <span class="parameter">Context window size</span>: The number of tokens per entry. After tokenization each input is truncated/padded to match this size. If selecting <span class="parameter">Auto adjust Max context window size</span> the window size will be calculated as the minimum between the maximum window size of the model and the length of the longest entry of the dataset.
+- <span class="parameter">Model base</span>: The pretrained model used for generating the embeddings. Models are loaded through the HuggingFace interface (learn more about model choice [in the FAQ](../faq/faq.md#how-to-account-for-the-specificities-of-my-data-language-language-register-time-period)). 
+- <span class="parameter">Context window size (in tokens)</span>: The maximum number of tokens per input that the model can consider. Longer inputs will be truncated to match this size. If selecting <span class="parameter">Auto adjust Max context window</span> the window size will be set to the length of the longest input of the dataset.
 - <span class="parameter">Epochs</span>: The number of times the model will be trained on the train dataset[^2] ([more on choosing the hyperparameters](../conceptualizing/general.md#which-hyper-parameters-to-choose)). 
-- <span class="parameter">Learning Rate</span>: The initial learning rate value used during training ([more on choosing the hyperparameters](../conceptualizing/general.md#which-hyper-parameters-to-choose)). 
+- <span class="parameter">Learning Rate</span>: The learning step value used during training ([more on choosing the hyperparameters](../conceptualizing/general.md#which-hyper-parameters-to-choose)). 
 - <span class="parameter">Weight Decay</span>: The probability for a weight to not be updated during the backward propagation ([more on choosing the hyperparameters](../conceptualizing/general.md#which-hyper-parameters-to-choose)).
-- <span class="parameter secondary">Use GPU</span>: If set to True, the model will be trained on GPU — _if available_.
+- <span class="parameter secondary">Use GPU</span>: If ticked, the model will be trained on GPU _if available_.
 - <span class="parameter secondary">Batch size</span>: The number of inputs provided to the model at once. Large batch size makes training faster but requires higher tier hardware.
 - <span class="parameter secondary">Gradient Accumulation</span>: The number of batches used to update the weights during the backward propagation. @JULIEN
-- <span class="parameter secondary">Eval</span>: This is the number of evaluations — scoring performance on the train-eval dataset — performed during training.
+- <span class="parameter secondary">Eval</span>: The number of evaluations — scoring performance on the train-eval dataset — performed during training.
 - <span class="parameter secondary">Train-eval split size</span>: The ratio of elements in the train dataset[^2] that will be used to assess the model performance during training.
-- <span class="parameter secondary">Label threshold</span>: The minimum number of annotations per label required.
-- <span class="parameter secondary">Balance labels</span>: If set to True, the train dataset[^2] will be constructed using the same number of text inputs per label.
+- <span class="parameter secondary">Balance labels</span>: If ticked, the train dataset[^2] will be constructed using the same number of text inputs per label.
 - <span class="parameter secondary">Loss</span>: The loss function used to optimise the model weights for training.
-- <span class="parameter secondary">Keep the best model</span>: If set to True, the best model (i.e. the one with the lowest evaluation loss) across epochs/checkpoints is kept instead of the final one.
-- <span class="parameter secondary">Labels to ignore</span>: Text inputs with these labels will be dropped out of the train dataset[^2].
+- <span class="parameter secondary">Keep the best model</span>: If ticked, the best model (i.e. the one with the lowest evaluation loss) across epochs/checkpoints is kept instead of the final one.
+- <span class="parameter secondary">Label threshold</span>: The minimum number of annotations per label required.
+- <span class="parameter secondary">Labels to ignore</span>: Inputs with these labels will be dropped out of the train dataset[^2].
 
-[^2]: Reminder: the train dataset is the subset of the train set where labels exist.
-
-Trained BERT models are downloadable from the [Export page](./export.md#models). Users can download the model files as well as the predictions on the dataset of the project or an external dataset.
+Trained BERT models are downloadable from the Export page. Users can download the model files as well as the predictions on the dataset of the project or an external dataset ([learn more on the Export page](./export.md)).
 
 ### Key insights
 
-For both classifiers, the application displays the Macro F1-Score ([what metrics to use](../faq/faq.md#what-metrics-should-i-use)) as well as the [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) and scores per label ([Recall, Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision_vs._Recall) and [F1](https://en.wikipedia.org/wiki/F-score#Definition))
+For both classifiers, the application displays the Macro F1-Score as well as the [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) and scores per label ([Recall, Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision_vs._Recall) and [F1](https://en.wikipedia.org/wiki/F-score#Definition))
 
 !!! warning
 
-    The performance are computed on the train-eval dataset
+    The performances are computed on the train-eval dataset.
 
-- <span class="action secondary">Show false predictions</span> to display the text inputs where the classification failed.
-- <span class="action secondary">Download as JSON</span> to download the confusion matrix, scores per label and false predictions as a JSON file.
+- <span class="action secondary">Show wrong predictions</span> to display the text inputs where the classification failed and compare the prediction with your annotation.
+- <span class="action secondary">Download as JSON</span> to download the confusion matrix, scores per label and wrong predictions as a JSON file.
 - <span class="action secondary">Parameters</span> to show the parameters of the model and the training arguments.
 - <span class="action secondary">Rename</span> to rename the model.
 
@@ -92,8 +91,24 @@ For **BERT models only**, the application displays the [loss curve](https://en.w
 
 ## Evaluation
 
-The Evaluation tab shows similar components as the [Training](#training) tab. After selecting a classifier, <span class="action primary">Compute statistics on current annotations</span> to compute the performance of the model on the full train, test and validation set[^3]. The evaluation is computed on the different available dataset : the train dataset (for indication), the validation dataset if exists and the test dataset if exists.
+The Evaluation tab shows similar components as the [Training](#training) tab. After selecting a classifier, <span class="action primary">Compute predictions</span> to compute the predictions of the model on the full train, validation and test sets[^2], if they exist. Performance scores are presented similarly as in the [Training tab](#key-insights). 
 
-The rest of the layout is similar to the one in the [Training tab](#key-insights).
+!!! note
 
-[^3]: Again, the text inputs with no label are removed from the train, test and validation sets before computing the performance. 
+    The predictions over the three datasets have different purposes: those of the train set are given as indication of the model's learning, those of the validation set are used to compare models and improve hyperparameters, and those of the test set are used to evaluate the performance of your final model. Learn more [on the fine-tuning process](../conceptualizing/general.md). 
+
+[^2]: Again, the text inputs with no label are removed from the train, test and validation sets before computing the performance. 
+
+## Prediction
+
+Once you have selected the model with the best performance, you can use the Prediction tab to apply the model to the rest of your data. 
+
+Select the right model, then:
+- <span class="action primary">Predictions on the entire dataset</span> to compute predictions over the data already imported in ActiveTigger but that has not been manually annotated. 
+- <span class="action primary">Prediction on an external dataset</span> to import a dataset (in CSV, XLSX or Parquet format) and compute predictions over this data. 
+
+You can download the predictions in the [Export page](./export.md).
+
+!!! warning
+    
+    If predictions have already been computed on an external dataset, computing predictions over a new imported dataset will overwrite the current predictions. 
