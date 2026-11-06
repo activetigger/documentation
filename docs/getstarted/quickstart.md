@@ -39,13 +39,14 @@ Click on [**New Project**](../functionalities/project-creation.md), choose "Load
 Optional: 
 
 - **Existing annotations** — If your file already contains labels, you can import them.
-- **Test set** — A held-out sample used later to evaluate your model.
+- **Validation set** — A held-out sample used later to compare your models.
+- **Test set** — Another held-out sample used to evaluate your final model.
 
 !!! tip "Quickstart Case"
 
     To download the example dataset, click on "Detecting Stance in Media On Global Warming" under the "Load Dataset from disk" option.
     
-    Select "Row number" as id, "sentence" as text column and "English" as language. In our example, we will use a size of 1000 for the train set and 500 for the test set. You do not need to understand why we chose these figures for now (eventually you will learn about [setting set sizes](../faq/faq.md#train-validation-and-test-sets)), but you can read more about [set types](../conceptualizing/general.md).
+    Select "Row number" as id, "sentence" as text column and "English" as language. In our example, we will use a size of 1750 for the train set, 150 for the validation set and 150 for the test set. You do not need to understand why we chose these figures for now (eventually you will learn about [setting set sizes](../faq/faq.md#train-validation-and-test-sets)), but you can read more about [set types](../conceptualizing/general.md).
 
 ## 2. Define your annotation scheme
 
@@ -86,40 +87,43 @@ Next, let's start annotating! Go to the [**Tag** tab](../functionalities/annotat
 
 In a session, you can only see each element once to avoid repetition. You can clean the history with the button <span class="action secondary">Clear history (3 items)</span>
 
-!!! info "Active Learning"
+!!! info "Try Active Learning"
 
     Going through the dataset in a random order can be time-consuming, as it may take a while to find enough examples of each category. This is where active learning can come in handy.
     
-    In "active" mode, a model predicts what label is the likeliest for a given text, offering you the opportunity to correct it. This can help to speed up the annotation process, either in predicting labels or identifying critical cases (read more about [active learning](../conceptualizing/general.md#what-is-active-learning)).
+    In "active" mode, a model predicts what label is the likeliest for a given text, giving you the possibility to use this prediction as an information, either to validate it or correct it. This can help to speed up the annotation process, either in predicting labels or identifying critical cases (read more about [active learning](../conceptualizing/general.md#what-is-active-learning)).
     
     To enable the Active Mode, you need to first train a Quick Model. Go to [**Model → Create new quick model**](../functionalities/model.md#quick-models). In the **Tag** tab, click on the little tiger face under [**Active Mode**](../functionalities/annotate.md#active-learning-in-practice).
     
-    When active learning is on, it unlocks new methods to pick the next element. [Read more](../functionalities/annotate.md#selecting-inputs-to-annotate).
+    When active learning is on, it unlocks new methods to pick the next element, based on the (high or low) certainty of the prediction. [Read more](../functionalities/annotate.md#selecting-inputs-to-annotate).
 
 
-## 4. Train a BERT classifier
+## 4. Train and compare BERT classifiers
 
-<div class="img"><img src="../../img/quickstart/step4-train.gif" style="width:1375px;height:780;" /></div>
+<div class="img"><img src="../../img/quickstart/step4-train-valid.gif" style="width:1375px;height:780;" /></div>
 <br>
-If your goal is to apply predictions to the full corpus, you can train a BERT-based classifier directly in the interface.
+If you want to strengthen your prediction, you can move to training a BERT classifier, which takes more time than Quick models but may increase the quality of results.
 
-A BERT-based classifier model uses your annotations to learn what kinds of texts should go in each category. Once trained, the model can be used to infer the labels of unannotated text inputs.
+!!! info "What is a BERT classifier?"
+
+    A BERT-based classifier uses your annotations to learn what kinds of texts should go in each category. Once trained, the model can be used to infer the labels of unannotated text inputs.
 
 Go to [**Model → Create new BERT model**](../functionalities/model.md#bert-models). For a first model, you can use the default parameters but you may need to change them later. 
 
-The classifier learns how to make predictions. It is not perfect, and its error rate will depend on the quality of the training. In the **Model** tab, you can also evaluate your model. 
+The classifier learns how to make predictions. It is not perfect, and its error rate will depend on the quality of the training. 
 
-Learn more on [how to correctly train and evaluate a model](../conceptualizing/general.md#training-bert-models) and check the [FAQ page](../faq/faq.md#how-many-annotations-do-i-need) for additional pieces of advice.
+Most of the time, you will want to **improve this model**. To do so, you will annotate more and train other models, comparing the quality of their predictions on a dedicated evaluation dataset called the **validation dataset**. You will be able to monitor how well each model does on this set using a confusion matrix and dedicated [scores](../conceptualizing/general.md#training-bert-models), available in the [Evaluate tab](../functionalities/model.md#evaluation). To see these, click on <span class="action primary">Compute predictions</span>, then select the validation set. 
+
+Learn more on [how to correctly train and evaluate a model](../conceptualizing/glossary.md#evaluating-multiclass-models) and check the [FAQ page](../faq/faq.md#how-many-annotations-do-i-need) for additional pieces of advice.
 
 ## 5. Test and use your BERT classifier
 
-<div class="img"><img src="../../img/quickstart/step5-usemodel.gif" style="width:1375px;height:780;" /></div>
+<div class="img"><img src="../../img/quickstart/step5-test-use.gif" style="width:1375px;height:780;" /></div>
 <br>
-When you've finished training your BERT model, you can use the model to predict labels over your entire dataset. 
+Once you are satisfied with the quality of a model, you want to generalize its prediction to the entire dataset. To be sure to have good quality predictions, have a last evaluation with a new set, the **test dataset**, that will give you robust metrics. And then you are good to go.
 
-Before doing this, we make a final evaluation of the model using the test dataset: this confirms how well the model performs on previously-unseen data. Click on the [Evaluation tab](../functionalities/model.md#evaluation), then on Compute predictions and select the Test set. 
-
-Now we can extend the predictions. Click on the [Prediction tab](../functionalities/model.md#prediction), then on Prediction on the entire dataset. 
+- Click on the [Evaluation tab](../functionalities/model.md#evaluation), then select the Test set. 
+- To extend the predictions, click on the [Prediction tab](../functionalities/model.md#prediction), then on <span class="action primary">Prediction on the entire dataset</span>. 
 
 ## 6. Export
 
