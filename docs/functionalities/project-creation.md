@@ -17,7 +17,7 @@ These parameters define the general project, only a subset can be modified after
 - ⚙️ <span class="parameter">Language of the corpus</span>: General parameter used to suggest which models to use in the treatment. It is possible to work on languages not present in this list.
 - ⚙️[^modify-column-annotation] <span class="parameter">Column(s) for existing annotations</span>: Load existing annotations. Each column is converted to a new scheme. 
 - ⚙️ <span class="parameter">Column(s) for contextual information</span>: Information available to display in the [annotation page](./annotate.md).
-- ⚙️[^modify-n-rows-trainset] <span class="parameter">Number of elements in the train set</span>: Sample of the general dataset used as train set
+- ⚙️[^modify-n-rows-trainset] <span class="parameter">Number of elements in the train set</span>: Sample of the general dataset used as train set (learn more about sets [here](../conceptualizing/general.md#train-validation-and-test-sets)).
 - ⚙️[^modify-valid-set] <span class="parameter">Number of elements in the validation set (optional)</span>: Sample of the general dataset used as validation set. Used for evaluation. This sample is randomly selected from the initial dataset before the train set.
 - ⚙️[^modify-test-set] <span class="parameter">Number of elements in the test set (optional)</span>:  Sample of the general dataset used as test set. Used for evaluation. This sample is randomly selected from the initial dataset before the train set.
 
