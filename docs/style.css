@@ -3,6 +3,61 @@
     --secondary-color: #b04302;
 }
 
+/* search area at the top of the navbar */
+.wy-side-nav-search{
+    background-color: var(--primary-color);
+}
+
+/* navbar container (background) */
+.wy-nav-side {
+    background: #fff3ec;
+}
+
+/* #section titles inside the navbar */
+.wy-menu-vertical p.caption {
+    color:var(--primary-color);
+}
+
+/* ##subsection titles inside the navbar */
+.wy-menu-vertical a {
+    color:#4e4a4a; 
+}
+
+/* hovering over ##subsection titles inside the navbar */
+.wy-menu-vertical a:hover {
+  background-color: #fad5bc; 
+  color: var(--primary-color);
+}
+
+/* ###subsections of the selected ##subsection */
+.wy-menu-vertical li.current a {
+    background: #f9f9f9;
+	border-right: 1px solid #e2e2e2;
+}
+.wy-menu-vertical li.current a:hover {
+    background: #e6e6e6;
+}
+
+/* selected ##subsection */
+.wy-menu-vertical li.current > a {
+	background: #fcfcfc;
+}
+.wy-menu-vertical li.current > a:hover {
+    background: #fcfcfc;
+}
+
+/* <Previous and Next> buttons of the navbar */
+.rst-versions .rst-current-version {
+    background-color: #4e4a4a; 
+}
+
+/* any hyperlink */
+a {
+  color: var(--primary-color);
+}
+a:hover {
+  color: var(--secondary-color);
+}
 
 span.icon{
     padding: 0rem 0.2rem;
