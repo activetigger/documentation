@@ -9,8 +9,8 @@ The Tabular view displays your data as a table. Filters are available to assist 
 ![](../img/functionalities/tabular-view.png)
 
 - The table contains 6 columns including the text id, the assigned label, the user who assigned the label, the text, comments (if any), and the date the label was assigned.
-   - Click on one <span class="action secondary">id</span> to go to the [Annotate page](./annotate.md) and annotate the selected text input. This is also where you can edit or delete a comment (re-assign the label to save your changes). 
-   - Double-click on a <span class="action secondary">label</span> cell to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database. 
+    - Click on one <span class="action secondary">id</span> to go to the [Annotate page](./annotate.md) and annotate the selected text input. This is also where you can edit or delete a comment (re-assign the label to save your changes). 
+    - Double-click on a <span class="action secondary">label</span> cell to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database. 
     
 - Filters available
     - Select the dataset to explore ("train", "validation" or "test").
@@ -21,22 +21,21 @@ The Tabular view displays your data as a table. Filters are available to assist 
 
 The Lexicometry tab displays various statistics on your "train" data. 
 
-!!! warning 
-    There can only be one lexicometry computation per project.   
-    Be aware that recomputing lexicometrics it will overwrite the current computation. 
-
 ![](../img/functionalities/lexicometry.png)
 
 - Document length: This section provides statistics over word and token counts (using the bert-base-multilingual-cased tokenizer). 
-   - The table shows descriptive statistics over the set of documents. 
-   - The graphs show the distribution of documents according to their length in words (top graph) or tokens (bottom graph). Information on the histogram's bin width is available underneath. 
+    - The table shows descriptive statistics over the set of documents. 
+    - The graphs show the distribution of documents according to their length in words (top graph) or tokens (bottom graph). Information on the histogram's bin width is available underneath. 
 
 - Most frequent words (stopword excluded): This section shows the most frequent words across your train set, with their associated frequency count. 
 
 - TF-IDF explorer: This section uses the [TF-IDF measure](https://en.wikipedia.org/wiki/Tf–idf) to display the most significative words in your corpus. TF-IDF scores are computed for each word in each document: a high score means that the word is both highly frequent in the document and rare in the overall corpus.
-   - By word: displays the first twenty-five documents where the selected word is the word with the highest TF-IDF score, along with the score. In the <span class="parameter">Select a word</span> menu, you can see the total number of documents in which a given word has the highest TF-IDF score. 
-   - By document: for each document, displays the words that have the highest TF-IDF scores, along with the scores. The table only shows the first fifty documents. You can search for a specific document using its id. 
+    - By word: displays the first twenty-five documents where the selected word is the word with the highest TF-IDF score, along with the score. In the <span class="action input">Select a word</span> menu, you can see the total number of documents in which a given word has the highest TF-IDF score. 
+    - By document: for each document, displays the words that have the highest TF-IDF scores, along with the scores. The table only shows the first fifty documents. You can search for a specific document using its id. 
 
+!!! warning 
+    There can only be one lexicometry computation per project.   
+    Be aware that recomputing lexicometrics it will overwrite the current computation. 
 
 ## Visualization
 
@@ -46,8 +45,7 @@ The Visualization tab displays a [projection](../conceptualizing/general.md#proj
 
 - <span class="action primary">Compute new projection</span>
     - <span class="parameter">Name</span>: unique name (per project) for the projection.
-    - <span class="parameter">Select a feature</span>: choose the set of feature ([what are features?](../conceptualizing/general.md#representing-texts-with-features)) to use for the projection. If choosing several sets of features, they will be concatenated before projection.     
-    <span class="action secondary">Add a new feature</span> to [Compute new features](../functionalities/settings.md#features).
+    - <span class="parameter">Select a feature</span>: choose the set of feature ([what are features?](../conceptualizing/general.md#representing-texts-with-features)) to use for the projection. If choosing several sets of features, they will be concatenated before projection. Click <span class="action secondary">Add a new feature</span> to [Compute new features](../functionalities/settings.md#features).
     - When <span class="parameter secondary">Select a model</span> is **UMAP** (default):
         - <span class="parameter secondary">n_neighbors</span>: defines the size of a neighborhood, hence whether two points are considered as "close" and should be kept together in the process or not.
         - <span class="parameter secondary">min_dist</span>: aesthetic parameter for how close the kept points should be represented. Low values generate denser representations.
