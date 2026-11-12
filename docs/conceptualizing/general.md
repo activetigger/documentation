@@ -15,7 +15,9 @@ Each set plays a different role, at different stages:
 
 ![](../img/theoretical-concepts/sets.png) 
 
-To monitor the model's learning, we further split the train set into a main <span class="highlight">train set</span> and a <span class="highlight">train-eval set</span>, usually with the ratio 80-20%. This gives us two [loss curves](../conceptualizing/general.md#reading-the-loss-curve), that display for each training step how well the model performs on the data it is learning on (the train set) and on previously unseen data (the train-eval set). This helps us control overfitting and choose hyperparameters accordingly. 
+To monitor the model's learning, we further split the train set into a main <span class="highlight">train set</span> and a <span class="highlight">train-eval set</span>[^1], usually with the ratio 80-20%. This gives us two [loss curves](../conceptualizing/general.md#reading-the-loss-curve), that display for each training step how well the model performs on the data it is learning on (the train set) and on previously unseen data (the train-eval set). This helps us control overfitting and choose hyperparameters accordingly. 
+
+[^1]: In machine learning lingo, the train-eval set is sometimes called the "validation set", in which case the validation set is called the "pre-test set".
 
 ![](../img/theoretical-concepts/train_set_detail.png) 
 
@@ -37,13 +39,13 @@ These features can be used to compute visualizations, fit topic models or quick 
 
 In ActiveTigger, there are five kinds of features, which can be created in the [Settings](../functionalities/settings.md#features) tab:
 
-- <span class="highlight">Sentence embeddings</span>: Computed with transformer models, this is the most advanced method for representing each text input [^1] as a vector, because it works on the whole text instead of word by word. As for all transformer models, each model has a [maximum window size](./glossary.md#tokens-and-window-sizes).
+- <span class="highlight">Sentence embeddings</span>: Computed with transformer models, this is the most advanced method for representing each text input [^2] as a vector, because it works on the whole text instead of word by word. As for all transformer models, each model has a [maximum window size](./glossary.md#tokens-and-window-sizes).
 - <span class="highlight">FastText</span>: Each text input is first split into words (using the [SpaCy](https://spacy.io/) tokenizer), then each word is represented by a pre-computed embedding, and the final text embedding is computed as the average of all its word embeddings. Note that this method does not take into account the order in which the words appear. See the [fastText](https://fasttext.cc) webpage for details.
 - <span class="highlight">DFM</span> (document-feature matrix): historically, a cornerstone of text representation before the advent of word- and sentence embeddings. Each text is represented by the frequency of each word that appears in it: all texts are first split into words (using the [SpaCy](https://spacy.io/) tokenizer), and a large matrix is calculated, where for a given row (=document) and column (=word), the value represents the number of time the word appeared in the document. Several options are available for determining which words to exclude, and how to re-weight these raw frequencies using the tf-idf method, see [Settings page](../functionalities/settings.md#features).
 - <span class="highlight">Regex</span> (regular expression): For a given regex, the feature is either a single binary variable, reporting if the regex was found in the text input, or a numeric value indicating the number of times it was found in the input.
 - <span class="highlight">dataset</span>: Import a column of your dataset as a feature. This can be useful when training quick models, for instance if you have a variable that measures the number of characters, or the text's source.
 
-[^1]: Not necessarily a sentence, a text input can be a whole paragraph.
+[^2]: Not necessarily a sentence, a text input can be a whole paragraph.
 
 !!! Note
     
@@ -80,12 +82,12 @@ More specifically, they are **pre-trained encoder language models**:
 - _Pre-trained_: BERT models "understand" natural language, thanks to a pre-training phase where they learned semantic properties from very large text corpora. These models can be fine-tuned in order to adapt to a given task, which prevents you from training a model from scratch.
 - _Encoders models_: As opposed to decoder models (also known as generative models), encoder models do not output natural language but an embedding space that encapsulates semantic properties. It can then be used for a range of downstream tasks, like classification. 
 
-BERT models are characterized by several sets of vectors whose components are called **parameters** (or weights, for some). The initial value for those parameters is set during pre-training, as they are the carriers of semantic properties. <span class="highlight">Fine-tuning</span> a BERT model is the process of adjusting its parameters using optimization algorithms[^5] to minimize a given cost function (the prediction error). Fine-tuning is performed in several rounds, called <span class="highlight">epochs</span>, each of which corresponds to a complete pass through the train set.
+BERT models are characterized by several sets of vectors whose components are called **parameters** (or weights, for some). The initial value for those parameters is set during pre-training, as they are the carriers of semantic properties. <span class="highlight">Fine-tuning</span> a BERT model is the process of adjusting its parameters using optimization algorithms[^3] to minimize a given cost function (the prediction error). Fine-tuning is performed in several rounds, called <span class="highlight">epochs</span>, each of which corresponds to a complete pass through the train set.
 
 To fine-tune a model, you need to make a range of choices for variables that we call <span class="highlight">hyperparameters</span> (see [list below](#which-hyperparameters-to-choose)). This is a delicate art, involving trial-and-error in order to find the hyperparameters that allow for the best predictions. You can get information on how fit the hyperparameters are by reading the [loss curve](#reading-the-loss-curve) or the [performance scores](./glossary.md#evaluating-multiclass-models).   
 There are many resources if you want to learn more about fine-tuning neural networks, both online and in handbooks; see [this video](https://youtu.be/IHZwWFHWa-w?si=WOzTeU4U6b62uq_s) for a great introduction.
 
-[^5]: As usual with neural networks, they are trained by a form of [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent). The current standard algorithm for fine-tuning BERT models is AdamW.
+[^3]: As usual with neural networks, they are trained by a form of [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent). The current standard algorithm for fine-tuning BERT models is AdamW.
 
 ### Choosing a model
 
@@ -127,11 +129,11 @@ The model has overfitted:
 What to do:
 
 - choose a lower learning rate, for slower weight updates
-- use larger batches[^6], in order to smooth training over more examples per training step
+- use larger batches[^4], in order to smooth training over more examples per training step
 - choose a higher weight decay: this will prevent the weights from getting too large
 - annotate more data, you may not have enough examples for the model to learn from
 
-[^6]: The effective batch size is the system batch size times the gradient accumulation.
+[^4]: The effective batch size is the system batch size times the gradient accumulation.
 
 #### Underfitting
 
