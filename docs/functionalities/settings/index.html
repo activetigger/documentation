@@ -88,6 +88,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#import">Import</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#session-history">Session history</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../account-and-users/">Account and Users</a>
@@ -147,9 +149,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="settings-page">Settings page</h1>
-<p>The settings page contains many tabs with <strong>moderate</strong> to <strong>high impacts</strong> on your project. We describe them on this page.</p>
+<p>The Settings page contains many tabs with <strong>moderate</strong> to <strong>high impacts</strong> on your project. </p>
 <h2 id="parameters">Parameters</h2>
-<p>This page displays the parameters of the project and allows editing or deleting the project. For instance, you can <em>change its name</em> (but not its id).</p>
+<p>This tab displays the parameters of the project and allows editing of some parameters or deletion of the project. </p>
 <p><img alt="" src="../../img/functionalities/parameters.png" /></p>
 <ul>
 <li><span class="action primary">Change parameters</span> to edit some parameters:<ul>
@@ -160,40 +162,49 @@
 <li><span class="parameter">Add N elements in the train set</span>: Pick new elements from the dataset uploaded. <em>This action ignores stratification</em>.</li>
 </ul>
 </li>
-<li><span class="action red-danger">Delete project</span> to delete the project, annotations and models. <strong>There is no going back.</strong></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is not made possible to manage the size of the sets and move elements around. Read more <a href="../../faq/faq/#why-cant-i-change-the-size-of-my-sets-on-the-go">here</a></p>
+<p>It is not possible to directly add elements to the test and validation sets. However, you can drop them and import news ones in the Import tab (learn more <a href="../../faq/faq/#can-i-add-a-test-set-or-validation-set-after-creating-the-project-if-i-havent-already">in the FAQ</a> and get instructions <a href="./#import">below</a>). </p>
+</div>
+<ul>
+<li><span class="action red-danger">Delete project</span> to delete the project, including annotations and models. </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Deleting the project is <strong>irreversible</strong>. <strong>It cannot be undone</strong>. </p>
 </div>
 <h2 id="features">Features</h2>
 <p>Displays the available features and their parameters. </p>
+<p><img alt="" src="../../img/functionalities/features.png" /></p>
 <ul>
 <li><span class="action primary">Add a new feature</span> to compute new features (<a href="../../conceptualizing/general/#representing-texts-with-features">more details on the available features modes</a>).<ul>
-<li>if using <strong>embeddings</strong>:<ul>
+<li>if using <strong>sentence or BERT embeddings</strong>:<ul>
 <li><span class="parameter">Feature name</span></li>
-<li><span class="parameter">Model to use</span></li>
-<li><span class="parameter">Context window size</span>: The number of token per entry. After tokenization each input is truncated/padded to match this size.</li>
+<li><span class="parameter secondary">Model to use</span></li>
+<li><span class="parameter secondary">Pooling</span> for BERT models: average all token embeddings (mean) or use the CLS token's only. </li>
+<li><span class="parameter secondary">Max length tokens</span>: the number of token per entry (context window size). After tokenization each input is truncated/padded to match this size.</li>
+<li><span class="parameter secondary">Batch size</span>: number of entries that the model keeps in memory at once.  </li>
 </ul>
 </li>
 <li>if using <strong>fasttext</strong> (See the <a href="../../conceptualizing/general/#representing-texts-with-features">Features concept</a>):<ul>
 <li><span class="parameter">Feature name</span></li>
-<li><span class="parameter">Model to use</span></li>
+<li><span class="parameter secondary">Model to use</span></li>
 </ul>
 </li>
 <li>if using <strong>dfm</strong>: Using <code>CountVectorizer</code><ul>
 <li><span class="parameter">Feature name</span></li>
-<li><span class="parameter">TF-IDF</span>: if set to True, applies TF-IDF.</li>
-<li><span class="parameter">n-grams</span>: the size of n-grams to account for.</li>
-<li><span class="parameter">min term freq</span>: the minimum frequency for an n-gram to be included in the vocabulary.</li>
-<li><span class="parameter">max term freq</span>: the maximum frequency for an n-gram to be included in the vocabulary.</li>
-<li><span class="parameter">Norm</span>: if set to True, normalize the features at the end</li>
-<li><span class="parameter">Log</span>: if set to True, apply logarithm function to the features.</li>
+<li><span class="parameter secondary">TF-IDF</span>: if set to True, applies TF-IDF.</li>
+<li><span class="parameter secondary">N-grams</span>: the size of n-grams to account for.</li>
+<li><span class="parameter secondary">Min term freq</span>: the minimum frequency for an n-gram to be included in the vocabulary.</li>
+<li><span class="parameter secondary">Max term freq</span>: the maximum frequency for an n-gram to be included in the vocabulary.</li>
+<li><span class="parameter secondary">Norm</span>: if set to True, normalize the features at the end</li>
+<li><span class="parameter secondary">Log</span>: if set to True, apply logarithm function to the features.</li>
 </ul>
 </li>
 <li>if using <strong>regex</strong>: creates a boolean feature indicating whether the regex query is found in the text input<ul>
 <li><span class="parameter">Feature name</span></li>
-<li><span class="parameter">Regex query</span></li>
+<li><span class="action input">Regex query</span></li>
 </ul>
 </li>
 <li>if using <strong>dataset</strong>: imports from a column in the original dataset<ul>
@@ -201,6 +212,7 @@
 <li><span class="parameter">Type of the feature</span>: either numerical or categorical.</li>
 </ul>
 </li>
+<li>if using <strong>import</strong>: import a pre-computed feature in CSV, XLSX or Parquet format. The file must contain one row per project element, matched on the project's ID. Only numeric columns can be imported.</li>
 </ul>
 </li>
 </ul>
@@ -209,7 +221,7 @@
 <p>The import tab allows you to import data for the current process outside of the <a href="../project-creation/">Project Creation page</a>. </p>
 <p><img alt="" src="../../img/functionalities/import.png" /></p>
 <ul>
-<li><strong>Import annotations</strong>: import the annotations for the text inputs in the train dataset. The IDs must match. If the labels differ, new labels will be created. If annotations already exist, they will be overwritten.<ul>
+<li><strong>Import annotations</strong>: import annotations for existing elements in the train dataset. The IDs must match with the IDs in your train set. If the labels differ, new labels will be created. <strong>If annotations already exist, they will be overwritten.</strong><ul>
 <li><span class="parameter">File to upload</span>: Parquet, CSV or XLSX file, limit defined by the administrator.</li>
 <li><span class="parameter">Column for ID</span>: column from the loaded dataset that must match the external IDs from the current text inputs.</li>
 <li><span class="parameter">Column for annotations</span>: column from the loaded dataset that contains the annotations to import.</li>
@@ -225,13 +237,15 @@
 <li><span class="parameter">File to upload</span>: Parquet, CSV or XLSX file, limit defined by the administrator.</li>
 <li><span class="parameter">ID column</span>: index to identify each element in the treatment ; either from an existing column or row number. If the chosen index is not unique, an internal index is created different from the external index.</li>
 <li><span class="parameter">Text column(s)</span>: The column(s) to use as text input. If several columns are selected, content of the columns will be concatenated with two linebreaks. </li>
-<li><span class="parameter">Column(s) for existing annotations</span>: Load existing annotations. If labels are not found in the current scheme, they will be ignored.</li>
-<li><span class="parameter">Number of elements</span>: Number of rows </li>
+<li><span class="parameter">Column(s) for existing annotations (optional)</span>: load existing annotations. The column(s) containing the labels must have the same name as the scheme(s) in which the labels and the set will be imported. If labels are not found in the scheme, they will be ignored.</li>
+<li><span class="parameter">Number of elements</span>: number of rows in the set. </li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<h2 id="session-history">Session history</h2>
+<p>The Session history tab shows the last 100 actions you performed in the project. </p>
               
             </div>
           </div><footer>

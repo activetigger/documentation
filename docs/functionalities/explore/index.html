@@ -154,10 +154,12 @@
 <p>The Tabular view displays your data as a table. Filters are available to assist your exploration.</p>
 <p><img alt="" src="../../img/functionalities/tabular-view.png" /></p>
 <ul>
-<li>The table contains 6 columns including the text id, the assigned label, the user who assigned the label, the text, comments (if any), and the date the label was assigned.</li>
-<li>Click on one <span class="action secondary">id</span> to go to the <a href="../annotate/">Annotate page</a> and annotate the selected text input. This is also where you can edit or delete a comment (re-assign the label to save your changes). </li>
 <li>
-<p>Double-click on a <span class="action secondary">label</span> cell to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database. </p>
+<p>The table contains 6 columns including the text id, the assigned label, the user who assigned the label, the text, comments (if any), and the date the label was assigned.</p>
+<ul>
+<li>Click on one <span class="action secondary">id</span> to go to the <a href="../annotate/">Annotate page</a> and annotate the selected text input. This is also where you can edit or delete a comment (re-assign the label to save your changes). </li>
+<li>Double-click on a <span class="action secondary">label</span> cell to annotate in the tabular view. Click <span class="action primary">Validate changes</span> to save changes in the database. </li>
+</ul>
 </li>
 <li>
 <p>Filters available</p>
@@ -170,27 +172,31 @@
 </ul>
 <h2 id="lexicometry">Lexicometry</h2>
 <p>The Lexicometry tab displays various statistics on your "train" data. </p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>There can only be one lexicometry computation per project. <br />
-Be aware that recomputing lexicometrics it will overwrite the current computation. </p>
-</div>
 <p><img alt="" src="../../img/functionalities/lexicometry.png" /></p>
 <ul>
-<li>Document length: This section provides statistics over word and token counts (using the bert-base-multilingual-cased tokenizer). </li>
-<li>The table shows descriptive statistics over the set of documents. </li>
 <li>
-<p>The graphs show the distribution of documents according to their length in words (top graph) or tokens (bottom graph). Information on the histogram's bin width is available underneath. </p>
+<p>Document length: This section provides statistics over word and token counts (using the bert-base-multilingual-cased tokenizer). </p>
+<ul>
+<li>The table shows descriptive statistics over the set of documents. </li>
+<li>The graphs show the distribution of documents according to their length in words (top graph) or tokens (bottom graph). Information on the histogram's bin width is available underneath. </li>
+</ul>
 </li>
 <li>
 <p>Most frequent words (stopword excluded): This section shows the most frequent words across your train set, with their associated frequency count. </p>
 </li>
 <li>
 <p>TF-IDF explorer: This section uses the <a href="https://en.wikipedia.org/wiki/Tf–idf">TF-IDF measure</a> to display the most significative words in your corpus. TF-IDF scores are computed for each word in each document: a high score means that the word is both highly frequent in the document and rare in the overall corpus.</p>
-</li>
-<li>By word: displays the first twenty-five documents where the selected word is the word with the highest TF-IDF score, along with the score. In the <span class="parameter">Select a word</span> menu, you can see the total number of documents in which a given word has the highest TF-IDF score. </li>
+<ul>
+<li>By word: displays the first twenty-five documents where the selected word is the word with the highest TF-IDF score, along with the score. In the <span class="action input">Select a word</span> menu, you can see the total number of documents in which a given word has the highest TF-IDF score. </li>
 <li>By document: for each document, displays the words that have the highest TF-IDF scores, along with the scores. The table only shows the first fifty documents. You can search for a specific document using its id. </li>
 </ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There can only be one lexicometry computation per project. <br />
+Be aware that recomputing lexicometrics it will overwrite the current computation. </p>
+</div>
 <h2 id="visualization">Visualization</h2>
 <p>The Visualization tab displays a <a href="../../conceptualizing/general/#projections">projection</a> of the embedding space in two dimensions. Projections are computed with either <a href="https://pair-code.github.io/understanding-umap/">UMAP</a> or <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a>. </p>
 <p><img alt="" src="../../img/functionalities/visualisation.png" /></p>
@@ -199,8 +205,7 @@ Be aware that recomputing lexicometrics it will overwrite the current computatio
 <p><span class="action primary">Compute new projection</span></p>
 <ul>
 <li><span class="parameter">Name</span>: unique name (per project) for the projection.</li>
-<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../conceptualizing/general/#representing-texts-with-features">what are features?</a>) to use for the projection. If choosing several sets of features, they will be concatenated before projection.   <br />
-<span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
+<li><span class="parameter">Select a feature</span>: choose the set of feature (<a href="../../conceptualizing/general/#representing-texts-with-features">what are features?</a>) to use for the projection. If choosing several sets of features, they will be concatenated before projection. Click <span class="action secondary">Add a new feature</span> to <a href="../settings/#features">Compute new features</a>.</li>
 <li>When <span class="parameter secondary">Select a model</span> is <strong>UMAP</strong> (default):<ul>
 <li><span class="parameter secondary">n_neighbors</span>: defines the size of a neighborhood, hence whether two points are considered as "close" and should be kept together in the process or not.</li>
 <li><span class="parameter secondary">min_dist</span>: aesthetic parameter for how close the kept points should be represented. Low values generate denser representations.</li>
