@@ -222,22 +222,22 @@ When [training a BERT model](../functionalities/model.md#bertmodel), ActiveTigge
 
 A projection is a 2D [dimensional reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) of your training data, used for visualization (in the [Explore](../functionalities/explore.md) page). It uses an unsupervised model in order to reduce a high-dimensional [set of features](#representing-texts-with-features), each representing a text input, to two dimensions. 
 
-As a result, **similar texts will be grouped together**. The resulting visualization will help detecting outliers, and will group texts according to general themes.
+As a result, **similar texts will be grouped together**. The resulting visualization will help detect outliers, and will group texts according to general topics.
 
 !!! Note
 
     In classification workflows, it is recommended to use projections to get a first overview of your corpus, and to determine whether you need to perform some more cleaning and filtering before annotating texts and training models.
 
-Note that the placement of texts in the visualization does not tell you everything you want to know about your corpus, it is simply a representation of the main structural traits of your chosen features.
+Note that the placement of texts in the visualization is simply one representation of your chosen features. The projection shows proximity related to topic but it is only one way to classify elements: your categories could well go beyond topic and focus on other dimensions of the content. 
+
 This reflects the difference between unsupervised and supervised learning: unsupervised learning is only based on features, while supervised learning is meant to find the relationship between features and labels.
-In many cases, different annotations will appear close together in the projection: this means that your classification scheme goes beyond topic modeling.
 
 
 ## Topic models
 
 A topic model is an unsupervised model meant to capture the main themes that are present in a corpus, based on text [features](#representing-texts-with-features).
 
-ActiveTigger implements BERTopic models, which work in three successive steps: first an [embedding](#representing-texts-with-features) step using sentence transformers, then a dimensionality reduction step (just as in [projections](#projections), but usually in more than 2 dimensions), and then a clustering step.
+ActiveTigger implements BERTopic models, which work in three successive steps: first an [embedding](#representing-texts-with-features) step using sentence transformers to represent inputs as vectors, then a dimensionality reduction step just as in [projections](#projections) (but usually in more than 2 dimensions), and then a clustering step where close inputs are grouped together in categories (Topics) that the model identifies. 
 
 Topic modeling can either be an end in itself, or a useful step in an annotation/prediction workflow. For more details on how to use it in ActiveTigger, see [here](../functionalities/explore.md#topic-model).
 
