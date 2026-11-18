@@ -18,4 +18,5 @@ This page lists research publications and communications produced with the help 
 
 ## Posters
 
-- Axel Morin, Émilien Schultz, Annina Claesson, Arnault Chatelain, Emma Bonutti D'Agostini, Julien Boelaert & Étienne Ollion (2025). [ActiveTigger](https://cnrs.hal.science/hal-05097192). Poster, AI and Society – Exploring Inequality in the Digital Age, Mannheim, Germany, May 2025.
+- Adrien Rougier, Emilien Schultz, Julien Boelaert, Axel Morin, Annina Claesson, Emma Bonutti D'agostini, Arnault Chatelain, Etienne Ollion, Francesco Colonna (2026, September). [_ActiveTigger_](https://mashs2026.sciencesconf.org/758320) [Poster]. Modèles et apprentissages en sciences humaines et sociales (MASHS), Paris, France. 
+- Axel Morin, Émilien Schultz, Annina Claesson, Arnault Chatelain, Emma Bonutti D'Agostini, Julien Boelaert & Étienne Ollion (2025, May). [_ActiveTigger_](https://cnrs.hal.science/hal-05097192) [Poster]. AI and Society – Exploring Inequality in the Digital Age, Mannheim, Germany. 
