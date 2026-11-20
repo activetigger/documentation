@@ -1,4 +1,4 @@
-# Export page
+# Export Page
 
 On this page, you can export your data, annotations, projections, features and models.      
 You can choose your preferred file format (CSV, XLSX or Parquet) in the upper right-hand corner of the page. 

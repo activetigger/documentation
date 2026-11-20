@@ -1,4 +1,4 @@
-# Settings page
+# Settings Page
 
 The Settings page contains many tabs with **moderate** to **high impacts** on your project. 
 

@@ -1,4 +1,4 @@
-# Annotate page
+# Annotate Page
 
 The Annotate Page is the main page of the app to annotate your data. 
 
@@ -105,7 +105,7 @@ The first row of the table shows the number of elements annotated by at least tw
 
 Underneath, you can see how many users are involved in the annotation of the current scheme. To be considered involved, users need to have annotated at least one item in the scheme.    
     
-Finally, you can see all disagreements and for each, what user picked what label. Project managers can resolve them by choosing the right label in the dropdown menu and click <span class="action primary">Validate changes</span>.
+Finally, you can see all disagreements and for each, what user picked what label. Project [managers](../functionalities/account-and-users.md#users-page) can resolve them by choosing the right label in the dropdown menu and click <span class="action primary">Validate changes</span>.
 
 ### Between schemes
 
