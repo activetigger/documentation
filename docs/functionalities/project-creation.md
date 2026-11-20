@@ -1,4 +1,4 @@
-# Project Creation page
+# Project Creation Page
 
 Project creation is available on the Projects page with the <span class="action primary">New project</span> button. 
 

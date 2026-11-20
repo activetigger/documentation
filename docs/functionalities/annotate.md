@@ -1,4 +1,4 @@
-# Annotate page
+# Annotate Page
 
 The Annotate Page is the main page of the app to annotate your data. 
 

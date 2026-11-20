@@ -1,4 +1,4 @@
-# Generative page
+# Generative Page
 
 The panel allows to use external generative models to annotate or extract information with prompts.
 
