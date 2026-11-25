@@ -26,7 +26,7 @@ The exported tables contain an ID column, a text column, a dataset column (whose
 
 Users can download the predictions computed in the [Prediction tab of the Model page](./model.md) with the selected Quick or BERT model.
 
-- <span class="action primary">Export prediction complete dataset</span> : download the inferred labels computed by the selected model over the full dataset as imported upon project creation. 
+- <span class="action primary">Export prediction complete dataset</span> : download the inferred labels computed by the selected model over the full dataset as imported upon project creation. At the bottom of the screen, under "Advanced settings", you can choose to <span class="parameter">Filter (...) by predicted label</span> to only export the items that the model predicted as having the selected label.
 - <span class="action primary">Export prediction external dataset</span> : download the inferred labels computed by the selected model over the external dataset uploaded in the Prediction tab.
 - <span class="action secondary">Export fine-tuned model</span> : download the weights of the fine-tuned BERT model (good practice for reproducibility). This comes under a gzip-compressed TAR file.
 
